@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="static/images/logo1.png" type="image/x-icon">
+  <title>About Us</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
+    }
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 aspect ratio */
+      height: 0;
+      overflow: hidden;
+    }
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .gradient-text {
+      background: linear-gradient(90deg, #1e3a8a, #3b82f6);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .hover-scale {
+      transition: transform 0.3s ease;
+    }
+    .hover-scale:hover {
+      transform: scale(1.03);
+    }
+    
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+ <!-- Header -->
+ <header class="fixed top-0 left-0 right-0 w-full z-50 bg-gray-800 shadow-md">
+  <div class="relative z-10 flex items-center justify-between px-6 py-2 md:py-3">
+    <div class="flex items-center space-x-4">
+      <div class="relative w-20 h-20 rounded-full overflow-hidden">
+        <img src="static/images/logo1.png" alt="Logo" class="w-full h-full object-cover" />
+      </div>
+      <span class="text-2xl md:text-3xl font-bold text-white">Wellnation360</span>
+    </div>
+    <nav class="hidden md:flex items-center space-x-6 text-white text-base md:text-lg font-semibold">
+      <a href="/index" class="text-white relative group">
+        Home
+        <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-green-400 transition-all duration-300 group-hover:w-full"></span>
+      </a>
+      <a href="#about" class="text-white relative group">
+        About
+        <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-green-400 transition-all duration-300 group-hover:w-full"></span>
+      </a>
+      <a href="#team" class="text-white relative group">
+        Team
+        <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-green-400 transition-all duration-300 group-hover:w-full"></span>
+      </a>
+      <a href="/contact" class="text-white relative group">
+        Contact us 
+        <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-green-400 transition-all duration-300 group-hover:w-full"></span>
+      </a>
+    </nav>
+  </div>
+</header>
+
+<!-- Hero Video Section -->
+<section class="relative h-screen overflow-hidden">
+  <video autoplay muted loop playsinline preload="auto" 
+         class="absolute inset-0 w-full h-full object-cover">
+    <source src="static/images/demo.mp4" type="video/mp4">
+  </video>
+  <!-- Content overlay -->
+  <div class="absolute inset-0 flex items-center justify-center">
+    <div class="text-center px-6 text-white bg-black bg-opacity-40 p-8 rounded-lg">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">Welcome to Wellnation360</h1>
+      <p class="text-xl max-w-2xl mx-auto">Where holistic wellness meets personalized care</p>
+    </div>
+  </div>
+</section>
+
+<!-- About Intro -->
+<section class="max-w-6xl mx-auto px-6 py-16">
+  <div class="text-center mb-16">
+    <h2 class="text-3xl md:text-4xl font-bold gradient-text mb-4">Our Story</h2>
+    <div class="w-24 h-1 bg-blue-600 mx-auto mb-8"></div>
+    <p class="text-lg md:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+      Founded with a vision to transform lives through integrated wellness, Wellnation360 combines ancient wisdom with modern science to create personalized health solutions. Our journey began with a simple belief - that true wellness comes from balancing mind, body and spirit.
+    </p>
+  </div>
+
+  <!-- Vision & Mission -->
+  <div class="grid md:grid-cols-2 gap-12 mb-20">
+    <div class="bg-white p-8 rounded-xl shadow-lg hover-scale">
+      <div class="text-blue-600 text-5xl mb-4">
+        <i class="fas fa-eye"></i>
+      </div>
+      <h3 class="text-2xl font-bold mb-4">Our Vision</h3>
+      <p class="text-gray-600">
+        Our vision is to empower individuals and communities throughout India by fostering holistic wellness through 
+personalized health and nutrition guidance. We strive to inspire a balanced lifestyle that incorporates physical, 
+emotional, and nutritional well-being, leading to a healthier, happier, and more fulfilled life. We envision a 
+future for India where optimal health is not just a goal, but a sustainable reality for everyone
+
+To become India’s leading integrative wellness hub—uniting nutrition, yoga, and natural healing—to empower every individual toward a healthier, balanced life in alignment with the vision of ‘One Earth, One Health’.
+      </p>
+    </div>
+    <div class="bg-white p-8 rounded-xl shadow-lg hover-scale">
+      <div class="text-blue-600 text-5xl mb-4">
+        <i class="fas fa-bullseye"></i>
+      </div>
+      <h3 class="text-2xl font-bold mb-4">Our Mission</h3>
+      <p class="text-gray-600">
+        Our mission is to make holistic health achievable and attainable across age groups. We go by the objective 
+        “Prevention is better than cure”. We intend to contribute significantly towards the salient objective of 
+        nation building via ensuring that India is able to genuinely benefit from its demographic dividend •To offer a comprehensive wellness ecosystem rooted in India’s ancient wisdom and modern science—encompassing personalized nutrition, yoga, meditation, and alternative therapies like acupuncture and healing massage.
+•To promote physical, emotional, and spiritual balance across all age groups through guided, inclusive, and culturally resonant wellness programs.
+•To contribute to the Fit India vision and global health harmony by making holistic well-being accessible, aspirational, and sustainable for all.
+      </p>
+    </div>
+  </div>
+
+  <!-- Wellnation360 Section -->
+  <div class="flex flex-col md:flex-row items-center gap-10 mb-20">
+    <div class="md:w-1/2">
+      <img src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
+           alt="Wellnation360" class="rounded-xl shadow-lg w-full h-auto">
+    </div>
+    <div class="md:w-1/2">
+      <h2 class="text-3xl font-bold text-gray-800 mb-6 uppercase">Wellnation360</h2>
+      <p class="text-lg leading-relaxed mb-6">
+        At Wellnation360, we understand that wellbeing is rooted in key lifestyle elements such as nutrition, genetics, and daily habits. Our approach integrates:
+      </p>
+      <ul class="space-y-3 mb-6">
+        <li class="flex items-start">
+          <i class="fas fa-check-circle text-blue-600 mt-1 mr-3"></i>
+          <span>Personalized diet correction based on metabolic typing</span>
+        </li>
+        <li class="flex items-start">
+          <i class="fas fa-check-circle text-blue-600 mt-1 mr-3"></i>
+          <span>Physical wellness through customized exercise plans</span>
+        </li>
+        <li class="flex items-start">
+          <i class="fas fa-check-circle text-blue-600 mt-1 mr-3"></i>
+          <span>Meditation and mindfulness practices</span>
+        </li>
+        <li class="flex items-start">
+          <i class="fas fa-check-circle text-blue-600 mt-1 mr-3"></i>
+          <span>Energy balancing techniques</span>
+        </li>
+      </ul>
+      <a href="/index" class="inline-block bg-blue-800 hover:bg-blue-900 text-white font-semibold px-6 py-3 rounded-full transition duration-300">
+        Know more
+      </a>
+    </div>
+  </div>
+
+  <!-- Yogakshema Section -->
+  <div class="flex flex-col md:flex-row-reverse items-center gap-10 mb-20">
+    <div class="md:w-1/2">
+      <img src="static/images/yogalogo1.png" 
+     alt="Yogakshema" 
+     class="rounded-xl shadow-lg max-w-full h-auto">
+    </div>
+    <div class="md:w-1/2">
+      <h2 class="text-3xl font-bold text-gray-800 mb-6 uppercase">Yogakshema</h2>
+      <p class="text-lg leading-relaxed mb-6">
+        Derived from ancient Indian wisdom, Yogakshema represents holistic wellness and personal liberation. Through therapeutic yoga practices, we aim to nurture the mind, body, and spirit in harmony.
+      </p>
+      <p class="text-lg leading-relaxed mb-6">
+        Our yoga therapies are designed to address specific health concerns while promoting overall wellbeing. Each session combines:
+      </p>
+      <ul class="space-y-3 mb-6">
+        <li class="flex items-start">
+          <i class="fas fa-spa text-blue-600 mt-1 mr-3"></i>
+          <span>Asanas (postures) tailored to individual needs</span>
+        </li>
+        <li class="flex items-start">
+          <i class="fas fa-wind text-blue-600 mt-1 mr-3"></i>
+          <span>Pranayama (breath control techniques)</span>
+        </li>
+        <li class="flex items-start">
+          <i class="fas fa-brain text-blue-600 mt-1 mr-3"></i>
+          <span>Meditation and relaxation practices</span>
+        </li>
+        <li class="flex items-start">
+          <i class="fas fa-heart text-blue-600 mt-1 mr-3"></i>
+          <span>Lifestyle recommendations</span>
+        </li>
+      </ul>
+      <div class="flex justify-start">
+        <a href="/base" class="inline-block bg-blue-800 hover:bg-blue-900 text-white font-semibold px-6 py-3 rounded-full transition duration-300">
+          Explore Our Yoga Offerings
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Founders Section -->
+<section class="bg-gray-100 py-16 px-6">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-3xl font-bold text-center text-gray-800 mb-12 uppercase">Meet the Founders</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+      <!-- Founder Card -->
+      <div class="bg-white p-8 rounded-xl shadow-lg hover-scale text-center">
+        <img src="static/images/profilepic1.png" alt="Ritu" class="mx-auto rounded-full w-40 h-40 border-4 border-white shadow-lg mb-6 object-cover">
+        <h3 class="text-2xl font-semibold mb-2">Dt. Ritu Kapoor</h3>
+        <p class="text-blue-600 font-medium mb-4">Nutrition & Holistic Wellness Expert</p>
+        <div class="flex justify-center space-x-4 mb-4">
+          <a href="#" class="text-gray-500 hover:text-blue-600"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="text-gray-500 hover:text-blue-600"><i class="fas fa-envelope"></i></a>
+        </div>
+        <p class="text-gray-600 leading-relaxed">
+          Ritu holds a degree in Botany from Miranda House and postgraduate degrees in Biotechnology and Nutrition. 
+          A former research fellow and clinical dietitian, she is passionate about holistic healing through 
+          preventive care and nutritional guidance.
+        </p>
+      </div>
+      <!-- Founder Card -->
+      <div class="bg-white p-8 rounded-xl shadow-lg hover-scale text-center">
+        <img src="static/images/sample.png" alt="Mr. Ravi Kapoor" class="mx-auto rounded-full w-40 h-40 border-4 border-white shadow-lg mb-6 object-cover">
+        <h3 class="text-2xl font-semibold mb-2">Mr. Ravi Kapoor</h3>
+        <p class="text-blue-600 font-medium mb-4">Wellness Strategist & Business Head</p>
+        <div class="flex justify-center space-x-4 mb-4">
+          <a href="#" class="text-gray-500 hover:text-blue-600"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="text-gray-500 hover:text-blue-600"><i class="fas fa-envelope"></i></a>
+        </div>
+        <p class="text-gray-600 leading-relaxed">
+          An engineer and MBA from IIM Lucknow, Mr. Ravi brings 25+ years of IT experience. 
+          He's passionate about wellness and actively supports holistic health initiatives, 
+          combining personal practice with community-focused innovation.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Team Section -->
+<section id="team" class="max-w-6xl mx-auto px-6 py-16">
+  <h2 class="text-3xl font-bold text-center text-gray-800 mb-12 uppercase">Our Expert Team</h2>
+  <div class="space-y-8">
+    <!-- Team Member -->
+    <div class="flex flex-col md:flex-row items-start gap-8 bg-white p-8 rounded-xl shadow-lg hover-scale">
+      <img src="static/images/Dr. poornima.jpeg" alt="Dr Poornima Bk" class="w-32 h-32 rounded-full object-cover border-4 border-white shadow">
+      <div>
+        <h3 class="text-2xl font-semibold">Dr. Poornima Bk</h3>
+        <p class="text-blue-600 font-medium mb-4">Naturopathy and Clinical Acupuncture</p>
+        <p class="text-gray-600 leading-relaxed">
+          With 15+ years of experience, Dr. Poornima specializes in Naturopathy, Yoga Therapy, and Clinical Acupuncture. 
+          She's trained at Jindal Nature Cure and Soukya, and integrates diet, yoga, and holistic techniques for healing.
+        </p>
+      </div>
+    </div>
+
+    <!-- Team Member -->
+    <div class="flex flex-col md:flex-row items-start gap-8 bg-white p-8 rounded-xl shadow-lg hover-scale">
+      <img src="static/images/Ms.Shrikari.jpeg" alt="MS. Shrikari Somashekar" class="w-32 h-32 rounded-full object-cover border-4 border-white shadow">
+      <div>
+        <h3 class="text-2xl font-semibold">MS. Shrikari Somashekar</h3>
+        <p class="text-blue-600 font-medium mb-4">Clinical Psychologist</p>
+        <p class="text-gray-600 leading-relaxed">
+          An RCI licensed clinical psychologist and gold medalist, Shrikari specializes in neurodivergence, 
+          behavioral science, and mindfulness. Her therapeutic approach combines science with compassion and self-exploration.
+        </p>
+      </div>
+    </div>
+<!-- Team Member -->
+<div class="flex flex-col md:flex-row items-start gap-8 bg-white p-8 rounded-xl shadow-lg hover-scale">
+  <img src="static/images/kanika.jpeg" alt="Kanika Prakhar Kumar" class="w-32 h-32 rounded-full object-cover border-4 border-white shadow">
+  <div>
+    <h3 class="text-2xl font-semibold">MS. Kanika Prakhar Kumar</h3>
+    <p class="text-blue-600 font-medium mb-2">Yoga Therapist & Instructor</p>
+    <p class="text-gray-600 mb-4">Total Experience: 9 Years</p>
+    
+    <div class="text-gray-600 leading-relaxed space-y-4">
+      <p>
+        <strong>Education:</strong> Commerce postgraduate with MBA(HR), MSc in Yoga Therapy from S-VYASA (2022)<br>
+        <strong>Certifications:</strong> YIC, YIDM from S-VYASA (2016), Garbha Jnana (Pregnancy), Menopause, Menstruation education
+      </p>
+      
+      <div>
+        <strong class="block mb-2">Work Experience:</strong>
+        <ul class="list-disc pl-5 space-y-1">
+          <li>Yoga therapy department at S-VYASA, Eknath Bhavan, Bangalore</li>
+          <li>Pranayama and meditation sessions at Matruchaya old age home</li>
+          <li>Yoga Instructor at Swadhaya Yoga Institute, HSR Layout</li>
+          <li>Specialized in prenatal, antenatal and postnatal yoga sessions</li>
+          <li>Currently conducting online/offline sessions at Yogakshema</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-- Team Member -->
+    <div class="flex flex-col md:flex-row items-start gap-8 bg-white p-8 rounded-xl shadow-lg hover-scale">
+      <img src="static/images/Dt. Teebabriah.jpeg" alt="Dt. Teebabriah" class="w-32 h-32 rounded-full object-cover border-4 border-white shadow">
+      <div>
+        <h3 class="text-2xl font-semibold">Dt. Teebabriah</h3>
+        <p class="text-blue-600 font-medium mb-4">Holistic Wellness Consultant</p>
+        <p class="text-gray-600 leading-relaxed">
+          Dt. Teebabriah is a dedicated holistic wellness consultant with expertise in Nutritional Counselling, 
+          Yoga Therapy, and Aerial Yoga. She holds a Bachelor's degree from Marudhar Kesari Jain College and 
+          a Master's in Food and Nutrition, along with a Diploma in Yoga and Naturopathy.
+        </p>
+        <div class="mt-4">
+          <h4 class="font-semibold text-gray-800 mb-2">Awards & Recognitions:</h4>
+          <ul class="list-disc list-inside text-sm text-gray-600 space-y-1">
+            <li>YOGA KALA BHARATHI – 40th Tamil Nadu Open Yoga Sports Championship (2013)</li>
+            <li>YOGA SHREE – 2nd South Zone Yoga Title Award by Sports Olympic Federation of India (2018)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="bg-blue-800 text-white py-16 px-6">
+  <div class="max-w-4xl mx-auto text-center">
+    <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Begin Your Wellness Journey?</h2>
+    <p class="text-xl mb-8 max-w-2xl mx-auto">
+      Our team is here to guide you towards optimal health and wellbeing. Book your consultation today.
+    </p>
+    <a href="/contact" class="inline-block bg-white text-blue-800 hover:bg-gray-100 font-semibold px-8 py-3 rounded-full transition duration-300">
+      Get in Touch
+    </a>
+  </div>
+</section>
+
+<!-- Footer -->
+  <footer id="footer" class="bg-gray-800 text-gray-300 py-12 md:py-16">
+    <!-- Content as before -->
+    <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 text-center md:text-left">
+        <div>
+          <h4 class="text-xl font-semibold mb-4 text-white">Wellnation360</h4>
+          <p class="text-sm leading-relaxed mb-4">Your partner in holistic health and mindful living...</p>
+           <div class="relative w-24 h-24 mx-auto md:mx-0 rounded-full overflow-hidden border-2 border-green-500">
+            <img src="{{ url_for('static', filename='images/logo1.png') }}" alt="Wellnation360 Small Logo" class="w-full h-full object-cover" />
+          </div>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-4 text-white">Quick Links</h4>
+          <ul class="space-y-2.5 text-sm">
+            <li><a href="wellnation360.com/index" class="hover:text-green-400 transition-colors duration-200">Home</a></li>
+            <li><a href="#about" class="hover:text-green-400 transition-colors duration-200">About Us</a></li>
+            <li><a href="#services" class="hover:text-green-400 transition-colors duration-200">Our Services</a></li>
+            <li><a href="wellnation360.com/glimpse" class="hover:text-green-400 transition-colors duration-200">Gallery</a></li>
+            <li><a href="http://yoga-kshema.in" class="hover:text-green-400 transition-colors duration-200" target="_blank" rel="noopener noreferrer">Yogakshema Website</a></li>
+            <li><a href="wellnation360.com/contact" class="hover:text-green-400 transition-colors duration-200">Contact Us</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-4 text-white">Contact Info</h4>
+          <div class="text-sm leading-relaxed space-y-3">
+            <div class="flex items-center justify-center md:justify-start gap-2 hover:text-green-400 transition-colors duration-200">
+              <i class="fas fa-map-marker-alt text-green-400 text-base w-5 text-center"></i>
+              <a href="https://maps.google.com/?q=Kasavanahalli,Bangalore,560035" target="_blank" rel="noopener noreferrer" class="hover:underline">Kasavanahalli, Bangalore 560035</a>
+            </div>
+            <div class="flex items-center justify-center md:justify-start gap-2 hover:text-green-400 transition-colors duration-200">
+              <i class="fas fa-phone-alt text-green-400 text-base w-5 text-center"></i>
+              <a href="tel:+917795246002" class="hover:underline">+91 77952 46002</a>
+            </div>
+             <div class="flex items-center justify-center md:justify-start gap-2 hover:text-green-400 transition-colors duration-200">
+              <i class="fas fa-envelope text-green-400 text-base w-5 text-center"></i>
+              <a href="mailto:info@wellnation360.com" class="hover:underline"> info@wellnation360.com</a>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-4 text-white">Follow Us</h4>
+          <div class="flex justify-center md:justify-start space-x-5">
+            <a href="https://instagram.com/wellnation360" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="text-2xl hover:text-pink-500 transition-colors duration-200"><i class="fab fa-instagram"></i></a>
+            <a href="https://youtube.com/@YOUR_CHANNEL_NAME" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="text-2xl hover:text-red-500 transition-colors duration-200"><i class="fab fa-youtube"></i></a>
+            <a href="https://facebook.com/wellnation360" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="text-2xl hover:text-blue-600 transition-colors duration-200"><i class="fab fa-facebook"></i></a>
+          </div>
+           <p class="text-xs mt-6 text-gray-400">Stay connected for wellness tips, updates, and community events.</p>
+        </div>
+      </div>
+    <div class="text-center text-sm mt-10 border-t border-gray-700 pt-8">© <span id="currentYear"></span> Wellnation360. All rights reserved.</div>
+  </footer>
+
+
+    <!-- WhatsApp Widget -->
+  <div class="fixed bottom-8 right-8 z-50 group">
+    <a href="https://wa.me/917795246002?text=Hello%20Wellnation360,%20I'd%20like%20to%20inquire%20about%20your%20services." target="_blank" class="flex items-center gap-2 bg-white pl-3 pr-2 py-2 rounded-full shadow-lg border border-gray-200 hover:pr-3 transition-all duration-300">
+      <span class="opacity-0 group-hover:opacity-100 w-0 group-hover:w-auto overflow-hidden transition-all duration-300 text-sm font-medium">Let's chat!</span>
+      <img src="{{ url_for('static', filename='images/whatsapp.png') }}" alt="WhatsApp" class="w-10 h-10 lazy-load" loading="lazy">
+    </a>
+  </div>
+
+</body>
+</html>

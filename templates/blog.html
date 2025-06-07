@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="referrer" content="strict-origin">
+    <link rel="icon" href="static/images/logo1.png" type="image/x-icon">
+    <title>The Fascinating Science of Your "Second Brain" | WellNation360</title>
+    <meta name="description" content="Discover how your gut microbiome controls your health, mood, and decisions - with interactive diagrams and surprising facts!">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://wellnation360.com/gut-health" />
+    
+    <!-- Security Headers -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://images.unsplash.com;">
+    <meta http-equiv="Strict-Transport-Security" content="max-age=63072000; includeSubDomains; preload">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    
+    <!-- Preload Resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
+            color: #333;
+        }
+        
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .gut-animation {
+            background: linear-gradient(90deg, #f0fff4, #dcfce7, #bbf7d0);
+            background-size: 300% 300%;
+            animation: gradient 8s ease infinite;
+        }
+        
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .fact-card {
+            transition: all 0.3s ease;
+        }
+        
+        .fact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .prose {
+            max-width: 65ch;
+        }
+        
+        .prose h2 {
+            font-weight: 600;
+            color: #2d3748;
+            margin-top: 1.5em;
+            margin-bottom: 0.75em;
+        }
+        
+        .prose p {
+            margin-bottom: 1.25em;
+            line-height: 1.7;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Animated Header -->
+       <header class="fixed top-0 left-0 right-0 w-full z-50 bg-gray-800 shadow-md">
+    <div class="relative z-10 flex items-center justify-between px-6 py-2 md:py-3">
+      <div class="flex items-center space-x-4">
+        <div class="relative w-20 h-20 rounded-full overflow-hidden">
+          <img src="{{ url_for('static', filename='images/logo1.png') }}" alt="Logo" class="w-full h-full object-cover" />
+        </div>
+        <span class="text-2xl md:text-3xl font-bold text-white">Wellnation360</span>
+      </div>
+      <nav class="hidden md:flex items-center space-x-6 text-white text-base md:text-lg font-semibold">
+        <a href="{{ url_for('index') }}" class="text-white">Home</a>
+        <a href="{{ url_for('about') }}" class="text-white">About</a>
+        <a href="{{ url_for('contact_get') }}" class="text-white">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+    <header class="gut-animation py-16 text-center">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto">
+                <span class="inline-block bg-white text-green-700 text-sm font-semibold px-4 py-1 rounded-full mb-4 shadow-sm">GUT HEALTH SERIES</span>
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6">Your Gut: The Secret <span class="text-green-600">"Second Brain"</span> Controlling Your Health</h1>
+                <p class="text-xl text-gray-600 mb-8">How 40 trillion microbes in your belly influence your mood, immunity, and even food cravings</p>
+                <div class="flex items-center justify-center space-x-4">
+                    <div class="flex items-center">
+                        <img src="static/images/dt. ritukapoor.jpeg" alt="Author" class="w-10 h-10 rounded-full border-2 border-white" loading="lazy" width="100" height="100">
+                        <span class="ml-2 text-sm text-gray-700">Dt. Ritu Kapoor</span>
+                    </div>
+                    <span class="text-gray-400">•</span>
+                    <span class="text-sm text-gray-500">Updated: November 26, 2023</span>
+                    <span class="text-gray-400">•</span>
+                    <span class="text-sm text-green-600 font-medium">8 min read</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Interactive Article Layout -->
+    <div class="container mx-auto px-4 py-12">
+         <div class="flex flex-col lg:flex-row gap-12">
+            <!-- Main Content -->
+            <article class="lg:w-2/3">
+ 
+
+                <!-- Engaging Content Sections -->
+                <div class="prose max-w-none">
+                    <!-- Hook -->
+                    <div class="bg-blue-50 border-l-4 border-blue-500 p-6 mb-8 rounded-r-lg">
+                        <p class="text-blue-800 font-medium">"All diseases begin in the gut." <span class="block text-gray-600 font-normal mt-1">— Hippocrates, 400 BC (and he was right!)</span></p>
+                    </div>
+
+                    <p class="text-lg text-gray-700 mb-6">Imagine a bustling city inside your belly - 40 trillion microbial residents working 24/7 to control your health, mood, and even food cravings. This is your gut microbiome, and it holds surprising power over your entire wellbeing.</p>
+
+                    <!-- Section 1 -->
+                    <h2 class="text-3xl font-bold text-gray-800 mt-12 mb-6 flex items-center">
+                        <span class="bg-green-100 text-green-800 w-8 h-8 rounded-full flex items-center justify-center mr-3 text-lg">1</span>
+                        Your Gut: More Than Just Digestion
+                    </h2>
+
+                    <p>While we've known about gut bacteria for decades, new research reveals they influence:</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+                        <div class="fact-card bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                            <div class="text-green-600 text-4xl mb-3">🧠</div>
+                            <h3 class="font-bold text-gray-800 mb-2">Mood & Emotions</h3>
+                            <p class="text-gray-600 text-sm">90% of serotonin (your "happy hormone") is made in the gut</p>
+                        </div>
+                        <div class="fact-card bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                            <div class="text-blue-600 text-4xl mb-3">🛡️</div>
+                            <h3 class="font-bold text-gray-800 mb-2">Immunity</h3>
+                            <p class="text-gray-600 text-sm">70% of your immune system lives in your gut lining</p>
+                        </div>
+                    </div>
+
+                    <!-- Original Content -->
+                    <p>There is a new word in vogue these days in the booming market of health products i.e 'probiotic' or 'Gut healthy'. Do we even realise that this new craze about focussing on the gut has its roots going back thousands of years. Ayurveda, an ancient science of treating the mind, body and soul always had its foundation in keeping the Gut strong. Hippocrates, father of medicine's most popular adage, 'All diseases begin in the gut' is a most appropriate proponent of this connection between modern medicine and Ayurveda.</p>
+
+                    <h2 class="text-3xl font-bold text-gray-800 mt-12 mb-6 flex items-center">
+                        <span class="bg-green-100 text-green-800 w-8 h-8 rounded-full flex items-center justify-center mr-3 text-lg">2</span>
+                        The Microscopic World Within Us
+                    </h2>
+
+                    <p>The talk about Gut focusses on the first organisms that evolved when the earth was formed. The microorganisms including the bacteria, viruses, fungi which were the first signs of life on earth are the ones that inhabit our inner core which plays the main role in the well-being of our human body. This collection of microorganisms form their own world called the microbiome. The microbiome is present in many parts of the body but the largest collection of over 30 trillion bacteria is in the gut. These seemingly microscopic organisms with their magnanimous army are a functional 'organ' in itself which can have an influence on an array of outcomes in the body.</p>
+
+                    <h2 class="text-3xl font-bold text-gray-800 mt-12 mb-6 flex items-center">
+                        <span class="bg-green-100 text-green-800 w-8 h-8 rounded-full flex items-center justify-center mr-3 text-lg">3</span>
+                        The Gut-Brain Connection
+                    </h2>
+
+                    <p>The range of outcomes influenced by these commensals or pathogens can affect the entire functioning of our body. The stronger our gut health is the better will be the functioning of our mind. In fact 90% of the serotonin gets produced in the Gut. That is the power of 'Gut Feeling'. The Gut becomes our second brain. The human microbiome is constantly evolving in response to host of factors. Factors such as age, nutrition, lifestyle, hormonal changes, inherited genes, medication and underlying disease are major determinants of the human microbiome at any given point in time.</p>
+
+                    <h2 class="text-3xl font-bold text-gray-800 mt-12 mb-6 flex items-center">
+                        <span class="bg-green-100 text-green-800 w-8 h-8 rounded-full flex items-center justify-center mr-3 text-lg">4</span>
+                        Threats to Our Inner Ecosystem
+                    </h2>
+
+                    <p>The injudicious intake of antibiotics (anti- biota) and other drugs can disrupt the Gut microbiome. Conditions such as asthma, atopy, childhood obesity, and autism spectrum have been correlated with excess antibiotic use and a resulting alteration in the microbiome in childhood. Microbiome of an individual is unique just like the fingerprints which are unique to each individual. So, it is very important to live in harmony with ones microbiome, our Inner World.</p>
+
+                    <!-- Diet Modification Content -->
+                    <h2 class="text-3xl font-bold text-gray-800 mt-12 mb-6 flex items-center">
+                        <span class="bg-green-100 text-green-800 w-8 h-8 rounded-full flex items-center justify-center mr-3 text-lg">5</span>
+                        Does Diet Modification Hold the Power to Reverse Lifestyle Diseases?
+                    </h2>
+
+                    <p>In an Age, where we are rapidly being run down by a variety of lifestyle related health issues, like diabetes, hypertension, thyroid problems, cancer, fatty liver(even in non-alcoholics), sleep disorders; it is time that we realise that something very basic and common to all of us is the cause behind it.</p>
+
+                    <p>Human body, since its birth and even before birth is nourished by the food that you give to it. Food and its nutrients have the power to affect the expression of genes in the DNA of each individual, as it is studied in Nutrigenetics. That goes to say, though a person can be born with the genes which increases his chance of having a particular disease, but the right nutrients that he consumes and other environmental factors have the power to modify the genetic outcome.</p>
+
+                    <div class="bg-amber-50 border border-amber-100 rounded-xl p-6 my-8">
+                        <div class="flex">
+                            <div class="flex-shrink-0 mr-4">
+                                <svg class="h-12 w-12 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-gray-800 mb-2">Hippocrates' Wisdom</h3>
+                                <p class="text-gray-600">"If we could give every individual the right amount of nourishment and exercise, not too little and not too much, we would have found the safest way to health."</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p>India, today is facing the dual challenge of undernutrition as well as overnutrition. With India emerging as one of the growing economies of the world, the parity to buy food is going to increase and hence comes the need to ensure conscious eating across generations. In Hippocrates words again "Let food be thy medicine".</p>
+
+                    <!-- Conclusion -->
+                    <div class="bg-green-50 border border-green-200 rounded-xl p-8 mt-12 text-center">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Ready to Transform Your Gut Health?</h3>
+                        <p class="text-gray-700 mb-6">Join our community and receive science-backed gut health strategies straight to your inbox.</p>
+                        <form class="max-w-md mx-auto">
+                            <div class="flex">
+                                <input type="email" placeholder="Your email address" class="flex-grow px-4 py-2 rounded-l-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent" required>
+                                <button type="submit" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-r-lg font-medium transition-colors">
+                                    Subscribe
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Sidebar -->
+            <aside class="lg:w-1/3 space-y-8">
+                <!-- Author Bio -->
+                <div class="bg-white p-6 rounded-xl shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <img src="static/images/dt. ritukapoor.jpeg" alt="Dt. Ritu Kapoor" class="w-16 h-16 rounded-full border-2 border-green-200" loading="lazy" width="100" height="100">
+                        <div class="ml-4">
+                            <h3 class="font-bold text-gray-800">Dr. Priya Sharma</h3>
+                            <p class="text-sm text-gray-600">Integrative Medicine Specialist</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 text-sm">With 12 years experience in gut health research, Dr. Sharma bridges Ayurvedic wisdom with modern gastroenterology.</p>
+                </div>
+
+                <!-- Quick Facts -->
+                <div class="bg-white p-6 rounded-xl shadow-sm">
+                    <h3 class="font-bold text-gray-800 mb-4 flex items-center">
+                        <svg class="w-5 h-5 text-green-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        Gut Health Fast Facts
+                    </h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <span class="bg-green-100 text-green-800 rounded-full w-5 h-5 flex items-center justify-center mr-3 flex-shrink-0 text-xs font-bold">!</span>
+                            <span class="text-sm text-gray-700">Your gut bacteria can influence food cravings</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="bg-green-100 text-green-800 rounded-full w-5 h-5 flex items-center justify-center mr-3 flex-shrink-0 text-xs font-bold">!</span>
+                            <span class="text-sm text-gray-700">Babies get their first microbes during birth</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="bg-green-100 text-green-800 rounded-full w-5 h-5 flex items-center justify-center mr-3 flex-shrink-0 text-xs font-bold">!</span>
+                            <span class="text-sm text-gray-700">It takes just 24 hours of diet change to alter your microbiome</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Gut Health Tips -->
+                <div class="bg-white p-6 rounded-xl shadow-sm">
+                    <h3 class="font-bold text-gray-800 mb-4">Daily Gut Health Tips</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <span class="bg-green-100 text-green-800 rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0 mt-1">1</span>
+                            <div>
+                                <h4 class="font-medium text-gray-800">Start with fiber</h4>
+                                <p class="text-sm text-gray-600">Aim for 30+ plant varieties weekly</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <span class="bg-green-100 text-green-800 rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0 mt-1">2</span>
+                            <div>
+                                <h4 class="font-medium text-gray-800">Fermented foods</h4>
+                                <p class="text-sm text-gray-600">Include 1 serving daily (yogurt, kimchi, etc.)</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <span class="bg-green-100 text-green-800 rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0 mt-1">3</span>
+                            <div>
+                                <h4 class="font-medium text-gray-800">Mindful eating</h4>
+                                <p class="text-sm text-gray-600">Chew thoroughly and eat without distractions</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Related Articles -->
+                <div class="bg-white p-6 rounded-xl shadow-sm">
+                    <h3 class="font-bold text-gray-800 mb-4">More to Explore</h3>
+                    <div class="space-y-4">
+                        <a href="/diet_modification" class="group flex items-start">
+                            <div class="flex-shrink-0 w-16 h-16 bg-gray-200 rounded-lg overflow-hidden mr-4">
+                                <img src="static/images/dietblog.jpeg" alt="Fermented foods" class="w-full h-full object-cover" loading="lazy" width="100" height="100">
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-medium text-gray-800 group-hover:text-green-600 transition-colors">Hungry for Change? Easy Food Hacks for Energy</h4>
+                                <p class="text-xs text-gray-500">Food</p>
+                            </div>
+                        <a href="/meditation" class="group flex items-start">
+                            <div class="flex-shrink-0 w-16 h-16 bg-gray-200 rounded-lg overflow-hidden mr-4">
+                                <img src="static/images/mediation.webp" alt="Fermented foods" class="w-full h-full object-cover" loading="lazy" width="100" height="100">
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-medium text-gray-800 group-hover:text-green-600 transition-colors">Mindful Practices Your Soul Will Love</h4>
+                                <p class="text-xs text-gray-500">Meditate</p>
+                            </div>
+                        </a>
+                        <a href="/sleep_modification" class="group flex items-start">
+                            <div class="flex-shrink-0 w-16 h-16 bg-gray-200 rounded-lg overflow-hidden mr-4">
+                                <img src="static/images/sleepblog.webp" alt="Sleep" class="w-full h-full object-cover" loading="lazy" width="100" height="100">
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-medium text-gray-800 group-hover:text-green-600 transition-colors">Gentle Rituals to Drift You into Deep Sleep</h4>
+                                <p class="text-xs text-gray-500">Lifestyle</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+
+  <!-- Footer -->
+  <footer id="footer" class="bg-gray-800 text-gray-300 py-12 md:py-16">
+    <!-- Content as before -->
+    <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 text-center md:text-left">
+        <div>
+          <h4 class="text-xl font-semibold mb-4 text-white">Wellnation360</h4>
+          <p class="text-sm leading-relaxed mb-4">Your partner in holistic health and mindful living...</p>
+           <div class="relative w-24 h-24 mx-auto md:mx-0 rounded-full overflow-hidden border-2 border-green-500">
+            <img src="{{ url_for('static', filename='images/logo1.png') }}" alt="Wellnation360 Small Logo" class="w-full h-full object-cover" />
+          </div>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-4 text-white">Quick Links</h4>
+          <ul class="space-y-2.5 text-sm">
+            <li><a href="wellnation360.com/index" class="hover:text-green-400 transition-colors duration-200">Home</a></li>
+            <li><a href="#about" class="hover:text-green-400 transition-colors duration-200">About Us</a></li>
+            <li><a href="#services" class="hover:text-green-400 transition-colors duration-200">Our Services</a></li>
+            <li><a href="wellnation360.com/glimpse" class="hover:text-green-400 transition-colors duration-200">Gallery</a></li>
+            <li><a href="http://yoga-kshema.in" class="hover:text-green-400 transition-colors duration-200" target="_blank" rel="noopener noreferrer">Yogakshema Website</a></li>
+            <li><a href="wellnation360.com/contact" class="hover:text-green-400 transition-colors duration-200">Contact Us</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-4 text-white">Contact Info</h4>
+          <div class="text-sm leading-relaxed space-y-3">
+            <div class="flex items-center justify-center md:justify-start gap-2 hover:text-green-400 transition-colors duration-200">
+              <i class="fas fa-map-marker-alt text-green-400 text-base w-5 text-center"></i>
+              <a href="https://maps.google.com/?q=Kasavanahalli,Bangalore,560035" target="_blank" rel="noopener noreferrer" class="hover:underline">Kasavanahalli, Bangalore 560035</a>
+            </div>
+            <div class="flex items-center justify-center md:justify-start gap-2 hover:text-green-400 transition-colors duration-200">
+              <i class="fas fa-phone-alt text-green-400 text-base w-5 text-center"></i>
+              <a href="tel:+917795246002" class="hover:underline">+91 77952 46002</a>
+            </div>
+             <div class="flex items-center justify-center md:justify-start gap-2 hover:text-green-400 transition-colors duration-200">
+              <i class="fas fa-envelope text-green-400 text-base w-5 text-center"></i>
+              <a href="mailto:info@wellnation360.com" class="hover:underline"> info@wellnation360.com</a>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-4 text-white">Follow Us</h4>
+          <div class="flex justify-center md:justify-start space-x-5">
+            <a href="https://instagram.com/wellnation360" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="text-2xl hover:text-pink-500 transition-colors duration-200"><i class="fab fa-instagram"></i></a>
+            <a href="https://youtube.com/@YOUR_CHANNEL_NAME" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="text-2xl hover:text-red-500 transition-colors duration-200"><i class="fab fa-youtube"></i></a>
+            <a href="https://facebook.com/wellnation360" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="text-2xl hover:text-blue-600 transition-colors duration-200"><i class="fab fa-facebook"></i></a>
+          </div>
+           <p class="text-xs mt-6 text-gray-400">Stay connected for wellness tips, updates, and community events.</p>
+        </div>
+      </div>
+    <div class="text-center text-sm mt-10 border-t border-gray-700 pt-8">© <span id="currentYear"></span> Wellnation360. All rights reserved.</div>
+  </footer>
+
+
+    <!-- WhatsApp Widget -->
+  <div class="fixed bottom-8 right-8 z-50 group">
+    <a href="https://wa.me/917795246002?text=Hello%20Wellnation360,%20I'd%20like%20to%20inquire%20about%20your%20services." target="_blank" class="flex items-center gap-2 bg-white pl-3 pr-2 py-2 rounded-full shadow-lg border border-gray-200 hover:pr-3 transition-all duration-300">
+      <span class="opacity-0 group-hover:opacity-100 w-0 group-hover:w-auto overflow-hidden transition-all duration-300 text-sm font-medium">Let's chat!</span>
+      <img src="{{ url_for('static', filename='images/whatsapp.png') }}" alt="WhatsApp" class="w-10 h-10 lazy-load" loading="lazy">
+    </a>
+  </div>
+</body>
+</html>

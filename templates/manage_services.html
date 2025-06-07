@@ -1,0 +1,415 @@
+{% extends "base.html" %}
+{% set active_page = "services" %}
+
+{% block title %}Services Management{% endblock %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="static/images/logo1.png" type="image/x-icon">
+    <title>Manage Services</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        h2, h3 {
+            color: #333;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="number"],
+        select,
+        textarea {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        input[type="file"] {
+            margin-top: 5px;
+        }
+        .plan-row {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .plan-row input {
+            width: 100px;
+        }
+        .plan-row button {
+            padding: 8px 12px;
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button {
+            padding: 10px 15px;
+            margin-top: 20px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button.add-plan-btn {
+            background-color: #2ecc71;
+        }
+        button:hover {
+            opacity: 0.9;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f0f0f0;
+        }
+        .actions button {
+            margin: 0 5px 0 0;
+            padding: 5px 10px;
+        }
+        .actions .edit-btn {
+            background-color: #f39c12;
+        }
+        .actions .delete-btn {
+            background-color: #c0392b;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Add / Edit Service</h2>
+        <form id="serviceForm" enctype="multipart/form-data">
+            <input type="hidden" id="serviceId" name="serviceId">
+
+            <label for="website">Website:</label>
+            <select id="website" name="website" required>
+                <option value="wellnation360">WellNation360</option>
+                <option value="yogakshema">Yogakshema</option>
+            </select>
+
+            <label for="serviceName">Service Name:</label>
+            <input type="text" id="serviceName" name="serviceName" required>
+
+            <label for="instructorName">Instructor Name:</label>
+            <input type="text" id="instructorName" name="instructorName" required>
+
+            <label for="serviceTime">Time (e.g., Tue-Sun | 5:00-6:00):</label>
+            <input type="text" id="serviceTime" name="serviceTime" required>
+
+            <label for="serviceImage">Service Image:</label>
+            <input type="file" id="serviceImage" name="serviceImage" accept="image/*">
+            <img id="imagePreview" src="#" alt="Image Preview" style="max-width: 100px; margin-top: 10px; display: none;"/>
+
+
+            <h3>Pricing Plans</h3>
+            <div id="plansContainer">
+                <div class="plan-row">
+                    <input type="number" name="months[]" placeholder="Months" min="1" required>
+                    <input type="number" name="prices[]" placeholder="Price" min="0" step="0.01" required>
+                    <button type="button" class="remove-plan-btn" onclick="removePlan(this)" style="display:none;">Remove</button>
+                </div>
+            </div>
+            <button type="button" class="add-plan-btn" onclick="addPlan()">+ Add Plan</button>
+
+            <br>
+            <button type="submit" id="submitButton">Add Service</button>
+            <button type="button" id="cancelEditButton" class="hidden" onclick="cancelEdit()">Cancel Edit</button>
+        </form>
+    </div>
+
+    <hr>
+
+    <div class="container">
+        <h2>Existing Services</h2>
+        <table id="servicesTable">
+            <thead>
+                <tr>
+                    <th>Website</th>
+                    <th>Service Name</th>
+                    <th>Instructor</th>
+                    <th>Time</th>
+                    <th>Image</th>
+                    <th>Plans (Months: Price)</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="servicesTableBody">
+                <tr>
+                    <td>WellNation360</td>
+                    <td>Yoga Basics</td>
+                    <td>Jane Doe</td>
+                    <td>Mon-Fri | 7:00-8:00</td>
+                    <td><img src="placeholder.jpg" alt="Yoga Basics" width="50"></td>
+                    <td>1: $50, 3: $130, 6: $250</td>
+                    <td class="actions">
+                        <button class="edit-btn" onclick="editService(1, 'WellNation360', 'Yoga Basics', 'Jane Doe', 'Mon-Fri | 7:00-8:00', 'placeholder.jpg', [{months: 1, price: 50}, {months: 3, price: 130}])">Edit</button>
+                        <button class="delete-btn" onclick="deleteService(1)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        const serviceForm = document.getElementById('serviceForm');
+        const plansContainer = document.getElementById('plansContainer');
+        const serviceIdInput = document.getElementById('serviceId');
+        const submitButton = document.getElementById('submitButton');
+        const cancelEditButton = document.getElementById('cancelEditButton');
+        const imagePreview = document.getElementById('imagePreview');
+        const serviceImageInput = document.getElementById('serviceImage');
+
+        // --- Dynamic Plan Management ---
+        function addPlan() {
+            const planRow = document.createElement('div');
+            planRow.classList.add('plan-row');
+            planRow.innerHTML = `
+                <input type="number" name="months[]" placeholder="Months" min="1" required>
+                <input type="number" name="prices[]" placeholder="Price" min="0" step="0.01" required>
+                <button type="button" class="remove-plan-btn" onclick="removePlan(this)">Remove</button>
+            `;
+            plansContainer.appendChild(planRow);
+            updateRemoveButtons();
+        }
+
+        function removePlan(button) {
+            button.parentElement.remove();
+            updateRemoveButtons();
+        }
+
+        function updateRemoveButtons() {
+            const planRows = plansContainer.getElementsByClassName('plan-row');
+            if (planRows.length <= 1) {
+                const firstRemoveButton = planRows[0].querySelector('.remove-plan-btn');
+                if (firstRemoveButton) firstRemoveButton.style.display = 'none';
+            } else {
+                for (let row of planRows) {
+                    row.querySelector('.remove-plan-btn').style.display = 'inline-block';
+                }
+            }
+        }
+        updateRemoveButtons(); // Initial call
+
+        // --- Image Preview ---
+        serviceImageInput.onchange = evt => {
+            const [file] = serviceImageInput.files;
+            if (file) {
+                imagePreview.src = URL.createObjectURL(file);
+                imagePreview.style.display = 'block';
+            } else {
+                imagePreview.style.display = 'none';
+            }
+        }
+
+        // --- Form Submission (to be handled by Flask) ---
+        serviceForm.addEventListener('submit', async function(event) {
+            event.preventDefault();
+            const formData = new FormData(this);
+            const serviceId = serviceIdInput.value;
+            const url = serviceId ? `/api/service/update/${serviceId}` : '/api/service/add'; // Example API endpoints
+            const method = serviceId ? 'POST' : 'POST'; // Or 'PUT' for update if your backend supports it
+
+            // Construct plans object if needed by backend (FormData will send months[] and prices[])
+            // Or process it on the backend from the arrays.
+            // Example:
+            // const plans = [];
+            // const monthsInputs = document.querySelectorAll('input[name="months[]"]');
+            // const pricesInputs = document.querySelectorAll('input[name="prices[]"]');
+            // monthsInputs.forEach((monthInput, index) => {
+            //     plans.push({ months: monthInput.value, price: pricesInputs[index].value });
+            // });
+            // formData.append('plans_json', JSON.stringify(plans)); // If you want to send as JSON
+
+            try {
+                const response = await fetch(url, {
+                    method: method,
+                    body: formData // FormData handles multipart/form-data for file uploads
+                });
+
+                if (response.ok) {
+                    const result = await response.json();
+                    alert(result.message || (serviceId ? 'Service updated successfully!' : 'Service added successfully!'));
+                    resetForm();
+                    loadServices(); // Refresh the list
+                } else {
+                    const error = await response.json();
+                    alert('Error: ' + (error.message || 'Could not save service.'));
+                }
+            } catch (error) {
+                console.error('Submission error:', error);
+                alert('An error occurred. Please try again.');
+            }
+        });
+
+        function resetForm() {
+            serviceForm.reset();
+            serviceIdInput.value = '';
+            submitButton.textContent = 'Add Service';
+            cancelEditButton.classList.add('hidden');
+            imagePreview.style.display = 'none';
+            imagePreview.src = '#';
+            // Clear dynamic plans beyond the first one
+            while (plansContainer.children.length > 1) {
+                plansContainer.removeChild(plansContainer.lastChild);
+            }
+            updateRemoveButtons();
+        }
+
+        function cancelEdit() {
+            resetForm();
+        }
+
+        // --- Load, Edit, Delete Services (interactions with backend) ---
+
+        // Function to populate the table with services from the backend
+        async function loadServices() {
+            try {
+                const response = await fetch('/api/services'); // Example API endpoint
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const services = await response.json();
+                const tableBody = document.getElementById('servicesTableBody');
+                tableBody.innerHTML = ''; // Clear existing rows
+
+                if (services.length === 0) {
+                    tableBody.innerHTML = '<tr><td colspan="7">No services found.</td></tr>';
+                    return;
+                }
+
+                services.forEach(service => {
+                    const row = tableBody.insertRow();
+                    const plansString = service.plans.map(p => `${p.months}m: $${p.price}`).join(', ');
+                    const imageUrl = service.image_url ? `<img src="${service.image_url}" alt="${service.service_name}" width="50">` : 'No Image';
+
+                    row.innerHTML = `
+                        <td>${service.website}</td>
+                        <td>${service.service_name}</td>
+                        <td>${service.instructor_name}</td>
+                        <td>${service.time}</td>
+                        <td>${imageUrl}</td>
+                        <td>${plansString}</td>
+                        <td class="actions">
+                            <button class="edit-btn" onclick='editServicePreparer(${JSON.stringify(service)})'>Edit</button>
+                            <button class="delete-btn" onclick="deleteService(${service.id})">Delete</button>
+                        </td>
+                    `;
+                });
+            } catch (error) {
+                console.error('Error loading services:', error);
+                const tableBody = document.getElementById('servicesTableBody');
+                tableBody.innerHTML = '<tr><td colspan="7">Error loading services.</td></tr>';
+            }
+        }
+
+        // Function to prepare the form for editing a service
+        function editServicePreparer(service) {
+            serviceIdInput.value = service.id;
+            document.getElementById('website').value = service.website;
+            document.getElementById('serviceName').value = service.service_name;
+            document.getElementById('instructorName').value = service.instructor_name;
+            document.getElementById('serviceTime').value = service.time;
+
+            if (service.image_url) {
+                imagePreview.src = service.image_url;
+                imagePreview.style.display = 'block';
+            } else {
+                imagePreview.style.display = 'none';
+                imagePreview.src = '#';
+            }
+            // Note: File input cannot be programmatically set for security reasons.
+            // User will have to re-select image if they want to change it.
+            // You can display current image name or preview.
+
+            // Clear existing plan rows and populate with service's plans
+            plansContainer.innerHTML = '';
+            if (service.plans && service.plans.length > 0) {
+                service.plans.forEach(plan => {
+                    const planRow = document.createElement('div');
+                    planRow.classList.add('plan-row');
+                    planRow.innerHTML = `
+                        <input type="number" name="months[]" placeholder="Months" value="${plan.months}" min="1" required>
+                        <input type="number" name="prices[]" placeholder="Price" value="${plan.price}" min="0" step="0.01" required>
+                        <button type="button" class="remove-plan-btn" onclick="removePlan(this)">Remove</button>
+                    `;
+                    plansContainer.appendChild(planRow);
+                });
+            } else { // Add one empty plan row if no plans exist
+                addPlan();
+            }
+            updateRemoveButtons();
+
+            submitButton.textContent = 'Update Service';
+            cancelEditButton.classList.remove('hidden');
+            window.scrollTo(0, 0); // Scroll to top to see the form
+        }
+
+        // Function to delete a service (sends request to backend)
+        async function deleteService(serviceId) {
+            if (confirm('Are you sure you want to delete this service?')) {
+                try {
+                    const response = await fetch(`/api/service/delete/${serviceId}`, { // Example API endpoint
+                        method: 'POST' // Or 'DELETE'
+                    });
+                    if (response.ok) {
+                        const result = await response.json();
+                        alert(result.message || 'Service deleted successfully!');
+                        loadServices(); // Refresh the list
+                    } else {
+                        const error = await response.json();
+                        alert('Error: ' + (error.message || 'Could not delete service.'));
+                    }
+                } catch (error) {
+                    console.error('Delete error:', error);
+                    alert('An error occurred while deleting. Please try again.');
+                }
+            }
+        }
+
+        // --- Initial Load ---
+        document.addEventListener('DOMContentLoaded', () => {
+            loadServices(); // Load services when the page is ready
+            // Remove the example row if you're loading dynamically
+            const exampleRow = document.querySelector('#servicesTableBody tr');
+            // if (exampleRow && exampleRow.innerText.includes("Yoga Basics")) { exampleRow.remove(); }
+        });
+    </script>
+
+</body>
+</html>
+{% endblock %}

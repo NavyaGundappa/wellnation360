@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% set active_page = "dashboard" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-4">
+        <div class="card-counter primary">
+            <i class="bi bi-list-check"></i>
+            <span class="count-numbers">{{ services_count }}</span>
+            <span class="count-name">Services</span>
+        </div>
+    </div>
+    
+    <div class="col-md-4">
+        <div class="card-counter success">
+            <i class="bi bi-star-fill"></i>
+            <span class="count-numbers">{{ reviews_count }}</span>
+            <span class="count-name">Reviews</span>
+        </div>
+    </div>
+    
+    <div class="col-md-4">
+        <div class="card-counter info">
+            <i class="bi bi-images"></i>
+            <span class="count-numbers">{{ gallery_count }}</span>
+            <span class="count-name">Gallery Items</span>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-5">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h5>Recent Activity</h5>
+            </div>
+            <div class="card-body">
+                <p>Welcome to the Wellness Platform Admin Dashboard. Here you can manage services, reviews, and gallery items.</p>
+                <p>Use the navigation on the left to access different sections of the admin panel.</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

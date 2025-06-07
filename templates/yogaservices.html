@@ -1,0 +1,481 @@
+{% extends "base.html" %}
+{% set active_page = "services" %}
+
+{% block title %}Services Management{% endblock %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="static/images/logo1.png" type="image/x-icon">
+    <title>YogaKshema - Service Management</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .upload-area {
+            border: 2px dashed #d1d5db;
+            border-radius: 0.5rem;
+            padding: 2rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .upload-area:hover, .upload-area.dragover {
+            border-color: #10b981;
+            background-color: #f0fdf4;
+        }
+        .preview-image {
+            max-height: 200px;
+            object-fit: cover;
+            border-radius: 0.5rem;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .active-tab::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background-color: #10b981;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="flex flex-col md:flex-row justify-between items-center mb-8">
+            <div>
+                <h1 class="text-3xl font-bold text-gray-800">Service Management</h1>
+                <p class="text-gray-600 mt-2">Add and manage yoga services for your studio</p>
+            </div>
+            <div class="mt-4 md:mt-0">
+                <button id="addServiceBtn" class="bg-emerald-500 hover:bg-emerald-600 text-white px-6 py-2 rounded-lg font-medium transition duration-300 flex items-center">
+                    <i class="fas fa-plus-circle mr-2"></i> Add New Service
+                </button>
+            </div>
+        </div>
+
+        <!-- Flash Messages -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="mb-6">
+                    {% for category, message in messages %}
+                        <div class="bg-{{ category }}-100 border border-{{ category }}-400 text-{{ category }}-700 px-4 py-3 rounded relative mb-4" role="alert">
+                            <span class="block sm:inline">{{ message }}</span>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+
+        <div class="bg-white rounded-2xl shadow-md overflow-hidden mb-8">
+            <!-- Tabs -->
+            <div class="border-b border-gray-200">
+                <nav class="flex px-6">
+                    <button class="tab-btn py-4 px-6 font-medium text-gray-500 hover:text-emerald-600 relative" data-tab="add-service">
+                        Add Service
+                    </button>
+                    <button class="tab-btn py-4 px-6 font-medium text-emerald-600 relative active-tab" data-tab="manage-services">
+                        Manage Services
+                    </button>
+                </nav>
+            </div>
+
+            <!-- Add/Edit Service Form -->
+            <div id="add-service" class="tab-content p-6">
+                <form id="serviceForm" method="POST" action="{{ url_for('admin_yogaservices') }}" enctype="multipart/form-data" class="space-y-6">
+                    <input type="hidden" name="service_id" id="service_id" value="">
+                    <input type="hidden" name="action" id="action" value="add">
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div>
+                            <h2 class="text-xl font-semibold text-gray-800 mb-6">Service Details</h2>
+                            
+                            <div class="mb-6">
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Service Name *</label>
+                                <input type="text" name="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500" placeholder="e.g. Hatha Yoga" required>
+                            </div>
+                            
+                            <div class="mb-6">
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Instructor *</label>
+                                <input type="text" name="instructor" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500" placeholder="e.g. Dr. Ritu Kapoor" required>
+                            </div>
+                            
+                            <div class="mb-6">
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Timing Details *</label>
+                                <input type="text" name="timing" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500" placeholder="e.g. 3 days/week" required>
+                            </div>
+                            
+                            <div class="mb-6">
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Description</label>
+                                <textarea name="description" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500" rows="3" placeholder="Brief description about the service..."></textarea>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h2 class="text-xl font-semibold text-gray-800 mb-6">Pricing & Image</h2>
+                            
+                            <div class="mb-6">
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Service Image</label>
+                                <div class="upload-area" id="uploadArea">
+                                    <i class="fas fa-cloud-upload-alt text-4xl text-emerald-500 mb-3"></i>
+                                    <p class="font-medium text-gray-700">Click to upload or drag and drop</p>
+                                    <p class="text-sm text-gray-500 mt-1">PNG, JPG, GIF up to 10MB</p>
+                                    <input type="file" id="imageUpload" name="image" class="hidden" accept="image/*">
+                                </div>
+                                <div class="mt-4">
+                                    <img id="imagePreview" class="preview-image w-full hidden">
+                                </div>
+                            </div>
+                            
+                            <div class="mb-6">
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Pricing Options *</label>
+                                <div id="optionsContainer" class="space-y-4">
+                                    <!-- Options will be added here dynamically -->
+                                </div>
+                                <button type="button" id="addOptionBtn" class="mt-4 flex items-center text-emerald-600 hover:text-emerald-800">
+                                    <i class="fas fa-plus-circle mr-2"></i> Add Pricing Option
+                                </button>
+                                <input type="hidden" name="option_count" id="option_count" value="0">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex justify-end space-x-4 pt-6 border-t border-gray-200">
+                        <button type="reset" id="resetForm" class="px-6 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 transition">Reset Form</button>
+                        <button type="submit" class="px-6 py-2 bg-emerald-500 hover:bg-emerald-600 text-white rounded-lg font-medium transition duration-300">
+                            <i class="fas fa-save mr-2"></i> Save Service
+                        </button>
+                    </div>
+                </form>
+            </div>
+            
+            <!-- Manage Services Section -->
+            <div id="manage-services" class="tab-content p-6 active">
+                <div class="flex flex-col">
+                    {% if services %}
+                    <div class="overflow-x-auto">
+                        <div class="align-middle inline-block min-w-full">
+                            <div class="shadow overflow-hidden border-b border-gray-200 rounded-lg">
+                                <table class="min-w-full divide-y divide-gray-200">
+                                    <thead class="bg-gray-50">
+                                        <tr>
+                                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Service</th>
+                                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Instructor</th>
+                                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Timing</th>
+                                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Pricing Options</th>
+                                            <th scope="col" class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="bg-white divide-y divide-gray-200" id="servicesList">
+                                        {% for service in services %}
+                                        <tr class="service-item" 
+                                            data-id="{{ service.id }}"
+                                            data-name="{{ service.name }}"
+                                            data-instructor="{{ service.instructor }}"
+                                            data-timing="{{ service.timing }}"
+                                            data-description="{{ service.description or '' }}"
+                                            data-image="{{ service.image }}"
+                                            data-options="{{ service.options | tojson | safe }}">
+                                            
+                                            <td class="px-6 py-4 whitespace-nowrap">
+                                                <div class="flex items-center">
+                                                    <div class="flex-shrink-0 h-10 w-10">
+                                                        {% if service.image and service.image != 'None' %}
+                                                        <img class="h-10 w-10 rounded-full object-cover" 
+                                                            src="{{ url_for('static', filename=service.image) }}" 
+                                                            alt="{{ service.name }}">
+                                                        {% else %}
+                                                        <div class="bg-gray-200 border-2 border-dashed rounded-xl w-10 h-10"></div>
+                                                        {% endif %}
+                                                    </div>
+                                                    <div class="ml-4">
+                                                        <div class="text-sm font-medium text-gray-900">{{ service.name }}</div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap">
+                                                <div class="text-sm text-gray-900">{{ service.instructor }}</div>
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap">
+                                                <div class="text-sm text-gray-900">{{ service.timing }}</div>
+                                            </td>
+                                            <td class="px-6 py-4">
+                                                <div class="text-sm text-gray-900">
+                                                    <ul class="list-disc pl-5">
+                                                        {% for option in service.options %}
+                                                        <li>{{ option.text }}: ₹{{ option.value }}+18% GST</li>
+                                                        {% endfor %}
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                                <button class="edit-service text-emerald-600 hover:text-emerald-900 mr-3" data-id="{{ service.id }}">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                                <form action="{{ url_for('delete_service', service_id=service.id) }}" method="POST" class="inline">
+                                                    <button type="submit" class="text-red-600 hover:text-red-900" onclick="return confirm('Are you sure you want to delete this service?');">
+                                                        <i class="fas fa-trash-alt"></i>
+                                                    </button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    {% else %}
+                    <div class="text-center py-12">
+                        <div class="inline-flex items-center justify-center rounded-full bg-gray-100 p-4">
+                            <i class="fas fa-spa text-3xl text-emerald-500"></i>
+                        </div>
+                        <h3 class="mt-4 text-lg font-medium text-gray-900">No services yet</h3>
+                        <p class="mt-1 text-gray-500">Get started by adding your first yoga service.</p>
+                        <div class="mt-6">
+                            <button id="addFirstServiceBtn" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-emerald-600 hover:bg-emerald-700 focus:outline-none">
+                                <i class="fas fa-plus mr-2"></i> Add Service
+                            </button>
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Tab functionality
+        document.querySelectorAll('.tab-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all tabs and buttons
+                document.querySelectorAll('.tab-content').forEach(tab => {
+                    tab.classList.remove('active');
+                });
+                document.querySelectorAll('.tab-btn').forEach(btn => {
+                    btn.classList.remove('active-tab');
+                });
+                
+                // Add active class to current
+                const tabId = button.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+                button.classList.add('active-tab');
+            });
+        });
+
+        // Edit service functionality - FIXED VERSION
+        document.querySelectorAll('.edit-service').forEach(button => {
+            button.addEventListener('click', function() {
+                const serviceRow = this.closest('tr');
+                const serviceId = serviceRow.dataset.id;
+                
+                // Get service data from data attributes
+                const serviceData = {
+                    id: serviceId,
+                    name: serviceRow.dataset.name,
+                    instructor: serviceRow.dataset.instructor,
+                    timing: serviceRow.dataset.timing,
+                    description: serviceRow.dataset.description,
+                    image: serviceRow.dataset.image
+                };
+                
+                // Parse options safely
+                try {
+                    serviceData.options = JSON.parse(serviceRow.dataset.options);
+                } catch (e) {
+                    console.error("Error parsing options:", e);
+                    serviceData.options = [];
+                }
+                
+                // Populate form with service data
+                document.querySelector('input[name="name"]').value = serviceData.name;
+                document.querySelector('input[name="instructor"]').value = serviceData.instructor;
+                document.querySelector('input[name="timing"]').value = serviceData.timing;
+                document.querySelector('textarea[name="description"]').value = serviceData.description;
+                
+                // Set image preview
+                const imagePreview = document.getElementById('imagePreview');
+                if (serviceData.image && serviceData.image !== 'None' && serviceData.image !== '') {
+                    imagePreview.src = "{{ url_for('static', filename='') }}" + serviceData.image;
+                    imagePreview.classList.remove('hidden');
+                    document.getElementById('uploadArea').classList.add('hidden');
+                } else {
+                    imagePreview.classList.add('hidden');
+                    document.getElementById('uploadArea').classList.remove('hidden');
+                }
+                
+                // Set options
+                const optionsContainer = document.getElementById('optionsContainer');
+                optionsContainer.innerHTML = '';
+                optionCounter = 0;
+                
+                // Check if options exist and are iterable
+                if (serviceData.options && Array.isArray(serviceData.options)) {
+                    serviceData.options.forEach(option => {
+                        addOption(option.text, option.value);
+                    });
+                } else {
+                    // Add at least one empty option
+                    addOption();
+                }
+                
+                // Set hidden fields for edit mode
+                document.getElementById('service_id').value = serviceData.id;
+                document.getElementById('action').value = 'edit';
+                
+                // Switch to form tab
+                document.querySelectorAll('.tab-btn').forEach(btn => {
+                    btn.classList.remove('active-tab');
+                });
+                document.querySelectorAll('.tab-content').forEach(tab => {
+                    tab.classList.remove('active');
+                });
+                
+                document.getElementById('add-service').classList.add('active');
+                document.querySelector('[data-tab="add-service"]').classList.add('active-tab');
+            });
+        });
+
+        // Add Service Button
+        document.getElementById('addServiceBtn').addEventListener('click', () => {
+            showFormTab();
+        });
+
+        // Add First Service Button
+        const addFirstServiceBtn = document.getElementById('addFirstServiceBtn');
+        if (addFirstServiceBtn) {
+            addFirstServiceBtn.addEventListener('click', () => {
+                showFormTab();
+            });
+        }
+
+        function showFormTab() {
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active-tab');
+            });
+            
+            document.getElementById('add-service').classList.add('active');
+            document.querySelector('[data-tab="add-service"]').classList.add('active-tab');
+            
+            // Reset form to add mode
+            document.getElementById('service_id').value = '';
+            document.getElementById('action').value = 'add';
+            document.getElementById('resetForm').click();
+        }
+
+        // Pricing options management
+        let optionCounter = 0;
+        const optionsContainer = document.getElementById('optionsContainer');
+        const addOptionBtn = document.getElementById('addOptionBtn');
+        
+        function addOption(text = '', value = '') {
+            const optionRow = document.createElement('div');
+            optionRow.className = 'option-row grid grid-cols-2 gap-4 mb-3';
+            optionRow.innerHTML = `
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Option Text</label>
+                    <input type="text" name="option_text_${optionCounter}" 
+                           class="w-full px-3 py-2 border border-gray-300 rounded-lg" 
+                           placeholder="e.g., Adult - 3 days/week - ₹3000+18% Gst" 
+                           value="${text}" required>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Price (₹)</label>
+                    <input type="number" name="option_value_${optionCounter}" 
+                           class="w-full px-3 py-2 border border-gray-300 rounded-lg" 
+                           placeholder="e.g., 3000" 
+                           value="${value}" required>
+                </div>
+            `;
+            optionsContainer.appendChild(optionRow);
+            optionCounter++;
+            document.getElementById('option_count').value = optionCounter;
+        }
+        
+        addOptionBtn.addEventListener('click', () => addOption());
+        
+        // Add initial option
+        addOption();
+
+        // Image upload preview
+        const uploadArea = document.getElementById('uploadArea');
+        const imageUpload = document.getElementById('imageUpload');
+        const imagePreview = document.getElementById('imagePreview');
+        
+        uploadArea.addEventListener('click', () => {
+            imageUpload.click();
+        });
+        
+        imageUpload.addEventListener('change', function() {
+            if (this.files && this.files[0]) {
+                const reader = new FileReader();
+                
+                reader.onload = function(e) {
+                    imagePreview.src = e.target.result;
+                    imagePreview.classList.remove('hidden');
+                    uploadArea.classList.add('hidden');
+                }
+                
+                reader.readAsDataURL(this.files[0]);
+            }
+        });
+        
+        // Drag and drop for image upload
+        uploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadArea.classList.add('dragover');
+        });
+        
+        uploadArea.addEventListener('dragleave', () => {
+            uploadArea.classList.remove('dragover');
+        });
+        
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.classList.remove('dragover');
+            
+            if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+                imageUpload.files = e.dataTransfer.files;
+                
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    imagePreview.src = e.target.result;
+                    imagePreview.classList.remove('hidden');
+                    uploadArea.classList.add('hidden');
+                }
+                reader.readAsDataURL(e.dataTransfer.files[0]);
+            }
+        });
+
+        // Reset form button
+        document.getElementById('resetForm').addEventListener('click', function() {
+            document.getElementById('service_id').value = '';
+            document.getElementById('action').value = 'add';
+            imagePreview.classList.add('hidden');
+            imagePreview.src = '';
+            document.getElementById('uploadArea').classList.remove('hidden');
+            optionsContainer.innerHTML = '';
+            optionCounter = 0;
+            addOption();
+            
+            // Also reset form fields
+            document.querySelector('input[name="name"]').value = '';
+            document.querySelector('input[name="instructor"]').value = '';
+            document.querySelector('input[name="timing"]').value = '';
+            document.querySelector('textarea[name="description"]').value = '';
+        });
+    </script>
+</body>
+</html>
+{% endblock %}

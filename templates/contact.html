@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="static/images/logo1.png" type="image/x-icon">
+  <title>Contact Us</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    #map {
+      height: 400px;
+      width: 100%;
+    }
+    #contact-hero {
+      height: 60vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    
+    /* Modal styles */
+    #successModal {
+      transition: opacity 0.3s ease;
+    }
+    #successModal.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+    .modal-content {
+      animation: modalFadeIn 0.3s ease-out;
+    }
+    @keyframes modalFadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="fixed top-0 left-0 right-0 w-full z-50 bg-gray-800 shadow-md">
+    <div class="relative z-10 flex items-center justify-between px-6 py-2 md:py-3">
+      <div class="flex items-center space-x-4">
+        <div class="relative w-20 h-20 rounded-full overflow-hidden">
+          <img src="{{ url_for('static', filename='images/logo1.png') }}" alt="Logo" class="w-full h-full object-cover" />
+        </div>
+        <span class="text-2xl md:text-3xl font-bold text-white">Wellnation360</span>
+      </div>
+      <nav class="hidden md:flex items-center space-x-6 text-white text-base md:text-lg font-semibold">
+        <a href="{{ url_for('index') }}" class="text-white">Home</a>
+        <a href="{{ url_for('about') }}" class="text-white">About</a>
+        <a href="{{ url_for('contact_get') }}" class="text-white">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="text-white py-20 px-6 text-center bg-cover bg-center relative" style="background-image: url('{{ url_for('static', filename='images/contact.jpg') }}'); background-repeat: no-repeat; background-size: cover; margin-top: 80px;" id="contact-hero">
+    <div class="absolute inset-0 bg-black opacity-50 z-0"></div>
+    <div class="relative z-10 flex flex-col items-center justify-center space-y-6">
+      <h2 class="text-4xl font-semibold mb-6">We'd Love to Hear From You</h2>
+      <p class="text-lg mb-8 max-w-3xl mx-auto">
+        Reach out to us for inquiries, bookings, or anything else you need help with. We're here to assist you with all your needs—let's connect!
+      </p>
+      <a href="#contact-details" class="bg-green-600 hover:bg-green-700 text-white font-semibold px-8 py-3 rounded-full transition duration-300">
+        Get In Touch
+      </a>
+    </div>
+  </section>
+
+  <div class="flex flex-col md:flex-row items-start justify-center min-h-screen bg-yellow-50 pt-12 md:pt-16 p-4 md:p-8 gap-8">
+    <section class="w-full md:w-1/2 bg-white p-6 md:p-8 rounded-lg shadow-lg" id="contact-details">
+      <h2 class="text-3xl font-bold text-gray-800 mb-6">Contact Information</h2>
+
+      <div class="space-y-4 mb-8">
+        <div class="flex flex-wrap items-center gap-4 md:gap-6">
+          <div class="flex items-center">
+            <i class="fas fa-envelope text-yellow-500 text-xl mr-3 md:mr-4"></i>
+            <span class="text-gray-600">
+              <strong>Email:</strong>
+              <a href="mailto:wellnation360@gmail.com" class="text-yellow-500 hover:underline ml-1">
+                wellnation360@gmail.com
+              </a>
+            </span>
+          </div>
+
+          <div class="flex items-center">
+            <i class="fas fa-phone-alt text-yellow-500 text-xl mr-3 md:mr-4"></i>
+            <span class="text-gray-600">
+              <strong>Phone:</strong>
+              <a href="tel:+919341444968" class="text-yellow-500 hover:underline ml-1">
+                +91 9341444968
+              </a>
+            </span>
+          </div>
+        </div>
+
+        <div class="flex items-start">
+          <i class="fas fa-map-marker-alt text-yellow-500 text-xl mr-3 md:mr-4 mt-1"></i>
+          <span class="text-gray-600">
+            <strong>Address:</strong>
+            <span class="ml-1">
+              Survey 84, Kristal Agate and Jasper Road, Kasavanahalli, Hosa Road, Bangalore 560035
+            </span>
+          </span>
+        </div>
+      </div>
+
+      <div>
+        <h2 class="text-2xl font-bold text-gray-800 mb-4">Our Location</h2>
+        <div id="map-container" class="w-full h-64 rounded-lg shadow-lg">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3889.049449033324!2d77.6636713750529!3d12.91540868739943!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae13402404e38b%3A0x7d2f9d6c7b9c9f6!2sKristal%20Agate%20and%20Jasper!5e0!3m2!1sen!2sin!4v1678987654321!5m2!1sen!2sin"
+            width="100%"
+            height="100%"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            class="rounded-lg"
+          ></iframe>
+        </div>
+      </div>
+    </section>
+
+    <div class="w-full md:w-1/2 bg-white p-6 md:p-8 rounded-lg shadow-lg">
+      <h2 class="text-2xl font-bold mb-6 text-gray-800">Book a Service</h2>
+      <form id="serviceForm" class="space-y-4">
+        <input type="hidden" name="access_key" value="1618ab69-0e53-41fe-ae6d-cb16372987b2">
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <input type="text" id="name" name="name" placeholder="Name*" required class="w-full p-3 border rounded focus:ring-2 focus:ring-yellow-500">
+          </div>
+          <div>
+            <input type="tel" id="phone" name="phone" placeholder="Phone Number*" required class="w-full p-3 border rounded focus:ring-2 focus:ring-yellow-500">
+          </div>
+        </div>
+
+        <input type="email" id="email" name="email" placeholder="Email*" required class="w-full p-3 border rounded focus:ring-2 focus:ring-yellow-500">
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <select id="branch" name="branch" required class="w-full p-3 border rounded focus:ring-2 focus:ring-yellow-500">
+              <option value="">Select Branch*</option>
+              <option value="Wellnation360">Wellnation360</option>
+              <option value="Yogaksheema">Yogaksheema</option>
+            </select>
+          </div>
+          <div>
+            <select id="service" name="service" required class="w-full p-3 border rounded focus:ring-2 focus:ring-yellow-500">
+              <option value="">Select Service*</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label for="date" class="block text-sm font-medium text-gray-700 mb-1">Preferred Date*</label>
+            <input type="date" id="date" name="date" required class="w-full p-3 border rounded focus:ring-2 focus:ring-yellow-500">
+          </div>
+          <div>
+            <label for="time" class="block text-sm font-medium text-gray-700 mb-1">Preferred Time*</label>
+            <select id="time" name="time" required class="w-full p-3 border rounded focus:ring-2 focus:ring-yellow-500">
+              <option value="">Select Time Slot*</option>
+              <option value="morning">Morning (9AM - 12PM)</option>
+              <option value="afternoon">Afternoon (12PM - 4PM)</option>
+              <option value="evening">Evening (4PM - 8PM)</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Additional Message</label>
+          <textarea id="message" name="message" placeholder="Any special requirements or notes..." rows="4" class="w-full p-3 border rounded focus:ring-2 focus:ring-yellow-500"></textarea>
+        </div>
+
+        <button type="submit" class="w-full bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-3 rounded shadow-lg transition duration-300 mt-2">
+          Submit Booking
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Success Modal -->
+  <div id="successModal" class="fixed inset-0 z-50 flex items-center justify-center hidden">
+    <div class="absolute inset-0 bg-black opacity-50"></div>
+    <div class="relative bg-white rounded-lg p-8 max-w-md mx-4 z-10 modal-content">
+      <div class="text-center">
+        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+          <i class="fas fa-check text-green-500 text-2xl"></i>
+        </div>
+        <h3 class="text-2xl font-bold text-gray-800 mb-2">Thank You!</h3>
+        <p class="text-gray-600 mb-6">Your booking request has been submitted successfully. We'll contact you shortly.</p>
+        <button onclick="closeModal()" class="bg-yellow-500 hover:bg-yellow-600 text-white font-semibold px-6 py-2 rounded transition duration-300">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <footer id="footer" class="bg-gray-800 text-gray-300 py-12 md:py-16">
+    <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 text-center md:text-left">
+        <div>
+          <h4 class="text-xl font-semibold mb-4 text-white">Wellnation360</h4>
+          <p class="text-sm leading-relaxed mb-4">Your partner in holistic health and mindful living...</p>
+           <div class="relative w-24 h-24 mx-auto md:mx-0 rounded-full overflow-hidden border-2 border-green-500">
+            <img src="{{ url_for('static', filename='images/logo1.png') }}" alt="Wellnation360 Small Logo" class="w-full h-full object-cover" />
+          </div>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-4 text-white">Quick Links</h4>
+          <ul class="space-y-2.5 text-sm">
+            <li><a href="wellnation360.com/index" class="hover:text-green-400 transition-colors duration-200">Home</a></li>
+            <li><a href="#about" class="hover:text-green-400 transition-colors duration-200">About Us</a></li>
+            <li><a href="#services" class="hover:text-green-400 transition-colors duration-200">Our Services</a></li>
+            <li><a href="wellnation360.com/glimpse" class="hover:text-green-400 transition-colors duration-200">Gallery</a></li>
+            <li><a href="http://yoga-kshema.in" class="hover:text-green-400 transition-colors duration-200" target="_blank" rel="noopener noreferrer">Yogakshema Website</a></li>
+            <li><a href="wellnation360.com/contact" class="hover:text-green-400 transition-colors duration-200">Contact Us</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-4 text-white">Contact Info</h4>
+          <div class="text-sm leading-relaxed space-y-3">
+            <div class="flex items-center justify-center md:justify-start gap-2 hover:text-green-400 transition-colors duration-200">
+              <i class="fas fa-map-marker-alt text-green-400 text-base w-5 text-center"></i>
+              <a href="https://maps.google.com/?q=Kasavanahalli,Bangalore,560035" target="_blank" rel="noopener noreferrer" class="hover:underline">Kasavanahalli, Bangalore 560035</a>
+            </div>
+            <div class="flex items-center justify-center md:justify-start gap-2 hover:text-green-400 transition-colors duration-200">
+              <i class="fas fa-phone-alt text-green-400 text-base w-5 text-center"></i>
+              <a href="tel:+917795246002" class="hover:underline">+91 77952 46002</a>
+            </div>
+             <div class="flex items-center justify-center md:justify-start gap-2 hover:text-green-400 transition-colors duration-200">
+              <i class="fas fa-envelope text-green-400 text-base w-5 text-center"></i>
+              <a href="mailto:info@wellnation360.com" class="hover:underline"> info@wellnation360.com</a>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-4 text-white">Follow Us</h4>
+          <div class="flex justify-center md:justify-start space-x-5">
+            <a href="https://instagram.com/wellnation360" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="text-2xl hover:text-pink-500 transition-colors duration-200"><i class="fab fa-instagram"></i></a>
+            <a href="https://youtube.com/@YOUR_CHANNEL_NAME" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="text-2xl hover:text-red-500 transition-colors duration-200"><i class="fab fa-youtube"></i></a>
+            <a href="https://facebook.com/wellnation360" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="text-2xl hover:text-blue-600 transition-colors duration-200"><i class="fab fa-facebook"></i></a>
+          </div>
+           <p class="text-xs mt-6 text-gray-400">Stay connected for wellness tips, updates, and community events.</p>
+        </div>
+      </div>
+    <div class="text-center text-sm mt-10 border-t border-gray-700 pt-8">© <span id="currentYear"></span> Wellnation360. All rights reserved.</div>
+  </footer>
+
+  <script>
+    // Set current year in footer
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+    // Set min date for date picker to today
+    const today = new Date().toISOString().split('T')[0];
+    const dateInput = document.getElementById('date');
+    if (dateInput) {
+        dateInput.setAttribute('min', today);
+    }
+
+    // Services Data for dropdown
+    const servicesByBranch = {
+      Wellnation360: [
+        "Gentle Detox Cleanse", "Diabetes Support Plan", "Thyroid Balance Therapy",
+        "Digestive Wellness Plan", "Menopausal Management", "Acupuncture Therapy",
+        "Healthy Body Transformation", "Psychological Counseling", "Personalized Nutrition Plan",
+        "Weight Management Program", "Stress Relief & Mindfulness", "General Consultation"
+      ],
+      Yogakshema: [
+        "Chakra Meditation", "Hatha Yoga", "Aerial Yoga", "Therapeutic Yoga",
+        "Pranayama & Breathwork", "Yoga Nidra", "Kids Yoga", "General Inquiry"
+      ]
+    };
+
+    const branchSelect = document.getElementById('branch');
+    const serviceSelect = document.getElementById('service');
+
+    function populateServices() {
+      const selectedBranch = branchSelect.value;
+      serviceSelect.innerHTML = '<option value="">Select Service*</option>';
+      if (servicesByBranch[selectedBranch]) {
+        servicesByBranch[selectedBranch].forEach(service => {
+          const option = document.createElement('option');
+          option.value = service;
+          option.textContent = service;
+          serviceSelect.appendChild(option);
+        });
+      }
+    }
+
+    if (branchSelect && serviceSelect) {
+        branchSelect.addEventListener('change', populateServices);
+    }
+
+    // Modal functions
+    function showModal() {
+      document.getElementById('successModal').classList.remove('hidden');
+    }
+
+    function closeModal() {
+      document.getElementById('successModal').classList.add('hidden');
+    }
+
+    // Form submission
+    const serviceForm = document.getElementById('serviceForm');
+    if (serviceForm) {
+      serviceForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        const submitButton = serviceForm.querySelector('button[type="submit"]');
+        const originalButtonText = submitButton.innerHTML;
+        submitButton.disabled = true;
+        submitButton.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Submitting...';
+        
+        const formData = new FormData(serviceForm);
+        const object = {};
+        formData.forEach((value, key) => object[key] = value);
+        const json = JSON.stringify(object);
+        
+        fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: json
+        })
+        .then(async (response) => {
+          const jsonResponse = await response.json();
+          if (response.status === 200 && jsonResponse.success) {
+            // Show success modal
+            showModal();
+            // Reset form
+            serviceForm.reset();
+            // Reset services dropdown
+            if(branchSelect) populateServices();
+          } else {
+            alert(jsonResponse.message || "Something went wrong. Please try again.");
+          }
+        })
+        .catch(error => {
+          console.error("Error:", error);
+          alert("An error occurred. Please try again.");
+        })
+        .finally(() => {
+          submitButton.disabled = false;
+          submitButton.innerHTML = originalButtonText;
+        });
+      });
+    }
+
+    // Initial population if a branch is already selected (e.g. by browser cache)
+    document.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const serviceToEnroll = urlParams.get('service_enroll');
+      const serviceBranch = urlParams.get('branch');
+
+      if (branchSelect && serviceBranch) {
+          branchSelect.value = serviceBranch;
+          populateServices();
+      }
+      if (serviceSelect && serviceToEnroll) {
+          setTimeout(() => {
+               if (Array.from(serviceSelect.options).find(opt => opt.value === serviceToEnroll)) {
+                  serviceSelect.value = serviceToEnroll;
+              }
+          }, 100);
+      }
+      
+      if(branchSelect && branchSelect.value && serviceSelect) {
+          populateServices();
+      }
+    });
+  </script>
+
+</body>
+</html>

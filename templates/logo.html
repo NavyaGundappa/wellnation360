@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" href="static/images/logo1.png" type="image/x-icon">
+  <title>Wellnation360</title>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      background-color: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #logo {
+      width: 120px; /* Set fixed size */
+      height: auto;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(3); /* Start large */
+      opacity: 0; /* Start invisible */
+      transition: opacity 2s ease-in-out, transform 2s ease-in-out;
+    }
+
+    #intro {
+      position: fixed;
+      inset: 0;
+      background-color: black;
+      z-index: 50;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="intro">
+    <img id="logo" src="static/images/logo1.png" alt="Logo">
+  </div>
+
+  <script>
+    window.onload = () => {
+      setTimeout(() => {
+        document.getElementById('logo').style.opacity = '1';
+      }, 200);
+
+      setTimeout(() => {
+        document.getElementById('logo').style.transform = 'translate(-50%, -50%) scale(1)';
+        document.getElementById('logo').style.opacity = '0';
+      }, 3000);
+
+      setTimeout(() => {
+        window.location.href = "/index";
+      }, 5000);
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wellness Center | Holistic Health Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .hero-heading {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .slide-transition {
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .service-card {
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(8px);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .gradient-overlay {
+            background: linear-gradient(135deg, rgba(26, 32, 44, 0.9) 0%, rgba(26, 32, 44, 0.7) 100%);
+        }
+        
+        .emoji {
+            font-family: "Twemoji", "Apple Color Emoji", "Segoe UI Emoji", sans-serif;
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+    <!-- Full Page Hero Section -->
+    <section id="home" class="relative h-screen w-full flex flex-col md:flex-row overflow-hidden">
+        <!-- Left Side - Content Slides -->
+        <div class="w-full md:w-1/2 relative bg-gray-50 flex items-center justify-center p-8 md:p-16">
+            <!-- Slide 1 - Detox -->
+            <div class="slide-transition absolute max-w-2xl" data-slide="1">
+                <div class="flex items-center mb-6">
+                    <div class="w-12 h-0.5 bg-emerald-500 mr-4"></div>
+                    <span class="text-sm font-medium tracking-widest text-emerald-600">DETOX PROGRAMS</span>
+                </div>
+                <h1 class="hero-heading text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-gray-900">
+                    Renew Your Body's Natural Balance
+                </h1>
+                <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                    Our 21-day transformative detox program combines ancient cleansing rituals with modern nutritional science to help you reset, recharge, and revitalize from within.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#" class="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 rounded-lg transition flex items-center justify-center gap-2">
+                        <i class="fas fa-leaf"></i>
+                        <span>Explore Program</span>
+                    </a>
+                    <a href="#" class="border-2 border-gray-300 hover:border-emerald-500 text-gray-700 hover:text-emerald-600 px-8 py-4 rounded-lg transition flex items-center justify-center gap-2">
+                        <i class="fas fa-play-circle"></i>
+                        <span>Watch Video</span>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Slide 2 - Weight Loss -->
+            <div class="slide-transition absolute max-w-2xl opacity-0" data-slide="2">
+                <div class="flex items-center mb-6">
+                    <div class="w-12 h-0.5 bg-emerald-500 mr-4"></div>
+                    <span class="text-sm font-medium tracking-widest text-emerald-600">WEIGHT MANAGEMENT</span>
+                </div>
+                <h1 class="hero-heading text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-gray-900">
+                    Sustainable Weight Transformation
+                </h1>
+                <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                    Break free from yo-yo dieting with our metabolic optimization program that combines personalized nutrition, mindful eating practices, and lifestyle redesign.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#" class="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 rounded-lg transition flex items-center justify-center gap-2">
+                        <i class="fas fa-weight-scale"></i>
+                        <span>Our Methodology</span>
+                    </a>
+                    <a href="#" class="border-2 border-gray-300 hover:border-emerald-500 text-gray-700 hover:text-emerald-600 px-8 py-4 rounded-lg transition flex items-center justify-center gap-2">
+                        <i class="fas fa-star"></i>
+                        <span>Success Stories</span>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Slide 3 - Mental Health -->
+            <div class="slide-transition absolute max-w-2xl opacity-0" data-slide="3">
+                <div class="flex items-center mb-6">
+                    <div class="w-12 h-0.5 bg-emerald-500 mr-4"></div>
+                    <span class="text-sm font-medium tracking-widest text-emerald-600">MENTAL WELLBEING</span>
+                </div>
+                <h1 class="hero-heading text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-gray-900">
+                    Find Your Center Again
+                </h1>
+                <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                    Our integrative approach combines evidence-based therapy with holistic practices to help you manage stress, anxiety, and emotional challenges.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#" class="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 rounded-lg transition flex items-center justify-center gap-2">
+                        <i class="fas fa-brain"></i>
+                        <span>Therapies</span>
+                    </a>
+                    <a href="#" class="border-2 border-gray-300 hover:border-emerald-500 text-gray-700 hover:text-emerald-600 px-8 py-4 rounded-lg transition flex items-center justify-center gap-2">
+                        <i class="fas fa-user-md"></i>
+                        <span>Meet Our Experts</span>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Slide 4 - Diabetes -->
+            <div class="slide-transition absolute max-w-2xl opacity-0" data-slide="4">
+                <div class="flex items-center mb-6">
+                    <div class="w-12 h-0.5 bg-emerald-500 mr-4"></div>
+                    <span class="text-sm font-medium tracking-widest text-emerald-600">DIABETES CARE</span>
+                </div>
+                <h1 class="hero-heading text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-gray-900">
+                    Balanced Living With Diabetes
+                </h1>
+                <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                    Our comprehensive program helps regulate blood sugar levels through dietary modifications, supplement protocols, and lifestyle adjustments.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#" class="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 rounded-lg transition flex items-center justify-center gap-2">
+                        <i class="fas fa-heartbeat"></i>
+                        <span>Program Details</span>
+                    </a>
+                    <a href="#" class="border-2 border-gray-300 hover:border-emerald-500 text-gray-700 hover:text-emerald-600 px-8 py-4 rounded-lg transition flex items-center justify-center gap-2">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Track Progress</span>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Slide 5 - Thyroid -->
+            <div class="slide-transition absolute max-w-2xl opacity-0" data-slide="5">
+                <div class="flex items-center mb-6">
+                    <div class="w-12 h-0.5 bg-emerald-500 mr-4"></div>
+                    <span class="text-sm font-medium tracking-widest text-emerald-600">THYROID HEALTH</span>
+                </div>
+                <h1 class="hero-heading text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-gray-900">
+                    Restore Your Thyroid Balance
+                </h1>
+                <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                    Specialized program to support thyroid function and address issues like hypothyroidism or Hashimoto's through targeted nutrition and lifestyle interventions.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#" class="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 rounded-lg transition flex items-center justify-center gap-2">
+                        <i class="fas fa-seedling"></i>
+                        <span>Thyroid Program</span>
+                    </a>
+                    <a href="#" class="border-2 border-gray-300 hover:border-emerald-500 text-gray-700 hover:text-emerald-600 px-8 py-4 rounded-lg transition flex items-center justify-center gap-2">
+                        <i class="fas fa-flask"></i>
+                        <span>Lab Testing</span>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Slide 6 - Digestive -->
+            <div class="slide-transition absolute max-w-2xl opacity-0" data-slide="6">
+                <div class="flex items-center mb-6">
+                    <div class="w-12 h-0.5 bg-emerald-500 mr-4"></div>
+                    <span class="text-sm font-medium tracking-widest text-emerald-600">GUT HEALTH</span>
+                </div>
+                <h1 class="hero-heading text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-gray-900">
+                    Heal Your Digestive System
+                </h1>
+                <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                    Gut healing program designed to address digestive disorders like IBS, leaky gut, or food sensitivities through elimination diets and microbiome support.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#" class="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 rounded-lg transition flex items-center justify-center gap-2">
+                        <i class="fas fa-stomach"></i>
+                        <span>Gut Healing</span>
+                    </a>
+                    <a href="#" class="border-2 border-gray-300 hover:border-emerald-500 text-gray-700 hover:text-emerald-600 px-8 py-4 rounded-lg transition flex items-center justify-center gap-2">
+                        <i class="fas fa-microscope"></i>
+                        <span>Microbiome Test</span>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Slide 7 - Menopause -->
+            <div class="slide-transition absolute max-w-2xl opacity-0" data-slide="7">
+                <div class="flex items-center mb-6">
+                    <div class="w-12 h-0.5 bg-emerald-500 mr-4"></div>
+                    <span class="text-sm font-medium tracking-widest text-emerald-600">MENOPAUSE SUPPORT</span>
+                </div>
+                <h1 class="hero-heading text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-gray-900">
+                    Navigate Change With Confidence
+                </h1>
+                <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                    Holistic approach to managing menopause symptoms through natural therapies, hormone-balancing nutrition, and stress reduction techniques.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#" class="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 rounded-lg transition flex items-center justify-center gap-2">
+                        <i class="fas fa-moon"></i>
+                        <span>Symptom Relief</span>
+                    </a>
+                    <a href="#" class="border-2 border-gray-300 hover:border-emerald-500 text-gray-700 hover:text-emerald-600 px-8 py-4 rounded-lg transition flex items-center justify-center gap-2">
+                        <i class="fas fa-spa"></i>
+                        <span>Wellness Plans</span>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Slide 8 - Acupuncture -->
+            <div class="slide-transition absolute max-w-2xl opacity-0" data-slide="8">
+                <div class="flex items-center mb-6">
+                    <div class="w-12 h-0.5 bg-emerald-500 mr-4"></div>
+                    <span class="text-sm font-medium tracking-widest text-emerald-600">ACUPUNCTURE</span>
+                </div>
+                <h1 class="hero-heading text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-gray-900">
+                    Ancient Healing For Modern Life
+                </h1>
+                <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                    Traditional Chinese medicine technique using fine needles to stimulate specific points, promoting natural healing and improving function.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#" class="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 rounded-lg transition flex items-center justify-center gap-2">
+                        <i class="fas fa-acorn"></i>
+                        <span>Treatment Options</span>
+                    </a>
+                    <a href="#" class="border-2 border-gray-300 hover:border-emerald-500 text-gray-700 hover:text-emerald-600 px-8 py-4 rounded-lg transition flex items-center justify-center gap-2">
+                        <i class="fas fa-calendar-check"></i>
+                        <span>Book Session</span>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Slide Indicators -->
+            <div class="absolute bottom-8 left-8 z-10 flex gap-2">
+                <button class="slide-indicator w-8 h-1 bg-gray-300 hover:bg-emerald-500 transition" data-slide="1"></button>
+                <button class="slide-indicator w-8 h-1 bg-gray-300 hover:bg-emerald-500 transition" data-slide="2"></button>
+                <button class="slide-indicator w-8 h-1 bg-gray-300 hover:bg-emerald-500 transition" data-slide="3"></button>
+                <button class="slide-indicator w-8 h-1 bg-gray-300 hover:bg-emerald-500 transition" data-slide="4"></button>
+                <button class="slide-indicator w-8 h-1 bg-gray-300 hover:bg-emerald-500 transition" data-slide="5"></button>
+                <button class="slide-indicator w-8 h-1 bg-gray-300 hover:bg-emerald-500 transition" data-slide="6"></button>
+                <button class="slide-indicator w-8 h-1 bg-gray-300 hover:bg-emerald-500 transition" data-slide="7"></button>
+                <button class="slide-indicator w-8 h-1 bg-gray-300 hover:bg-emerald-500 transition" data-slide="8"></button>
+            </div>
+        </div>
+        
+        <!-- Right Side - Hero Image with Services Overlay -->
+        <div class="w-full md:w-1/2 relative">
+            <!-- Hero Image Slides -->
+            <div class="slide-transition absolute inset-0 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1545205597-3d9d02c29597');" data-slide="1">
+                <div class="gradient-overlay absolute inset-0"></div>
+            </div>
+            <div class="slide-transition absolute inset-0 bg-cover bg-center opacity-0" style="background-image: url('https://images.unsplash.com/photo-1498837167922-ddd27525d352');" data-slide="2">
+                <div class="gradient-overlay absolute inset-0"></div>
+            </div>
+            <div class="slide-transition absolute inset-0 bg-cover bg-center opacity-0" style="background-image: url('https://images.unsplash.com/photo-1530026186672-2cd00ffc50fe');" data-slide="3">
+                <div class="gradient-overlay absolute inset-0"></div>
+            </div>
+            <div class="slide-transition absolute inset-0 bg-cover bg-center opacity-0" style="background-image: url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b');" data-slide="4">
+                <div class="gradient-overlay absolute inset-0"></div>
+            </div>
+            <div class="slide-transition absolute inset-0 bg-cover bg-center opacity-0" style="background-image: url('https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b');" data-slide="5">
+                <div class="gradient-overlay absolute inset-0"></div>
+            </div>
+            <div class="slide-transition absolute inset-0 bg-cover bg-center opacity-0" style="background-image: url('https://images.unsplash.com/photo-1498837167922-ddd27525d352');" data-slide="6">
+                <div class="gradient-overlay absolute inset-0"></div>
+            </div>
+            <div class="slide-transition absolute inset-0 bg-cover bg-center opacity-0" style="background-image: url('https://images.unsplash.com/photo-1542736667-069246bdbc6d');" data-slide="7">
+                <div class="gradient-overlay absolute inset-0"></div>
+            </div>
+            <div class="slide-transition absolute inset-0 bg-cover bg-center opacity-0" style="background-image: url('https://images.unsplash.com/photo-1542736667-069246bdbc6d');" data-slide="8">
+                <div class="gradient-overlay absolute inset-0"></div>
+            </div>
+            
+            <!-- Services Overlay Slides -->
+            <div class="slide-transition absolute inset-0 flex items-center justify-center p-8 md:p-16" data-slide="1">
+                <div class="grid grid-cols-2 gap-6 max-w-md">
+                    <div class="service-card p-6 rounded-xl shadow-sm hover:shadow-md">
+                        <i class="fas fa-leaf text-emerald-500 text-3xl mb-4"></i>
+                        <h3 class="font-bold text-lg mb-2 text-gray-800">Full Body Detox</h3>
+                        <p class="text-gray-600 text-sm">21-day cleanse with organic meals and supplements</p>
+                    </div>
+                    <div class="service-card p-6 rounded-xl shadow-sm hover:shadow-md">
+                        <span class="emoji text-3xl mb-4">💧</span>
+                        <h3 class="font-bold text-lg mb-2 text-gray-800">Liver Cleanse</h3>
+                        <p class="text-gray-600 text-sm">Specialized protocol for liver regeneration</p>
+                    </div>
+                    <div class="service-card p-6 rounded-xl shadow-sm hover:shadow-md">
+                        <i class="fas fa-seedling text-emerald-500 text-3xl mb-4"></i>
+                        <h3 class="font-bold text-lg mb-2 text-gray-800">Colon Health</h3>
+                        <p class="text-gray-600 text-sm">Restore digestive balance naturally</p>
+                    </div>
+                    <div class="service-card p-6 rounded-xl shadow-sm hover:shadow-md">
+                        <span class="emoji text-3xl mb-4">✨</span>
+                        <h3 class="font-bold text-lg mb-2 text-gray-800">Toxin Removal</h3>
+                        <p class="text-gray-600 text-sm">Heavy metal and environmental toxin elimination</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="slide-transition absolute inset-0 flex items-center justify-center p-8 md:p-16 opacity-0" data-slide="2">
+                <div class="grid grid-cols-2 gap-6 max-w-md">
+                    <div class="service-card p-6 rounded-xl shadow-sm hover:shadow-md">
+                        <i class="fas fa-weight-scale text-emerald-500 text-3xl mb-4"></i>
+                        <h3 class="font-bold text-lg mb-2 text-gray-800">Metabolic Reset</h3>
+                        <p class="text-gray-600 text-sm">Personalized weight management program</p>
+                    </div>
+                    <div class="service-card p-6 rounded-xl shadow-sm hover:shadow-md">
+                        <span class="emoji text-3xl mb-4">🧬</span>
+                        <h3 class="font-bold text-lg mb-2 text-gray-800">DNA-Based Diet</h3>
+                        <p class="text-gray-600 text-sm">Nutrition tailored to your genetics</p>
+                    </div>
+                    <div class="service-card p-6 rounded-xl shadow-sm hover:shadow-md">
+                        <i class="fas fa-dumbbell text-emerald-500 text-3xl mb-4"></i>
+                        <h3 class="font-bold text-lg mb-2 text-gray-800">Body Composition</h3>
+                        <p class="text-gray-600 text-sm">Focus on fat loss, not just weight</p>
+                    </div>
+                    <div class="service-card p-6 rounded-xl shadow-sm hover:shadow-md">
+                        <span class="emoji text-3xl mb-4">🧠</span>
+                        <h3 class="font-bold text-lg mb-2 text-gray-800">Mindful Eating</h3>
+                        <p class="text-gray-600 text-sm">Develop healthy relationships with food</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="slide-transition absolute inset-0 flex items-center justify-center p-8 md:p-16 opacity-0" data-slide="3">
+                <div class="grid grid-cols-2 gap-6 max-w-md">
+                    <div class="service-card p-6 rounded-xl shadow-sm hover:shadow-md">
+                        <i class="fas fa-brain text-emerald-500 text-3xl mb-4"></i>
+                        <h3 class="font-bold text-lg mb-2 text-gray-800">Stress Therapy</h3>
+                        <p class="text-gray-600 text-sm">Customized stress reduction techniques</p>
+                    </div>
+                    <div class="service-card p-6 rounded-xl shadow-sm hover:shadow-md">
+                        <i class="fas fa-comments text-emerald-500 text-3xl mb-4"></i>
+                        <h3 class="font-bold text-lg mb-2 text-gray-800">Counseling</h3>
+                        <p class="text-gray-600 text-sm">Professional mental health support</p>
+                    </div>
+                    <div class="service-card p-6 rounded-xl shadow-sm hover:shadow-md">
+                        <span class="emoji text-3xl mb-4">🛌</span>
+                        <h3 class="font-bold text-lg mb-2 text-gray-800">Sleep Therapy</h3>
+                        <p class="text-gray-600 text-sm">Natural solutions for better sleep</p>
+                    </div>
+                    <div class="service-card p-6 rounded-xl shadow-sm hover:shadow-md">
+                        <i class="fas fa-acorn text-emerald-500 text-3xl mb-4"></i>
+                        <h3 class="font-bold text-lg mb-2 text-gray-800">Acupuncture</h3>
+                        <p class="text-gray-600 text-sm">Traditional Chinese medicine techniques</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="slide-transition absolute inset-0 flex items-center justify-center p-8 md:p-16 opacity-0" data-slide="4">
+                <div class="grid grid-cols-2 gap-6 max-w-md">
+                    <div class="service-card p-6 rounded-xl shadow-sm hover:shadow-md">
+                        <i class="fas fa-heartbeat text-emerald-500 text-3xl mb-4"></i>
+                        <h3 class="font-bold text-lg mb-2 text-gray-800">Blood Sugar Control</h3>
+                        <p class="text-gray-600 text-sm">Natural approaches to diabetes management</p>
+                    </div>
+                    <div class="service-card p-6 rounded-xl shadow-sm hover:shadow-md">
+                        <span class="emoji text-3xl mb-4">🩸</span>
+                        <h3 class="font-bold text-lg mb-2 text-gray-800">Glucose Monitoring</h3>
+                        <p class="text-gray-600 text-sm">Continuous tracking and analysis</p>
+                    </div>
+                    <div class="service-card p-6 rounded-xl shadow-sm hover:shadow-md">
+                        <i class="fas fa-utensils text-emerald-500 text-3xl mb-4"></i>
+                        <h3 class="font-bold text-lg mb-2 text-gray-800">Diabetic Nutrition</h3>
+                        <p class="text-gray-600 text-sm">Meal planning for stable blood sugar</p>
+                    </div>
+                    <div class="service-card p-6 rounded-xl shadow-sm hover:shadow-md">
+                        <span class="emoji text-3xl mb-4">🏃</span>
+                        <h3 class="font-bold text-lg mb-2 text-gray-800">Exercise Plans</h3>
+                        <p class="text-gray-600 text-sm">Safe physical activity recommendations</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="slide-transition absolute inset-0 flex items-center justify-center p-8 md:p-16 opacity-0" data-slide="5">
+                <div class="grid grid-cols-2 gap-6 max-w-md">
+                    <div class="service-card p-6 rounded-xl shadow-sm hover:shadow-md">
+                        <i class="fas fa-seedling text-emerald-500 text-3xl mb-4"></i>
+                        <h3 class="font-bold text-lg mb-2 text-gray-800">Thyroid Assessment</h3>
+                        <p class="text-gray-600 text-sm">Comprehensive thyroid panel analysis</p>
+                    </div>
+                    <div class="service-card p-6 rounded-xl shadow-sm hover:shadow-md">
+                        <span class="emoji text-3xl mb-4">🦋</span>
+                        <h3 class="font-bold text-lg mb-2 text-gray-800">Hashimoto's Care</h3>
+                        <p class="text-gray-600 text-sm">Autoimmune thyroid support</p>
+                    </div>
+                    <div class="service-card p-6 rounded-xl shadow-sm hover:shadow-md">
+                        <i class="fas fa-pills text-emerald-500 text-3xl mb-4"></i>
+                        <h3 class="font-bold text-lg mb-2 text-gray-800">Nutrient Support</h3>
+                        <p class="text-gray-600 text-sm">Essential vitamins and minerals</p>
+                    </div>
+                    <div class="service-card p-6 rounded-xl shadow-sm hover:shadow-md">
+                        <span class="emoji text-3xl mb-4">⚡</span>
+                        <h3 class="font-bold text-lg mb-2 text-gray-800">Energy Boost</h3>
+                        <p class="text-gray-600 text-sm">Combat fatigue naturally</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="slide-transition absolute inset-0 flex items-center justify-center p-8 md:p-16 opacity-0" data-slide="6">
+                <div class="grid grid-cols-2 gap-6 max-w-md">
+                    <div class="service-card p-6 rounded-xl shadow-sm hover:shadow-md">
+                        <i class="fas fa-stomach text-emerald-500 text-3xl mb-4"></i>
+                        <h3 class="font-bold text-lg mb-2 text-gray-800">Gut Healing</h3>
+                        <p class="text-gray-600 text-sm">Repair leaky gut syndrome</p>
+                    </div>
+                    <div class="service-card p-6 rounded-xl shadow-sm hover:shadow-md">
+                        <span class="emoji text-3xl mb-4">🦠</span>
+                        <h3 class="font-bold text-lg mb-2 text-gray-800">Microbiome Test</h3>
+                        <p class="text-gray-600 text-sm">Comprehensive gut bacteria analysis</p>
+                    </div>
+                    <div class="service-card p-6 rounded-xl shadow-sm hover:shadow-md">
+                        <i class="fas fa-allergies text-emerald-500 text-3xl mb-4"></i>
+                        <h3 class="font-bold text-lg mb-2 text-gray-800">Food Sensitivities</h3>
+                        <p class="text-gray-600 text-sm">Identify and eliminate trigger foods</p>
+                    </div>
+                    <div class="service-card p-6 rounded-xl shadow-sm hover:shadow-md">
+                        <span class="emoji text-3xl mb-4">🍽️</span>
+                        <h3 class="font-bold text-lg mb-2 text-gray-800">Elimination Diet</h3>
+                        <p class="text-gray-600 text-sm">Structured food reintroduction plan</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="slide-transition absolute inset-0 flex items-center justify-center p-8 md:p-16 opacity-0" data-slide="7">
+                <div class="grid grid-cols-2 gap-6 max-w-md">
+                    <div class="service-card p-6 rounded-xl shadow-sm hover:shadow-md">
+                        <i class="fas fa-moon text-emerald-500 text-3xl mb-4"></i>
+                        <h3 class="font-bold text-lg mb-2 text-gray-800">Hot Flash Relief</h3>
+                        <p class="text-gray-600 text-sm">Natural solutions for temperature regulation</p>
+                    </div>
+                    <div class="service-card p-6 rounded-xl shadow-sm hover:shadow-md">
+                        <span class="emoji text-3xl mb-4">🌙</span>
+                        <h3 class="font-bold text-lg mb-2 text-gray-800">Sleep Support</h3>
+                        <p class="text-gray-600 text-sm">Address menopausal insomnia</p>
+                    </div>
+                    <div class="service-card p-6 rounded-xl shadow-sm hover:shadow-md">
+                        <i class="fas fa-heart text-emerald-500 text-3xl mb-4"></i>
+                        <h3 class="font-bold text-lg mb-2 text-gray-800">Hormone Balance</h3>
+                        <p class="text-gray-600 text-sm">Phytoestrogen-rich nutrition plans</p>
+                    </div>
+                    <div class="service-card p-6 rounded-xl shadow-sm hover:shadow-md">
+                        <span class="emoji text-3xl mb-4">💆</span>
+                        <h3 class="font-bold text-lg mb-2 text-gray-800">Emotional Support</h3>
+                        <p class="text-gray-600 text-sm">Mood stabilization strategies</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="slide-transition absolute inset-0 flex items-center justify-center p-8 md:p-16 opacity-0" data-slide="8">
+                <div class="grid grid-cols-2 gap-6 max-w-md">
+                    <div class="service-card p-6 rounded-xl shadow-sm hover:shadow-md">
+                        <i class="fas fa-acorn text-emerald-500 text-3xl mb-4"></i>
+                        <h3 class="font-bold text-lg mb-2 text-gray-800">Pain Management</h3>
+                        <p class="text-gray-600 text-sm">Chronic pain relief techniques</p>
+                    </div>
+                    <div class="service-card p-6 rounded-xl shadow-sm hover:shadow-md">
+                        <span class="emoji text-3xl mb-4">🧵</span>
+                        <h3 class="font-bold text-lg mb-2 text-gray-800">Meridian Therapy</h3>
+                        <p class="text-gray-600 text-sm">Energy channel balancing</p>
+                    </div>
+                    <div class="service-card p-6 rounded-xl shadow-sm hover:shadow-md">
+                        <i class="fas fa-smile text-emerald-500 text-3xl mb-4"></i>
+                        <h3 class="font-bold text-lg mb-2 text-gray-800">Stress Reduction</h3>
+                        <p class="text-gray-600 text-sm">Anxiety and tension relief</p>
+                    </div>
+                    <div class="service-card p-6 rounded-xl shadow-sm hover:shadow-md">
+                        <span class="emoji text-3xl mb-4">🌀</span>
+                        <h3 class="font-bold text-lg mb-2 text-gray-800">Qi Restoration</h3>
+                        <p class="text-gray-600 text-sm">Vital energy flow optimization</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const slides = document.querySelectorAll('[data-slide]');
+            const indicators = document.querySelectorAll('.slide-indicator');
+            let currentSlide = 0;
+            const slideCount = 8; // Total number of slides
+            let slideInterval;
+            
+            // Function to change slide
+            function goToSlide(n) {
+                // Hide all slides
+                document.querySelectorAll('.slide-transition').forEach(slide => {
+                    slide.style.opacity = '0';
+                });
+                
+                // Show current slide
+                const slideElements = document.querySelectorAll(`[data-slide="${n+1}"]`);
+                slideElements.forEach(el => {
+                    el.style.opacity = '1';
+                });
+                
+                // Update indicators
+                indicators.forEach(indicator => indicator.style.backgroundColor = '#d1d5db');
+                document.querySelector(`.slide-indicator[data-slide="${n+1}"]`).style.backgroundColor = '#10b981';
+                
+                currentSlide = n;
+            }
+            
+            // Auto-rotate slides
+            function startSlideShow() {
+                slideInterval = setInterval(() => {
+                    goToSlide((currentSlide + 1) % slideCount);
+                }, 6000);
+            }
+            
+            // Click handlers for indicators
+            indicators.forEach((indicator, index) => {
+                indicator.addEventListener('click', () => {
+                    clearInterval(slideInterval);
+                    goToSlide(index);
+                    startSlideShow();
+                });
+            });
+            
+            // Initialize
+            goToSlide(0);
+            startSlideShow();
+        });
+    </script>
+</body>
+</html>

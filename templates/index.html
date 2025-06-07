@@ -1,0 +1,1251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <link rel="icon" href="static/images/logo1.png" type="image/x-icon">
+  <title>Wellnation360</title>
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html, body {
+      overflow-x: hidden;
+      width: 100%;
+      max-width: 100%;
+      scroll-behavior: smooth;
+    }
+.price-and-plans {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.service-price {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #3b82f6;
+    text-align: center;
+    margin-top: 0.5rem;
+}
+
+.plan-selector {
+    position: relative;
+    margin-bottom: 0.5rem;
+}
+
+.plan-selector select {
+    width: 100%;
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid #d1d5db;
+    background-color: #f9fafb;
+    appearance: none;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.plan-selector::after {
+    content: "▼";
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: #6b7280;
+    font-size: 10px;
+}
+
+.no-plans {
+    font-size: 0.85rem;
+    color: #6b7280;
+    margin-top: 8px;
+    font-style: italic;
+    text-align: center;
+}
+    .services-swiper { /* Hero Carousel */
+      padding: 20px 0;
+    }
+    .swiper-slide { height: auto; }
+    .swiper-button-next, .swiper-button-prev {
+      color: #4ade80; background: rgba(0,0,0,0.5); width: 40px; height: 40px;
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    }
+    .swiper-button-next:after, .swiper-button-prev:after { font-size: 1.5rem; }
+    .swiper-pagination-bullet { background: white; opacity: 0.5; }
+    .swiper-pagination-bullet-active { background: #4ade80; opacity: 1; }
+
+    section { width: 100%; /* overflow: hidden; Be careful with this on sections with internal scroll */ }
+
+    /* Services Section CSS for Horizontal Scrolling */
+    .services-section { background: white; padding: 60px 0; width: 100%; }
+    .services-section .services-title { text-align: center; font-size: 2.5rem; margin-bottom: 1rem; color: #2c3e50; font-weight: 700; }
+    .services-section > p { text-align: center; font-size: 1.1rem; color: #555; margin-bottom: 3rem; max-width: 800px; margin-left: auto; margin-right: auto; padding: 0 1rem; }
+
+    .horizontal-scroll-wrapper { /* Common wrapper for services and reviews */
+        position: relative; /* For absolute positioning of nav buttons */
+    }
+    .horizontal-scroll-container {
+      display: flex; flex-wrap: nowrap; overflow-x: auto; gap: 2rem; padding: 20px;
+      scroll-behavior: smooth; -webkit-overflow-scrolling: touch; scroll-snap-type: x mandatory;
+      max-width: 100%;
+    }
+    .horizontal-scroll-container::-webkit-scrollbar { display: none; }
+    .horizontal-scroll-container { -ms-overflow-style: none; scrollbar-width: none; }
+
+    .service-block, .review-card-horizontal { /* Common base for card styling */
+      background: #ffffff; border-radius: 16px; padding: 1.5rem;
+      box-shadow: 0 8px 24px rgba(59, 130, 246, 0.1);
+      display: flex; flex-direction: column; justify-content: space-between;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      border: 1px solid #e5e7eb; scroll-snap-align: start;
+    }
+    .service-block:hover, .review-card-horizontal:hover {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 12px 32px rgba(59, 130, 246, 0.2);
+    }
+
+    /* Service card specific styling */
+    .service-block { flex: 0 0 300px; min-height: 480px; /* Increased min-height */ }
+    .service-header { margin-bottom: 1rem; }
+    .service-image { width: 100%; height: 180px; object-fit: cover; border-radius: 8px; transition: transform 0.3s ease; margin-bottom: 1rem; }
+    .service-block:hover .service-image { transform: scale(1.05); }
+    .service-name { font-weight: 600; font-size: 1.35rem; color: #1a1a1a; margin-bottom: 0.5rem; line-height: 1.3; }
+    .timing, .instructor { font-size: 0.9rem; color: #555; margin: 0.25rem 0; }
+    .service-price { font-size: 1.2rem; font-weight: bold; color: #3b82f6; margin-bottom: 0.5rem; margin-top: auto; }
+    .service-plans-note { font-size: 0.8rem; color: #777; margin-bottom: 1rem; }
+    .buttons { display: flex; gap: 0.75rem; margin-top: 1rem; }
+    .buttons button { padding: 10px 16px; font-size: 0.9rem; font-weight: 500; border-radius: 0.5rem; transition: all 0.2s ease; flex-grow: 1; cursor: pointer; }
+    .details-btn { background-color: #6c757d; color: white; border: 1px solid #6c757d; }
+    .details-btn:hover { background-color: #5a6268; border-color: #545b62; }
+    .enroll-btn { background-color: #28a745; color: white; border: 1px solid #28a745; }
+    .enroll-btn:hover { background-color: #218838; border-color: #1e7e34; }
+
+    /* Horizontal scroll navigation arrows */
+    .horizontal-scroll-nav {
+      display: flex; justify-content: center; gap: 1rem; margin-top: 1.5rem;
+    }
+    .horizontal-scroll-nav button {
+      width: 44px; height: 44px; border-radius: 50%; background: white;
+      border: 1px solid #ddd; display: flex; align-items: center; justify-content: center;
+      cursor: pointer; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); transition: all 0.2s ease;
+    }
+    .horizontal-scroll-nav button:hover { background: #f8f9fa; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); }
+    .horizontal-scroll-nav button:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    /* Reviews Section */
+    .reviews-section { background: #f0f4f8; padding: 60px 0 40px 0; } /* Light blue-grey background */
+    .reviews-title-container { text-align: center; margin-bottom: 40px; }
+    .reviews-title-container h4 { font-size: 2.5rem; font-weight: 700; color: #334155; margin-bottom: 8px; } /* Darker slate color */
+    .reviews-title-container p { font-size: 1.1rem; color: #64748b; max-width: 700px; margin: 0 auto; } /* Softer text color */
+
+    /* Review card specific styling for horizontal scroll */
+    .review-card-horizontal {
+        flex: 0 0 320px; /* Fixed width for horizontal scroll */
+        min-height: 250px; /* Adjust as needed */
+        padding: 24px;
+        background: #fff;
+        border: 1px solid #e2e8f0; /* Lighter border */
+        box-shadow: 0 6px 12px rgba(100,116,139,0.1); /* Softer shadow */
+    }
+     .review-card-horizontal:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 20px rgba(100,116,139,0.15);
+    }
+    .review-header { display: flex; align-items: center; gap: 14px; margin-bottom: 18px; }
+    .reviewer-avatar { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; background: #e2e8f0; }
+    .review-info { display: flex; flex-direction: column; }
+    .reviewer-name { font-weight: 600; color: #1e293b; font-size: 1.1rem; } /* Darker name */
+    .review-rating { color: #facc15; font-size: 1.1rem; } /* Tailwind yellow-400 */
+    .review-content-text { font-size: 1rem; color: #475569; margin-bottom: 16px; margin-top: 8px; line-height: 1.6; } /* Slate color for text */
+    .review-media { width: 100%; margin-top: auto; /* Pushes media to bottom if content is short */ padding-top:12px; }
+    .review-media img, .review-media video { max-width: 100%; max-height: 150px; object-fit:contain; border-radius: 10px; background: #f8fafc; margin:0 auto; display:block; }
+
+
+    @media (max-width: 768px) {
+      .services-section .services-title, .reviews-title-container h4 { font-size: 2rem; }
+      .services-section > p, .reviews-title-container p { font-size: 1rem; margin-bottom: 2rem; }
+      .service-block { flex: 0 0 85vw; min-height: auto; padding: 1.25rem; }
+      .review-card-horizontal { flex: 0 0 85vw; padding: 1.25rem; }
+      .horizontal-scroll-container { padding: 20px 10px; gap: 1.5rem; }
+    }
+    /* Other styles (header, footer, hero, etc. remain largely the same) */
+    .yogakshema-link { /* Ensure this is defined if used */
+      padding: 0.25rem 1rem; border-radius: 9999px; overflow: hidden;
+      transition: all 0.3s ease; position: relative; font-weight: 600;
+      text-shadow: 0 0 4px rgba(0,0,0,0.3);
+    }
+    .yogakshema-link:hover { color: white; transform: translateY(-2px); text-shadow: 0 0 8px rgba(255,255,255,0.5); }
+    .yogakshema-highlight { z-index: 0; filter: blur(6px); opacity: 0.8; }
+
+     .hero {
+      padding-top: 100px; /* Prevents navbar collision */
+      position: relative;
+      min-height: 90vh;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+    }
+    
+    .hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      /* NEW HEALTHY FOOD BACKGROUND */
+      background: url('static/images/hero.jpg') center/cover no-repeat;
+    }
+    
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.5) 100%);
+    }
+    
+    .hero-content {
+      position: relative;
+      z-index: 20;
+      color: white;
+    }
+    
+    .hero-title {
+      font-size: 3.5rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+    
+    .hero-subtitle {
+      font-size: 1.5rem;
+      margin-bottom: 2.5rem;
+      max-width: 700px;
+      opacity: 0.9;
+    }
+    
+    .hero-btns {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    
+    .hero-btn {
+      padding: 1rem 2rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      text-align: center;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .btn-primary {
+      background: linear-gradient(to right, #38b2ac, #0d9488);
+      color: white;
+      box-shadow: 0 4px 15px rgba(13, 148, 136, 0.3);
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(13, 148, 136, 0.4);
+    }
+    
+    .btn-outline {
+      background: transparent;
+      border: 2px solid white;
+      color: white;
+    }
+    
+    .btn-outline:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+    
+    .service-scroll-container {
+      position: relative;
+      width: 100%;
+      overflow-x: hidden;
+      padding: 2rem 0;
+      margin-top: 3rem;
+    }
+    
+    .service-scroll {
+      display: flex;
+      gap: 1.5rem;
+      padding: 0 2rem;
+      /* MODIFICATION: Increased duration for slower scroll */
+      animation: scroll 60s linear infinite;
+    }
+    
+    .service-card {
+      flex: 0 0 280px;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 20px;
+      padding: 1.5rem;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      text-align: center;
+      color: white;
+    }
+    
+    .service-card:hover {
+      transform: translateY(-10px);
+      background: rgba(255, 255, 255, 0.25);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    }
+    
+    .service-icon {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      margin: 0 auto 1.5rem;
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+    }
+    
+    .service-card h3 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+    
+    .service-card p {
+      font-size: 0.95rem;
+      opacity: 0.9;
+    }
+
+    .pulse {
+      position: relative;
+    }
+    
+    .pulse::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 20px;
+      background: rgba(74, 222, 128, 0.1);
+      animation: pulse 2s infinite;
+      z-index: -1;
+    }
+    
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      50% {
+        transform: scale(1.05);
+        opacity: 0.7;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+    
+    /* MODIFICATION: Updated keyframes for seamless looping with 9 cards */
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(calc(- (280px + 1.5rem) * 9)); }
+    }
+    
+    .hero-btn {
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      transform-origin: center;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+    
+    .hero-btn:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    }
+    
+    .scrolling-text {
+      display: inline-block;
+      padding-left: 100%;
+      animation: scrollText 20s linear infinite;
+      white-space: nowrap;
+    }
+    
+    @keyframes scrollText {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-green-100 via-blue-50 to-purple-100 text-gray-800">
+
+  <header class="fixed top-0 left-0 right-0 w-full z-[100] bg-gray-800 shadow-md">
+    <div class="container mx-auto flex items-center justify-between px-4 py-2 md:py-3">
+      <div class="flex items-center space-x-3">
+        <a href="{{ url_for('home') }}" class="flex items-center space-x-3">
+          <div class="relative w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden border-2 border-green-400">
+            <img src="{{ url_for('static', filename='images/logo1.png') }}" alt="Logo" class="w-full h-full object-cover" />
+          </div>
+          <span class="text-xl md:text-3xl font-bold text-white">Wellnation360</span>
+        </a>
+      </div>
+      <nav class="hidden md:flex items-center space-x-5 text-white text-base md:text-lg font-medium">
+        <a href="{{ url_for('index') }}#home" class="hover:text-green-400 relative group">Home <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-green-400 transition-all duration-300 group-hover:w-full"></span></a>
+        <a href="{{ url_for('index') }}#about" class="hover:text-green-400 relative group">About <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-green-400 transition-all duration-300 group-hover:w-full"></span></a>
+        <a href="{{ url_for('gallery') }}" class="hover:text-green-400 relative group">Gallery <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-green-400 transition-all duration-300 group-hover:w-full"></span></a>
+        <div class="relative group">
+          <a href="{{ url_for('index') }}#services" class="hover:text-green-400 flex items-center gap-1">Services
+            <svg class="w-4 h-4 transition-transform duration-200 group-hover:rotate-180" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.939l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clip-rule="evenodd"/></svg>
+          </a>
+          <div class="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-60 bg-white text-gray-800 rounded-md shadow-xl opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300 invisible group-hover:visible z-50 py-1">
+          <a href="#detox" class="block px-4 py-2 hover:text-green-600 transition duration-200">Gental Detox Cleanse</a>
+          <a href="#diabetes" class="block px-4 py-2 hover:text-green-600 transition duration-200">Diabetes Support Plan</a>
+          <a href="#weightloss" class="block px-4 py-2 hover:text-green-600 transition duration-200">Thyroid Balance Therapy</a>
+          <a href="#weightloss" class="block px-4 py-2 hover:text-green-600 transition duration-200">Digestive Wellness Plan</a>
+          <a href="#weightloss" class="block px-4 py-2 hover:text-green-600 transition duration-200">Menopausal management</a>
+          <a href="#acupuncture" class="block px-4 py-2 hover:text-green-600 transition duration-200">Acupuncture therapy</a>
+          <a href="#weightloss" class="block px-4 py-2 hover:text-green-600 transition duration-200">Healthy Body Transformation</a>
+        </div>
+        </div>
+        <a href="{{ url_for('contact_get') }}" class="hover:text-green-400 relative group">Contact <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-green-400 transition-all duration-300 group-hover:w-full"></span></a>
+        <a href="http://yoga-kshema.in" target="_blank" rel="noopener noreferrer" class="text-white relative yogakshema-link group"> <span class="relative z-10 flex items-center"><span class="mr-1"></span><span>Yogakshema</span></span>
+            <span class="absolute inset-0 bg-gradient-to-r from-amber-500 to-orange-600 rounded-full scale-0 opacity-0 group-hover:scale-105 group-hover:opacity-100 transition-all duration-500 yogakshema-highlight"></span>
+        </a>
+      </nav>
+      <div class="md:hidden">
+        <button id="mobileMenuButton" class="text-white p-2 focus:outline-none">
+          <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+    <div id="mobileMenu" class="hidden md:hidden absolute top-full left-0 right-0 bg-gray-800 shadow-lg py-2 z-40">
+      <a href="{{ url_for('index') }}#home" class="block px-5 py-3 text-white hover:bg-gray-700 transition duration-150">Home</a>
+      <a href="{{ url_for('index') }}#about" class="block px-5 py-3 text-white hover:bg-gray-700 transition duration-150">About</a>
+      <a href="{{ url_for('gallery') }}" class="block px-5 py-3 text-white hover:bg-gray-700 transition duration-150">Gallery</a>
+      <div class="relative group">
+        <button class="flex items-center justify-between w-full px-5 py-3 text-left text-white hover:bg-gray-700 transition duration-150">Services
+          <svg class="w-4 h-4 ml-1 transform group-focus-within:rotate-180 transition-transform" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.939l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clip-rule="evenodd"/></svg>
+        </button>
+        <div class="hidden group-focus-within:block bg-gray-700 mt-0">
+          <a href="{{ url_for('index') }}#services" class="block pl-8 pr-5 py-2.5 text-sm text-gray-300 hover:bg-gray-600 hover:text-white transition duration-150">All Services Overview</a>
+          <a href="{{ url_for('dummy') }}" class="block pl-8 pr-5 py-2.5 text-sm text-gray-300 hover:bg-gray-600 hover:text-white transition duration-150">Gentle Detox Cleanse</a>
+          <a href="{{ url_for('diabetics') }}" class="block pl-8 pr-5 py-2.5 text-sm text-gray-300 hover:bg-gray-600 hover:text-white transition duration-150">Diabetes Support Plan</a>
+        </div>
+      </div>
+      <a href="{{ url_for('contact_get') }}" class="block px-5 py-3 text-white hover:bg-gray-700 transition duration-150">Contact</a>
+      <a href="https://yogakshema.com" target="_blank" rel="noopener noreferrer" class="block px-5 py-3 text-white hover:bg-gray-700 transition duration-150 flex items-center"><span class="mr-2">🧘</span><span>Yogakshema</span></a>
+    </div>
+  <div id="mobileMenu" class="hidden md:hidden absolute top-full left-0 right-0 bg-gray-800 shadow-lg py-2 z-40">
+    <a href="{{ url_for('index') }}#home" class="block px-5 py-3 text-white hover:bg-gray-700 transition duration-150">Home</a>
+    <a href="{{ url_for('index') }}#about" class="block px-5 py-3 text-white hover:bg-gray-700 transition duration-150">About</a>
+    <a href="{{ url_for('gallery') }}" class="block px-5 py-3 text-white hover:bg-gray-700 transition duration-150">Gallery</a>
+    
+    <div class="relative group">
+      <button class="flex items-center justify-between w-full px-5 py-3 text-left text-white hover:bg-gray-700 transition duration-150">
+        Services
+        <svg class="w-4 h-4 ml-1 transform group-focus-within:rotate-180 transition-transform" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.939l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clip-rule="evenodd"/>
+        </svg>
+      </button>
+      <div class="hidden group-focus-within:block bg-gray-700 mt-0">
+        <a href="{{ url_for('index') }}#services" class="block pl-8 pr-5 py-2.5 text-sm text-gray-300 hover:bg-gray-600 hover:text-white transition duration-150">All Services Overview</a>
+        <a href="{{ url_for('dummy') }}" class="block pl-8 pr-5 py-2.5 text-sm text-gray-300 hover:bg-gray-600 hover:text-white transition duration-150">Gentle Detox Cleanse</a>
+        <a href="{{ url_for('diabetics') }}" class="block pl-8 pr-5 py-2.5 text-sm text-gray-300 hover:bg-gray-600 hover:text-white transition duration-150">Diabetes Support Plan</a>
+         </div>
+    </div>
+    
+    <a href="{{ url_for('contact_get') }}" class="block px-5 py-3 text-white hover:bg-gray-700 transition duration-150">Contact</a>
+    <a href="{{ url_for('base') }}" class="block px-5 py-3 text-white hover:bg-gray-700 transition duration-150 flex items-center">
+      <span class="mr-2">🧘</span>
+      <span>Yogakshema</span>
+    </a>
+  </div>
+  </header>
+
+  <section id="home" class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    
+    <div class="container mx-auto px-4">
+      <div class="hero-content max-w-6xl">
+        <div class="mb-8">
+          <h1 class="hero-title">
+           Wellness is a lifestyle, guided by <span class="text-green-300">intention.</span><br>
+          </h1>
+          <p class="hero-subtitle">
+            Empowering your health with natural healing, mindful practices, and expert guidance for holistic well-being.
+          </p>
+          <div class="hero-btns">
+            <a href="#" class="hero-btn btn-primary">
+              <i class="fas fa-calendar-check mr-2"></i> Book Consultation
+            </a>
+            <a href="#services" class="hero-btn btn-outline">
+              <i class="fas fa-compass mr-2"></i> Explore Programs
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="service-scroll-container">
+        <div class="service-scroll">
+          <div class="service-card" data-aos="fade-up">
+            <div class="service-icon">
+              <i class="fas fa-heartbeat"></i>
+            </div>
+            <h3>Diabetes Management</h3>
+            <p>Balance blood sugar naturally with guided care.</p>
+          </div>
+          
+          <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-icon">
+              <i class="fas fa-brain"></i>
+            </div>
+            <h3>Healthy Thyroid</h3>
+            <p>Support thyroid health with lifestyle & nutrition.</p>
+          </div>
+          
+          <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-icon">
+              <i class="fas fa-apple-alt"></i>
+            </div>
+            <h3>Digestive Health</h3>
+            <p>Improve gut function with mindful eating & herbs.</p>
+          </div>
+          
+          <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="service-icon">
+              <i class="fas fa-weight-scale"></i>
+            </div>
+            <h3>Weight Management</h3>
+            <p>Healthy and sustainable solutions</p>
+          </div>
+          
+          <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+            <div class="service-icon">
+              <i class="fas fa-pills"></i>
+            </div>
+            <h3>Detox Programs</h3>
+            <p>Natural body cleansing</p>
+          </div>
+          
+          <div class="service-card" data-aos="fade-up" data-aos-delay="500">
+            <div class="service-icon">
+              <i class="fas fa-spa"></i>
+            </div>
+            <h3>Menopausal Mgmt.</h3>
+            <p>Ease transitions with natural therapies & support.</p>
+          </div>
+          
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-heartbeat"></i>
+            </div>
+            <h3>Acupuncture</h3>
+            <p>Energy balance and pain relief through precision.</p>
+          </div>
+          
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-brain"></i>
+            </div>
+            <h3>Mental Wellness</h3>
+            <p>Mindfulness and stress management</p>
+          </div>
+          
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-apple-alt"></i>
+            </div>
+            <h3>Nutrition Therapy</h3>
+            <p>Personalized diet plans</p>
+          </div>
+        </div>
+      </div>
+      
+  </section>
+
+
+  <section id="about" class="relative z-0 py-16 px-6 bg-white scroll-mt-20">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-10 md:gap-16">
+        <div class="md:w-2/5 flex justify-center" data-aos="fade-right">
+          <div class="relative w-72 h-72 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden shadow-2xl border-4 border-green-300 p-2 bg-white">
+            <img src="{{ url_for('static', filename='images/logo1.png') }}" alt="Wellnation360 Logo" class="w-full h-full object-contain rounded-full">
+          </div>
+        </div>
+        <div class="md:w-3/5 w-full text-center md:text-left" data-aos="fade-left">
+      <h3 class="text-3xl font-bold mb-4">About Us</h3>
+      <p class="text-gray-600 text-lg mb-6">
+        At Wellnation360, we empower you to live a healthier, more balanced life. We blend modern science with ancient wisdom to help you reconnect with your body and mind. Through a combination of natural healing, mindful practices, and expert guidance, our holistic approach guides you toward vitality and well-being. Whether it's through diet correction, physical strength, or the ancient practices of meditation and acupuncture, we support you in achieving a life of balance, vitality, and true wellness.
+      </p>
+      <a href="{{ url_for('about') }}" class="bg-green-600 hover:bg-green-700 text-white font-semibold px-8 py-3.5 rounded-lg transition duration-300 shadow-md hover:shadow-lg text-lg">Explore More</a>
+        </div>
+      </div>
+  </section>
+
+  <section id="services" class="services-section scroll-mt-20">
+    <h2 class="services-title">Our Holistic Services</h2>
+    <div class="horizontal-scroll-wrapper">
+      <div id="servicesContainer" class="horizontal-scroll-container">
+        <p class="text-center text-gray-500 py-8 col-span-full">Loading services...</p>
+      </div>
+      <div id="servicesNav" class="horizontal-scroll-nav">
+        </div>
+    </div>
+  </section>
+
+  <section class="bg-gradient-to-br from-[#222222] to-[#1a1a1a] text-white py-20 px-6 md:px-24" id="about-ritu">
+  <div data-aos="fade-up" data-aos-delay="100" class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+    <div class="flex justify-center" data-aos="fade-right" data-aos-delay="200">
+      <img src="static/images/profilepic.jpeg" alt="Ritu - Nutrition Expert" class="rounded-2xl shadow-lg w-full max-w-sm object-cover">
+    </div>
+    <div data-aos="fade-left" data-aos-delay="300">
+      <h2 class="text-[40px] font-extrabold text-light_yellow mb-6">Meet Dt.Ritu Kapoor</h2>
+      <p class="text-lg md:text-xl text-gray-300 leading-relaxed mb-4">
+        Ritu is a passionate advocate of healing through nutrition, grounded in both scientific research and holistic wellness. She completed her graduation in <span class="text-yellow-300">Botany from Miranda House, Delhi</span>, and holds dual postgraduate degrees — in <span class="text-yellow-300">Biotechnology from Pune University</span>, specializing in <span class="italic">Animal Tissue Culture</span>, and in <span class="text-yellow-300">Nutrition & Dietetics from Bangalore</span>.
+      </p>
+      <p class="text-gray-400 mb-4">
+        With experience as a research fellow working on cell culture, Ritu developed a deep understanding of how cellular nourishment influences health. She strongly believes:
+      </p>
+      <p class="italic text-md text-yellow-200 mb-6">
+        “Ultimate outcome in terms of health is how well our cells are nourished to keep our DNA matter strong and stable.”
+      </p>
+      <p class="text-gray-300 leading-relaxed mb-6">
+        She has worked as a clinical dietitian at <span class="text-yellow-300">Manipal Hospital</span> and <span class="text-yellow-300">Aarogya Hastha Hospital</span>, where she helped patients restore health through mindful and personalized nutrition plans. Ritu’s guiding motto is <span class="text-yellow-200 font-semibold">“Prevention is better than cure”</span>, and her mission is to empower individuals to take charge of their well-being through sustainable choices.
+      </p>
+        <div class="space-x-4 mt-8">
+          <a href="/contact" class="inline-block bg-yellow-500 text-dark_blue_ font-bold py-4 px-8 rounded-lg shadow-lg transition-all duration-300 transform hover:bg-yellow-600 hover:scale-105 focus:outline-none" data-aos="zoom-in" data-aos-delay="400">
+            Book a Consultation
+          </a>
+          
+          <a href="/about" class="inline-block border-4 border-yellow-500 text-yellow-500 font-bold py-4 px-8 rounded-lg shadow-lg transition-all duration-300 transform hover:bg-yellow-500 hover:text-dark_blue_ hover:scale-105 focus:outline-none" data-aos="zoom-in" data-aos-delay="500">
+            Dr. Ritu and Team Profile
+          </a>
+        </div>
+    </div>
+  </div>
+</section>
+
+
+  <section id="youtube" data-aos="fade-up" class="py-16 px-4 text-center bg-gray-50">
+    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Watch Our Wellness Insights</h2>
+    <p class="text-lg text-gray-600 mb-10 max-w-2xl mx-auto">Explore tips, discussions, and success stories on our YouTube channel.</p>
+    <div class="max-w-3xl mx-auto px-4">
+      <div class="aspect-w-16 aspect-h-9 rounded-xl overflow-hidden shadow-xl border-4 border-white">
+        <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy" class="w-full h-full"></iframe>
+      </div>
+      <p class="mt-8 text-green-700 text-lg"><a href="https://www.youtube.com/@YOUR_CHANNEL_NAME" target="_blank" class="font-semibold hover:underline inline-flex items-center gap-2 group">Visit Our YouTube Channel <i class="fab fa-youtube text-red-600 text-2xl group-hover:scale-110 transition-transform"></i></a></p>
+    </div>
+  </section>
+
+  <section class="py-16 bg-white px-4">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-12" data-aos="fade-up">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-3">Wellness Wisdom</h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">Explore our collection of insightful articles on holistic health, nutrition, and mindful living.</p>
+      </div>
+    <div class="grid grid-cols-1 md:grid-cols-5 gap-6">
+        <article class="md:col-span-3 bg-green-50 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
+          <div class="h-full flex flex-col md:flex-row">
+            <div class="md:w-1/2 h-64 md:h-auto">
+              <img src="static/images/gut-health.jpg" alt="Featured Post" class="w-full h-full object-cover">
+            </div>
+            <div class="p-8 md:w-1/2 flex flex-col justify-center">
+              <span class="inline-block bg-green-100 text-green-800 text-xs font-semibold px-3 py-1 rounded-full mb-3">FEATURED</span>
+              <h3 class="text-2xl font-bold text-gray-800 mb-3">The Mind-Gut Connection</h3>
+              <p class="text-gray-600 mb-4">How your digestive health impacts mental wellbeing and what you can do about it...</p>
+              <a href="/gut_health" class="mt-auto text-green-600 font-medium flex items-center group">
+                Read Story
+                <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </article>
+  
+        <div class="md:col-span-2 space-y-6">
+          <article class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 flex">
+            <div class="w-1/3">
+              <img src="static/images/dietmodification.jpg" alt="Yoga Tips" class="w-full h-25 object-contain">
+            </div>
+            <div class="p-5 w-2/3">
+              <span class="text-xs font-semibold text-blue-600">Diet Modification</span>
+              <h4 class="font-bold text-gray-800 mt-1 mb-2">5 Evening Poses for Better Sleep</h4>
+              <a href="/diet_modification" class="text-sm text-green-600 font-medium inline-flex items-center">
+                Read
+                <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                </svg>
+              </a>
+            </div>
+          </article>
+  
+          <article class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 flex">
+            <div class="w-1/3">
+              <img src="static/images/sleepblog.webp" alt="Nutrition" class="w-full h-25 object-contain">
+            </div>
+            <div class="p-5 w-2/3">
+              <span class="text-xs font-semibold text-amber-600">SLEEP</span>
+              <h4 class="font-bold text-gray-800 mt-1 mb-2">Anti-Inflammatory Spices</h4>
+              <a href="/sleep_modification" class="text-sm text-green-600 font-medium inline-flex items-center">
+                Read
+                <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                </svg>
+              </a>
+            </div>
+          </article>
+  
+          <article class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 flex">
+            <div class="w-1/3">
+              <img src="static/images/mediation.webp" alt="Meditation" class="w-full h-full object-cover">
+            </div>
+            <div class="p-5 w-2/3">
+              <span class="text-xs font-semibold text-purple-600">MENTAL HEALTH</span>
+              <h4 class="font-bold text-gray-800 mt-1 mb-2">Breathwork Techniques</h4>
+              <a href="/meditation" class="text-sm text-green-600 font-medium inline-flex items-center">
+                Read
+                <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          </div>
+        </div>
+        <div class="text-center mt-12" data-aos="fade-up"><a href="/gut_health" class="inline-flex items-center px-8 py-3.5 border-2 border-green-600 text-green-600 rounded-lg font-semibold hover:bg-green-600 hover:text-white transition-colors duration-300 text-lg shadow-sm hover:shadow-md">Explore All Articles <svg class="w-5 h-5 ml-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg></a></div>
+      </div>
+  </section>
+
+  <section class="reviews-section scroll-mt-20">
+    <div class="container mx-auto px-4">
+      <div class="reviews-title-container">
+        <h4>What Our Clients Say</h4>
+        <p>Real stories from individuals who've transformed their health with Wellnation360.</p>
+      </div>
+      <div class="horizontal-scroll-wrapper">
+        <div id="reviewsListContainer" class="horizontal-scroll-container">
+          <p class="text-center text-gray-500 py-8 col-span-full">Loading reviews...</p>
+        </div>
+        <div id="reviewsNav" class="horizontal-scroll-nav">
+          </div>
+      </div>
+    </div>
+  </section>
+
+  <footer id="footer" class="bg-gray-800 text-gray-300 py-12 md:py-16">
+    <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 text-center md:text-left">
+        <div>
+          <h4 class="text-xl font-semibold mb-4 text-white">Wellnation360</h4>
+          <p class="text-sm leading-relaxed mb-4">Your partner in holistic health and mindful living...</p>
+           <div class="relative w-24 h-24 mx-auto md:mx-0 rounded-full overflow-hidden border-2 border-green-500">
+            <img src="{{ url_for('static', filename='images/logo1.png') }}" alt="Wellnation360 Small Logo" class="w-full h-full object-cover" />
+          </div>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-4 text-white">Quick Links</h4>
+          <ul class="space-y-2.5 text-sm">
+            <li><a href="{{ url_for('index') }}#home" class="hover:text-green-400 transition-colors duration-200">Home</a></li>
+            <li><a href="{{ url_for('index') }}#about" class="hover:text-green-400 transition-colors duration-200">About Us</a></li>
+            <li><a href="{{ url_for('index') }}#services" class="hover:text-green-400 transition-colors duration-200">Our Services</a></li>
+            <li><a href="{{ url_for('gallery') }}" class="hover:text-green-400 transition-colors duration-200">Gallery</a></li>
+            <li><a href="https://yogakshema.com" class="hover:text-green-400 transition-colors duration-200" target="_blank" rel="noopener noreferrer">Yogakshema Website</a></li>
+            <li><a href="{{ url_for('contact_get') }}" class="hover:text-green-400 transition-colors duration-200">Contact Us</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-4 text-white">Contact Info</h4>
+          <div class="text-sm leading-relaxed space-y-3">
+            <div class="flex items-center justify-center md:justify-start gap-2 hover:text-green-400 transition-colors duration-200">
+              <i class="fas fa-map-marker-alt text-green-400 text-base w-5 text-center"></i>
+              <a href="https://maps.google.com/?q=Kasavanahalli,Bangalore,560035" target="_blank" rel="noopener noreferrer" class="hover:underline">Kasavanahalli, Bangalore 560035</a>
+            </div>
+            <div class="flex items-center justify-center md:justify-start gap-2 hover:text-green-400 transition-colors duration-200">
+              <i class="fas fa-phone-alt text-green-400 text-base w-5 text-center"></i>
+              <a href="tel:+917795246002" class="hover:underline">+91 77952 46002</a>
+            </div>
+             <div class="flex items-center justify-center md:justify-start gap-2 hover:text-green-400 transition-colors duration-200">
+              <i class="fas fa-envelope text-green-400 text-base w-5 text-center"></i>
+              <a href="mailto:info@wellnation360.com" class="hover:underline"> info@wellnation360.com</a>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-4 text-white">Follow Us</h4>
+          <div class="flex justify-center md:justify-start space-x-5">
+            <a href="https://instagram.com/wellnation360" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="text-2xl hover:text-pink-500 transition-colors duration-200"><i class="fab fa-instagram"></i></a>
+            <a href="https://youtube.com/@YOUR_CHANNEL_NAME" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="text-2xl hover:text-red-500 transition-colors duration-200"><i class="fab fa-youtube"></i></a>
+            <a href="https://facebook.com/wellnation360" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="text-2xl hover:text-blue-600 transition-colors duration-200"><i class="fab fa-facebook"></i></a>
+          </div>
+           <p class="text-xs mt-6 text-gray-400">Stay connected for wellness tips, updates, and community events.</p>
+        </div>
+      </div>
+    <div class="text-center text-sm mt-10 border-t border-gray-700 pt-8">© <span id="currentYear"></span> Wellnation360. All rights reserved.</div>
+  </footer>
+
+  <div class="fixed bottom-8 right-8 z-50 group">
+    <a href="https://wa.me/917795246002?text=Hello%20Wellnation360,%20I'd%20like%20to%20inquire%20about%20your%20services." target="_blank" class="flex items-center gap-2 bg-white pl-3 pr-2 py-2 rounded-full shadow-lg border border-gray-200 hover:pr-3 transition-all duration-300">
+      <span class="opacity-0 group-hover:opacity-100 w-0 group-hover:w-auto overflow-hidden transition-all duration-300 text-sm font-medium">Let's chat!</span>
+      <img src="{{ url_for('static', filename='images/whatsapp.png') }}" alt="WhatsApp" class="w-10 h-10 lazy-load" loading="lazy">
+    </a>
+  </div>
+
+<script>
+  // Initialize AOS (Animate on Scroll)
+  AOS.init({ easing: 'ease-in-out', duration: 800, once: true, offset: 50 });
+
+  // Set current year in footer
+  document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+  // Mobile Menu Toggle
+  const mobileMenuButton = document.getElementById('mobileMenuButton');
+  const mobileMenu = document.getElementById('mobileMenu');
+  if (mobileMenuButton && mobileMenu) {
+    const mobileMenuServiceButton = mobileMenu.querySelector('.group > button');
+    const mobileMenuServiceDropdown = mobileMenu.querySelector('.group > div');
+
+    mobileMenuButton.addEventListener('click', (event) => {
+      event.stopPropagation();
+      mobileMenu.classList.toggle('hidden');
+    });
+    if (mobileMenuServiceButton && mobileMenuServiceDropdown) {
+      mobileMenuServiceButton.addEventListener('click', (event) => {
+        event.stopPropagation();
+        mobileMenuServiceDropdown.classList.toggle('hidden');
+      });
+    }
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        if (mobileMenuServiceDropdown) mobileMenuServiceDropdown.classList.add('hidden');
+      });
+    });
+    document.addEventListener('click', (event) => {
+      if (mobileMenu && !mobileMenu.classList.contains('hidden') &&
+          !mobileMenu.contains(event.target) && event.target !== mobileMenuButton && !mobileMenuButton.contains(event.target)) {
+        mobileMenu.classList.add('hidden');
+        if (mobileMenuServiceDropdown) mobileMenuServiceDropdown.classList.add('hidden');
+      }
+    });
+  }
+
+  // Hero Section Swiper Carousel
+  new Swiper('.services-swiper', {
+    slidesPerView: 1, spaceBetween: 20, loop: true,
+    autoplay: { delay: 4000, disableOnInteraction: false },
+    pagination: { el: '.swiper-pagination', clickable: true },
+    navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+    breakpoints: { 640: { slidesPerView: 2 }, 768: { slidesPerView: 3 }, 1024: { slidesPerView: 4 } }
+  });
+
+  // --- Services Display ---
+  const servicesDataFromFlask = {{ services_data | tojson | safe }};
+
+function createServiceBlock(serviceItem) {
+    const block = document.createElement("div");
+    block.className = "service-block";
+    block.setAttribute('data-aos', 'fade-up');
+
+    // Default image if none provided
+    const imageUrl = serviceItem.image_url || "{{ url_for('static', filename='images/service-placeholder.jpg') }}";
+    
+    // Create the base HTML
+    block.innerHTML = `
+        <img src="${imageUrl}" 
+            alt="${serviceItem.service_name || 'Service Image'}" 
+            class="service-image" 
+            loading="lazy">
+        <div class="service-header">
+            <h3 class="service-name">${serviceItem.service_name || 'Service Name'}</h3>
+            <p class="timing"><i class="far fa-clock mr-1.5"></i>${serviceItem.time || 'Schedule not specified'}</p>
+            <p class="instructor"><i class="fas fa-chalkboard-teacher mr-1.5"></i>${serviceItem.instructor_name || 'Instructor not specified'}</p>
+        </div>
+        <div class="mt-auto">
+            <div class="price-and-plans">
+                </div>
+            <div class="buttons">
+                <button class="details-btn">View Details</button>
+                <button class="enroll-btn">Enroll Now</button>
+            </div>
+        </div>
+    `;
+
+    // Handle pricing plans
+    const priceAndPlansDiv = block.querySelector('.price-and-plans');
+    
+    if (serviceItem.plans && serviceItem.plans.length > 0) {
+        if (serviceItem.plans.length === 1) {
+            // Single plan - just show the price
+            const plan = serviceItem.plans[0];
+            priceAndPlansDiv.innerHTML = `
+                <p class="service-price">₹${plan.price.toLocaleString('en-IN')} ${plan.months > 1 ? `for ${plan.months} months` : ''}</p>
+            `;
+        } else {
+            // Multiple plans - create dropdown
+            const cheapestPlan = [...serviceItem.plans].sort((a, b) => a.price - b.price)[0];
+            let optionsHtml = '';
+            
+            serviceItem.plans.sort((a, b) => a.months - b.months).forEach(plan => {
+                optionsHtml += `<option value="${plan.months}" data-price="${plan.price}">
+                    ${plan.months} month${plan.months > 1 ? 's' : ''} - ₹${plan.price.toLocaleString('en-IN')}
+                </option>`;
+            });
+
+            priceAndPlansDiv.innerHTML = `
+                <div class="plan-selector">
+                    <select class="plan-select">
+                        ${optionsHtml}
+                    </select>
+                </div>
+                <p class="service-price">₹${cheapestPlan.price.toLocaleString('en-IN')}</p>
+            `;
+
+            // Add event listener to update price when plan changes
+            const planSelect = block.querySelector('.plan-select');
+            const priceDisplay = block.querySelector('.service-price');
+            
+            planSelect.addEventListener('change', () => {
+                const selectedOption = planSelect.options[planSelect.selectedIndex];
+                const price = selectedOption.dataset.price;
+                priceDisplay.textContent = `₹${parseFloat(price).toLocaleString('en-IN')}`;
+            });
+        }
+    } else {
+        // No plans available
+        priceAndPlansDiv.innerHTML = `
+            <p class="service-price">Contact for Pricing</p>
+            <p class="no-plans">Custom plans available</p>
+        `;
+    }
+
+    // Set up button click handlers
+    const detailsBtn = block.querySelector('.details-btn');
+    const enrollBtn = block.querySelector('.enroll-btn');
+    
+    detailsBtn.addEventListener('click', () => {
+        // Go to service-specific page based on service name
+        const serviceName = serviceItem.service_name.toLowerCase().replace(/\s+/g, '_');
+        window.location.href = `{{ url_for('services') }}?name=${encodeURIComponent(serviceName)}`;
+    });
+    
+    enrollBtn.addEventListener('click', () => {
+        let queryString = `service_enroll=${encodeURIComponent(serviceItem.service_name)}`;
+        
+        // If there's a plan selector, add the selected plan to the URL
+        const planSelect = block.querySelector('.plan-select');
+        if (planSelect) {
+            const selectedOption = planSelect.options[planSelect.selectedIndex];
+            queryString += `&months=${selectedOption.value}&price=${selectedOption.dataset.price}`;
+        }
+        
+        window.location.href = `{{ url_for('contact_get') }}?${queryString}`;
+    });
+
+    return block;
+}
+
+
+    // --- AUTOSCROLL LOGIC START ---
+    let servicesScrollInterval;
+    let reviewsScrollInterval;
+
+    /**
+     * Starts an autoscrolling interval for a given container.
+     * @param {HTMLElement} container The container element to scroll.
+     * @param {number} intervalTime The time in ms between scrolls.
+     * @returns {number} The interval ID.
+     */
+    function startAutoscroll(container, intervalTime = 2000) {
+        return setInterval(() => {
+            if (!container) return;
+            // Check if scroll is at the end
+            if (container.scrollLeft + container.clientWidth >= container.scrollWidth - 1) {
+                // If at the end, smoothly scroll back to the start
+                container.scrollTo({ left: 0, behavior: 'smooth' });
+            } else {
+                // Get the width of the first item to determine scroll distance
+                const itemWidth = container.firstElementChild?.offsetWidth || 300;
+                // The gap is set to 2rem (32px) in the CSS
+                const gap = 32;
+                container.scrollBy({ left: itemWidth + gap, behavior: 'smooth' });
+            }
+        }, intervalTime);
+    }
+    // --- AUTOSCROLL LOGIC END ---
+
+  async function displayServices() {
+    const container = document.getElementById('servicesContainer');
+    if (!container) { 
+      console.error("Services container not found."); 
+      return; 
+    }
+
+    try {
+      container.innerHTML = '<p class="text-center text-gray-500 py-8">Loading services...</p>';
+      
+      const response = await fetch('/api/services');
+      if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+      
+      const allServices = await response.json();
+      
+      const servicesData = allServices.filter(service => 
+        service.website && service.website.toLowerCase() === "wellnation360"
+      );
+      
+      if (!servicesData || servicesData.length === 0) {
+        container.innerHTML = '<p class="text-center text-gray-600 py-10 px-4 w-full">No services currently available for Wellnation360. Please check back soon!</p>';
+        return;
+      }
+      
+      container.innerHTML = '';
+      servicesData.forEach(service => {
+        container.appendChild(createServiceBlock(service));
+      });
+      
+      setupHorizontalScroll('servicesContainer', 'servicesNav');
+      
+      // --- AUTOSCROLL ACTIVATION FOR SERVICES ---
+      clearInterval(servicesScrollInterval); // Clear previous interval if any
+      servicesScrollInterval = startAutoscroll(container);
+
+      // Removed mouseenter/mouseleave for autoscroll pause
+      // container.addEventListener('mouseenter', () => clearInterval(servicesScrollInterval));
+      // container.addEventListener('mouseleave', () => {
+      //     clearInterval(servicesScrollInterval);
+      //     servicesScrollInterval = startAutoscroll(container);
+      // });
+      
+      // Pause autoscroll when focusing on a plan dropdown
+      container.addEventListener('focusin', (e) => {
+          if (e.target.matches('.plan-select')) {
+              clearInterval(servicesScrollInterval);
+          }
+      });
+
+      // Resume autoscroll when the plan dropdown loses focus
+      container.addEventListener('focusout', (e) => {
+          if (e.target.matches('.plan-select')) {
+              clearInterval(servicesScrollInterval); // Clear again to prevent multiple intervals
+              servicesScrollInterval = startAutoscroll(container);
+          }
+      });
+      
+    } catch (error) {
+      console.error('Error loading services:', error);
+      container.innerHTML = `
+        <p class="text-center text-red-500 py-10 px-4 w-full">
+          Could not load services. Please try again later or 
+          <a href="{{ url_for('contact_get') }}" class="text-green-600 underline">contact us</a>.
+        </p>
+      `;
+    }
+  }
+
+
+  // --- Reviews Display ---
+  async function fetchReviews() {
+    try {
+      const response = await fetch('/api/reviews');
+      if (!response.ok) return getDefaultReviews();
+      
+      const data = await response.json();
+      
+      const wellnationReviews = data.reviews.filter(review => 
+        review.platform && review.platform.toLowerCase() === "wellnation360"
+      );
+      
+      return wellnationReviews.length > 0 ? wellnationReviews : getDefaultReviews();
+      
+    } catch (error) {
+      console.error('Error fetching reviews:', error);
+      return getDefaultReviews();
+    }
+  }
+
+function getDefaultReviews() { // Fallback static reviews
+    return [
+        { reviewer_name: "Priya S.", rating: 5, content: "The detox plan was amazing! Feeling so much lighter and energetic. Highly recommend.", reviewer_image_url: null, media_type: null, media_url: null },
+        { reviewer_name: "Rajesh K.", rating: 4, content: "Great guidance for managing my diabetes. The diet tips were very practical.", reviewer_image_url: null, media_type: "image", media_url: "{{ url_for('static', filename='images/review-placeholder-1.jpg') }}" },
+        { reviewer_name: "Anita V.", rating: 5, content: "Lost 5kgs with the weight loss program! The support from Dt. Ritu was fantastic.", reviewer_image_url: "{{ url_for('static', filename='images/review-placeholder-user.png') }}", media_type: null, media_url: null }
+    ];
+}
+
+function createReviewCard(review) {
+    const card = document.createElement('div');
+    card.className = 'review-card-horizontal';
+    card.setAttribute('data-aos', 'fade-up');
+
+    const avatarUrl = review.reviewer_image_url || `https://ui-avatars.com/api/?name=${encodeURIComponent(review.reviewer_name || 'User')}&background=e0e7ff&color=4338ca&bold=true`;
+    const stars = '★'.repeat(review.rating || 0) + '☆'.repeat(5 - (review.rating || 0));
+    let mediaElement = '';
+    if (review.media_url) {
+        if (review.media_type === 'image') {
+            mediaElement = `<img src="${review.media_url}" alt="Review media for ${review.reviewer_name}" loading="lazy">`;
+        } else if (review.media_type === 'video') {
+            mediaElement = `<video controls src="${review.media_url}" loading="lazy"></video>`;
+        }
+    }
+
+    card.innerHTML = `
+        <div class="review-header">
+            <img src="${avatarUrl}" class="reviewer-avatar" alt="${review.reviewer_name || 'Reviewer'}">
+            <div class="review-info">
+                <div class="reviewer-name">${review.reviewer_name || 'Anonymous'}</div>
+                <div class="review-rating">${stars}</div>
+            </div>
+        </div>
+        ${review.content ? `<p class="review-content-text">${review.content}</p>` : ''}
+        ${mediaElement ? `<div class="review-media">${mediaElement}</div>` : ''}
+    `;
+    return card;
+}
+
+async function displayReviews() {
+    const container = document.getElementById('reviewsListContainer');
+    if (!container) { console.error("Reviews container not found."); return; }
+
+    const reviews = await fetchReviews();
+    if (!reviews || reviews.length === 0) {
+        container.innerHTML = '<p class="text-center text-gray-600 py-10 px-4 w-full">No reviews yet. Be the first to share your experience!</p>';
+        return;
+    }
+    container.innerHTML = ''; // Clear loading/fallback
+    reviews.forEach(review => container.appendChild(createReviewCard(review)));
+    setupHorizontalScroll('reviewsListContainer', 'reviewsNav');
+
+    // --- AUTOSCROLL ACTIVATION FOR REVIEWS ---
+    clearInterval(reviewsScrollInterval); // Clear previous interval
+    reviewsScrollInterval = startAutoscroll(container, 4500); // Start new one
+
+    // Removed mouseenter/mouseleave for autoscroll pause for reviews as well
+    // container.addEventListener('mouseenter', () => clearInterval(reviewsScrollInterval));
+    // container.addEventListener('mouseleave', () => {
+    //     clearInterval(reviewsScrollInterval);
+    //     reviewsScrollInterval = startAutoscroll(container, 4500);
+    // });
+}
+
+
+
+  // --- Generic Horizontal Scroll Setup ---
+  function setupHorizontalScroll(containerId, navId) {
+    const container = document.getElementById(containerId);
+    const navElement = document.getElementById(navId);
+
+    if (!container || !navElement) {
+      console.warn(`Container or Nav not found for ${containerId}/${navId}`);
+      return;
+    }
+    // Check if container has children, otherwise no need for nav
+    if (container.children.length <=1 && !(container.children[0] && container.children[0].classList.contains('service-block') || container.children[0].classList.contains('review-card-horizontal'))) {
+        navElement.innerHTML = ''; // Clear nav if no real items
+        return;
+    }
+
+
+    navElement.innerHTML = `
+      <button aria-label="Previous" class="scroll-prev"><i class="fas fa-chevron-left"></i></button>
+      <button aria-label="Next" class="scroll-next"><i class="fas fa-chevron-right"></i></button>
+    `;
+    const prevBtn = navElement.querySelector('.scroll-prev');
+    const nextBtn = navElement.querySelector('.scroll-next');
+
+    function updateNavButtons() {
+      if (!container.firstChild || !prevBtn || !nextBtn) return; // Ensure elements exist
+      const itemWidth = container.firstChild.offsetWidth || 300; // Approx item width
+      const scrollThreshold = 10; // Small threshold
+
+      prevBtn.disabled = container.scrollLeft <= scrollThreshold;
+      nextBtn.disabled = container.scrollLeft >= (container.scrollWidth - container.clientWidth - scrollThreshold);
+    }
+
+    prevBtn.addEventListener('click', () => {
+      const itemWidth = container.firstChild.offsetWidth || 320; // Use first child's width + gap
+      container.scrollBy({ left: -(itemWidth + 32), behavior: 'smooth' }); // 32 is gap (2rem)
+    });
+    nextBtn.addEventListener('click', () => {
+      const itemWidth = container.firstChild.offsetWidth || 320;
+      container.scrollBy({ left: (itemWidth + 32), behavior: 'smooth' });
+    });
+
+    // Debounce or throttle resize/scroll listeners if performance becomes an issue
+    let scrollTimeout;
+    container.addEventListener('scroll', () => {
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(updateNavButtons, 50); // Update after scroll settles
+    });
+    window.addEventListener('resize', updateNavButtons);
+    
+    // Initial check and update after items are potentially loaded
+    setTimeout(updateNavButtons, 200); // Small delay to allow layout to settle
+  }
+
+    const scrollContainer = document.querySelector('.service-scroll-container');
+    const serviceScroll = document.querySelector('.service-scroll');
+    
+    // The hero section's autoscroll is handled by its specific animation, not the general autoscroll function
+    // So keep this one as it is or remove if it's no longer desired for the hero section.
+    // As per the request, this affects the hero section's autoscroll.
+    // If you want the hero scroll to ALSO only stop on dropdown click, you'd need dropdowns in hero cards
+    // or modify this logic to be part of the general autoscroll system.
+    // For now, removing this to keep hero scrolling unless specific interaction is added.
+    /*
+    scrollContainer.addEventListener('mouseenter', () => {
+      serviceScroll.style.animationPlayState = 'paused';
+    });
+    
+    scrollContainer.addEventListener('mouseleave', () => {
+      serviceScroll.style.animationPlayState = 'running';
+    });
+    */
+    
+
+  // --- DOMContentLoaded ---
+  document.addEventListener('DOMContentLoaded', () => {
+    displayServices();
+    displayReviews();
+
+    // MODIFICATION: Logic to duplicate hero service cards for infinite scroll
+    if (serviceScroll) {
+      const originalCards = serviceScroll.querySelectorAll('.service-card');
+      
+      // Duplicate cards for seamless loop
+      originalCards.forEach(card => {
+        const clone = card.cloneNode(true);
+        clone.removeAttribute('data-aos'); // remove animation attributes from clones
+        serviceScroll.appendChild(clone);
+      });
+    }
+
+    // MODIFICATION: Moved click handler here to apply to original AND cloned cards
+    document.querySelectorAll('.service-card').forEach(card => {
+        card.addEventListener('click', function(event) {
+        // Check if the click target is a plan selector or a button
+        if (event.target.matches('.plan-select') || event.target.matches('.details-btn') || event.target.matches('.enroll-btn')) {
+            // Do nothing, let the specific element's handler take over
+            return;
+        }
+        const serviceTitle = this.querySelector('h3').textContent;
+        // The click should still just go to the main services section
+        window.location.hash = '#services';
+        });
+    });
+  });
+</script>
+</body>
+</html>

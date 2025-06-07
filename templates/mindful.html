@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="referrer" content="strict-origin">
+    <link rel="icon" href="static/images/logo1.png" type="image/x-icon">
+    <title>Mindful Living: Rediscovering Presence | WellNation360</title>
+    <meta name="description" content="Learn how mindfulness practices from 40 years ago can transform your modern life with simple breathing techniques">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://wellnation360.com/mindful-living" />
+    
+    <!-- Security Headers -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.tailwindcss.com https://www.gstatic.com https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://images.unsplash.com;">
+    <meta http-equiv="Strict-Transport-Security" content="max-age=63072000; includeSubDomains; preload">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    
+    <!-- Preload Resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
+            color: #333;
+        }
+        
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .mindful-animation {
+            background: linear-gradient(135deg, #f0f9ff, #e0f2fe, #bae6fd);
+            background-size: 300% 300%;
+            animation: gradient 8s ease infinite;
+        }
+        
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .fact-card {
+            transition: all 0.3s ease;
+        }
+        
+        .fact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .prose {
+            max-width: 65ch;
+        }
+        
+        .prose h2 {
+            font-weight: 600;
+            color: #2d3748;
+            margin-top: 1.5em;
+            margin-bottom: 0.75em;
+        }
+        
+        .prose p {
+            margin-bottom: 1.25em;
+            line-height: 1.7;
+        }
+        
+        .swiper-slide {
+            height: auto;
+        }
+        
+        .blog-card {
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .breathing-animation {
+            animation: breathe 8s infinite ease-in-out;
+        }
+        
+        @keyframes breathe {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Animated Header -->
+    <header class="mindful-animation py-16 text-center">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto">
+                <span class="inline-block bg-white text-blue-700 text-sm font-semibold px-4 py-1 rounded-full mb-4 shadow-sm">MINDFULNESS SERIES</span>
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6">Mindful Living: Rediscovering <span class="text-blue-600">What Came Naturally</span></h1>
+                <p class="text-xl text-gray-600 mb-8">How ancient breathing techniques can anchor your modern life</p>
+                <div class="flex items-center justify-center space-x-4">
+                    <div class="flex items-center">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&h=100&q=80" alt="Author" class="w-10 h-10 rounded-full border-2 border-white" loading="lazy" width="100" height="100">
+                        <span class="ml-2 text-sm text-gray-700">Dr. Priya Sharma</span>
+                    </div>
+                    <span class="text-gray-400">•</span>
+                    <span class="text-sm text-gray-500">Updated: November 26, 2023</span>
+                    <span class="text-gray-400">•</span>
+                    <span class="text-sm text-blue-600 font-medium">8 min read</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Interactive Article Layout -->
+    <div class="container mx-auto px-4 py-12">
+        <div class="flex flex-col lg:flex-row gap-12">
+            <!-- Main Content -->
+            <article class="lg:w-2/3">
+                <!-- Featured Visual -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden mb-10">
+                    <div class="relative h-64 md:h-96 bg-gradient-to-r from-blue-50 to-indigo-50 flex items-center justify-center">
+                        <div class="text-center p-6 max-w-lg">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-3">Did You Know?</h3>
+                            <p class="text-gray-600 mb-4">Just 10 minutes of daily mindfulness can rewire your brain in 8 weeks</p>
+                            <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-full text-sm font-medium transition-colors">
+                                Start Your Practice
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Engaging Content Sections -->
+                <div class="prose max-w-none">
+                    <!-- Hook -->
+                    <div class="bg-blue-50 border-l-4 border-blue-500 p-6 mb-8 rounded-r-lg">
+                        <p class="text-blue-800 font-medium">"Mindfulness isn't difficult, we just need to remember to do it." <span class="block text-gray-600 font-normal mt-1">— Sharon Salzberg</span></p>
+                    </div>
+
+                    <p class="text-lg text-gray-700 mb-6">A way of living that was second nature to people 40 years ago is now something we strive for with courses and apps. The simple act of being present—once innate—now feels like a skill we must relearn.</p>
+
+                    <!-- Section 1 -->
+                    <h2 class="text-3xl font-bold text-gray-800 mt-12 mb-6 flex items-center">
+                        <span class="bg-blue-100 text-blue-800 w-8 h-8 rounded-full flex items-center justify-center mr-3 text-lg">1</span>
+                        The Three Pillars of Mindful Living
+                    </h2>
+
+                    <p>On the Buddhist path, mindfulness functions in three essential ways:</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 my-8">
+                        <div class="fact-card bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                            <div class="text-blue-600 text-4xl mb-3">🧘</div>
+                            <h3 class="font-bold text-gray-800 mb-2">Present Awareness</h3>
+                            <p class="text-gray-600 text-sm">Remembering to stay alert to what you're doing in the current moment</p>
+                        </div>
+                        <div class="fact-card bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                            <div class="text-indigo-600 text-4xl mb-3">👁️</div>
+                            <h3 class="font-bold text-gray-800 mb-2">Skillful Recognition</h3>
+                            <p class="text-gray-600 text-sm">Noticing helpful and unhelpful qualities arising in the mind</p>
+                        </div>
+                        <div class="fact-card bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                            <div class="text-purple-600 text-4xl mb-3">🔄</div>
+                            <h3 class="font-bold text-gray-800 mb-2">Conscious Development</h3>
+                            <p class="text-gray-600 text-sm">Cultivating beneficial qualities while releasing distractions</p>
+                        </div>
+                    </div>
+
+                    <!-- Original Content -->
+                    <p>What one needs to do is just start with the first step of learning which is to be in the present moment. Our unmindful mind is like a fish under stress who doesn't want to stay still and has such swift movements that before you can observe it in one spot it has already moved on to the other.</p>
+
+                    <h2 class="text-3xl font-bold text-gray-800 mt-12 mb-6 flex items-center">
+                        <span class="bg-blue-100 text-blue-800 w-8 h-8 rounded-full flex items-center justify-center mr-3 text-lg">2</span>
+                        The Power of Mindful Breathing
+                    </h2>
+
+                    <p>The starting point is to have a strong will to develop mindfulness. Why do I say strong? Remember the power of mind! Even if you are not mindful, the mind still has a power which is being used for the not so meaningful tasks.</p>
+
+                    <!-- Breathing Exercise Section -->
+                    <div class="bg-blue-50 p-8 rounded-xl my-12 text-center breathing-animation">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Try This Simple Breathing Exercise</h3>
+                        <ol class="text-left list-decimal list-inside space-y-2 text-gray-700">
+                            <li>Sit comfortably with spine erect</li>
+                            <li>Close your eyes and focus on your breath</li>
+                            <li>Notice if you're breathing fast or slow</li>
+                            <li>Breathe deeply from your belly</li>
+                            <li>Exhale completely</li>
+                            <li>Repeat for 5-7 breaths</li>
+                        </ol>
+                        <p class="mt-4 text-gray-600">Even 2 minutes daily can create profound changes</p>
+                    </div>
+
+                    <h2 class="text-3xl font-bold text-gray-800 mt-12 mb-6 flex items-center">
+                        <span class="bg-blue-100 text-blue-800 w-8 h-8 rounded-full flex items-center justify-center mr-3 text-lg">3</span>
+                        Making Mindfulness a Habit
+                    </h2>
+
+                    <p>After you attain the strong will, you can begin your journey of learning mindfulness by spending some moments each day focusing on one thing that is constant and rhythmic in nature. That is your breathing. Learn to observe how you are breathing.</p>
+
+                    <p>Even in moments of stress, you can take a moment off and focus on your breath. The working of the mind gets controlled by our breath or vice versa. To start with, sit comfortably with your spine erect and eyes closed and begin focusing on your breath.</p>
+
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 my-8">
+                        <h3 class="font-bold text-gray-800 mb-4">Daily Mindfulness Checklist</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <svg class="h-5 w-5 text-blue-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span class="text-gray-700">Observe whether you're breathing fast or slow</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="h-5 w-5 text-blue-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span class="text-gray-700">Notice the types of thoughts as you breathe</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="h-5 w-5 text-blue-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span class="text-gray-700">Breathe deeply from your belly, not chest</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Conclusion -->
+                    <div class="bg-blue-50 border border-blue-200 rounded-xl p-8 mt-12 text-center">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Ready to Cultivate Mindfulness?</h3>
+                        <p class="text-gray-700 mb-6">Join our community and receive daily mindfulness practices straight to your inbox.</p>
+                        <form class="max-w-md mx-auto">
+                            <div class="flex">
+                                <input type="email" placeholder="Your email address" class="flex-grow px-4 py-2 rounded-l-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" required>
+                                <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-r-lg font-medium transition-colors">
+                                    Subscribe
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Sidebar -->
+            <aside class="lg:w-1/3 space-y-8">
+                <!-- Author Bio -->
+                <div class="bg-white p-6 rounded-xl shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&h=100&q=80" alt="Dr. Priya Sharma" class="w-16 h-16 rounded-full border-2 border-blue-200" loading="lazy" width="100" height="100">
+                        <div class="ml-4">
+                            <h3 class="font-bold text-gray-800">Dr. Priya Sharma</h3>
+                            <p class="text-sm text-gray-600">Mindfulness Expert</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 text-sm">With 15 years experience in mindfulness research, Dr. Sharma bridges ancient wisdom with modern neuroscience.</p>
+                </div>
+
+                <!-- Quick Facts -->
+                <div class="bg-white p-6 rounded-xl shadow-sm">
+                    <h3 class="font-bold text-gray-800 mb-4 flex items-center">
+                        <svg class="w-5 h-5 text-blue-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        Mindfulness Fast Facts
+                    </h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <span class="bg-blue-100 text-blue-800 rounded-full w-5 h-5 flex items-center justify-center mr-3 flex-shrink-0 text-xs font-bold">!</span>
+                            <span class="text-sm text-gray-700">Just 10 minutes daily reduces stress by 30%</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="bg-blue-100 text-blue-800 rounded-full w-5 h-5 flex items-center justify-center mr-3 flex-shrink-0 text-xs font-bold">!</span>
+                            <span class="text-sm text-gray-700">Improves focus equivalent to 14 IQ points</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="bg-blue-100 text-blue-800 rounded-full w-5 h-5 flex items-center justify-center mr-3 flex-shrink-0 text-xs font-bold">!</span>
+                            <span class="text-sm text-gray-700">Reduces mind-wandering by 47%</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Daily Tips -->
+                <div class="bg-white p-6 rounded-xl shadow-sm">
+                    <h3 class="font-bold text-gray-800 mb-4">Daily Mindfulness Tips</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <span class="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0 mt-1">1</span>
+                            <div>
+                                <h4 class="font-medium text-gray-800">Morning intention</h4>
+                                <p class="text-sm text-gray-600">Set a 1-minute intention when you wake</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <span class="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0 mt-1">2</span>
+                            <div>
+                                <h4 class="font-medium text-gray-800">Breathing breaks</h4>
+                                <p class="text-sm text-gray-600">Take 3 conscious breaths every hour</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <span class="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0 mt-1">3</span>
+                            <div>
+                                <h4 class="font-medium text-gray-800">Gratitude pause</h4>
+                                <p class="text-sm text-gray-600">Notice 3 things you're grateful for at meals</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Related Articles -->
+                <div class="bg-white p-6 rounded-xl shadow-sm">
+                    <h3 class="font-bold text-gray-800 mb-4">More to Explore</h3>
+                    <div class="space-y-4">
+                        <a href="/gut_health" class="group flex items-start">
+                            <div class="flex-shrink-0 w-16 h-16 bg-gray-200 rounded-lg overflow-hidden mr-4">
+                                <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&h=100&q=80" alt="Gut health" class="w-full h-full object-cover" loading="lazy" width="100" height="100">
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-medium text-gray-800 group-hover:text-blue-600 transition-colors">The Gut-Mind Connection</h4>
+                                <p class="text-xs text-gray-500">Neuroscience</p>
+                            </div>
+                        </a>
+                        <a href="/sleep" class="group flex items-start">
+                            <div class="flex-shrink-0 w-16 h-16 bg-gray-200 rounded-lg overflow-hidden mr-4">
+                                <img src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&h=100&q=80" alt="Sleep" class="w-full h-full object-cover" loading="lazy" width="100" height="100">
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-medium text-gray-800 group-hover:text-blue-600 transition-colors">Mindful Sleep Practices</h4>
+                                <p class="text-xs text-gray-500">Wellness</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+   <!-- Footer -->
+  <footer id="footer" class="bg-gray-800 text-gray-300 py-12 md:py-16">
+    <!-- Content as before -->
+    <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 text-center md:text-left">
+        <div>
+          <h4 class="text-xl font-semibold mb-4 text-white">Wellnation360</h4>
+          <p class="text-sm leading-relaxed mb-4">Your partner in holistic health and mindful living...</p>
+           <div class="relative w-24 h-24 mx-auto md:mx-0 rounded-full overflow-hidden border-2 border-green-500">
+            <img src="{{ url_for('static', filename='images/logo1.png') }}" alt="Wellnation360 Small Logo" class="w-full h-full object-cover" />
+          </div>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-4 text-white">Quick Links</h4>
+          <ul class="space-y-2.5 text-sm">
+            <li><a href="wellnation360.com/index" class="hover:text-green-400 transition-colors duration-200">Home</a></li>
+            <li><a href="#about" class="hover:text-green-400 transition-colors duration-200">About Us</a></li>
+            <li><a href="#services" class="hover:text-green-400 transition-colors duration-200">Our Services</a></li>
+            <li><a href="wellnation360.com/glimpse" class="hover:text-green-400 transition-colors duration-200">Gallery</a></li>
+            <li><a href="http://yoga-kshema.in" class="hover:text-green-400 transition-colors duration-200" target="_blank" rel="noopener noreferrer">Yogakshema Website</a></li>
+            <li><a href="wellnation360.com/contact" class="hover:text-green-400 transition-colors duration-200">Contact Us</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-4 text-white">Contact Info</h4>
+          <div class="text-sm leading-relaxed space-y-3">
+            <div class="flex items-center justify-center md:justify-start gap-2 hover:text-green-400 transition-colors duration-200">
+              <i class="fas fa-map-marker-alt text-green-400 text-base w-5 text-center"></i>
+              <a href="https://maps.google.com/?q=Kasavanahalli,Bangalore,560035" target="_blank" rel="noopener noreferrer" class="hover:underline">Kasavanahalli, Bangalore 560035</a>
+            </div>
+            <div class="flex items-center justify-center md:justify-start gap-2 hover:text-green-400 transition-colors duration-200">
+              <i class="fas fa-phone-alt text-green-400 text-base w-5 text-center"></i>
+              <a href="tel:+917795246002" class="hover:underline">+91 77952 46002</a>
+            </div>
+             <div class="flex items-center justify-center md:justify-start gap-2 hover:text-green-400 transition-colors duration-200">
+              <i class="fas fa-envelope text-green-400 text-base w-5 text-center"></i>
+              <a href="mailto:info@wellnation360.com" class="hover:underline"> info@wellnation360.com</a>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-4 text-white">Follow Us</h4>
+          <div class="flex justify-center md:justify-start space-x-5">
+            <a href="https://instagram.com/wellnation360" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="text-2xl hover:text-pink-500 transition-colors duration-200"><i class="fab fa-instagram"></i></a>
+            <a href="https://youtube.com/@YOUR_CHANNEL_NAME" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="text-2xl hover:text-red-500 transition-colors duration-200"><i class="fab fa-youtube"></i></a>
+            <a href="https://facebook.com/wellnation360" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="text-2xl hover:text-blue-600 transition-colors duration-200"><i class="fab fa-facebook"></i></a>
+          </div>
+           <p class="text-xs mt-6 text-gray-400">Stay connected for wellness tips, updates, and community events.</p>
+        </div>
+      </div>
+    <div class="text-center text-sm mt-10 border-t border-gray-700 pt-8">© <span id="currentYear"></span> Wellnation360. All rights reserved.</div>
+  </footer>
+
+  <!-- WhatsApp Widget -->
+  <div class="fixed bottom-8 right-8 z-50 group">
+    <a href="https://wa.me/917795246002?text=Hello%20Wellnation360,%20I'd%20like%20to%20inquire%20about%20your%20services." target="_blank" class="flex items-center gap-2 bg-white pl-3 pr-2 py-2 rounded-full shadow-lg border border-gray-200 hover:pr-3 transition-all duration-300">
+      <span class="opacity-0 group-hover:opacity-100 w-0 group-hover:w-auto overflow-hidden transition-all duration-300 text-sm font-medium">Let's chat!</span>
+      <img src="{{ url_for('static', filename='images/whatsapp.png') }}" alt="WhatsApp" class="w-10 h-10 lazy-load" loading="lazy">
+    </a>
+  </div>
+    <!-- Initialize Swiper and Firebase -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-firestore-compat.js"></script>
+    <script>
+        // Initialize Firebase
+        const firebaseConfig = {
+            apiKey: "YOUR_API_KEY",
+            authDomain: "YOUR_AUTH_DOMAIN",
+            projectId: "YOUR_PROJECT_ID",
+            storageBucket: "YOUR_STORAGE_BUCKET",
+            messagingSenderId: "YOUR_SENDER_ID",
+            appId: "YOUR_APP_ID"
+        };
+        
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+        
+        // Initialize Swiper
+        const swiper = new Swiper('.swiper-container', {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            breakpoints: {
+                640: { slidesPerView: 2 },
+                1024: { slidesPerView: 3 }
+            }
+        });
+        
+        // Fetch blogs from Firebase
+        document.addEventListener('DOMContentLoaded', () => {
+            const blogCarousel = document.getElementById('blogCarousel');
+            const loadingIndicator = document.getElementById('loadingIndicator');
+            
+            db.collection("blogs")
+                .where("tags", "array-contains", "mindfulness")
+                .orderBy("publishedAt", "desc")
+                .limit(10)
+                .get()
+                .then((querySnapshot) => {
+                    loadingIndicator.style.display = 'none';
+                    
+                    if (querySnapshot.empty) {
+                        blogCarousel.innerHTML = `
+                            <div class="swiper-slide">
+                                <div class="text-center py-12">
+                                    <p class="text-gray-500">More articles coming soon!</p>
+                                </div>
+                            </div>
+                        `;
+                        return;
+                    }
+                    
+                    blogCarousel.innerHTML = ''; // Clear loading placeholder
+                    
+                    querySnapshot.forEach((doc) => {
+                        const blog = doc.data();
+                        const slide = document.createElement('div');
+                        slide.className = 'swiper-slide';
+                        slide.innerHTML = `
+                            <div class="blog-card bg-white rounded-xl shadow-sm overflow-hidden h-full mx-2">
+                                <div class="h-48 bg-gray-200 overflow-hidden">
+                                    <img src="${blog.imageUrl || 'https://images.unsplash.com/photo-1545205597-3d9d02c29597?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&h=300&q=80'}" 
+                                         alt="${blog.title}" class="w-full h-full object-cover" loading="lazy">
+                                </div>
+                                <div class="p-6">
+                                    <span class="inline-block bg-blue-100 text-blue-800 text-xs font-semibold px-2 py-1 rounded mb-2">${blog.category || 'MINDFULNESS'}</span>
+                                    <h3 class="font-bold text-xl mb-2 text-gray-800">${blog.title}</h3>
+                                    <p class="text-gray-600 mb-4 line-clamp-3">${blog.excerpt || ''}</p>
+                                    <a href="/blog/${doc.id}" class="text-blue-600 font-medium hover:text-blue-700 transition-colors">
+                                        Read Article →
+                                    </a>
+                                </div>
+                            </div>
+                        `;
+                        blogCarousel.appendChild(slide);
+                    });
+                    
+                    swiper.update(); // Update Swiper after adding slides
+                })
+                .catch((error) => {
+                    console.error("Error loading blogs: ", error);
+                    loadingIndicator.innerHTML = '<p class="text-red-500">Error loading articles. Please try again.</p>';
+                });
+        });
+    </script>
+</body>
+</html>

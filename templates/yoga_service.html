@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="static/images/logo1.png" type="image/x-icon">
+    <title>Yoga & Meditation Services | Wellnation360</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background-color: #f8f5f2;
+            color: #333;
+            line-height: 1.8;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            font-weight: 300;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+        
+        .services-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            padding: 4rem 0;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+        
+        .service-image {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+        
+        .service-content {
+            padding: 2rem;
+        }
+        
+        .service-name {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+            font-weight: 500;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .service-name:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, #3a7bd5, #00d2ff);
+        }
+        
+        .service-description {
+            color: #555;
+            margin-bottom: 1.5rem;
+        }
+        
+        .service-meta {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            color: #7f8c8d;
+        }
+        
+        .instructor {
+            display: flex;
+            align-items: center;
+            margin-right: 1rem;
+        }
+        
+        .instructor-icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 0.5rem;
+            opacity: 0.7;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background: linear-gradient(90deg, #3a7bd5, #00d2ff);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 0.95rem;
+            font-weight: 500;
+            text-align: center;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(58, 123, 213, 0.3);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 1px solid #3a7bd5;
+            color: #3a7bd5;
+        }
+        
+        .btn-outline:hover {
+            background: rgba(58, 123, 213, 0.05);
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 3rem 0;
+            margin-top: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .services-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="fixed top-0 left-0 right-0 w-full z-50 bg-gray-800 shadow-md">
+      <div class="relative z-10 flex items-center justify-between px-6 py-2 md:py-3">
+        <div class="flex items-center space-x-4">
+          <div class="relative w-20 h-20 rounded-full overflow-hidden">
+            <img src="{{ url_for('static', filename='images/logo1.png') }}" alt="Logo" class="w-full h-full object-cover" />
+          </div>
+          <span class="text-2xl md:text-3xl font-bold text-white">Wellnation360</span>
+        </div>
+        <nav class="hidden md:flex items-center space-x-6 text-white text-base md:text-lg font-semibold">
+          <a href="{{ url_for('index') }}" class="text-white">Home</a>
+          <a href="{{ url_for('about') }}" class="text-white">About</a>
+          <a href="{{ url_for('contact_get') }}" class="text-white">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <div style="padding-top: 80px;"> <header style="background: linear-gradient(135deg, #3a7bd5, #00d2ff); color: white; padding: 3rem 0; text-align: center; position: relative; overflow: hidden;">
+            <div class="container">
+                <h1>Our Yoga & Meditation Offerings</h1>
+                <p class="subtitle">Discover various yoga styles and meditation practices to harmonize your mind, body, and spirit.</p>
+            </div>
+        </header>
+        
+        <div class="container">
+            <div class="services-container" id="servicesContainer">
+                </div>
+        </div>
+    </div>
+    
+    <footer id="footer" class="bg-gray-800 text-gray-300 py-12 md:py-16">
+        <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 text-center md:text-left">
+            <div>
+              <h4 class="text-xl font-semibold mb-4 text-white">Wellnation360</h4>
+              <p class="text-sm leading-relaxed mb-4">Your partner in holistic health and mindful living...</p>
+               <div class="relative w-24 h-24 mx-auto md:mx-0 rounded-full overflow-hidden border-2 border-green-500">
+                <img src="{{ url_for('static', filename='images/logo1.png') }}" alt="Wellnation360 Small Logo" class="w-full h-full object-cover" />
+              </div>
+            </div>
+            <div>
+              <h4 class="text-lg font-semibold mb-4 text-white">Quick Links</h4>
+              <ul class="space-y-2.5 text-sm">
+                <li><a href="wellnation360.com/index" class="hover:text-green-400 transition-colors duration-200">Home</a></li>
+                <li><a href="#about" class="hover:text-green-400 transition-colors duration-200">About Us</a></li>
+                <li><a href="#services" class="hover:text-green-400 transition-colors duration-200">Our Services</a></li>
+                <li><a href="wellnation360.com/glimpse" class="hover:text-green-400 transition-colors duration-200">Gallery</a></li>
+                <li><a href="http://yoga-kshema.in" class="hover:text-green-400 transition-colors duration-200" target="_blank" rel="noopener noreferrer">Yogakshema Website</a></li>
+                <li><a href="wellnation360.com/contact" class="hover:text-green-400 transition-colors duration-200">Contact Us</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="text-lg font-semibold mb-4 text-white">Contact Info</h4>
+              <div class="text-sm leading-relaxed space-y-3">
+                <div class="flex items-center justify-center md:justify-start gap-2 hover:text-green-400 transition-colors duration-200">
+                  <i class="fas fa-map-marker-alt text-green-400 text-base w-5 text-center"></i>
+                  <a href="https://maps.google.com/?q=Kasavanahalli,Bangalore,560035" target="_blank" rel="noopener noreferrer" class="hover:underline">Kasavanahalli, Bangalore 560035</a>
+                </div>
+                <div class="flex items-center justify-center md:justify-start gap-2 hover:text-green-400 transition-colors duration-200">
+                  <i class="fas fa-phone-alt text-green-400 text-base w-5 text-center"></i>
+                  <a href="tel:+917795246002" class="hover:underline">+91 77952 46002</a>
+                </div>
+                  <div class="flex items-center justify-center md:justify-start gap-2 hover:text-green-400 transition-colors duration-200">
+                  <i class="fas fa-envelope text-green-400 text-base w-5 text-center"></i>
+                  <a href="mailto:info@wellnation360.com" class="hover:underline"> info@wellnation360.com</a>
+                </div>
+              </div>
+            </div>
+            <div>
+              <h4 class="text-lg font-semibold mb-4 text-white">Follow Us</h4>
+              <div class="flex justify-center md:justify-start space-x-5">
+                <a href="https://instagram.com/wellnation360" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="text-2xl hover:text-pink-500 transition-colors duration-200"><i class="fab fa-instagram"></i></a>
+                <a href="https://youtube.com/@YOUR_CHANNEL_NAME" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="text-2xl hover:text-red-500 transition-colors duration-200"><i class="fab fa-youtube"></i></a>
+                <a href="https://facebook.com/wellnation360" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="text-2xl hover:text-blue-600 transition-colors duration-200"><i class="fab fa-facebook"></i></a>
+              </div>
+               <p class="text-xs mt-6 text-gray-400">Stay connected for wellness tips, updates, and community events.</p>
+            </div>
+          </div>
+        <div class="text-center text-sm mt-10 border-t border-gray-700 pt-8">© <span id="currentYear"></span> Wellnation360. All rights reserved.</div>
+    </footer>
+
+    <div class="fixed bottom-8 right-8 z-50 group">
+        <a href="https://wa.me/917795246002?text=Hello%20Wellnation360,%20I'd%20like%20to%20inquire%20about%20your%20services." target="_blank" class="flex items-center gap-2 bg-white pl-3 pr-2 py-2 rounded-full shadow-lg border border-gray-200 hover:pr-3 transition-all duration-300">
+          <span class="opacity-0 group-hover:opacity-100 w-0 group-hover:w-auto overflow-hidden transition-all duration-300 text-sm font-medium">Let's chat!</span>
+          <img src="{{ url_for('static', filename='images/whatsapp.png') }}" alt="WhatsApp" class="w-10 h-10 lazy-load" loading="lazy">
+        </a>
+    </div>
+        
+    <script>
+        // Update current year for the footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        const services = [
+            {
+                image: "static/images/hathayoga.webp", // You'll need to create this image
+                name: "Hatha Yoga",
+                instructor: "Yoga Instructor", // Replace with actual instructor name
+                description: "Experience the foundational practice of Hatha Yoga, focusing on slow and controlled movements, traditional asanas, and breathwork to build strength, flexibility, and inner peace.",
+                benefits: [
+                    "Improved flexibility and strength",
+                    "Stress reduction and mental clarity",
+                    "Better posture and body alignment",
+                    "Enhanced breath awareness"
+                ]
+            },
+            {
+                image: "static/images/aerialyoga.jpg", // You'll need to create this image
+                name: "Aerial Yoga",
+                instructor: "Aerial Yoga Instructor", // Replace with actual instructor name
+                description: "Defy gravity and explore a unique yoga experience with Aerial Yoga. Using soft fabric hammocks, this practice allows for deeper stretches, spinal decompression, and playful inversions.",
+                benefits: [
+                    "Spinal decompression and pain relief",
+                    "Increased flexibility and balance",
+                    "Core strength development",
+                    "Fun and creative movement"
+                ]
+            },
+            {
+                image: "static/images/chakrameditaion.jpg", // You'll need to create this image
+                name: "Chakra Meditation",
+                instructor: "Meditation Guide", // Replace with actual instructor name
+                description: "Balance your energy centers with guided Chakra Meditation. This practice focuses on aligning and activating your seven chakras, promoting emotional well-being and spiritual growth.",
+                benefits: [
+                    "Energy balance and vitality",
+                    "Emotional release and clarity",
+                    "Deep relaxation and inner peace",
+                    "Enhanced spiritual connection"
+                ]
+            },
+            {
+                image: "static/images/athrits.jpg", // You'll need to create this image
+                name: "Yoga for Arthritis & More",
+                instructor: "Therapeutic Yoga Specialist", // Replace with actual instructor name
+                description: "Gentle and therapeutic yoga sessions designed to alleviate symptoms of arthritis and other conditions. Focuses on gentle movements, joint mobility, and pain management through mindful practice.",
+                benefits: [
+                    "Improved joint flexibility and range of motion",
+                    "Reduced pain and stiffness",
+                    "Increased strength and balance",
+                    "Enhanced quality of life"
+                ]
+            }
+        ];
+
+        // Render services
+        const servicesContainer = document.getElementById('servicesContainer');
+
+        services.forEach(service => {
+            const serviceCard = document.createElement('div');
+            serviceCard.className = 'service-card';
+            
+            serviceCard.innerHTML = `
+                <img src="${service.image}" alt="${service.name}" class="service-image">
+                <div class="service-content">
+                    <h3 class="service-name">${service.name}</h3>
+                    <div class="service-meta">
+                        <span class="instructor">
+                            <svg class="instructor-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                            ${service.instructor}
+                        </span>
+                    </div>
+                    <p class="service-description">${service.description}</p>
+                    
+                    <div>
+                        <h4 style="font-size: 1rem; margin-bottom: 0.5rem; color: #3a7bd5;">Key Benefits:</h4>
+                        <ul style="list-style-type: none;">
+                            ${service.benefits.map(benefit => `
+                                <li style="position: relative; padding-left: 1.5rem; margin-bottom: 0.5rem;">
+                                    <svg style="position: absolute; left: 0; top: 0.25rem; width: 1rem; height: 1rem;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#3a7bd5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg>
+                                    ${benefit}
+                                </li>
+                            `).join('')}
+                        </ul>
+                    </div>
+                    
+                    <div class="action-buttons">
+                        <a href="/contact" class="btn">Book a Session</a>
+                    </div>
+                </div>
+            `;
+            
+            servicesContainer.appendChild(serviceCard);
+        });
+    </script>
+</body>
+</html>

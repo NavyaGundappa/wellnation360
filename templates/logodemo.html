@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <title>Yogakshema - Holistic Yoga & Wellness</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; }
+    .font-display { font-family: 'Playfair Display', serif; }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fadeInUp { animation: fadeInUp 0.6s ease-out forwards; }
+    .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    .hide-scrollbar::-webkit-scrollbar { display: none; }
+    .snap-x { scroll-snap-type: x mandatory; }
+    .snap-start { scroll-snap-align: start; }
+    .snap-center { scroll-snap-align: center; }
+
+    /* Custom styling for service cards */
+    .service-card {
+      transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+      min-height: 480px; /* Ensure consistent card height */
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    .service-card img {
+      aspect-ratio: 4 / 3; /* Maintain image aspect ratio */
+      object-fit: cover;
+    }
+    .service-card .pricing-options-list {
+        font-size: 0.875rem; /* 14px */
+        color: #4A5568; /* gray-700 */
+        margin-top: 0.5rem;
+    }
+    .service-card .pricing-options-list li {
+        padding: 0.25rem 0;
+    }
+     /* Ensure buttons in header are visible */
+    header nav a, header .group > a { color: white !important; }
+    header nav a:hover, header .group > a:hover { color: #6EE7B7 !important; /* Tailwind green-300 */ }
+  </style>
+</head>
+<body class="text-gray-800 bg-stone-50">
+
+  <a href="https://wa.me/917795246002?text=Hello%20Yogakshema,%20I'd%20like%20to%20inquire%20about%20your%20yoga%20services." target="_blank" class="fixed bottom-6 right-6 z-[100] p-3 bg-green-500 text-white rounded-full shadow-lg hover:bg-green-600 transition-transform duration-300 transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-green-400" aria-label="Chat on WhatsApp">
+    <i class="fab fa-whatsapp text-3xl"></i>
+  </a>
+
+  <header class="fixed top-0 left-0 w-full flex flex-col md:flex-row justify-between items-center p-4 z-50 bg-gray-800 shadow-lg h-auto md:h-24">
+    <div class="w-full md:w-auto flex justify-between items-center">
+      <a href="{{ url_for('yogakshema') }}#home" class="flex items-center space-x-2 text-white">
+        <img src="{{ url_for('static', filename='images/logo1.png') }}" alt="Yogakshema Logo" class="h-12 w-10 md:h-16 md:w-12 object-contain filter brightness-0 invert" />
+        <span class="text-xl md:text-2xl font-bold font-display">YOGAKSHEMA</span>
+      </a>
+      <button class="md:hidden text-white focus:outline-none" id="mobile-menu-button" aria-label="Toggle mobile menu" aria-expanded="false">
+        <i class="fas fa-bars text-2xl"></i>
+      </button>
+    </div>
+
+    <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 text-center text-white">
+      <h2 class="text-2xl md:text-3xl font-extrabold tracking-wider mb-1 font-display">
+        Y O G A
+      </h2>
+      <div class="flex flex-wrap text-xs md:text-sm font-semibold space-x-3 md:space-x-4 justify-center">
+        <span>Nourish</span> &bull; <span>Heal</span> &bull; <span>Thrive</span> &bull; <span>Evolve</span>
+      </div>
+    </div>
+
+    <nav class="hidden md:flex space-x-5 lg:space-x-6 text-white font-medium text-sm lg:text-base items-center">
+      <a href="{{ url_for('index') }}" class="hover:text-green-300 transition-colors">Wellnation360 Home</a>
+      <a href="#instructor" class="hover:text-green-300 transition-colors">About Instructor</a>
+      <a href="{{ url_for('gallery') }}?filter=yogakshema" class="hover:text-green-300 transition-colors">Gallery</a>
+      <div class="relative group">
+        <a href="#services" class="flex items-center gap-1 hover:text-green-300 transition-colors">
+          Services <i class="fas fa-chevron-down text-xs transform group-hover:rotate-180 transition-transform"></i>
+        </a>
+        <div class="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-60 bg-white text-gray-800 rounded-md shadow-xl opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 invisible group-hover:visible z-[60] py-1" id="services-dropdown-menu">
+          <!-- Dropdown items will be populated by JavaScript -->
+          <p class="px-4 py-2 text-xs text-gray-500">Loading services...</p>
+        </div>
+      </div>
+      <a href="#reviews" class="hover:text-green-300 transition-colors">Reviews</a>
+      <a href="{{ url_for('contact_get') }}?branch=Yogakshema" class="bg-green-500 hover:bg-green-600 px-4 py-2 rounded-md transition-colors text-white shadow-sm">Contact</a>
+    </nav>
+
+    <div id="mobile-menu" class="hidden w-full md:hidden bg-gray-700 mt-2 py-2 px-4 rounded-lg absolute top-full left-0">
+      <a href="{{ url_for('index') }}" class="block py-2.5 text-white hover:bg-gray-600 rounded px-2 transition-colors">Wellnation360 Home</a>
+      <a href="#instructor" class="block py-2.5 text-white hover:bg-gray-600 rounded px-2 transition-colors">About Instructor</a>
+      <a href="{{ url_for('gallery') }}?filter=yogakshema" class="block py-2.5 text-white hover:bg-gray-600 rounded px-2 transition-colors">Gallery</a>
+      <a href="#services" class="block py-2.5 text-white hover:bg-gray-600 rounded px-2 transition-colors">Services</a>
+      <a href="#reviews" class="block py-2.5 text-white hover:bg-gray-600 rounded px-2 transition-colors">Reviews</a>
+      <a href="{{ url_for('contact_get') }}?branch=Yogakshema" class="block py-2.5 text-white bg-green-500 hover:bg-green-600 rounded px-2 mt-1 transition-colors text-center">Contact Us</a>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="relative bg-cover bg-center h-screen pt-28 px-6 md:px-12 flex items-center justify-center text-center" style="background-image: url('{{ url_for('static', filename='images/yoga_hero_bg.jpg') }}');">
+      <div class="absolute inset-0 bg-black/60 z-0"></div>
+      <div class="relative z-10 text-white space-y-6 max-w-3xl animate-fadeInUp">
+        <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold font-display leading-tight">
+          Discover Inner Peace & Strength
+        </h1>
+        <p class="text-lg sm:text-xl text-gray-200 leading-relaxed">
+          Yogakshema offers authentic yoga practices to harmonize your mind, body, and spirit. Join us to embark on a transformative journey towards holistic well-being.
+        </p>
+        <div class="flex flex-col sm:flex-row justify-center gap-4 mt-8">
+          <a href="#services" class="bg-green-500 hover:bg-green-600 text-white px-8 py-3.5 rounded-lg text-lg font-semibold transition duration-300 shadow-md hover:shadow-lg transform hover:scale-105">
+            Explore Our Classes
+          </a>
+          <a href="{{ url_for('contact_get') }}?branch=Yogakshema&service_enroll=Yoga%20Inquiry" class="border-2 border-white hover:bg-white hover:text-green-600 text-white px-8 py-3.5 rounded-lg text-lg font-semibold transition duration-300 shadow-md hover:shadow-lg transform hover:scale-105">
+            Book a Session
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about-short" class="py-16 lg:py-24 bg-white">
+      <div class="container mx-auto px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto">
+            <h2 class="text-3xl lg:text-4xl font-bold font-display text-gray-800 mb-6">Welcome to Yogakshema</h2>
+            <p class="text-lg text-gray-600 leading-relaxed mb-8">
+                Yogakshema, an initiative by Wellnation360, is your sanctuary for authentic yoga and holistic wellness. We believe in the power of traditional yoga to heal, strengthen, and bring balance to modern lives. Our classes are designed to be inclusive, catering to all levels from beginners to advanced practitioners.
+            </p>
+            <a href="#instructor" class="text-green-600 hover:text-green-700 font-semibold text-lg group">
+                Meet Your Instructor <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform"></i>
+            </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="py-16 lg:py-24 bg-stone-100 scroll-mt-20">
+      <div class="container mx-auto px-6 lg:px-8">
+        <h2 class="text-3xl lg:text-4xl font-bold font-display text-center text-gray-800 mb-6">Our Yoga Offerings</h2>
+        <p class="text-center text-lg text-gray-600 mb-12 max-w-2xl mx-auto">
+          From foundational Hatha Yoga to dynamic Aerial Yoga and calming Chakra Meditation, find the practice that resonates with you.
+        </p>
+        <div class="relative">
+          <div id="servicesContainer" class="flex overflow-x-auto pb-8 snap-x hide-scrollbar space-x-6 lg:space-x-8 -mx-4 px-4">
+            <!-- Service cards will be dynamically injected here -->
+            <p id="loading-services" class="text-center text-gray-500 flex-shrink-0 w-full py-10">
+                <i class="fas fa-spinner fa-spin text-3xl text-green-500"></i><br>Loading services...
+            </p>
+          </div>
+          <!-- Navigation buttons for horizontal scroll -->
+          <div id="servicesNav" class="flex justify-center mt-8 space-x-3 md:hidden">
+            <button id="prevService" aria-label="Previous Service" class="bg-green-500 text-white p-3 rounded-full hover:bg-green-600 transition disabled:opacity-50 shadow-md">
+              <i class="fas fa-chevron-left"></i>
+            </button>
+            <button id="nextService" aria-label="Next Service" class="bg-green-500 text-white p-3 rounded-full hover:bg-green-600 transition disabled:opacity-50 shadow-md">
+              <i class="fas fa-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="instructor" class="py-16 lg:py-24 bg-white scroll-mt-20">
+      <div class="container mx-auto px-6 lg:px-8">
+        <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <div class="flex justify-center" data-aos="fade-right">
+            <img src="{{ url_for('static', filename='images/profilepic.jpeg') }}" alt="Dt. Ritu Kapoor - Yoga Instructor" class="rounded-2xl shadow-xl w-full max-w-md object-cover border-4 border-green-200 transform hover:scale-105 transition-transform duration-300">
+          </div>
+          <div data-aos="fade-left">
+            <h2 class="text-3xl lg:text-4xl font-bold font-display text-gray-800 mb-6">Meet Your Instructor: Dt. Ritu Kapoor</h2>
+            <p class="text-lg text-gray-600 leading-relaxed mb-4">
+              Dt. Ritu Kapoor, founder of Wellnation360 and Yogakshema, is not only an expert nutritionist but also a certified yoga instructor. Her deep understanding of the human body, combined with her passion for holistic wellness, makes her yoga sessions both insightful and transformative.
+            </p>
+            <p class="text-lg text-gray-600 leading-relaxed mb-6">
+              Ritu believes that yoga is a journey of self-discovery and a powerful tool for physical health and mental clarity. Her classes emphasize proper alignment, breath awareness, and the meditative aspects of yoga, creating a nurturing environment for students to explore their potential.
+            </p>
+            <blockquote class="italic text-lg text-green-700 border-l-4 border-green-500 pl-6 py-3 my-6 bg-green-50 rounded-r-lg">
+              “Yoga is the dance of every cell with the music of every breath that creates inner serenity and harmony.”
+            </blockquote>
+            <a href="{{ url_for('contact_get') }}?branch=Yogakshema&service_enroll=Yoga%20Consultation%20with%20Ritu" class="inline-block bg-green-500 hover:bg-green-600 text-white font-semibold px-8 py-3 rounded-lg transition duration-300 shadow-md hover:shadow-lg transform hover:scale-105">
+              Join a Class with Ritu
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="youtube-gallery" class="py-16 lg:py-24 bg-stone-100 scroll-mt-20">
+        <div class="container mx-auto px-6 lg:px-8">
+            <h2 class="text-3xl lg:text-4xl font-bold font-display text-center text-gray-800 mb-6">Experience Yogakshema</h2>
+            <p class="text-center text-lg text-gray-600 mb-12 max-w-2xl mx-auto">
+                Watch glimpses of our sessions and insights from Dt. Ritu Kapoor.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div class="aspect-w-16 aspect-h-9 rounded-xl overflow-hidden shadow-xl border-2 border-white bg-gray-200" data-aos="zoom-in-up">
+                    <iframe src="https://www.youtube.com/embed/YOUR_YOGA_VIDEO_ID_1" title="Yogakshema Class Highlight" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy" class="w-full h-full"></iframe>
+                </div>
+                <div class="aspect-w-16 aspect-h-9 rounded-xl overflow-hidden shadow-xl border-2 border-white bg-gray-200" data-aos="zoom-in-up" data-aos-delay="100">
+                    <iframe src="https://www.youtube.com/embed/YOUR_YOGA_VIDEO_ID_2" title="Yoga Philosophy by Dt. Ritu" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy" class="w-full h-full"></iframe>
+                </div>
+            </div>
+             <div class="text-center mt-12">
+                <a href="https://www.youtube.com/@YOUR_CHANNEL_NAME" target="_blank" rel="noopener noreferrer" class="text-green-600 hover:text-green-700 font-semibold text-lg group">
+                    Visit Our YouTube Channel <i class="fab fa-youtube text-red-500 ml-2"></i> <i class="fas fa-arrow-right ml-1 transform group-hover:translate-x-1 transition-transform"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="reviews" class="py-16 lg:py-24 bg-white scroll-mt-20">
+      <div class="container mx-auto px-6 lg:px-8">
+        <h2 class="text-3xl lg:text-4xl font-bold font-display text-center text-gray-800 mb-6">What Our Students Say</h2>
+        <p class="text-center text-lg text-gray-600 mb-12 max-w-2xl mx-auto">
+            Hear from those who have experienced the benefits of practicing yoga at Yogakshema.
+        </p>
+        <div class="relative">
+          <div id="reviewsCarousel" class="flex overflow-x-auto pb-8 snap-x hide-scrollbar space-x-6 lg:space-x-8 -mx-4 px-4">
+            <!-- Reviews will be dynamically injected here -->
+            <p id="loading-reviews" class="text-center text-gray-500 flex-shrink-0 w-full py-10">
+                <i class="fas fa-spinner fa-spin text-3xl text-green-500"></i><br>Loading reviews...
+            </p>
+          </div>
+          <div id="reviewsNav" class="flex justify-center mt-8 space-x-3 md:hidden">
+            <button id="prevReview" aria-label="Previous Review" class="bg-green-500 text-white p-3 rounded-full hover:bg-green-600 transition disabled:opacity-50 shadow-md">
+              <i class="fas fa-chevron-left"></i>
+            </button>
+            <button id="nextReview" aria-label="Next Review" class="bg-green-500 text-white p-3 rounded-full hover:bg-green-600 transition disabled:opacity-50 shadow-md">
+              <i class="fas fa-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="footer" class="bg-gray-800 text-gray-300 py-12 md:py-16">
+    <div class="container mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 text-center md:text-left">
+        <div>
+          <h4 class="text-xl font-semibold mb-4 text-white font-display">Yogakshema</h4>
+          <p class="text-sm leading-relaxed mb-4">Embrace wellness, find your balance. An initiative by Wellnation360.</p>
+           <div class="relative w-24 h-24 mx-auto md:mx-0 rounded-full overflow-hidden border-2 border-green-500 shadow-lg">
+            <img src="{{ url_for('static', filename='images/logo1.png') }}" alt="Yogakshema Logo Footer" class="w-full h-full object-cover filter brightness-0 invert" />
+          </div>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-4 text-white">Quick Links</h4>
+          <ul class="space-y-2.5 text-sm">
+            <li><a href="{{ url_for('index') }}" class="hover:text-green-300 transition-colors">Wellnation360 Home</a></li>
+            <li><a href="#home" class="hover:text-green-300 transition-colors">Yogakshema Home</a></li>
+            <li><a href="#services" class="hover:text-green-300 transition-colors">Our Classes</a></li>
+            <li><a href="#instructor" class="hover:text-green-300 transition-colors">About Instructor</a></li>
+            <li><a href="{{ url_for('gallery') }}?filter=yogakshema" class="hover:text-green-300 transition-colors">Gallery</a></li>
+            <li><a href="{{ url_for('contact_get') }}?branch=Yogakshema" class="hover:text-green-300 transition-colors">Contact Us</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-4 text-white">Contact Yogakshema</h4>
+          <div class="text-sm leading-relaxed space-y-3">
+            <div class="flex items-center justify-center md:justify-start gap-2 hover:text-green-300 transition-colors">
+              <i class="fas fa-map-marker-alt text-green-400 text-base w-5 text-center"></i>
+              <a href="https://maps.google.com/?q=Kasavanahalli,Bangalore,560035" target="_blank" rel="noopener noreferrer" class="hover:underline">Kasavanahalli, Bangalore 560035</a>
+            </div>
+            <div class="flex items-center justify-center md:justify-start gap-2 hover:text-green-300 transition-colors">
+              <i class="fas fa-phone-alt text-green-400 text-base w-5 text-center"></i>
+              <a href="tel:+917795246002" class="hover:underline">+91 77952 46002</a>
+            </div>
+             <div class="flex items-center justify-center md:justify-start gap-2 hover:text-green-300 transition-colors">
+              <i class="fas fa-envelope text-green-400 text-base w-5 text-center"></i>
+              <a href="mailto:info@wellnation360.com?subject=Inquiry%20about%20Yogakshema" class="hover:underline">info@wellnation360.com</a>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-4 text-white">Follow Us</h4>
+          <div class="flex justify-center md:justify-start space-x-5">
+            <a href="https://instagram.com/wellnation360" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="text-2xl hover:text-pink-500 transition-transform duration-200 transform hover:scale-110"><i class="fab fa-instagram"></i></a>
+            <a href="https://youtube.com/@YOUR_CHANNEL_NAME" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="text-2xl hover:text-red-500 transition-transform duration-200 transform hover:scale-110"><i class="fab fa-youtube"></i></a>
+            <a href="https://facebook.com/wellnation360" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="text-2xl hover:text-blue-600 transition-transform duration-200 transform hover:scale-110"><i class="fab fa-facebook"></i></a>
+          </div>
+           <p class="text-xs mt-6 text-gray-400">Stay connected for yoga tips, class updates, and wellness inspiration.</p>
+        </div>
+      </div>
+    <div class="text-center text-sm mt-10 border-t border-gray-700 pt-8">© <span id="currentYear"></span> Yogakshema by Wellnation360. All rights reserved.</div>
+  </footer>
+
+<script>
+  // --- Mobile Menu Toggle ---
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+  if (mobileMenuButton && mobileMenu) {
+    mobileMenuButton.addEventListener('click', function() {
+      const isExpanded = mobileMenu.classList.toggle('hidden');
+      mobileMenuButton.setAttribute('aria-expanded', !isExpanded);
+      // Toggle icon
+      mobileMenuButton.innerHTML = !isExpanded ? '<i class="fas fa-times text-2xl"></i>' : '<i class="fas fa-bars text-2xl"></i>';
+    });
+    // Close menu when a link is clicked
+    mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            mobileMenuButton.setAttribute('aria-expanded', 'false');
+            mobileMenuButton.innerHTML = '<i class="fas fa-bars text-2xl"></i>';
+        });
+    });
+  }
+
+  // Set current year in footer
+  document.getElementById('currentYear').textContent = new Date().getFullYear();
+  
+  // AOS (Animate on Scroll) Initialization
+  if (typeof AOS !== 'undefined') {
+      AOS.init({
+          duration: 800,
+          easing: 'ease-in-out-quad',
+          once: true,
+          offset: 50
+      });
+  }
+
+
+  // --- Dynamic Data Loading for Yogakshema ---
+  document.addEventListener('DOMContentLoaded', function() {
+    const YOGAKSHEMA_API_ENDPOINT = "{{ url_for('get_yogaservices') }}"; // Use Flask's url_for
+    const REVIEWS_API_ENDPOINT = "{{ url_for('get_reviews') }}";
+    const YOGAKSHEMA_PLATFORM_NAME = "Yogakshema"; // Used for filtering reviews
+
+    // --- Fetch and Display Yoga Services ---
+    const servicesContainer = document.getElementById('servicesContainer');
+    const loadingServicesMsg = document.getElementById('loading-services');
+    const servicesDropdownMenu = document.getElementById('services-dropdown-menu');
+    const servicesNavContainer = document.getElementById('servicesNav');
+
+    if (servicesContainer && loadingServicesMsg && servicesDropdownMenu) {
+      fetch(YOGAKSHEMA_API_ENDPOINT)
+        .then(response => {
+          if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+          return response.json();
+        })
+        .then(data => {
+          loadingServicesMsg.style.display = 'none';
+          servicesContainer.innerHTML = ''; // Clear loading message
+          servicesDropdownMenu.innerHTML = ''; // Clear static dropdown items
+
+          if (data.status === 'success' && data.services && data.services.length > 0) {
+            data.services.forEach(service => {
+              const serviceCard = document.createElement('div');
+              serviceCard.className = 'service-card flex-shrink-0 w-80 md:w-96 bg-white rounded-xl shadow-lg p-6 snap-start';
+              serviceCard.id = `service-${(service.name || 'service').toLowerCase().replace(/\s+/g, '-')}`;
+
+              const defaultImage = "{{ url_for('static', filename='images/yoga_placeholder.jpg') }}";
+              const imageUrl = service.image_url || defaultImage;
+              
+              let pricingHtml = '<p class="text-sm text-gray-500 mt-2">Contact us for pricing.</p>';
+              if (service.pricing_options && service.pricing_options.length > 0) {
+                  pricingHtml = '<ul class="pricing-options-list space-y-1">';
+                  service.pricing_options.forEach(opt => {
+                      pricingHtml += `<li>${opt.text}: <strong>₹${opt.value}</strong></li>`;
+                  });
+                  pricingHtml += '</ul>';
+              }
+
+              serviceCard.innerHTML = `
+                <div>
+                  <img src="${imageUrl}" alt="${service.name || 'Yoga Service'}" class="rounded-lg w-full h-52 object-cover mb-4" onerror="this.onerror=null; this.src='${defaultImage}';">
+                  <h3 class="text-xl font-bold text-gray-800 mb-2">${service.name || 'Yoga Class'}</h3>
+                  <p class="text-sm text-gray-600 mb-1"><i class="fas fa-user-tie mr-2 text-green-500"></i>Instructor: ${service.instructor || 'Expert Teacher'}</p>
+                  <p class="text-sm text-gray-600 mb-3"><i class="far fa-clock mr-2 text-green-500"></i>Timing: ${service.timing || 'Flexible Schedule'}</p>
+                  <p class="text-sm text-gray-500 leading-relaxed mb-3">${(service.description || 'A transformative yoga experience.').substring(0,100)}...</p>
+                  ${pricingHtml}
+                </div>
+                <div class="mt-auto pt-4">
+                  <a href="{{ url_for('contact_get') }}?branch=Yogakshema&service_enroll=${encodeURIComponent(service.name || '')}" class="block w-full text-center bg-green-500 hover:bg-green-600 text-white px-6 py-2.5 rounded-md font-semibold transition duration-300 shadow-sm">
+                    Enroll Now <i class="fas fa-arrow-right ml-1"></i>
+                  </a>
+                </div>
+              `;
+              servicesContainer.appendChild(serviceCard);
+
+              // Add to services dropdown
+              const dropdownLink = document.createElement('a');
+              dropdownLink.href = `#service-${(service.name || 'service').toLowerCase().replace(/\s+/g, '-')}`;
+              dropdownLink.className = 'block px-4 py-2.5 text-sm hover:bg-gray-100 hover:text-green-600 transition duration-200';
+              dropdownLink.textContent = service.name || 'Unnamed Service';
+              servicesDropdownMenu.appendChild(dropdownLink);
+            });
+             // Show nav buttons if more than one service on mobile
+            if (data.services.length > 1 && servicesNavContainer) {
+                servicesNavContainer.classList.remove('md:hidden'); // Keep hidden on md+, show on small screens
+            } else if (servicesNavContainer) {
+                servicesNavContainer.style.display = 'none'; // Hide if not needed
+            }
+          } else {
+            servicesContainer.innerHTML = `<p class="text-center text-gray-500 col-span-full py-10">No Yogakshema services currently available. Please check back soon!</p>`;
+            if(servicesNavContainer) servicesNavContainer.style.display = 'none';
+          }
+          if (typeof AOS !== 'undefined') AOS.refresh();
+        })
+        .catch(error => {
+          console.error('Error fetching Yogakshema services:', error);
+          loadingServicesMsg.style.display = 'none';
+          servicesContainer.innerHTML = `<p class="text-center text-red-500 col-span-full py-10">Could not load services at this time. Please try again later or contact us.</p>`;
+          if(servicesNavContainer) servicesNavContainer.style.display = 'none';
+        });
+    } else {
+        console.warn("Service display elements not found.");
+    }
+    
+    // --- Setup Horizontal Scroll for Services ---
+    if (servicesContainer && servicesNavContainer) {
+        const prevServiceBtn = document.getElementById('prevService');
+        const nextServiceBtn = document.getElementById('nextService');
+
+        function updateServiceNavButtons() {
+            if (!servicesContainer.firstChild || !prevServiceBtn) return;
+            const scrollAmount = servicesContainer.clientWidth * 0.8; // Scroll 80% of visible width
+            prevServiceBtn.disabled = servicesContainer.scrollLeft < 10;
+            nextServiceBtn.disabled = servicesContainer.scrollLeft >= (servicesContainer.scrollWidth - servicesContainer.clientWidth - 10);
+        }
+
+        if(prevServiceBtn && nextServiceBtn) {
+            prevServiceBtn.addEventListener('click', () => {
+                servicesContainer.scrollBy({ left: - (servicesContainer.firstChild.offsetWidth + 24), behavior: 'smooth' }); // card width + gap
+            });
+            nextServiceBtn.addEventListener('click', () => {
+                servicesContainer.scrollBy({ left: (servicesContainer.firstChild.offsetWidth + 24), behavior: 'smooth' });
+            });
+            servicesContainer.addEventListener('scroll', updateServiceNavButtons, { passive: true });
+            // Call initially after items might be loaded
+             setTimeout(updateServiceNavButtons, 500); // Give time for content to load
+             window.addEventListener('resize', updateServiceNavButtons);
+        }
+    }
+
+
+    // --- Fetch and Display Reviews ---
+    const reviewsCarousel = document.getElementById('reviewsCarousel');
+    const loadingReviewsMsg = document.getElementById('loading-reviews');
+    const reviewsNavContainer = document.getElementById('reviewsNav');
+
+
+    if (reviewsCarousel && loadingReviewsMsg) {
+        fetch(REVIEWS_API_ENDPOINT)
+          .then(response => {
+            if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+            return response.json();
+          })
+          .then(data => {
+            loadingReviewsMsg.style.display = 'none';
+            reviewsCarousel.innerHTML = ''; 
+
+            const platformReviews = data.reviews.filter(review => review.platform && review.platform.toLowerCase() === YOGAKSHEMA_PLATFORM_NAME.toLowerCase());
+
+            if (platformReviews.length > 0) {
+              platformReviews.forEach(review => {
+                const reviewCard = document.createElement('div');
+                reviewCard.className = 'flex-shrink-0 w-80 md:w-96 bg-white rounded-xl shadow-lg p-6 snap-start';
+                
+                const defaultAvatar = `https://ui-avatars.com/api/?name=${encodeURIComponent(review.reviewer_name || 'Client')}&background=random&color=fff&bold=true&size=48`;
+                const avatarUrl = review.reviewer_image_url || defaultAvatar;
+
+                const starsHtml = Array(5).fill(null).map((_, i) => 
+                    `<i class="fas fa-star ${i < (review.rating || 0) ? 'text-yellow-400' : 'text-gray-300'}"></i>`
+                ).join('');
+
+                let mediaHtml = '';
+                if (review.media_url && review.media_type === 'image') {
+                    mediaHtml = `<img src="${review.media_url}" alt="Review media for ${review.reviewer_name}" class="mt-4 rounded-lg w-full max-h-48 object-cover" onerror="this.style.display='none';">`;
+                } else if (review.media_url && review.media_type === 'video') {
+                    mediaHtml = `<video controls src="${review.media_url}" class="mt-4 rounded-lg w-full max-h-60" poster="${avatarUrl}"><p>Your browser does not support video.</p></video>`;
+                }
+
+                reviewCard.innerHTML = `
+                  <div class="flex items-start mb-3">
+                    <img src="${avatarUrl}" alt="${review.reviewer_name || 'Client'}" class="w-12 h-12 rounded-full mr-4 border-2 border-green-200">
+                    <div>
+                      <h3 class="font-semibold text-gray-800 text-lg">${review.reviewer_name || 'Anonymous Yogi'}</h3>
+                      <div class="flex items-center text-sm">${starsHtml}</div>
+                    </div>
+                  </div>
+                  <p class="text-gray-600 text-sm leading-relaxed mb-3">${review.content || 'A wonderful experience!'}</p>
+                  ${mediaHtml}
+                `;
+                reviewsCarousel.appendChild(reviewCard);
+              });
+              if (platformReviews.length > 1 && reviewsNavContainer) {
+                  reviewsNavContainer.classList.remove('md:hidden');
+              } else if (reviewsNavContainer) {
+                  reviewsNavContainer.style.display = 'none';
+              }
+            } else {
+              reviewsCarousel.innerHTML = `<p class="text-center text-gray-500 col-span-full py-10">No reviews for ${YOGAKSHEMA_PLATFORM_NAME} yet. Be the first to share your experience!</p>`;
+              if(reviewsNavContainer) reviewsNavContainer.style.display = 'none';
+            }
+            if (typeof AOS !== 'undefined') AOS.refresh();
+            initializeReviewCarouselScroll(); // Initialize scroll for reviews
+          })
+          .catch(error => {
+            console.error(`Error fetching ${YOGAKSHEMA_PLATFORM_NAME} reviews:`, error);
+            loadingReviewsMsg.style.display = 'none';
+            reviewsCarousel.innerHTML = `<p class="text-center text-red-500 col-span-full py-10">Could not load reviews. Please try again later.</p>`;
+            if(reviewsNavContainer) reviewsNavContainer.style.display = 'none';
+          });
+    } else {
+        console.warn("Review display elements not found.");
+    }
+
+    // --- Setup Horizontal Scroll for Reviews ---
+    function initializeReviewCarouselScroll() {
+        if (reviewsCarousel && reviewsNavContainer) {
+            const prevReviewBtn = document.getElementById('prevReview');
+            const nextReviewBtn = document.getElementById('nextReview');
+
+            function updateReviewNavButtons() {
+                if (!reviewsCarousel.firstChild || !prevReviewBtn) return;
+                 prevReviewBtn.disabled = reviewsCarousel.scrollLeft < 10;
+                nextReviewBtn.disabled = reviewsCarousel.scrollLeft >= (reviewsCarousel.scrollWidth - reviewsCarousel.clientWidth - 10);
+            }
+
+            if(prevReviewBtn && nextReviewBtn){
+                prevReviewBtn.addEventListener('click', () => {
+                    reviewsCarousel.scrollBy({ left: -(reviewsCarousel.firstChild.offsetWidth + 24), behavior: 'smooth' });
+                });
+                nextReviewBtn.addEventListener('click', () => {
+                    reviewsCarousel.scrollBy({ left: (reviewsCarousel.firstChild.offsetWidth + 24), behavior: 'smooth' });
+                });
+                reviewsCarousel.addEventListener('scroll', updateReviewNavButtons, { passive: true });
+                setTimeout(updateReviewNavButtons, 500); 
+                window.addEventListener('resize', updateReviewNavButtons);
+            }
+        }
+    }
+  });
+</script>
+</body>
+</html>
