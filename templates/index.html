@@ -25,6 +25,25 @@
     margin-bottom: 1rem;
 }
 
+.cta-button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.cta-button:hover {
+  background-color: #3e8e41;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+}
+
 .service-price {
     font-size: 2rem;
     font-weight: bold;
@@ -182,200 +201,266 @@
     .yogakshema-link:hover { color: white; transform: translateY(-2px); text-shadow: 0 0 8px rgba(255,255,255,0.5); }
     .yogakshema-highlight { z-index: 0; filter: blur(6px); opacity: 0.8; }
 
-     .hero {
-      padding-top: 100px; /* Prevents navbar collision */
-      position: relative;
-      min-height: 90vh;
+    .hero-carousel {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 20px;
+      border-radius: 20px;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
       overflow: hidden;
+      position: relative;
+      min-height: 600px;
+    }
+    
+    .carousel-container {
+      position: relative;
+      height: 500px;
+      margin: 30px 0;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    }
+    
+    .carousel-slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
       display: flex;
       align-items: center;
+      padding: 0 80px;
     }
     
-    .hero-bg {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      /* NEW HEALTHY FOOD BACKGROUND */
-      background: url('static/images/hero.jpg') center/cover no-repeat;
+    .carousel-slide.active {
+      opacity: 1;
     }
     
-    .hero-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.5) 100%);
+    .slide-content {
+      max-width: 550px;
+      z-index: 10;
+      animation: fadeInUp 0.8s ease-out;
     }
     
-    .hero-content {
-      position: relative;
-      z-index: 20;
+    .slide-content h2 {
+      font-size: 2.8rem;
+      margin-bottom: 20px;
+      line-height: 1.2;
       color: white;
     }
     
-    .hero-title {
-      font-size: 3.5rem;
-      font-weight: 800;
-      line-height: 1.2;
-      margin-bottom: 1.5rem;
-      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    .slide-content p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 30px;
+      color: #eee;
     }
     
-    .hero-subtitle {
-      font-size: 1.5rem;
-      margin-bottom: 2.5rem;
-      max-width: 700px;
+    .slide-image {
+      position: absolute;
+      right: 0;
+      top: 0;
+      height: 100%;
+      width: 50%;
+      background-size: cover;
+      background-position: center;
       opacity: 0.9;
     }
     
-    .hero-btns {
+    /* Slide-specific backgrounds */
+    .detox-slide {
+      background: linear-gradient(90deg, rgba(26, 42, 108, 0.8) 0%, rgba(26, 42, 108, 0.4) 100%);
+    }
+    
+    .detox-slide .slide-image {
+      background: linear-gradient(90deg, transparent 0%, rgba(26, 42, 108, 0.2) 100%), url('static/images/detox.jpg') center/cover;
+    }
+    
+    .weightloss-slide {
+      background: linear-gradient(90deg, rgba(178, 31, 31, 0.8) 0%, rgba(178, 31, 31, 0.4) 100%);
+    }
+    
+    .weightloss-slide .slide-image {
+      background: linear-gradient(90deg, transparent 0%, rgba(178, 31, 31, 0.2) 100%), url('static/images/weightloss.jpg') center/cover;
+    }
+    
+    .diabetes-slide {
+      background: linear-gradient(90deg, rgba(76, 175, 80, 0.8) 0%, rgba(76, 175, 80, 0.4) 100%);
+    }
+    
+    .diabetes-slide .slide-image {
+      background: linear-gradient(90deg, transparent 0%, rgba(76, 175, 80, 0.2) 100%), url('static/images/diabetes.jpg') center/cover;
+    }
+    
+    .thyroid-slide {
+      background: linear-gradient(90deg, rgba(106, 90, 205, 0.8) 0%, rgba(106, 90, 205, 0.4) 100%);
+    }
+    
+    .thyroid-slide .slide-image {
+      background: linear-gradient(90deg, transparent 0%, rgba(106, 90, 205, 0.2) 100%), url('static/images/thyroid.jpg') center/cover;
+    }
+    
+    .digestive-slide {
+      background: linear-gradient(90deg, rgba(210, 105, 30, 0.8) 0%, rgba(210, 105, 30, 0.4) 100%);
+    }
+    
+    .digestive-slide .slide-image {
+      background: linear-gradient(90deg, transparent 0%, rgba(210, 105, 30, 0.2) 100%), url('static/images/digestive.jpg') center/cover;
+    }
+    
+    .menopausal-slide {
+      background: linear-gradient(90deg, rgba(199, 21, 133, 0.8) 0%, rgba(199, 21, 133, 0.4) 100%);
+    }
+    
+    .menopausal-slide .slide-image {
+      background: linear-gradient(90deg, transparent 0%, rgba(199, 21, 133, 0.2) 100%), url('static/images/menopausal.jpg') center/cover;
+    }
+    
+    /* Carousel Navigation */
+    .carousel-nav {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
       display: flex;
-      gap: 1rem;
-      margin-top: 2rem;
+      gap: 10px;
+      z-index: 100;
     }
     
-    .hero-btn {
-      padding: 1rem 2rem;
-      font-size: 1.1rem;
-      font-weight: 600;
-      border-radius: 8px;
-      transition: all 0.3s ease;
-      text-align: center;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    
-    .btn-primary {
-      background: linear-gradient(to right, #38b2ac, #0d9488);
-      color: white;
-      box-shadow: 0 4px 15px rgba(13, 148, 136, 0.3);
-    }
-    
-    .btn-primary:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 6px 20px rgba(13, 148, 136, 0.4);
-    }
-    
-    .btn-outline {
-      background: transparent;
-      border: 2px solid white;
-      color: white;
-    }
-    
-    .btn-outline:hover {
-      background: rgba(255, 255, 255, 0.1);
-    }
-    
-    .service-scroll-container {
-      position: relative;
-      width: 100%;
-      overflow-x: hidden;
-      padding: 2rem 0;
-      margin-top: 3rem;
-    }
-    
-    .service-scroll {
-      display: flex;
-      gap: 1.5rem;
-      padding: 0 2rem;
-      /* MODIFICATION: Increased duration for slower scroll */
-      animation: scroll 60s linear infinite;
-    }
-    
-    .service-card {
-      flex: 0 0 280px;
-      background: rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 20px;
-      padding: 1.5rem;
-      transition: all 0.3s ease;
+    .nav-dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.5);
       cursor: pointer;
-      text-align: center;
-      color: white;
+      transition: 0.3s;
     }
     
-    .service-card:hover {
-      transform: translateY(-10px);
-      background: rgba(255, 255, 255, 0.25);
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    .nav-dot.active {
+      background: #4CAF50;
+      transform: scale(1.2);
     }
     
-    .service-icon {
-      width: 70px;
-      height: 70px;
+    .carousel-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.2);
+      width: 50px;
+      height: 50px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 28px;
-      margin: 0 auto 1.5rem;
-      background: rgba(255, 255, 255, 0.2);
-      color: white;
+      cursor: pointer;
+      z-index: 100;
+      transition: 0.3s;
     }
     
-    .service-card h3 {
-      font-size: 1.4rem;
+    .carousel-arrow:hover {
+      background: rgba(76, 175, 80, 0.8);
+    }
+    
+    .arrow-left {
+      left: 20px;
+    }
+    
+    .arrow-right {
+      right: 20px;
+    }
+    
+    /* Stats Section */
+    .stats-section {
+      display: flex;
+      justify-content: space-around;
+      text-align: center;
+      padding: 40px 0;
+      margin-top: 30px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .stat-item {
+      padding: 20px;
+    }
+    
+    .stat-item i {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      color: #8BC34A;
+    }
+    
+    .stat-number {
+      font-size: 2.2rem;
       font-weight: 700;
-      margin-bottom: 0.75rem;
+      margin-bottom: 5px;
+      color: #4CAF50;
     }
     
-    .service-card p {
-      font-size: 0.95rem;
-      opacity: 0.9;
-    }
-
-    .pulse {
-      position: relative;
+    .stat-label {
+      font-size: 1.1rem;
+      color: #ddd;
     }
     
-    .pulse::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border-radius: 20px;
-      background: rgba(74, 222, 128, 0.1);
-      animation: pulse 2s infinite;
-      z-index: -1;
-    }
-    
-    @keyframes pulse {
-      0% {
-        transform: scale(1);
-        opacity: 1;
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
       }
-      50% {
-        transform: scale(1.05);
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 900px) {
+      .carousel-slide {
+        padding: 0 40px;
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+      }
+      
+      .slide-image {
+        position: relative;
+        width: 100%;
+        height: 50%;
         opacity: 0.7;
       }
-      100% {
-        transform: scale(1);
-        opacity: 1;
+      
+      .slide-content {
+        max-width: 100%;
+        padding-top: 30px;
       }
     }
     
-    /* MODIFICATION: Updated keyframes for seamless looping with 9 cards */
-    @keyframes scroll {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(calc(- (280px + 1.5rem) * 9)); }
+    @media (max-width: 600px) {
+      .hero-carousel {
+        margin: 20px;
+      }
+      
+      .carousel-container {
+        height: 600px;
+      }
+      
+      .slide-content h2 {
+        font-size: 2.2rem;
+      }
+      
+      .stats-section {
+        flex-direction: column;
+        gap: 20px;
+      }
     }
-    
-    .hero-btn {
-      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      transform-origin: center;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-    }
-    
-    .hero-btn:hover {
-      transform: translateY(-3px) scale(1.05);
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+ 
+    .hero {
+      padding-top: 100px; /* Keep for fixed header */
     }
     
     .scrolling-text {
@@ -477,105 +562,88 @@
   </header>
 
   <section id="home" class="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-overlay"></div>
-    
-    <div class="container mx-auto px-4">
-      <div class="hero-content max-w-6xl">
-        <div class="mb-8">
-          <h1 class="hero-title">
-           Wellness is a lifestyle, guided by <span class="text-green-300">intention.</span><br>
-          </h1>
-          <p class="hero-subtitle">
-            Empowering your health with natural healing, mindful practices, and expert guidance for holistic well-being.
-          </p>
-          <div class="hero-btns">
-            <a href="#" class="hero-btn btn-primary">
-              <i class="fas fa-calendar-check mr-2"></i> Book Consultation
-            </a>
-            <a href="#services" class="hero-btn btn-outline">
-              <i class="fas fa-compass mr-2"></i> Explore Programs
-            </a>
+    <div class="hero-carousel">
+      <!-- Carousel Container -->
+      <div class="carousel-container">
+        <!-- Detox Slide -->
+        <div class="carousel-slide detox-slide active">
+          <div class="slide-content">
+            <h2>Revitalize Your Body with Our Detox Program</h2>
+            <p>Experience a complete body reset with our science-backed 14-day detox program. Flush toxins, boost energy, and improve digestion with personalized nutrition plans and expert guidance.</p>
+            <button class="cta-button">Start Your Detox Journey</button>
           </div>
+          <div class="slide-image"></div>
+        </div>
+        
+        <!-- Weight Loss Slide -->
+        <div class="carousel-slide weightloss-slide">
+          <div class="slide-content">
+            <h2>Sustainable Weight Loss That Actually Lasts</h2>
+            <p>Our holistic approach combines personalized nutrition, effective exercise strategies, and behavioral coaching to help you achieve and maintain your ideal weight without extreme diets.</p>
+            <button class="cta-button">Begin Your Transformation</button>
+          </div>
+          <div class="slide-image"></div>
+        </div>
+        
+        <!-- Diabetes Plan Slide -->
+        <div class="carousel-slide diabetes-slide">
+          <div class="slide-content">
+            <h2>Take Control of Your Diabetes Journey</h2>
+            <p>Our comprehensive diabetes management program provides personalized meal planning, blood sugar monitoring, and lifestyle coaching to help you live healthier and reduce medication dependence.</p>
+            <button class="cta-button">Manage Diabetes Effectively</button>
+          </div>
+          <div class="slide-image"></div>
+        </div>
+        
+        <!-- Thyroid Health Slide -->
+        <div class="carousel-slide thyroid-slide">
+          <div class="slide-content">
+            <h2>Balance Your Thyroid Naturally</h2>
+            <p>Specialized support for thyroid health through personalized nutrition plans, lifestyle adjustments, and natural therapies to restore hormonal balance and energy levels.</p>
+            <button class="cta-button">Support Thyroid Health</button>
+          </div>
+          <div class="slide-image"></div>
+        </div>
+        
+        <!-- Digestive Health Slide -->
+        <div class="carousel-slide digestive-slide">
+          <div class="slide-content">
+            <h2>Heal Your Gut, Transform Your Health</h2>
+            <p>Comprehensive digestive wellness plans to address IBS, bloating, acid reflux and other GI issues through microbiome restoration and personalized dietary protocols.</p>
+            <button class="cta-button">Improve Digestion</button>
+          </div>
+          <div class="slide-image"></div>
+        </div>
+        
+        <!-- Menopausal Management Slide -->
+        <div class="carousel-slide menopausal-slide">
+          <div class="slide-content">
+            <h2>Navigate Menopause with Confidence</h2>
+            <p>Holistic support for managing menopausal symptoms including hot flashes, mood changes, and sleep disturbances through natural hormone balancing and lifestyle strategies.</p>
+            <button class="cta-button">Ease Menopause Transition</button>
+          </div>
+          <div class="slide-image"></div>
+        </div>
+        
+        <!-- Carousel Navigation -->
+        <div class="carousel-arrow arrow-left">
+          <i class="fas fa-chevron-left"></i>
+        </div>
+        <div class="carousel-arrow arrow-right">
+          <i class="fas fa-chevron-right"></i>
+        </div>
+        
+        <div class="carousel-nav">
+          <div class="nav-dot active" data-slide="0"></div>
+          <div class="nav-dot" data-slide="1"></div>
+          <div class="nav-dot" data-slide="2"></div>
+          <div class="nav-dot" data-slide="3"></div>
+          <div class="nav-dot" data-slide="4"></div>
+          <div class="nav-dot" data-slide="5"></div>
         </div>
       </div>
-      
-      <div class="service-scroll-container">
-        <div class="service-scroll">
-          <div class="service-card" data-aos="fade-up">
-            <div class="service-icon">
-              <i class="fas fa-heartbeat"></i>
-            </div>
-            <h3>Diabetes Management</h3>
-            <p>Balance blood sugar naturally with guided care.</p>
-          </div>
-          
-          <div class="service-card" data-aos="fade-up" data-aos-delay="100">
-            <div class="service-icon">
-              <i class="fas fa-brain"></i>
-            </div>
-            <h3>Healthy Thyroid</h3>
-            <p>Support thyroid health with lifestyle & nutrition.</p>
-          </div>
-          
-          <div class="service-card" data-aos="fade-up" data-aos-delay="200">
-            <div class="service-icon">
-              <i class="fas fa-apple-alt"></i>
-            </div>
-            <h3>Digestive Health</h3>
-            <p>Improve gut function with mindful eating & herbs.</p>
-          </div>
-          
-          <div class="service-card" data-aos="fade-up" data-aos-delay="300">
-            <div class="service-icon">
-              <i class="fas fa-weight-scale"></i>
-            </div>
-            <h3>Weight Management</h3>
-            <p>Healthy and sustainable solutions</p>
-          </div>
-          
-          <div class="service-card" data-aos="fade-up" data-aos-delay="400">
-            <div class="service-icon">
-              <i class="fas fa-pills"></i>
-            </div>
-            <h3>Detox Programs</h3>
-            <p>Natural body cleansing</p>
-          </div>
-          
-          <div class="service-card" data-aos="fade-up" data-aos-delay="500">
-            <div class="service-icon">
-              <i class="fas fa-spa"></i>
-            </div>
-            <h3>Menopausal Mgmt.</h3>
-            <p>Ease transitions with natural therapies & support.</p>
-          </div>
-          
-          <div class="service-card">
-            <div class="service-icon">
-              <i class="fas fa-heartbeat"></i>
-            </div>
-            <h3>Acupuncture</h3>
-            <p>Energy balance and pain relief through precision.</p>
-          </div>
-          
-          <div class="service-card">
-            <div class="service-icon">
-              <i class="fas fa-brain"></i>
-            </div>
-            <h3>Mental Wellness</h3>
-            <p>Mindfulness and stress management</p>
-          </div>
-          
-          <div class="service-card">
-            <div class="service-icon">
-              <i class="fas fa-apple-alt"></i>
-            </div>
-            <h3>Nutrition Therapy</h3>
-            <p>Personalized diet plans</p>
-          </div>
-        </div>
       </div>
-      
+    </div>
   </section>
 
 
@@ -808,6 +876,105 @@
 <script>
   // Initialize AOS (Animate on Scroll)
   AOS.init({ easing: 'ease-in-out', duration: 800, once: true, offset: 50 });
+
+// Hero Carousel Functionality
+function initCarousel() {
+  const slides = document.querySelectorAll('.carousel-slide');
+  const dots = document.querySelectorAll('.nav-dot');
+  const prevArrow = document.querySelector('.arrow-left');
+  const nextArrow = document.querySelector('.arrow-right');
+  
+  if (!slides.length || !dots.length || !prevArrow || !nextArrow) {
+    console.error('Carousel elements not found');
+    return;
+  }
+
+  let currentSlide = 0;
+  const slideCount = slides.length;
+  let slideInterval;
+  
+  // Function to show a specific slide
+  function showSlide(index) {
+    // Hide all slides
+    slides.forEach(slide => {
+      slide.classList.remove('active');
+    });
+    
+    // Remove active class from all dots
+    dots.forEach(dot => {
+      dot.classList.remove('active');
+    });
+    
+    // Show the selected slide
+    slides[index].classList.add('active');
+    
+    // Activate the corresponding dot
+    dots[index].classList.add('active');
+    
+    currentSlide = index;
+  }
+  
+  // Next slide function
+  function nextSlide() {
+    let nextIndex = (currentSlide + 1) % slideCount;
+    showSlide(nextIndex);
+  }
+  
+  // Previous slide function
+  function prevSlide() {
+    let prevIndex = (currentSlide - 1 + slideCount) % slideCount;
+    showSlide(prevIndex);
+  }
+  
+  // Auto-rotate slides
+  function startAutoRotation() {
+    slideInterval = setInterval(nextSlide, 5000);
+  }
+  
+  // Initialize carousel
+  function init() {
+    showSlide(0);
+    startAutoRotation();
+    
+    // Event listeners for arrows
+    prevArrow.addEventListener('click', function() {
+      clearInterval(slideInterval);
+      prevSlide();
+      startAutoRotation();
+    });
+    
+    nextArrow.addEventListener('click', function() {
+      clearInterval(slideInterval);
+      nextSlide();
+      startAutoRotation();
+    });
+    
+    // Event listeners for dots
+    dots.forEach(dot => {
+      dot.addEventListener('click', function() {
+        clearInterval(slideInterval);
+        const slideIndex = parseInt(this.getAttribute('data-slide'));
+        showSlide(slideIndex);
+        startAutoRotation();
+      });
+    });
+    
+    // Pause auto-rotation when hovering over carousel
+    const carousel = document.querySelector('.carousel-container');
+    if (carousel) {
+      carousel.addEventListener('mouseenter', function() {
+        clearInterval(slideInterval);
+      });
+      
+      carousel.addEventListener('mouseleave', startAutoRotation);
+    }
+  }
+  
+  init();
+}
+
+// Initialize when DOM is ready
+document.addEventListener('DOMContentLoaded', initCarousel);
 
   // Set current year in footer
   document.getElementById('currentYear').textContent = new Date().getFullYear();
@@ -1232,6 +1399,11 @@ async function displayReviews() {
       });
     }
 
+  if (navigator.serviceWorker) {
+    navigator.serviceWorker.getRegistrations().then(registrations => {
+      registrations.forEach(reg => reg.unregister())
+    });
+  }
     // MODIFICATION: Moved click handler here to apply to original AND cloned cards
     document.querySelectorAll('.service-card').forEach(card => {
         card.addEventListener('click', function(event) {
@@ -1244,6 +1416,85 @@ async function displayReviews() {
         // The click should still just go to the main services section
         window.location.hash = '#services';
         });
+    });
+        // CAROUSEL FUNCTIONALITY
+    document.addEventListener('DOMContentLoaded', function() {
+      const slides = document.querySelectorAll('.carousel-slide');
+      const dots = document.querySelectorAll('.nav-dot');
+      const prevArrow = document.querySelector('.arrow-left');
+      const nextArrow = document.querySelector('.arrow-right');
+      
+      let currentSlide = 0;
+      const slideCount = slides.length;
+      
+      // Function to show a specific slide
+      function showSlide(index) {
+        // Hide all slides
+        slides.forEach(slide => {
+          slide.classList.remove('active');
+        });
+        
+        // Remove active class from all dots
+        dots.forEach(dot => {
+          dot.classList.remove('active');
+        });
+        
+        // Show the selected slide
+        slides[index].classList.add('active');
+        
+        // Activate the corresponding dot
+        dots[index].classList.add('active');
+        
+        currentSlide = index;
+      }
+      
+      // Next slide function
+      function nextSlide() {
+        let nextIndex = (currentSlide + 1) % slideCount;
+        showSlide(nextIndex);
+      }
+      
+      // Previous slide function
+      function prevSlide() {
+        let prevIndex = (currentSlide - 1 + slideCount) % slideCount;
+        showSlide(prevIndex);
+      }
+      
+      // Auto-rotate slides every 5 seconds
+      let slideInterval = setInterval(nextSlide, 5000);
+      
+      // Event listeners for arrows
+      prevArrow.addEventListener('click', function() {
+        clearInterval(slideInterval);
+        prevSlide();
+        slideInterval = setInterval(nextSlide, 5000);
+      });
+      
+      nextArrow.addEventListener('click', function() {
+        clearInterval(slideInterval);
+        nextSlide();
+        slideInterval = setInterval(nextSlide, 5000);
+      });
+      
+      // Event listeners for dots
+      dots.forEach(dot => {
+        dot.addEventListener('click', function() {
+          clearInterval(slideInterval);
+          const slideIndex = parseInt(this.getAttribute('data-slide'));
+          showSlide(slideIndex);
+          slideInterval = setInterval(nextSlide, 5000);
+        });
+      });
+      
+      // Pause auto-rotation when hovering over carousel
+      const carousel = document.querySelector('.carousel-container');
+      carousel.addEventListener('mouseenter', function() {
+        clearInterval(slideInterval);
+      });
+      
+      carousel.addEventListener('mouseleave', function() {
+        slideInterval = setInterval(nextSlide, 5000);
+      });
     });
   });
 </script>
