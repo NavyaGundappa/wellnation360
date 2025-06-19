@@ -214,13 +214,15 @@
     .yogakshema-highlight { z-index: 0; filter: blur(6px); opacity: 0.8; }
 
 .hero {
-  height: 100vh;
-  width: 100vw;
+  height: 80vh;
+  min-height: 600px; 
+  width: 100%;
   position: relative;
   overflow: hidden;
   margin: 0;
   padding: 0;
   background-color: white;
+  margin-top: 80px;
 }
 
 .hero-carousel {
@@ -247,6 +249,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 5%;
+  box-sizing: border-box;
 }
 
 .carousel-slide.active {
@@ -255,7 +258,7 @@
     
 .slide-image {
   width: 45%;
-  height: 70%; /* Reduced from 80% */
+  height: 60%; /* Reduced from 80% */
   background-size: cover;
   background-position: center;
   border-radius: 20px;
@@ -268,7 +271,7 @@
 .slide-content {
   position: relative;
   width: 45%;
-  padding: 40px;
+  padding: 30px;
   background: white;
   border-radius: 20px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.05);
@@ -276,8 +279,8 @@
 }
 
 .slide-content h2 {
-  font-size: 2.8rem;
-  margin-bottom: 20px;
+  font-size: 2.2rem;
+  margin-bottom: 15px;
   line-height: 1.2;
   color: #2c3e50;
   font-weight: 700;
@@ -381,7 +384,7 @@
 /* Carousel Navigation */
 .carousel-nav {
   position: absolute;
-  bottom: 30px;
+  bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -483,11 +486,22 @@
 
 /* Responsive Design */
 @media (max-width: 900px) {
+  .hero {
+    height: auto;
+    min-height: auto;
+    padding-top: 80px; /* Space for header */
+    padding-bottom: 60px;
+  }
+
   .carousel-slide {
     flex-direction: column;
-    padding: 40px;
+    padding: 20px;
     text-align: center;
-    justify-content: center;
+    justify-content: flex-start;
+    position: relative;
+    height: auto;
+    opacity: 1;
+    margin-bottom: 20px;
   }
   
   .slide-content {
@@ -498,10 +512,21 @@
   .slide-image {
     width: 100%;
     height: 300px;
+    order: -1; /* Image first on mobile */
+    margin-bottom: 20px;
   }
   
   .slide-content h2 {
     font-size: 2.2rem;
+  }
+  .carousel-arrow {
+    display: none; /* Hide arrows on mobile */
+  }
+  
+  .carousel-nav {
+    position: relative;
+    bottom: auto;
+    margin-top: 20px;
   }
 }
 
@@ -510,8 +535,11 @@
     padding: 20px;
   }
   
+  .slide-content {
+    padding: 20px;
+  }
   .slide-content h2 {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
   }
   
   .slide-content p {
@@ -526,6 +554,14 @@
   .stats-section {
     flex-direction: column;
     gap: 20px;
+  }
+
+  .benefits-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .benefit-item {
+    font-size: 0.9rem;
   }
 }
 
@@ -1173,6 +1209,31 @@
 <script>
   // Initialize AOS (Animate on Scroll)
   AOS.init({ easing: 'ease-in-out', duration: 800, once: true, offset: 50 });
+
+  // Ensure header stays on top
+document.addEventListener('DOMContentLoaded', function() {
+  const header = document.querySelector('header');
+  if (header) {
+    header.style.zIndex = '1000'; // Higher than hero section
+  }
+  
+  // Mobile menu toggle
+  const mobileMenuButton = document.getElementById('mobileMenuButton');
+  const mobileMenu = document.getElementById('mobileMenu');
+  
+  if (mobileMenuButton && mobileMenu) {
+    mobileMenuButton.addEventListener('click', function() {
+      mobileMenu.classList.toggle('hidden');
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', function(e) {
+      if (!mobileMenu.contains(e.target) && e.target !== mobileMenuButton) {
+        mobileMenu.classList.add('hidden');
+      }
+    });
+  }
+});
 
 // Hero Carousel Functionality
 function initCarousel() {
