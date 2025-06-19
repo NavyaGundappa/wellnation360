@@ -201,279 +201,338 @@
     .yogakshema-link:hover { color: white; transform: translateY(-2px); text-shadow: 0 0 8px rgba(255,255,255,0.5); }
     .yogakshema-highlight { z-index: 0; filter: blur(6px); opacity: 0.8; }
 
-    .hero-carousel {
-      max-width: 1200px;
-      margin: 40px auto;
-      padding: 20px;
-      border-radius: 20px;
-      background: rgba(0, 0, 0, 0.6);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
-      overflow: hidden;
-      position: relative;
-      min-height: 600px;
-    }
+.hero {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  background-color: white;
+}
+
+.hero-carousel {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.carousel-container {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.carousel-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5%;
+}
+
+.carousel-slide.active {
+  opacity: 1;
+}
     
-    .carousel-container {
-      position: relative;
-      height: 500px;
-      margin: 30px 0;
-      border-radius: 15px;
-      overflow: hidden;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-    }
+.slide-image {
+  width: 45%;
+  height: 70%; /* Reduced from 80% */
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+  overflow: hidden;
+}
+
+
+
+.slide-content {
+  position: relative;
+  width: 45%;
+  padding: 40px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.slide-content h2 {
+  font-size: 2.8rem;
+  margin-bottom: 20px;
+  line-height: 1.2;
+  color: #2c3e50;
+  font-weight: 700;
+}
+
+.slide-content p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  color: #555;
+}
+
+.cta-button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.cta-button:hover {
+  background-color: #3e8e41;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+}
+
+/* Slide-specific backgrounds */
+.detox-slide .slide-image {
+  background-image: url('static/images/detoxhero.jpg');
+}
+
+.weightloss-slide .slide-image {
+  background-image: url('static/images/weightloss.jpg');
+}
+
+.diabetes-slide .slide-image {
+  background-image: url('static/images/diabeteshero.jpg');
+}
+
+.thyroid-slide .slide-image {
+  background-image: url('static/images/thyroidhero.jpg');
+}
+
+.digestive-slide .slide-image {
+  background-image: url('static/images/guthealthhero.jpg');
+}
+
+.menopausal-slide .slide-image {
+  background-image: url('static/images/menopausehero.jpg');
+}
+
+/* Acupuncture Slide Specific Styles */
+.acupuncture-slide {
+  background: linear-gradient(90deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.acupuncture-slide .slide-image {
+  background-image: url('static/images/accupuncturehero.jpg');
+  background-position: center;
+}
+
+/* Benefits grid styling - make this available to all slides */
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.benefit-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  background: rgba(76, 175, 80, 0.1);
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+.benefit-item i {
+  color: #4CAF50;
+  font-size: 1.2rem;
+}
+
+.benefit-item span {
+  color: #555;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .benefits-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Carousel Navigation */
+.carousel-nav {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 100;
+}
+
+.nav-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.nav-dot.active {
+  background: #4CAF50;
+  transform: scale(1.2);
+}
     
-    .carousel-slide {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      opacity: 0;
-      transition: opacity 1s ease-in-out;
-      display: flex;
-      align-items: center;
-      padding: 0 80px;
-    }
-    
-    .carousel-slide.active {
-      opacity: 1;
-    }
-    
-    .slide-content {
-      max-width: 550px;
-      z-index: 10;
-      animation: fadeInUp 0.8s ease-out;
-    }
-    
-    .slide-content h2 {
-      font-size: 2.8rem;
-      margin-bottom: 20px;
-      line-height: 1.2;
-      color: white;
-    }
-    
-    .slide-content p {
-      font-size: 1.1rem;
-      line-height: 1.6;
-      margin-bottom: 30px;
-      color: #eee;
-    }
-    
-    .slide-image {
-      position: absolute;
-      right: 0;
-      top: 0;
-      height: 100%;
-      width: 50%;
-      background-size: cover;
-      background-position: center;
-      opacity: 0.9;
-    }
-    
-    /* Slide-specific backgrounds */
-    .detox-slide {
-      background: linear-gradient(90deg, rgba(26, 42, 108, 0.8) 0%, rgba(26, 42, 108, 0.4) 100%);
-    }
-    
-    .detox-slide .slide-image {
-      background: linear-gradient(90deg, transparent 0%, rgba(26, 42, 108, 0.2) 100%), url('static/images/detox.jpg') center/cover;
-    }
-    
-    .weightloss-slide {
-      background: linear-gradient(90deg, rgba(178, 31, 31, 0.8) 0%, rgba(178, 31, 31, 0.4) 100%);
-    }
-    
-    .weightloss-slide .slide-image {
-      background: linear-gradient(90deg, transparent 0%, rgba(178, 31, 31, 0.2) 100%), url('static/images/weightloss.jpg') center/cover;
-    }
-    
-    .diabetes-slide {
-      background: linear-gradient(90deg, rgba(76, 175, 80, 0.8) 0%, rgba(76, 175, 80, 0.4) 100%);
-    }
-    
-    .diabetes-slide .slide-image {
-      background: linear-gradient(90deg, transparent 0%, rgba(76, 175, 80, 0.2) 100%), url('static/images/diabetes.jpg') center/cover;
-    }
-    
-    .thyroid-slide {
-      background: linear-gradient(90deg, rgba(106, 90, 205, 0.8) 0%, rgba(106, 90, 205, 0.4) 100%);
-    }
-    
-    .thyroid-slide .slide-image {
-      background: linear-gradient(90deg, transparent 0%, rgba(106, 90, 205, 0.2) 100%), url('static/images/thyroid.jpg') center/cover;
-    }
-    
-    .digestive-slide {
-      background: linear-gradient(90deg, rgba(210, 105, 30, 0.8) 0%, rgba(210, 105, 30, 0.4) 100%);
-    }
-    
-    .digestive-slide .slide-image {
-      background: linear-gradient(90deg, transparent 0%, rgba(210, 105, 30, 0.2) 100%), url('static/images/digestive.jpg') center/cover;
-    }
-    
-    .menopausal-slide {
-      background: linear-gradient(90deg, rgba(199, 21, 133, 0.8) 0%, rgba(199, 21, 133, 0.4) 100%);
-    }
-    
-    .menopausal-slide .slide-image {
-      background: linear-gradient(90deg, transparent 0%, rgba(199, 21, 133, 0.2) 100%), url('static/images/menopausal.jpg') center/cover;
-    }
-    
-    /* Carousel Navigation */
-    .carousel-nav {
-      position: absolute;
-      bottom: 30px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      gap: 10px;
-      z-index: 100;
-    }
-    
-    .nav-dot {
-      width: 14px;
-      height: 14px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.5);
-      cursor: pointer;
-      transition: 0.3s;
-    }
-    
-    .nav-dot.active {
-      background: #4CAF50;
-      transform: scale(1.2);
-    }
-    
-    .carousel-arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(255, 255, 255, 0.2);
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      z-index: 100;
-      transition: 0.3s;
-    }
-    
-    .carousel-arrow:hover {
-      background: rgba(76, 175, 80, 0.8);
-    }
-    
-    .arrow-left {
-      left: 20px;
-    }
-    
-    .arrow-right {
-      right: 20px;
-    }
-    
-    /* Stats Section */
-    .stats-section {
-      display: flex;
-      justify-content: space-around;
-      text-align: center;
-      padding: 40px 0;
-      margin-top: 30px;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-    
-    .stat-item {
-      padding: 20px;
-    }
-    
-    .stat-item i {
-      font-size: 2.5rem;
-      margin-bottom: 15px;
-      color: #8BC34A;
-    }
-    
-    .stat-number {
-      font-size: 2.2rem;
-      font-weight: 700;
-      margin-bottom: 5px;
-      color: #4CAF50;
-    }
-    
-    .stat-label {
-      font-size: 1.1rem;
-      color: #ddd;
-    }
-    
-    /* Animations */
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-    
-    /* Responsive Design */
-    @media (max-width: 900px) {
-      .carousel-slide {
-        padding: 0 40px;
-        flex-direction: column;
-        text-align: center;
-        justify-content: center;
-      }
-      
-      .slide-image {
-        position: relative;
-        width: 100%;
-        height: 50%;
-        opacity: 0.7;
-      }
-      
-      .slide-content {
-        max-width: 100%;
-        padding-top: 30px;
-      }
-    }
-    
-    @media (max-width: 600px) {
-      .hero-carousel {
-        margin: 20px;
-      }
-      
-      .carousel-container {
-        height: 600px;
-      }
-      
-      .slide-content h2 {
-        font-size: 2.2rem;
-      }
-      
-      .stats-section {
-        flex-direction: column;
-        gap: 20px;
-      }
-    }
- 
-    .hero {
-      padding-top: 100px; /* Keep for fixed header */
-    }
-    
-    .scrolling-text {
-      display: inline-block;
-      padding-left: 100%;
-      animation: scrollText 20s linear infinite;
-      white-space: nowrap;
-    }
-    
-    @keyframes scrollText {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-100%); }
-    }
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 100;
+  transition: 0.3s;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  color: #4CAF50;
+}
+
+.carousel-arrow:hover {
+  background: #4CAF50;
+  color: white;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+.arrow-left {
+  left: 20px;
+}
+
+.arrow-right {
+  right: 20px;
+}
+
+/* Stats Section */
+.stats-section {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  padding: 40px 0;
+  margin-top: 30px;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  background: white;
+}
+
+.stat-item {
+  padding: 20px;
+}
+
+.stat-item i {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  color: #8BC34A;
+}
+
+.stat-number {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 5px;
+  color: #4CAF50;
+}
+
+.stat-label {
+  font-size: 1.1rem;
+  color: #666;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+  .carousel-slide {
+    flex-direction: column;
+    padding: 40px;
+    text-align: center;
+    justify-content: center;
+  }
+  
+  .slide-content {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+  
+  .slide-image {
+    width: 100%;
+    height: 300px;
+  }
+  
+  .slide-content h2 {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .carousel-slide {
+    padding: 20px;
+  }
+  
+  .slide-content h2 {
+    font-size: 1.8rem;
+  }
+  
+  .slide-content p {
+    font-size: 1rem;
+  }
+  
+  .carousel-arrow {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .stats-section {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+/* Adjust the about section to come right after hero */
+#about {
+  scroll-margin-top: 100vh;
+}
+
+.scrolling-text {
+  display: inline-block;
+  padding-left: 100%;
+  animation: scrollText 20s linear infinite;
+  white-space: nowrap;
+}
+
+@keyframes scrollText {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
   </style>
 </head>
 <body class="bg-gradient-to-br from-green-100 via-blue-50 to-purple-100 text-gray-800">
@@ -490,20 +549,20 @@
       </div>
       <nav class="hidden md:flex items-center space-x-5 text-white text-base md:text-lg font-medium">
         <a href="{{ url_for('index') }}#home" class="hover:text-green-400 relative group">Home <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-green-400 transition-all duration-300 group-hover:w-full"></span></a>
-        <a href="{{ url_for('index') }}#about" class="hover:text-green-400 relative group">About <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-green-400 transition-all duration-300 group-hover:w-full"></span></a>
+        <a href="{{ url_for('about') }}" class="hover:text-green-400 relative group">About <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-green-400 transition-all duration-300 group-hover:w-full"></span></a>
         <a href="{{ url_for('gallery') }}" class="hover:text-green-400 relative group">Gallery <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-green-400 transition-all duration-300 group-hover:w-full"></span></a>
         <div class="relative group">
           <a href="{{ url_for('index') }}#services" class="hover:text-green-400 flex items-center gap-1">Services
             <svg class="w-4 h-4 transition-transform duration-200 group-hover:rotate-180" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.939l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clip-rule="evenodd"/></svg>
           </a>
           <div class="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-60 bg-white text-gray-800 rounded-md shadow-xl opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300 invisible group-hover:visible z-50 py-1">
-          <a href="#detox" class="block px-4 py-2 hover:text-green-600 transition duration-200">Gental Detox Cleanse</a>
-          <a href="#diabetes" class="block px-4 py-2 hover:text-green-600 transition duration-200">Diabetes Support Plan</a>
-          <a href="#weightloss" class="block px-4 py-2 hover:text-green-600 transition duration-200">Thyroid Balance Therapy</a>
-          <a href="#weightloss" class="block px-4 py-2 hover:text-green-600 transition duration-200">Digestive Wellness Plan</a>
-          <a href="#weightloss" class="block px-4 py-2 hover:text-green-600 transition duration-200">Menopausal management</a>
-          <a href="#acupuncture" class="block px-4 py-2 hover:text-green-600 transition duration-200">Acupuncture therapy</a>
-          <a href="#weightloss" class="block px-4 py-2 hover:text-green-600 transition duration-200">Healthy Body Transformation</a>
+          <a href="/service" class="block px-4 py-2 hover:text-green-600 transition duration-200">Gental Detox Cleanse</a>
+          <a href="/service" class="block px-4 py-2 hover:text-green-600 transition duration-200">Diabetes Support Plan</a>
+          <a href="/service" class="block px-4 py-2 hover:text-green-600 transition duration-200">Thyroid Balance Therapy</a>
+          <a href="/service" class="block px-4 py-2 hover:text-green-600 transition duration-200">Digestive Wellness Plan</a>
+          <a href="/service" class="block px-4 py-2 hover:text-green-600 transition duration-200">Menopausal management</a>
+          <a href="/service" class="block px-4 py-2 hover:text-green-600 transition duration-200">Acupuncture therapy</a>
+          <a href="/service" class="block px-4 py-2 hover:text-green-600 transition duration-200">Healthy Body Transformation</a>
         </div>
         </div>
         <a href="{{ url_for('contact_get') }}" class="hover:text-green-400 relative group">Contact <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-green-400 transition-all duration-300 group-hover:w-full"></span></a>
@@ -519,24 +578,24 @@
     </div>
     <div id="mobileMenu" class="hidden md:hidden absolute top-full left-0 right-0 bg-gray-800 shadow-lg py-2 z-40">
       <a href="{{ url_for('index') }}#home" class="block px-5 py-3 text-white hover:bg-gray-700 transition duration-150">Home</a>
-      <a href="{{ url_for('index') }}#about" class="block px-5 py-3 text-white hover:bg-gray-700 transition duration-150">About</a>
+      <a href="{{ url_for('about') }}" class="block px-5 py-3 text-white hover:bg-gray-700 transition duration-150">About</a>
       <a href="{{ url_for('gallery') }}" class="block px-5 py-3 text-white hover:bg-gray-700 transition duration-150">Gallery</a>
       <div class="relative group">
         <button class="flex items-center justify-between w-full px-5 py-3 text-left text-white hover:bg-gray-700 transition duration-150">Services
           <svg class="w-4 h-4 ml-1 transform group-focus-within:rotate-180 transition-transform" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.939l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clip-rule="evenodd"/></svg>
         </button>
         <div class="hidden group-focus-within:block bg-gray-700 mt-0">
-          <a href="{{ url_for('index') }}#services" class="block pl-8 pr-5 py-2.5 text-sm text-gray-300 hover:bg-gray-600 hover:text-white transition duration-150">All Services Overview</a>
+          <a href="{{ url_for('services') }}" class="block pl-8 pr-5 py-2.5 text-sm text-gray-300 hover:bg-gray-600 hover:text-white transition duration-150">All Services Overview</a>
           <a href="{{ url_for('dummy') }}" class="block pl-8 pr-5 py-2.5 text-sm text-gray-300 hover:bg-gray-600 hover:text-white transition duration-150">Gentle Detox Cleanse</a>
           <a href="{{ url_for('diabetics') }}" class="block pl-8 pr-5 py-2.5 text-sm text-gray-300 hover:bg-gray-600 hover:text-white transition duration-150">Diabetes Support Plan</a>
         </div>
       </div>
       <a href="{{ url_for('contact_get') }}" class="block px-5 py-3 text-white hover:bg-gray-700 transition duration-150">Contact</a>
-      <a href="https://yogakshema.com" target="_blank" rel="noopener noreferrer" class="block px-5 py-3 text-white hover:bg-gray-700 transition duration-150 flex items-center"><span class="mr-2">🧘</span><span>Yogakshema</span></a>
+      <a href="http://yoga-kshema.in" target="_blank" rel="noopener noreferrer" class="block px-5 py-3 text-white hover:bg-gray-700 transition duration-150 flex items-center"><span class="mr-2">🧘</span><span>Yogakshema</span></a>
     </div>
   <div id="mobileMenu" class="hidden md:hidden absolute top-full left-0 right-0 bg-gray-800 shadow-lg py-2 z-40">
     <a href="{{ url_for('index') }}#home" class="block px-5 py-3 text-white hover:bg-gray-700 transition duration-150">Home</a>
-    <a href="{{ url_for('index') }}#about" class="block px-5 py-3 text-white hover:bg-gray-700 transition duration-150">About</a>
+    <a href="{{ url_for('about') }}" class="block px-5 py-3 text-white hover:bg-gray-700 transition duration-150">About</a>
     <a href="{{ url_for('gallery') }}" class="block px-5 py-3 text-white hover:bg-gray-700 transition duration-150">Gallery</a>
     
     <div class="relative group">
@@ -547,15 +606,15 @@
         </svg>
       </button>
       <div class="hidden group-focus-within:block bg-gray-700 mt-0">
-        <a href="{{ url_for('index') }}#services" class="block pl-8 pr-5 py-2.5 text-sm text-gray-300 hover:bg-gray-600 hover:text-white transition duration-150">All Services Overview</a>
+        <a href="{{ url_for('services') }}" class="block pl-8 pr-5 py-2.5 text-sm text-gray-300 hover:bg-gray-600 hover:text-white transition duration-150">All Services Overview</a>
         <a href="{{ url_for('dummy') }}" class="block pl-8 pr-5 py-2.5 text-sm text-gray-300 hover:bg-gray-600 hover:text-white transition duration-150">Gentle Detox Cleanse</a>
         <a href="{{ url_for('diabetics') }}" class="block pl-8 pr-5 py-2.5 text-sm text-gray-300 hover:bg-gray-600 hover:text-white transition duration-150">Diabetes Support Plan</a>
          </div>
     </div>
     
     <a href="{{ url_for('contact_get') }}" class="block px-5 py-3 text-white hover:bg-gray-700 transition duration-150">Contact</a>
-    <a href="{{ url_for('base') }}" class="block px-5 py-3 text-white hover:bg-gray-700 transition duration-150 flex items-center">
-      <span class="mr-2">🧘</span>
+    <a href="http://yoga-kshema.in" class="block px-5 py-3 text-white hover:bg-gray-700 transition duration-150 flex items-center">
+      <span class="mr-2"></span>
       <span>Yogakshema</span>
     </a>
   </div>
@@ -565,66 +624,202 @@
     <div class="hero-carousel">
       <!-- Carousel Container -->
       <div class="carousel-container">
-        <!-- Detox Slide -->
-        <div class="carousel-slide detox-slide active">
-          <div class="slide-content">
-            <h2>Revitalize Your Body with Our Detox Program</h2>
-            <p>Experience a complete body reset with our science-backed 14-day detox program. Flush toxins, boost energy, and improve digestion with personalized nutrition plans and expert guidance.</p>
-            <button class="cta-button">Start Your Detox Journey</button>
-          </div>
-          <div class="slide-image"></div>
-        </div>
+<!-- Detox Slide -->
+<div class="carousel-slide detox-slide active">
+  <div class="slide-content">
+    <h2>Revitalize Your Body with Our Detox Program</h2>
+    <p>Experience a complete body reset with our science-backed 14-day detox program.</p>
+    <div class="benefits-grid">
+      <div class="benefit-item">
+        <i class="fas fa-bolt"></i>
+        <span>Boost Energy</span>
+      </div>
+      <div class="benefit-item">
+        <i class="fas fa-leaf"></i>
+        <span>Flush Toxins</span>
+      </div>
+      <div class="benefit-item">
+        <i class="fas fa-digging"></i>
+        <span>Improve Digestion</span>
+      </div>
+      <div class="benefit-item">
+        <i class="fas fa-heart"></i>
+        <span>Enhance Immunity</span>
+      </div>
+    </div>
+    <button class="cta-button" onclick="window.location.href='{{ url_for('services') }}'">Start Your Detox Journey</button>
+  </div>
+  <div class="slide-image"></div>
+</div>
+
+<!-- Weight Loss Slide -->
+<div class="carousel-slide weightloss-slide">
+  <div class="slide-content">
+    <h2>Sustainable Weight Loss That Actually Lasts</h2>
+    <p>Our holistic approach helps you achieve and maintain your ideal weight.</p>
+    <div class="benefits-grid">
+      <div class="benefit-item">
+        <i class="fas fa-weight"></i>
+        <span>Healthy Weight Loss</span>
+      </div>
+      <div class="benefit-item">
+        <i class="fas fa-apple-alt"></i>
+        <span>Personalized Nutrition</span>
+      </div>
+      <div class="benefit-item">
+        <i class="fas fa-running"></i>
+        <span>Exercise Strategies</span>
+      </div>
+      <div class="benefit-item">
+        <i class="fas fa-brain"></i>
+        <span>Behavioral Coaching</span>
+      </div>
+    </div>
+    <button class="cta-button" onclick="window.location.href='{{ url_for('services') }}'">Begin Your Transformation</button>
+  </div>
+  <div class="slide-image"></div>
+</div>
         
-        <!-- Weight Loss Slide -->
-        <div class="carousel-slide weightloss-slide">
-          <div class="slide-content">
-            <h2>Sustainable Weight Loss That Actually Lasts</h2>
-            <p>Our holistic approach combines personalized nutrition, effective exercise strategies, and behavioral coaching to help you achieve and maintain your ideal weight without extreme diets.</p>
-            <button class="cta-button">Begin Your Transformation</button>
-          </div>
-          <div class="slide-image"></div>
-        </div>
-        
-        <!-- Diabetes Plan Slide -->
-        <div class="carousel-slide diabetes-slide">
-          <div class="slide-content">
-            <h2>Take Control of Your Diabetes Journey</h2>
-            <p>Our comprehensive diabetes management program provides personalized meal planning, blood sugar monitoring, and lifestyle coaching to help you live healthier and reduce medication dependence.</p>
-            <button class="cta-button">Manage Diabetes Effectively</button>
-          </div>
-          <div class="slide-image"></div>
-        </div>
-        
-        <!-- Thyroid Health Slide -->
-        <div class="carousel-slide thyroid-slide">
-          <div class="slide-content">
-            <h2>Balance Your Thyroid Naturally</h2>
-            <p>Specialized support for thyroid health through personalized nutrition plans, lifestyle adjustments, and natural therapies to restore hormonal balance and energy levels.</p>
-            <button class="cta-button">Support Thyroid Health</button>
-          </div>
-          <div class="slide-image"></div>
-        </div>
-        
-        <!-- Digestive Health Slide -->
-        <div class="carousel-slide digestive-slide">
-          <div class="slide-content">
-            <h2>Heal Your Gut, Transform Your Health</h2>
-            <p>Comprehensive digestive wellness plans to address IBS, bloating, acid reflux and other GI issues through microbiome restoration and personalized dietary protocols.</p>
-            <button class="cta-button">Improve Digestion</button>
-          </div>
-          <div class="slide-image"></div>
-        </div>
-        
-        <!-- Menopausal Management Slide -->
-        <div class="carousel-slide menopausal-slide">
-          <div class="slide-content">
-            <h2>Navigate Menopause with Confidence</h2>
-            <p>Holistic support for managing menopausal symptoms including hot flashes, mood changes, and sleep disturbances through natural hormone balancing and lifestyle strategies.</p>
-            <button class="cta-button">Ease Menopause Transition</button>
-          </div>
-          <div class="slide-image"></div>
-        </div>
-        
+<!-- Diabetes Plan Slide -->
+<div class="carousel-slide diabetes-slide">
+  <div class="slide-content">
+    <h2>Take Control of Your Diabetes Journey</h2>
+    <p>Our comprehensive diabetes management program helps you live healthier.</p>
+    <div class="benefits-grid">
+      <div class="benefit-item">
+        <i class="fas fa-utensils"></i>
+        <span>Personalized Meal Plans</span>
+      </div>
+      <div class="benefit-item">
+        <i class="fas fa-heartbeat"></i>
+        <span>Blood Sugar Control</span>
+      </div>
+      <div class="benefit-item">
+        <i class="fas fa-walking"></i>
+        <span>Activity Guidance</span>
+      </div>
+      <div class="benefit-item">
+        <i class="fas fa-pills"></i>
+        <span>Medication Reduction</span>
+      </div>
+    </div>
+    <button class="cta-button" onclick="window.location.href='{{ url_for('services') }}'">Manage Diabetes Effectively</button>
+  </div>
+  <div class="slide-image"></div>
+</div>
+
+<!-- Thyroid Health Slide -->
+<div class="carousel-slide thyroid-slide">
+  <div class="slide-content">
+    <h2>Balance Your Thyroid Naturally</h2>
+    <p>Specialized support to restore hormonal balance and energy levels.</p>
+    <div class="benefits-grid">
+      <div class="benefit-item">
+        <i class="fas fa-balance-scale"></i>
+        <span>Hormone Regulation</span>
+      </div>
+      <div class="benefit-item">
+        <i class="fas fa-bolt"></i>
+        <span>Energy Boost</span>
+      </div>
+      <div class="benefit-item">
+        <i class="fas fa-thermometer-empty"></i>
+        <span>Metabolism Support</span>
+      </div>
+      <div class="benefit-item">
+        <i class="fas fa-heart"></i>
+        <span>Natural Therapies</span>
+      </div>
+    </div>
+    <button class="cta-button" onclick="window.location.href='{{ url_for('services') }}'">Support Thyroid Health</button>
+  </div>
+  <div class="slide-image"></div>
+</div>
+
+<!-- Digestive Health Slide -->
+<div class="carousel-slide digestive-slide">
+  <div class="slide-content">
+    <h2>Heal Your Gut, Transform Your Health</h2>
+    <p>Comprehensive plans to address digestive issues through microbiome restoration.</p>
+    <div class="benefits-grid">
+      <div class="benefit-item">
+        <i class="fas fa-seedling"></i>
+        <span>Gut Healing</span>
+      </div>
+      <div class="benefit-item">
+        <i class="fas fa-bacteria"></i>
+        <span>Microbiome Support</span>
+      </div>
+      <div class="benefit-item">
+        <i class="fas fa-burn"></i>
+        <span>Reduce Bloating</span>
+      </div>
+      <div class="benefit-item">
+        <i class="fas fa-utensils"></i>
+        <span>Personalized Diet</span>
+      </div>
+    </div>
+    <button class="cta-button" onclick="window.location.href='{{ url_for('services') }}'">Improve Digestion</button>
+  </div>
+  <div class="slide-image"></div>
+</div>
+
+<!-- Menopausal Management Slide -->
+<div class="carousel-slide menopausal-slide">
+  <div class="slide-content">
+    <h2>Navigate Menopause with Confidence</h2>
+    <p>Holistic support for managing menopausal symptoms naturally.</p>
+    <div class="benefits-grid">
+      <div class="benefit-item">
+        <i class="fas fa-fire"></i>
+        <span>Hot Flash Relief</span>
+      </div>
+      <div class="benefit-item">
+        <i class="fas fa-moon"></i>
+        <span>Better Sleep</span>
+      </div>
+      <div class="benefit-item">
+        <i class="fas fa-smile"></i>
+        <span>Mood Support</span>
+      </div>
+      <div class="benefit-item">
+        <i class="fas fa-heart"></i>
+        <span>Hormone Balance</span>
+      </div>
+    </div>
+    <button class="cta-button" onclick="window.location.href='{{ url_for('services') }}'">Ease Menopause Transition</button>
+  </div>
+  <div class="slide-image"></div>
+</div>
+
+<!-- Acupuncture slide -->
+<div class="carousel-slide acupuncture-slide">
+  <div class="slide-content">
+    <h2>Restore Balance with Acupuncture Therapy</h2>
+    <p>Experience the healing power of traditional Chinese medicine to relieve pain, reduce stress, and restore your body's natural energy flow.</p>
+    <div class="benefits-grid">
+      <div class="benefit-item">
+        <i class="fas fa-leaf"></i>
+        <span>Pain Relief</span>
+      </div>
+      <div class="benefit-item">
+        <i class="fas fa-cloud-sun"></i>
+        <span>Stress Reduction</span>
+      </div>
+      <div class="benefit-item">
+        <i class="fas fa-moon"></i>
+        <span>Better Sleep</span>
+      </div>
+      <div class="benefit-item">
+        <i class="fas fa-heartbeat"></i>
+        <span>Improved Circulation</span>
+      </div>
+    </div>
+    <button class="cta-button" onclick="window.location.href='{{ url_for('services') }}'">Book Acupuncture Session</button>
+  </div>
+  <div class="slide-image"></div>
+</div>
+
         <!-- Carousel Navigation -->
         <div class="carousel-arrow arrow-left">
           <i class="fas fa-chevron-left"></i>
@@ -640,6 +835,7 @@
           <div class="nav-dot" data-slide="3"></div>
           <div class="nav-dot" data-slide="4"></div>
           <div class="nav-dot" data-slide="5"></div>
+          <div class="nav-dot" data-slide="6"></div> 
         </div>
       </div>
       </div>
@@ -700,7 +896,7 @@
           </a>
           
           <a href="/about" class="inline-block border-4 border-yellow-500 text-yellow-500 font-bold py-4 px-8 rounded-lg shadow-lg transition-all duration-300 transform hover:bg-yellow-500 hover:text-dark_blue_ hover:scale-105 focus:outline-none" data-aos="zoom-in" data-aos-delay="500">
-            Dr. Ritu and Team Profile
+            Dt. Ritu and Team Profile
           </a>
         </div>
     </div>
@@ -713,9 +909,9 @@
     <p class="text-lg text-gray-600 mb-10 max-w-2xl mx-auto">Explore tips, discussions, and success stories on our YouTube channel.</p>
     <div class="max-w-3xl mx-auto px-4">
       <div class="aspect-w-16 aspect-h-9 rounded-xl overflow-hidden shadow-xl border-4 border-white">
-        <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy" class="w-full h-full"></iframe>
+        <iframe src="https://youtu.be/FmcA5yZtqQc?si=c5OBhRfocmQIepKG" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy" class="w-full h-full"></iframe>
       </div>
-      <p class="mt-8 text-green-700 text-lg"><a href="https://www.youtube.com/@YOUR_CHANNEL_NAME" target="_blank" class="font-semibold hover:underline inline-flex items-center gap-2 group">Visit Our YouTube Channel <i class="fab fa-youtube text-red-600 text-2xl group-hover:scale-110 transition-transform"></i></a></p>
+      <p class="mt-8 text-green-700 text-lg"><a href="https://youtube.com/@wellnation3603?si=4kRF5qbO-v8UrAw5" target="_blank" class="font-semibold hover:underline inline-flex items-center gap-2 group">Visit Our YouTube Channel <i class="fab fa-youtube text-red-600 text-2xl group-hover:scale-110 transition-transform"></i></a></p>
     </div>
   </section>
 
@@ -800,6 +996,94 @@
       </div>
   </section>
 
+  <!-- Add this section right before the reviews section -->
+<section class="py-16 bg-gray-50">
+  <div class="max-w-4xl mx-auto px-4">
+    <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-12">Frequently Asked Questions</h2>
+    
+    <div class="space-y-4">
+      <!-- FAQ Item 1 -->
+      <div class="bg-white rounded-xl shadow-md overflow-hidden">
+        <button class="faq-question w-full text-left px-6 py-4 flex justify-between items-center focus:outline-none">
+          <h3 class="text-lg font-semibold text-gray-800">What is Wellnation360?</h3>
+          <svg class="w-5 h-5 text-green-600 transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+        <div class="faq-answer px-6 pb-4 hidden">
+          <p class="text-gray-600">
+            Wellnation360 is a holistic wellness center that combines modern science with ancient wisdom to help you achieve optimal health. We offer personalized programs for detox, weight management, diabetes support, thyroid balance, digestive health, and more through nutrition, lifestyle changes, and therapies like acupuncture.
+          </p>
+        </div>
+      </div>
+      
+      <!-- FAQ Item 2 -->
+      <div class="bg-white rounded-xl shadow-md overflow-hidden">
+        <button class="faq-question w-full text-left px-6 py-4 flex justify-between items-center focus:outline-none">
+          <h3 class="text-lg font-semibold text-gray-800">What is Yogakshema and how is it related?</h3>
+          <svg class="w-5 h-5 text-green-600 transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+        <div class="faq-answer px-6 pb-4 hidden">
+          <p class="text-gray-600">
+            Yogakshema is our sister organization focused on traditional yoga and meditation practices. While Wellnation360 takes a more clinical approach to wellness with nutrition and therapies, Yogakshema complements this with yoga, pranayama, and meditation practices. Together they provide a complete mind-body wellness solution.
+          </p>
+        </div>
+      </div>
+      
+      <!-- FAQ Item 3 -->
+      <div class="bg-white rounded-xl shadow-md overflow-hidden">
+        <button class="faq-question w-full text-left px-6 py-4 flex justify-between items-center focus:outline-none">
+          <h3 class="text-lg font-semibold text-gray-800">How can I reach Wellnation360 or Yogakshema?</h3>
+          <svg class="w-5 h-5 text-green-600 transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+        <div class="faq-answer px-6 pb-4 hidden">
+          <p class="text-gray-600">
+            You can reach us through multiple channels:<br><br>
+            - <strong>Wellnation360:</strong> Call +91 9341444968 or email wellnation360@gmail.com<br>
+            - <strong>Yogakshema:</strong> Visit <a href="http://yoga-kshema.in" class="text-green-600 hover:underline" target="_blank">yoga-kshema.in</a><br>
+            - <strong>Location:</strong> Kasavanahalli, Bangalore 560035<br>
+            - <strong>Social Media:</strong> Links in our footer
+          </p>
+        </div>
+      </div>
+      
+      <!-- FAQ Item 4 -->
+      <div class="bg-white rounded-xl shadow-md overflow-hidden">
+        <button class="faq-question w-full text-left px-6 py-4 flex justify-between items-center focus:outline-none">
+          <h3 class="text-lg font-semibold text-gray-800">Do I need any medical tests before joining a program?</h3>
+          <svg class="w-5 h-5 text-green-600 transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+        <div class="faq-answer px-6 pb-4 hidden">
+          <p class="text-gray-600">
+            For certain programs like diabetes management or thyroid balance, we recommend having recent blood test reports (within 3 months). For general wellness programs, no prior tests are needed. During your initial consultation, we'll assess your needs and may recommend specific tests if required.
+          </p>
+        </div>
+      </div>
+
+      <!-- FAQ Item 6 -->
+      <div class="bg-white rounded-xl shadow-md overflow-hidden">
+        <button class="faq-question w-full text-left px-6 py-4 flex justify-between items-center focus:outline-none">
+          <h3 class="text-lg font-semibold text-gray-800">Can I combine different therapies?</h3>
+          <svg class="w-5 h-5 text-green-600 transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+        <div class="faq-answer px-6 pb-4 hidden">
+          <p class="text-gray-600">
+            Absolutely! In fact, we encourage an integrated approach. Many clients combine nutritional therapy with acupuncture or yoga practices from Yogakshema. Our team coordinates to create a comprehensive plan that safely combines different modalities for maximum benefit.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
   <section class="reviews-section scroll-mt-20">
     <div class="container mx-auto px-4">
       <div class="reviews-title-container">
@@ -816,6 +1100,7 @@
     </div>
   </section>
 
+  <!-- Footer -->
   <footer id="footer" class="bg-gray-800 text-gray-300 py-12 md:py-16">
     <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 text-center md:text-left">
         <div>
@@ -829,10 +1114,10 @@
           <h4 class="text-lg font-semibold mb-4 text-white">Quick Links</h4>
           <ul class="space-y-2.5 text-sm">
             <li><a href="{{ url_for('index') }}#home" class="hover:text-green-400 transition-colors duration-200">Home</a></li>
-            <li><a href="{{ url_for('index') }}#about" class="hover:text-green-400 transition-colors duration-200">About Us</a></li>
-            <li><a href="{{ url_for('index') }}#services" class="hover:text-green-400 transition-colors duration-200">Our Services</a></li>
+            <li><a href="{{ url_for('about') }}" class="hover:text-green-400 transition-colors duration-200">About Us</a></li>
+            <li><a href="{{ url_for('services') }}" class="hover:text-green-400 transition-colors duration-200">Our Services</a></li>
             <li><a href="{{ url_for('gallery') }}" class="hover:text-green-400 transition-colors duration-200">Gallery</a></li>
-            <li><a href="https://yogakshema.com" class="hover:text-green-400 transition-colors duration-200" target="_blank" rel="noopener noreferrer">Yogakshema Website</a></li>
+            <li><a href="https://yoga-kshema.in" class="hover:text-green-400 transition-colors duration-200" target="_blank" rel="noopener noreferrer">Yogakshema Website</a></li>
             <li><a href="{{ url_for('contact_get') }}" class="hover:text-green-400 transition-colors duration-200">Contact Us</a></li>
           </ul>
         </div>
@@ -845,19 +1130,19 @@
             </div>
             <div class="flex items-center justify-center md:justify-start gap-2 hover:text-green-400 transition-colors duration-200">
               <i class="fas fa-phone-alt text-green-400 text-base w-5 text-center"></i>
-              <a href="tel:+917795246002" class="hover:underline">+91 77952 46002</a>
+              <a href="tel:+919341444968" class="hover:underline">+91 9341444968</a>
             </div>
              <div class="flex items-center justify-center md:justify-start gap-2 hover:text-green-400 transition-colors duration-200">
               <i class="fas fa-envelope text-green-400 text-base w-5 text-center"></i>
-              <a href="mailto:info@wellnation360.com" class="hover:underline"> info@wellnation360.com</a>
+              <a href="mailto:wellnation360@gmail.com" class="hover:underline"> wellnation360@gmail.com</a>
             </div>
           </div>
         </div>
         <div>
           <h4 class="text-lg font-semibold mb-4 text-white">Follow Us</h4>
           <div class="flex justify-center md:justify-start space-x-5">
-            <a href="https://instagram.com/wellnation360" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="text-2xl hover:text-pink-500 transition-colors duration-200"><i class="fab fa-instagram"></i></a>
-            <a href="https://youtube.com/@YOUR_CHANNEL_NAME" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="text-2xl hover:text-red-500 transition-colors duration-200"><i class="fab fa-youtube"></i></a>
+            <a href="https://www.instagram.com/healholistically_wellnation360?igsh=b3NwdWFjamEyd3Q5" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="text-2xl hover:text-pink-500 transition-colors duration-200"><i class="fab fa-instagram"></i></a>
+            <a href="https://youtube.com/@wellnation3603?si=4kRF5qbO-v8UrAw5" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="text-2xl hover:text-red-500 transition-colors duration-200"><i class="fab fa-youtube"></i></a>
             <a href="https://facebook.com/wellnation360" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="text-2xl hover:text-blue-600 transition-colors duration-200"><i class="fab fa-facebook"></i></a>
           </div>
            <p class="text-xs mt-6 text-gray-400">Stay connected for wellness tips, updates, and community events.</p>
@@ -867,7 +1152,7 @@
   </footer>
 
   <div class="fixed bottom-8 right-8 z-50 group">
-    <a href="https://wa.me/917795246002?text=Hello%20Wellnation360,%20I'd%20like%20to%20inquire%20about%20your%20services." target="_blank" class="flex items-center gap-2 bg-white pl-3 pr-2 py-2 rounded-full shadow-lg border border-gray-200 hover:pr-3 transition-all duration-300">
+    <a href="https://wa.me/919341444968?text=Hello%20Wellnation360,%20I'd%20like%20to%20inquire%20about%20your%20services." target="_blank" class="flex items-center gap-2 bg-white pl-3 pr-2 py-2 rounded-full shadow-lg border border-gray-200 hover:pr-3 transition-all duration-300">
       <span class="opacity-0 group-hover:opacity-100 w-0 group-hover:w-auto overflow-hidden transition-all duration-300 text-sm font-medium">Let's chat!</span>
       <img src="{{ url_for('static', filename='images/whatsapp.png') }}" alt="WhatsApp" class="w-10 h-10 lazy-load" loading="lazy">
     </a>
@@ -1107,7 +1392,7 @@ function createServiceBlock(serviceItem) {
     detailsBtn.addEventListener('click', () => {
         // Go to service-specific page based on service name
         const serviceName = serviceItem.service_name.toLowerCase().replace(/\s+/g, '_');
-        window.location.href = `{{ url_for('services') }}?name=${encodeURIComponent(serviceName)}`;
+        window.location.href = `{{ url_for('services') }}`;
     });
     
     enrollBtn.addEventListener('click', () => {
@@ -1223,6 +1508,27 @@ function createServiceBlock(serviceItem) {
     }
   }
 
+  // FAQ Toggle Functionality
+document.querySelectorAll('.faq-question').forEach(question => {
+  question.addEventListener('click', () => {
+    const answer = question.nextElementSibling;
+    const icon = question.querySelector('svg');
+    
+    // Toggle answer visibility
+    answer.classList.toggle('hidden');
+    
+    // Toggle icon rotation
+    icon.classList.toggle('rotate-180');
+    
+    // Close other open answers
+    document.querySelectorAll('.faq-question').forEach(q => {
+      if (q !== question) {
+        q.nextElementSibling.classList.add('hidden');
+        q.querySelector('svg').classList.remove('rotate-180');
+      }
+    });
+  });
+});
 
   // --- Reviews Display ---
   async function fetchReviews() {

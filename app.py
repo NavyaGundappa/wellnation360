@@ -487,7 +487,7 @@ def gallery():
     
     return render_template('gallery.html', gallery_data=gallery_data)
 
-@app.route('/')
+@app.route('/logo')
 def home():
     return render_template('logo.html')
 
@@ -495,7 +495,7 @@ def home():
 def yogakshema():
     return render_template("yogakshema.html")
 
-@app.route('/index') # Changed from /index to /home to match navigation links
+@app.route('/') # Changed from /index to /home to match navigation links
 def index():
     services_from_db = Service.query.order_by(Service.created_at.desc()).all()
     services_data = []

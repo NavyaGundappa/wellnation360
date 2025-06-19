@@ -14,63 +14,99 @@
             box-sizing: border-box;
             font-family: 'Poppins', sans-serif;
         }
-        
+
         body {
             background-color: #f8f5f2;
             color: #333;
             line-height: 1.8;
         }
-        
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: #f8f5f2;
+        }
+
+        .hero-header {
+            background: linear-gradient(135deg, #3a7bd5, #00d2ff);
+            color: white;
+            padding: 5rem 0 3rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 2rem;
         }
-        
+
         h1 {
             font-size: 2.8rem;
             margin-bottom: 1rem;
             font-weight: 300;
         }
-        
+
         .subtitle {
             font-size: 1.2rem;
             max-width: 700px;
             margin: 0 auto;
             opacity: 0.9;
         }
-        
+
         .services-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            padding: 4rem 0;
+            display: flex;
+            flex-direction: column;
+            gap: 4rem;
+            padding: 2rem 0 4rem 0;
         }
-        
-        .service-card {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+        .service-section {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            scroll-margin-top: 100px;
+            width: 100%;
+            padding: 0 5%;
+        }
+
+        .service-section:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .service-image-col {
+            flex: 1.2;
             position: relative;
         }
-        
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-        }
-        
+
         .service-image {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
+            width: 80%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
         }
-        
-        .service-content {
-            padding: 2rem;
+        .service-image:hover {
+            transform: scale(1.05);
         }
-        
+
+        /* MODIFIED: Removed background, shadow, and border-radius */
+        .service-content-col {
+            flex: 1;
+            padding: 1rem; /* Adjusted padding for the new look */
+            transition: transform 0.3s ease;
+        }
+
+        .service-content-col:hover {
+            transform: translateY(-5px);
+        }
+
         .service-name {
             font-size: 1.5rem;
             margin-bottom: 1rem;
@@ -79,7 +115,7 @@
             position: relative;
             padding-bottom: 0.5rem;
         }
-        
+
         .service-name:after {
             content: '';
             position: absolute;
@@ -89,35 +125,65 @@
             height: 3px;
             background: linear-gradient(90deg, #3a7bd5, #00d2ff);
         }
-        
+
         .service-description {
             color: #555;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            min-height: 5.4em; /* Corresponds to 3 lines * 1.8 line-height */
         }
-        
+
+        .service-content-col.expanded .service-description {
+            -webkit-line-clamp: unset;
+            overflow: visible;
+            min-height: auto;
+        }
+
+        .read-more {
+            color: #3a7bd5;
+            cursor: pointer;
+            font-weight: 500;
+            margin-top: 0.5rem;
+            display: inline-block;
+        }
+
         .service-meta {
             display: flex;
             align-items: center;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
             font-size: 0.9rem;
             color: #7f8c8d;
         }
-        
+
         .instructor {
             display: flex;
             align-items: center;
             margin-right: 1rem;
         }
-        
+
         .instructor-icon {
             width: 24px;
             height: 24px;
             margin-right: 0.5rem;
             opacity: 0.7;
         }
-        
+
+        .benefits-list {
+            margin-top: 1rem;
+            margin-bottom: 1.5rem;
+            display: none; /* Hidden by default */
+        }
+
+        .service-content-col.expanded .benefits-list {
+            display: block; /* Shown when expanded */
+        }
+
         .btn {
-            display: inline-block;
+            display: none; /* Hidden by default */
             padding: 0.8rem 1.5rem;
             background: linear-gradient(90deg, #3a7bd5, #00d2ff);
             color: white;
@@ -129,239 +195,313 @@
             font-size: 0.95rem;
             font-weight: 500;
             text-align: center;
+            margin-top: 1rem;
         }
-        
+
+        .service-content-col.expanded .btn {
+            display: inline-block; /* Shown when expanded */
+        }
+
         .btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(58, 123, 213, 0.3);
         }
-        
-        .btn-outline {
-            background: transparent;
-            border: 1px solid #3a7bd5;
-            color: #3a7bd5;
+
+        /* Responsive styles */
+        @media (max-width: 1024px) {
+            .service-section {
+                padding: 0 2rem;
+                gap: 2rem;
+            }
         }
-        
-        .btn-outline:hover {
-            background: rgba(58, 123, 213, 0.05);
-        }
-        
-        .action-buttons {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-        
-        footer {
-            background: #2c3e50;
-            color: white;
-            text-align: center;
-            padding: 3rem 0;
-            margin-top: 2rem;
-        }
-        
+
         @media (max-width: 768px) {
+            .service-section, .service-section:nth-child(even) {
+                flex-direction: column;
+                padding: 0 1.5rem;
+            }
+
+            .service-image-col, .service-content-col {
+                flex: 1;
+            }
+
             h1 {
                 font-size: 2.2rem;
-            }
-            
-            .services-container {
-                grid-template-columns: 1fr;
-            }
-            
-            .action-buttons {
-                flex-direction: column;
             }
         }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header class="fixed top-0 left-0 right-0 w-full z-50 bg-gray-800 shadow-md">
-      <div class="relative z-10 flex items-center justify-between px-6 py-2 md:py-3">
-        <div class="flex items-center space-x-4">
-          <div class="relative w-20 h-20 rounded-full overflow-hidden">
+    <header class="fixed top-0 left-0 right-0 w-full z-[100] bg-gray-800 shadow-md">
+     <div class="container mx-auto flex items-center justify-between px-4 py-2 md:py-3">
+      <div class="flex items-center space-x-3">
+        <a href="{{ url_for('home') }}" class="flex items-center space-x-3">
+          <div class="relative w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden border-2 border-green-400">
             <img src="{{ url_for('static', filename='images/logo1.png') }}" alt="Logo" class="w-full h-full object-cover" />
           </div>
-          <span class="text-2xl md:text-3xl font-bold text-white">Wellnation360</span>
-        </div>
-        <nav class="hidden md:flex items-center space-x-6 text-white text-base md:text-lg font-semibold">
-          <a href="{{ url_for('index') }}" class="text-white">Home</a>
-          <a href="{{ url_for('about') }}" class="text-white">About</a>
-          <a href="{{ url_for('contact_get') }}" class="text-white">Contact</a>
-        </nav>
+          <span class="text-xl md:text-3xl font-bold text-white">Wellnation360</span>
+        </a>
       </div>
-    </header>
+      <nav class="hidden md:flex items-center space-x-5 text-white text-base md:text-lg font-medium">
+        <a href="{{ url_for('index') }}#home" class="hover:text-green-400 relative group">Home <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-green-400 transition-all duration-300 group-hover:w-full"></span></a>
+        <a href="{{ url_for('about') }}" class="hover:text-green-400 relative group">About <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-green-400 transition-all duration-300 group-hover:w-full"></span></a>
+        <a href="{{ url_for('gallery') }}" class="hover:text-green-400 relative group">Gallery <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-green-400 transition-all duration-300 group-hover:w-full"></span></a>
+        <div class="relative group">
+          <a href="{{ url_for('index') }}#services" class="hover:text-green-400 flex items-center gap-1">Services
+            <svg class="w-4 h-4 transition-transform duration-200 group-hover:rotate-180" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.939l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clip-rule="evenodd"/></svg>
+          </a>
+          <div class="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-60 bg-white text-gray-800 rounded-md shadow-xl opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300 invisible group-hover:visible z-50 py-1">
+          <a href="/service" class="block px-4 py-2 hover:text-green-600 transition duration-200">Gental Detox Cleanse</a>
+          <a href="/service" class="block px-4 py-2 hover:text-green-600 transition duration-200">Diabetes Support Plan</a>
+          <a href="/service" class="block px-4 py-2 hover:text-green-600 transition duration-200">Thyroid Balance Therapy</a>
+          <a href="/service" class="block px-4 py-2 hover:text-green-600 transition duration-200">Digestive Wellness Plan</a>
+          <a href="/service" class="block px-4 py-2 hover:text-green-600 transition duration-200">Menopausal management</a>
+          <a href="/service" class="block px-4 py-2 hover:text-green-600 transition duration-200">Acupuncture therapy</a>
+          <a href="/service" class="block px-4 py-2 hover:text-green-600 transition duration-200">Healthy Body Transformation</a>
+        </div>
+        </div>
+        <a href="{{ url_for('contact_get') }}" class="hover:text-green-400 relative group">Contact <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-green-400 transition-all duration-300 group-hover:w-full"></span></a>
+        <a href="http://yoga-kshema.in" target="_blank" rel="noopener noreferrer" class="text-white relative yogakshema-link group"> <span class="relative z-10 flex items-center"><span class="mr-1"></span><span>Yogakshema</span></span>
+            <span class="absolute inset-0 bg-gradient-to-r from-amber-500 to-orange-600 rounded-full scale-0 opacity-0 group-hover:scale-105 group-hover:opacity-100 transition-all duration-500 yogakshema-highlight"></span>
+        </a>
+      </nav>
+      <div class="md:hidden">
+        <button id="mobileMenuButton" class="text-white p-2 focus:outline-none">
+          <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+    <div id="mobileMenu" class="hidden md:hidden absolute top-full left-0 right-0 bg-gray-800 shadow-lg py-2 z-40">
+      <a href="{{ url_for('index') }}#home" class="block px-5 py-3 text-white hover:bg-gray-700 transition duration-150">Home</a>
+      <a href="{{ url_for('about') }}" class="block px-5 py-3 text-white hover:bg-gray-700 transition duration-150">About</a>
+      <a href="{{ url_for('gallery') }}" class="block px-5 py-3 text-white hover:bg-gray-700 transition duration-150">Gallery</a>
+      <div class="relative group">
+        <button class="flex items-center justify-between w-full px-5 py-3 text-left text-white hover:bg-gray-700 transition duration-150">Services
+          <svg class="w-4 h-4 ml-1 transform group-focus-within:rotate-180 transition-transform" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.939l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clip-rule="evenodd"/></svg>
+        </button>
+        <div class="hidden group-focus-within:block bg-gray-700 mt-0">
+          <a href="{{ url_for('yoga_service') }}" class="block pl-8 pr-5 py-2.5 text-sm text-gray-300 hover:bg-gray-600 hover:text-white transition duration-150">All Services Overview</a>
+          <a href="{{ url_for('diabetics') }}" class="block pl-8 pr-5 py-2.5 text-sm text-gray-300 hover:bg-gray-600 hover:text-white transition duration-150">Diabetes Support Plan</a>
+        </div>
+      </div>
+      <a href="{{ url_for('contact_get') }}" class="block px-5 py-3 text-white hover:bg-gray-700 transition duration-150">Contact</a>
+    </div>
+  </header>
 
-    <div style="padding-top: 80px;"> <header style="background: linear-gradient(135deg, #3a7bd5, #00d2ff); color: white; padding: 3rem 0; text-align: center; position: relative; overflow: hidden;">
-            <div class="container">
-                <h1>Our Yoga & Meditation Offerings</h1>
-                <p class="subtitle">Discover various yoga styles and meditation practices to harmonize your mind, body, and spirit.</p>
-            </div>
-        </header>
-        
+    <div class="hero-header" style="margin-top: 80px;">
         <div class="container">
-            <div class="services-container" id="servicesContainer">
-                </div>
+            <h1>Our Yoga & Meditation Offerings</h1>
+            <p class="subtitle">Discover various yoga styles and meditation practices to harmonize your mind, body, and spirit.</p>
         </div>
     </div>
-    
-    <footer id="footer" class="bg-gray-800 text-gray-300 py-12 md:py-16">
-        <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 text-center md:text-left">
-            <div>
-              <h4 class="text-xl font-semibold mb-4 text-white">Wellnation360</h4>
-              <p class="text-sm leading-relaxed mb-4">Your partner in holistic health and mindful living...</p>
-               <div class="relative w-24 h-24 mx-auto md:mx-0 rounded-full overflow-hidden border-2 border-green-500">
-                <img src="{{ url_for('static', filename='images/logo1.png') }}" alt="Wellnation360 Small Logo" class="w-full h-full object-cover" />
-              </div>
+
+    <div class="services-container" id="servicesContainer">
+    </div>
+
+  <footer id="footer" class="bg-gray-800 text-gray-300 py-12 md:py-16">
+    <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 text-center md:text-left">
+        <div>
+          <h4 class="text-xl font-semibold mb-4 text-white">Wellnation360</h4>
+          <p class="text-sm leading-relaxed mb-4">Your partner in holistic health and mindful living...</p>
+           <div class="relative w-24 h-24 mx-auto md:mx-0 rounded-full overflow-hidden border-2 border-green-500">
+            <img src="{{ url_for('static', filename='images/logo1.png') }}" alt="Wellnation360 Small Logo" class="w-full h-full object-cover" />
+          </div>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-4 text-white">Quick Links</h4>
+          <ul class="space-y-2.5 text-sm">
+            <li><a href="www.wellnation360.com/index" class="hover:text-green-400 transition-colors duration-200">Home</a></li>
+            <li><a href="#about" class="hover:text-green-400 transition-colors duration-200">About Us</a></li>
+            <li><a href="#services" class="hover:text-green-400 transition-colors duration-200">Our Services</a></li>
+            <li><a href="www.wellnation360.com/glimpse" class="hover:text-green-400 transition-colors duration-200">Gallery</a></li>
+            <li><a href="http://yoga-kshema.in" class="hover:text-green-400 transition-colors duration-200" target="_blank" rel="noopener noreferrer">Yogakshema Website</a></li>
+            <li><a href="www.wellnation360.com/contact" class="hover:text-green-400 transition-colors duration-200">Contact Us</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-4 text-white">Contact Info</h4>
+          <div class="text-sm leading-relaxed space-y-3">
+            <div class="flex items-center justify-center md:justify-start gap-2 hover:text-green-400 transition-colors duration-200">
+              <i class="fas fa-map-marker-alt text-green-400 text-base w-5 text-center"></i>
+              <a href="https://maps.google.com/?q=Kasavanahalli,Bangalore,560035" target="_blank" rel="noopener noreferrer" class="hover:underline">Kasavanahalli, Bangalore 560035</a>
             </div>
-            <div>
-              <h4 class="text-lg font-semibold mb-4 text-white">Quick Links</h4>
-              <ul class="space-y-2.5 text-sm">
-                <li><a href="wellnation360.com/index" class="hover:text-green-400 transition-colors duration-200">Home</a></li>
-                <li><a href="#about" class="hover:text-green-400 transition-colors duration-200">About Us</a></li>
-                <li><a href="#services" class="hover:text-green-400 transition-colors duration-200">Our Services</a></li>
-                <li><a href="wellnation360.com/glimpse" class="hover:text-green-400 transition-colors duration-200">Gallery</a></li>
-                <li><a href="http://yoga-kshema.in" class="hover:text-green-400 transition-colors duration-200" target="_blank" rel="noopener noreferrer">Yogakshema Website</a></li>
-                <li><a href="wellnation360.com/contact" class="hover:text-green-400 transition-colors duration-200">Contact Us</a></li>
-              </ul>
+            <div class="flex items-center justify-center md:justify-start gap-2 hover:text-green-400 transition-colors duration-200">
+              <i class="fas fa-phone-alt text-green-400 text-base w-5 text-center"></i>
+              <a href="tel:+919341444968" class="hover:underline">+91 9341444968</a>
             </div>
-            <div>
-              <h4 class="text-lg font-semibold mb-4 text-white">Contact Info</h4>
-              <div class="text-sm leading-relaxed space-y-3">
-                <div class="flex items-center justify-center md:justify-start gap-2 hover:text-green-400 transition-colors duration-200">
-                  <i class="fas fa-map-marker-alt text-green-400 text-base w-5 text-center"></i>
-                  <a href="https://maps.google.com/?q=Kasavanahalli,Bangalore,560035" target="_blank" rel="noopener noreferrer" class="hover:underline">Kasavanahalli, Bangalore 560035</a>
-                </div>
-                <div class="flex items-center justify-center md:justify-start gap-2 hover:text-green-400 transition-colors duration-200">
-                  <i class="fas fa-phone-alt text-green-400 text-base w-5 text-center"></i>
-                  <a href="tel:+917795246002" class="hover:underline">+91 77952 46002</a>
-                </div>
-                  <div class="flex items-center justify-center md:justify-start gap-2 hover:text-green-400 transition-colors duration-200">
-                  <i class="fas fa-envelope text-green-400 text-base w-5 text-center"></i>
-                  <a href="mailto:info@wellnation360.com" class="hover:underline"> info@wellnation360.com</a>
-                </div>
-              </div>
-            </div>
-            <div>
-              <h4 class="text-lg font-semibold mb-4 text-white">Follow Us</h4>
-              <div class="flex justify-center md:justify-start space-x-5">
-                <a href="https://instagram.com/wellnation360" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="text-2xl hover:text-pink-500 transition-colors duration-200"><i class="fab fa-instagram"></i></a>
-                <a href="https://youtube.com/@YOUR_CHANNEL_NAME" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="text-2xl hover:text-red-500 transition-colors duration-200"><i class="fab fa-youtube"></i></a>
-                <a href="https://facebook.com/wellnation360" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="text-2xl hover:text-blue-600 transition-colors duration-200"><i class="fab fa-facebook"></i></a>
-              </div>
-               <p class="text-xs mt-6 text-gray-400">Stay connected for wellness tips, updates, and community events.</p>
+             <div class="flex items-center justify-center md:justify-start gap-2 hover:text-green-400 transition-colors duration-200">
+              <i class="fas fa-envelope text-green-400 text-base w-5 text-center"></i>
+              <a href="mailto:wellnation360@gmail.com" class="hover:underline"> wellnation360@gmail.com</a>
             </div>
           </div>
-        <div class="text-center text-sm mt-10 border-t border-gray-700 pt-8">© <span id="currentYear"></span> Wellnation360. All rights reserved.</div>
-    </footer>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-4 text-white">Follow Us</h4>
+          <div class="flex justify-center md:justify-start space-x-5">
+            <a href="https://www.instagram.com/healholistically_wellnation360?igsh=b3NwdWFjamEyd3Q5" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="text-2xl hover:text-pink-500 transition-colors duration-200"><i class="fab fa-instagram"></i></a>
+            <a href="https://youtube.com/@wellnation3603?si=4kRF5qbO-v8UrAw5" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="text-2xl hover:text-red-500 transition-colors duration-200"><i class="fab fa-youtube"></i></a>
+            <a href="https://facebook.com/wellnation360" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="text-2xl hover:text-blue-600 transition-colors duration-200"><i class="fab fa-facebook"></i></a>
+          </div>
+           <p class="text-xs mt-6 text-gray-400">Stay connected for wellness tips, updates, and community events.</p>
+        </div>
+      </div>
+    <div class="text-center text-sm mt-10 border-t border-gray-700 pt-8">© <span id="currentYear"></span> Wellnation360. All rights reserved.</div>
+  </footer>
 
     <div class="fixed bottom-8 right-8 z-50 group">
-        <a href="https://wa.me/917795246002?text=Hello%20Wellnation360,%20I'd%20like%20to%20inquire%20about%20your%20services." target="_blank" class="flex items-center gap-2 bg-white pl-3 pr-2 py-2 rounded-full shadow-lg border border-gray-200 hover:pr-3 transition-all duration-300">
-          <span class="opacity-0 group-hover:opacity-100 w-0 group-hover:w-auto overflow-hidden transition-all duration-300 text-sm font-medium">Let's chat!</span>
-          <img src="{{ url_for('static', filename='images/whatsapp.png') }}" alt="WhatsApp" class="w-10 h-10 lazy-load" loading="lazy">
+         <a href="https://wa.me/919341444968?text=Hello%20Wellnation360,%20I'd%20like%20to%20inquire%20about%20your%20services." target="_blank" class="flex items-center gap-2 bg-white pl-3 pr-2 py-2 rounded-full shadow-lg border border-gray-200 hover:pr-3 transition-all duration-300">
+            <span class="opacity-0 group-hover:opacity-100 w-0 group-hover:w-auto overflow-hidden transition-all duration-300 text-sm font-medium">Let's chat!</span>
+            <img src="{{ url_for('static', filename='images/whatsapp.png') }}" alt="WhatsApp" class="w-10 h-10 lazy-load" loading="lazy">
         </a>
     </div>
-        
-    <script>
-        // Update current year for the footer
-        document.getElementById('currentYear').textContent = new Date().getFullYear();
 
-        const services = [
+    <script>
+      // Set current year in footer
+      document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+      // Mobile menu toggle
+      const mobileMenuButton = document.getElementById('mobileMenuButton');
+      const mobileMenu = document.getElementById('mobileMenu');
+      if (mobileMenuButton && mobileMenu) {
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+      }
+
+      const services = [
             {
-                image: "static/images/hathayoga.webp", // You'll need to create this image
+                id: "hatha-yoga",
+                image: "static/images/hathayoga.webp",
                 name: "Hatha Yoga",
-                instructor: "Yoga Instructor", // Replace with actual instructor name
-                description: "Experience the foundational practice of Hatha Yoga, focusing on slow and controlled movements, traditional asanas, and breathwork to build strength, flexibility, and inner peace.",
+                instructor: "Yoga Instructor",
+                description: "Experience the foundational practice of Hatha Yoga, focusing on slow and controlled movements, traditional asanas, and breathwork to build strength, flexibility, and inner peace. This practice is ideal for beginners and those seeking a gentle yet profound yoga experience.",
                 benefits: [
                     "Improved flexibility and strength",
                     "Stress reduction and mental clarity",
                     "Better posture and body alignment",
-                    "Enhanced breath awareness"
+                    "Enhanced breath awareness and control"
                 ]
             },
             {
-                image: "static/images/aerialyoga.jpg", // You'll need to create this image
+                id: "aerial-yoga",
+                image: "static/images/aerialyoga.jpg",
                 name: "Aerial Yoga",
-                instructor: "Aerial Yoga Instructor", // Replace with actual instructor name
-                description: "Defy gravity and explore a unique yoga experience with Aerial Yoga. Using soft fabric hammocks, this practice allows for deeper stretches, spinal decompression, and playful inversions.",
+                instructor: "Aerial Yoga Instructor",
+                description: "Defy gravity and explore a unique yoga experience with Aerial Yoga. Using soft fabric hammocks, this practice allows for deeper stretches, spinal decompression, and playful inversions. It's a fun way to improve strength, flexibility, and balance.",
                 benefits: [
                     "Spinal decompression and pain relief",
                     "Increased flexibility and balance",
-                    "Core strength development",
-                    "Fun and creative movement"
+                    "Core strength development and body awareness",
+                    "Fun and creative movement with anti-gravity benefits"
                 ]
             },
             {
-                image: "static/images/chakrameditaion.jpg", // You'll need to create this image
+                id: "chakra-meditation",
+                image: "static/images/chakrameditaion.jpg",
                 name: "Chakra Meditation",
-                instructor: "Meditation Guide", // Replace with actual instructor name
-                description: "Balance your energy centers with guided Chakra Meditation. This practice focuses on aligning and activating your seven chakras, promoting emotional well-being and spiritual growth.",
+                instructor: "Meditation Guide",
+                description: "Balance your energy centers with guided Chakra Meditation. This practice focuses on aligning and activating your seven chakras, promoting emotional well-being, spiritual growth, and a deeper connection to your inner self.",
                 benefits: [
                     "Energy balance and vitality",
                     "Emotional release and clarity",
                     "Deep relaxation and inner peace",
-                    "Enhanced spiritual connection"
+                    "Enhanced spiritual connection and self-awareness"
                 ]
             },
             {
-                image: "static/images/athrits.jpg", // You'll need to create this image
+                id: "yoga-arthritis",
+                image: "static/images/athrits.jpg",
                 name: "Yoga for Arthritis & More",
-                instructor: "Therapeutic Yoga Specialist", // Replace with actual instructor name
-                description: "Gentle and therapeutic yoga sessions designed to alleviate symptoms of arthritis and other conditions. Focuses on gentle movements, joint mobility, and pain management through mindful practice.",
+                instructor: "Therapeutic Yoga Specialist",
+                description: "Gentle and therapeutic yoga sessions designed to alleviate symptoms of arthritis and other conditions. Focuses on gentle movements, joint mobility, and pain management through mindful practice, tailored to individual needs.",
                 benefits: [
                     "Improved joint flexibility and range of motion",
-                    "Reduced pain and stiffness",
-                    "Increased strength and balance",
-                    "Enhanced quality of life"
+                    "Reduced pain and stiffness in affected areas",
+                    "Increased strength and balance, improving daily function",
+                    "Enhanced quality of life through mindful movement"
                 ]
             }
-        ];
+      ];
 
-        // Render services
-        const servicesContainer = document.getElementById('servicesContainer');
+      const servicesContainer = document.getElementById('servicesContainer');
 
-        services.forEach(service => {
-            const serviceCard = document.createElement('div');
-            serviceCard.className = 'service-card';
-            
-            serviceCard.innerHTML = `
-                <img src="${service.image}" alt="${service.name}" class="service-image">
-                <div class="service-content">
-                    <h3 class="service-name">${service.name}</h3>
-                    <div class="service-meta">
-                        <span class="instructor">
-                            <svg class="instructor-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                                <circle cx="12" cy="7" r="4"></circle>
-                            </svg>
-                            ${service.instructor}
-                        </span>
-                    </div>
-                    <p class="service-description">${service.description}</p>
-                    
-                    <div>
-                        <h4 style="font-size: 1rem; margin-bottom: 0.5rem; color: #3a7bd5;">Key Benefits:</h4>
-                        <ul style="list-style-type: none;">
-                            ${service.benefits.map(benefit => `
-                                <li style="position: relative; padding-left: 1.5rem; margin-bottom: 0.5rem;">
-                                    <svg style="position: absolute; left: 0; top: 0.25rem; width: 1rem; height: 1rem;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#3a7bd5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                                        <polyline points="20 6 9 17 4 12"></polyline>
-                                    </svg>
-                                    ${benefit}
-                                </li>
-                            `).join('')}
-                        </ul>
-                    </div>
-                    
-                    <div class="action-buttons">
+      if (servicesContainer) {
+        services.forEach((service) => {
+            const serviceSection = document.createElement('div');
+            serviceSection.className = 'service-section';
+            serviceSection.id = service.id;
+
+            serviceSection.innerHTML = `
+                <div class="service-image-col">
+                    <img src="${service.image}" alt="${service.name}" class="service-image">
+                </div>
+                <div class="service-content-col">
+                    <div class="service-content">
+                        <h3 class="service-name">${service.name}</h3>
+                        <div class="service-meta">
+                            <span class="instructor">
+                                <svg class="instructor-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                                ${service.instructor}
+                            </span>
+                        </div>
+                        <p class="service-description">${service.description}</p>
+                        <span class="read-more">Read more...</span>
+
+                        <div class="benefits-list">
+                            <h4 style="font-size: 1rem; margin-bottom: 0.5rem; color: #3a7bd5;">Key Benefits:</h4>
+                            <ul style="list-style-type: none; padding-left: 0;">
+                                ${service.benefits.map(benefit => `
+                                    <li style="position: relative; padding-left: 1.5rem; margin-bottom: 0.5rem;">
+                                        <svg style="position: absolute; left: 0; top: 0.25rem; width: 1rem; height: 1rem;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#3a7bd5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                            <polyline points="20 6 9 17 4 12"></polyline>
+                                        </svg>
+                                        ${benefit}
+                                    </li>
+                                `).join('')}
+                            </ul>
+                        </div>
+
                         <a href="/contact" class="btn">Book a Session</a>
                     </div>
                 </div>
             `;
-            
-            servicesContainer.appendChild(serviceCard);
+
+            servicesContainer.appendChild(serviceSection);
+
+            const readMore = serviceSection.querySelector('.read-more');
+            const contentCol = serviceSection.querySelector('.service-content-col');
+
+            readMore.addEventListener('click', () => {
+                contentCol.classList.toggle('expanded');
+
+                if (contentCol.classList.contains('expanded')) {
+                    readMore.textContent = 'Read less...';
+                } else {
+                    readMore.textContent = 'Read more...';
+                }
+            });
         });
-    </script>
+      }
+
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+          anchor.addEventListener('click', function (e) {
+              e.preventDefault();
+              const targetId = this.getAttribute('href');
+              if (targetId === '#') return;
+              const targetElement = document.querySelector(targetId);
+              if (targetElement) {
+                  targetElement.scrollIntoView({ behavior: 'smooth' });
+                  if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                      mobileMenu.classList.add('hidden');
+                  }
+              }
+          });
+      });
+  </script>
 </body>
 </html>

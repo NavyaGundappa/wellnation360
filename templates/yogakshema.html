@@ -22,7 +22,7 @@
 </head>
 <body class="text-gray-800">
 
-  <a href="https://wa.me/7795246002" target="_blank" class="fixed bottom-8 right-8 z-50">
+  <a href="https://wa.me/9341444968" target="_blank" class="fixed bottom-8 right-8 z-50">
     <img src="{{ url_for('static', filename='images/whatsapp.png') }}" alt="WhatsApp" class="w-16 h-16 rounded-full shadow-lg border-4 border-white hover:scale-110 transition-transform duration-300">
   </a>
 
@@ -125,7 +125,7 @@
       <p class="text-gray-600 text-lg mb-6">
         At Wellnation360, we empower you to live a healthier, more balanced life. We blend modern science with ancient wisdom to help you reconnect with your body and mind. Through a combination of natural healing, mindful practices, and expert guidance, our holistic approach guides you toward vitality and well-being. Whether it's through diet correction, physical strength, or the ancient practices of meditation and acupuncture, we support you in achieving a life of balance, vitality, and true wellness.
       </p>
-      <a href="http://wellnation360.com/about" class="bg-green-600 hover:bg-green-700 text-white font-semibold px-8 py-3.5 rounded-lg transition duration-300 shadow-md hover:shadow-lg text-lg">Explore More</a>
+      <a href="www.wellnation360.com/about" class="bg-green-600 hover:bg-green-700 text-white font-semibold px-8 py-3.5 rounded-lg transition duration-300 shadow-md hover:shadow-lg text-lg">Explore More</a>
         </div>
       </div>
   </section>
@@ -172,11 +172,11 @@
         She has worked as a clinical dietitian at <span class="text-yellow-300">Manipal Hospital</span> and <span class="text-yellow-300">Aarogya Hastha Hospital</span>, where she helped patients restore health through mindful and personalized nutrition plans. Ritu’s guiding motto is <span class="text-yellow-200 font-semibold">“Prevention is better than cure”</span>, and her mission is to empower individuals to take charge of their well-being through sustainable choices.
       </p>
         <div class="space-x-4 mt-8">
-          <a href="http://wellnation360.com/contact" class="inline-block bg-yellow-500 text-dark_blue_ font-bold py-4 px-8 rounded-lg shadow-lg transition-all duration-300 transform hover:bg-yellow-600 hover:scale-105 focus:outline-none" data-aos="zoom-in" data-aos-delay="400">
+          <a href="www.wellnation360.com/contact" class="inline-block bg-yellow-500 text-dark_blue_ font-bold py-4 px-8 rounded-lg shadow-lg transition-all duration-300 transform hover:bg-yellow-600 hover:scale-105 focus:outline-none" data-aos="zoom-in" data-aos-delay="400">
             Book a Consultation
           </a>
           
-          <a href="http://wellnation360.com/about" class="inline-block border-4 border-yellow-500 text-yellow-500 font-bold py-4 px-8 rounded-lg shadow-lg transition-all duration-300 transform hover:bg-yellow-500 hover:text-dark_blue_ hover:scale-105 focus:outline-none" data-aos="zoom-in" data-aos-delay="500">
+          <a href="www.wellnation360.com/about" class="inline-block border-4 border-yellow-500 text-yellow-500 font-bold py-4 px-8 rounded-lg shadow-lg transition-all duration-300 transform hover:bg-yellow-500 hover:text-dark_blue_ hover:scale-105 focus:outline-none" data-aos="zoom-in" data-aos-delay="500">
             Dr. Ritu and Team Profile
           </a>
         </div>
@@ -209,8 +209,8 @@
     </div>
   </section>
 
+  <!-- Footer -->
   <footer id="footer" class="bg-gray-800 text-gray-300 py-12 md:py-16">
-    <!-- Content as before -->
     <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 text-center md:text-left">
         <div>
           <h4 class="text-xl font-semibold mb-4 text-white">Wellnation360</h4>
@@ -222,12 +222,12 @@
         <div>
           <h4 class="text-lg font-semibold mb-4 text-white">Quick Links</h4>
           <ul class="space-y-2.5 text-sm">
-            <li><a href="http://wellnation360.com/index" class="hover:text-green-400 transition-colors duration-200">Home</a></li>
-            <li><a href="#about" class="hover:text-green-400 transition-colors duration-200">About Us</a></li>
-            <li><a href="#services" class="hover:text-green-400 transition-colors duration-200">Our Services</a></li>
-            <li><a href="http://wellnation360.com/glimpse" class="hover:text-green-400 transition-colors duration-200">Gallery</a></li>
+            <li><a href="{{ url_for('index') }}#home" class="hover:text-green-400 transition-colors duration-200">Home</a></li>
+            <li><a href="{{ url_for('about') }}" class="hover:text-green-400 transition-colors duration-200">About Us</a></li>
+            <li><a href="{{ url_for('services') }}" class="hover:text-green-400 transition-colors duration-200">Our Services</a></li>
+            <li><a href="{{ url_for('gallery') }}" class="hover:text-green-400 transition-colors duration-200">Gallery</a></li>
             <li><a href="http://yoga-kshema.in" class="hover:text-green-400 transition-colors duration-200" target="_blank" rel="noopener noreferrer">Yogakshema Website</a></li>
-            <li><a href="http://wellnation360.com/contact" class="hover:text-green-400 transition-colors duration-200">Contact Us</a></li>
+            <li><a href="{{ url_for('contact_get') }}" class="hover:text-green-400 transition-colors duration-200">Contact Us</a></li>
           </ul>
         </div>
         <div>
@@ -239,19 +239,19 @@
             </div>
             <div class="flex items-center justify-center md:justify-start gap-2 hover:text-green-400 transition-colors duration-200">
               <i class="fas fa-phone-alt text-green-400 text-base w-5 text-center"></i>
-              <a href="tel:+917795246002" class="hover:underline">+91 77952 46002</a>
+              <a href="tel:+919341444968" class="hover:underline">+91 9341444968</a>
             </div>
              <div class="flex items-center justify-center md:justify-start gap-2 hover:text-green-400 transition-colors duration-200">
               <i class="fas fa-envelope text-green-400 text-base w-5 text-center"></i>
-              <a href="mailto:info@wellnation360.com" class="hover:underline"> info@wellnation360.com</a>
+              <a href="mailto:wellnation360@gmail.com" class="hover:underline"> wellnation360@gmail.com</a>
             </div>
           </div>
         </div>
         <div>
           <h4 class="text-lg font-semibold mb-4 text-white">Follow Us</h4>
           <div class="flex justify-center md:justify-start space-x-5">
-            <a href="https://instagram.com/wellnation360" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="text-2xl hover:text-pink-500 transition-colors duration-200"><i class="fab fa-instagram"></i></a>
-            <a href="https://youtube.com/@YOUR_CHANNEL_NAME" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="text-2xl hover:text-red-500 transition-colors duration-200"><i class="fab fa-youtube"></i></a>
+            <a href="https://www.instagram.com/healholistically_wellnation360?igsh=b3NwdWFjamEyd3Q5" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="text-2xl hover:text-pink-500 transition-colors duration-200"><i class="fab fa-instagram"></i></a>
+            <a href="https://youtube.com/@wellnation3603?si=4kRF5qbO-v8UrAw5" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="text-2xl hover:text-red-500 transition-colors duration-200"><i class="fab fa-youtube"></i></a>
             <a href="https://facebook.com/wellnation360" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="text-2xl hover:text-blue-600 transition-colors duration-200"><i class="fab fa-facebook"></i></a>
           </div>
            <p class="text-xs mt-6 text-gray-400">Stay connected for wellness tips, updates, and community events.</p>
@@ -259,7 +259,6 @@
       </div>
     <div class="text-center text-sm mt-10 border-t border-gray-700 pt-8">© <span id="currentYear"></span> Wellnation360. All rights reserved.</div>
   </footer>
-
 
 <script>
   // --- Mobile Menu Toggle ---
