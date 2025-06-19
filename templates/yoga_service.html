@@ -235,14 +235,13 @@
 <body>
     <header class="fixed top-0 left-0 right-0 w-full z-[100] bg-gray-800 shadow-md">
      <div class="container mx-auto flex items-center justify-between px-4 py-2 md:py-3">
-      <div class="flex items-center space-x-3">
-        <a href="{{ url_for('home') }}" class="flex items-center space-x-3">
+
+      <a href="{{ url_for('home') }}" class="flex items-center space-x-3">
           <div class="relative w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden border-2 border-green-400">
             <img src="{{ url_for('static', filename='images/logo1.png') }}" alt="Logo" class="w-full h-full object-cover" />
           </div>
           <span class="text-xl md:text-3xl font-bold text-white">Wellnation360</span>
         </a>
-      </div>
       <nav class="hidden md:flex items-center space-x-5 text-white text-base md:text-lg font-medium">
         <a href="{{ url_for('index') }}#home" class="hover:text-green-400 relative group">Home <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-green-400 transition-all duration-300 group-hover:w-full"></span></a>
         <a href="{{ url_for('about') }}" class="hover:text-green-400 relative group">About <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-green-400 transition-all duration-300 group-hover:w-full"></span></a>
