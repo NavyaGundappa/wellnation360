@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
   <link rel="icon" href="static/images/logo1.png" type="image/x-icon">
   <title>WellNation360 | Your Complete Wellness & Health Companion</title>
@@ -213,82 +215,106 @@
     .yogakshema-link:hover { color: white; transform: translateY(-2px); text-shadow: 0 0 8px rgba(255,255,255,0.5); }
     .yogakshema-highlight { z-index: 0; filter: blur(6px); opacity: 0.8; }
 
-.hero {
-  height: 100vh;
-  width: 100vw;
-  position: relative;
-  overflow: hidden;
-  margin: 0;
-  padding: 0;
-  background-color: white;
-}
-
-.hero-carousel {
-  height: 100%;
-  width: 100%;
-  position: relative;
-}
-
-.carousel-container {
-  height: 100%;
-  width: 100%;
-  position: relative;
-}
-
-.carousel-slide {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 5%;
-}
-
-.carousel-slide.active {
-  opacity: 1;
-}
-    
-.slide-image {
-  width: 45%;
-  height: 70%; /* Reduced from 80% */
-  background-size: cover;
-  background-position: center;
-  border-radius: 20px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-  overflow: hidden;
-}
-
-
-
-.slide-content {
-  position: relative;
-  width: 45%;
-  padding: 40px;
-  background: white;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-  animation: fadeInUp 0.8s ease-out;
-}
-
-.slide-content h2 {
-  font-size: 2.8rem;
-  margin-bottom: 20px;
-  line-height: 1.2;
-  color: #2c3e50;
-  font-weight: 700;
-}
-
-.slide-content p {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  margin-bottom: 30px;
-  color: #555;
-}
+    /* --- NEW BOOTSTRAP HERO SECTION STYLES --- */
+    .hero-section {
+        padding-top: 80px; /* Space for fixed header */
+        background-color: #f8f9fa; /* A light fallback background */
+    }
+    .carousel-item {
+        height: 90vh;
+        min-height: 600px;
+        background-size: cover;
+        background-position: center center;
+        position: relative;
+    }
+    /* Gradient overlay for better text readability */
+    .carousel-item::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: linear-gradient(to right, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0) 100%);
+    }
+    .carousel-caption {
+        position: absolute;
+        left: 0;
+        right: auto;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 100%;
+        max-width: 50%;
+        padding-left: 5%;
+        text-align: left;
+        background: none; /* Override bootstrap default background */
+    }
+    .carousel-caption h2 {
+        font-size: 3rem;
+        color: #fff;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        font-weight: 700;
+    }
+    .carousel-caption p.lead {
+        color: #f8f9fa;
+        font-size: 1.25rem;
+        margin-bottom: 1.5rem;
+    }
+    .benefits-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+    }
+    .benefit-item {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        background: rgba(255, 255, 255, 0.8); /* Decreased transparency by increasing alpha from 0.15 to 0.3 */
+        padding: 0.75rem;
+        border-radius: 0.5rem;
+        color: #f8f9fa;
+        font-weight: 500;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+    }
+    .benefit-item i {
+        font-size: 1.5rem;
+        color: #4ade80; /* A green color from the original design */
+    }
+    /* Responsive Adjustments for Hero Section */
+    @media (max-width: 992px) {
+        .carousel-item { min-height: 500px; }
+        .carousel-caption { max-width: 70%; }
+        .carousel-caption h2 { font-size: 2.5rem; }
+    }
+    @media (max-width: 768px) {
+        .hero-section { padding-top: 70px; } /* Adjust for smaller header height */
+        .carousel-item {
+            height: auto;
+            min-height: 80vh;
+        }
+        /* Darken the overlay on mobile for better contrast */
+        .carousel-item::before {
+            background: rgba(0, 0, 0, 0.6);
+        }
+        .carousel-caption {
+            position: relative;
+            transform: none;
+            top: auto;
+            left: auto;
+            right: auto;
+            width: 100%;
+            max-width: 100%;
+            text-align: center;
+            padding: 3rem 1.5rem;
+        }
+        .benefits-grid {
+            grid-template-columns: 1fr;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 350px;
+        }
+        .carousel-caption h2 { font-size: 2rem; }
+    }
 
 .cta-button {
   background-color: #4CAF50;
@@ -352,21 +378,6 @@
   margin: 20px 0;
 }
 
-.benefit-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 10px;
-  background: rgba(76, 175, 80, 0.1);
-  border-radius: 8px;
-  font-size: 0.9rem;
-}
-
-.benefit-item i {
-  color: #4CAF50;
-  font-size: 1.2rem;
-}
-
 .benefit-item span {
   color: #555;
 }
@@ -381,7 +392,7 @@
 /* Carousel Navigation */
 .carousel-nav {
   position: absolute;
-  bottom: 30px;
+  bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -483,11 +494,22 @@
 
 /* Responsive Design */
 @media (max-width: 900px) {
+  .hero {
+    height: auto;
+    min-height: auto;
+    padding-top: 80px; /* Space for header */
+    padding-bottom: 60px;
+  }
+
   .carousel-slide {
     flex-direction: column;
-    padding: 40px;
+    padding: 20px;
     text-align: center;
-    justify-content: center;
+    justify-content: flex-start;
+    position: relative;
+    height: auto;
+    opacity: 1;
+    margin-bottom: 20px;
   }
   
   .slide-content {
@@ -498,10 +520,21 @@
   .slide-image {
     width: 100%;
     height: 300px;
+    order: -1; /* Image first on mobile */
+    margin-bottom: 20px;
   }
   
   .slide-content h2 {
     font-size: 2.2rem;
+  }
+  .carousel-arrow {
+    display: none; /* Hide arrows on mobile */
+  }
+  
+  .carousel-nav {
+    position: relative;
+    bottom: auto;
+    margin-top: 20px;
   }
 }
 
@@ -510,8 +543,11 @@
     padding: 20px;
   }
   
+  .slide-content {
+    padding: 20px;
+  }
   .slide-content h2 {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
   }
   
   .slide-content p {
@@ -526,6 +562,14 @@
   .stats-section {
     flex-direction: column;
     gap: 20px;
+  }
+
+  .benefits-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .benefit-item {
+    font-size: 0.9rem;
   }
 }
 
@@ -632,225 +676,175 @@
   </div>
   </header>
 
-  <section id="home" class="hero">
-    <div class="hero-carousel">
-      <!-- Carousel Container -->
-      <div class="carousel-container">
-<!-- Detox Slide -->
-<div class="carousel-slide detox-slide active">
-  <div class="slide-content">
-    <h2>Revitalize Your Body with Our Detox Program</h2>
-    <p>Experience a complete body reset with our science-backed 14-day detox program.</p>
-    <div class="benefits-grid">
-      <div class="benefit-item">
-        <i class="fas fa-bolt"></i>
-        <span>Boost Energy</span>
+  <section id="home" class="hero-section">
+    <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="5" aria-label="Slide 6"></button>
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="6" aria-label="Slide 7"></button>
       </div>
-      <div class="benefit-item">
-        <i class="fas fa-leaf"></i>
-        <span>Flush Toxins</span>
-      </div>
-      <div class="benefit-item">
-        <i class="fas fa-digging"></i>
-        <span>Improve Digestion</span>
-      </div>
-      <div class="benefit-item">
-        <i class="fas fa-heart"></i>
-        <span>Enhance Immunity</span>
-      </div>
-    </div>
-    <button class="cta-button" onclick="window.location.href='{{ url_for('services') }}'">Start Your Detox Journey</button>
-  </div>
-  <div class="slide-image"></div>
-</div>
 
-<!-- Weight Loss Slide -->
-<div class="carousel-slide weightloss-slide">
-  <div class="slide-content">
-    <h2>Sustainable Weight Loss That Actually Lasts</h2>
-    <p>Our holistic approach helps you achieve and maintain your ideal weight.</p>
-    <div class="benefits-grid">
-      <div class="benefit-item">
-        <i class="fas fa-weight"></i>
-        <span>Healthy Weight Loss</span>
-      </div>
-      <div class="benefit-item">
-        <i class="fas fa-apple-alt"></i>
-        <span>Personalized Nutrition</span>
-      </div>
-      <div class="benefit-item">
-        <i class="fas fa-running"></i>
-        <span>Exercise Strategies</span>
-      </div>
-      <div class="benefit-item">
-        <i class="fas fa-brain"></i>
-        <span>Behavioral Coaching</span>
-      </div>
-    </div>
-    <button class="cta-button" onclick="window.location.href='{{ url_for('services') }}'">Begin Your Transformation</button>
-  </div>
-  <div class="slide-image"></div>
-</div>
-        
-<!-- Diabetes Plan Slide -->
-<div class="carousel-slide diabetes-slide">
-  <div class="slide-content">
-    <h2>Take Control of Your Diabetes Journey</h2>
-    <p>Our comprehensive diabetes management program helps you live healthier.</p>
-    <div class="benefits-grid">
-      <div class="benefit-item">
-        <i class="fas fa-utensils"></i>
-        <span>Personalized Meal Plans</span>
-      </div>
-      <div class="benefit-item">
-        <i class="fas fa-heartbeat"></i>
-        <span>Blood Sugar Control</span>
-      </div>
-      <div class="benefit-item">
-        <i class="fas fa-walking"></i>
-        <span>Activity Guidance</span>
-      </div>
-      <div class="benefit-item">
-        <i class="fas fa-pills"></i>
-        <span>Medication Reduction</span>
-      </div>
-    </div>
-    <button class="cta-button" onclick="window.location.href='{{ url_for('services') }}'">Manage Diabetes Effectively</button>
-  </div>
-  <div class="slide-image"></div>
-</div>
-
-<!-- Thyroid Health Slide -->
-<div class="carousel-slide thyroid-slide">
-  <div class="slide-content">
-    <h2>Balance Your Thyroid Naturally</h2>
-    <p>Specialized support to restore hormonal balance and energy levels.</p>
-    <div class="benefits-grid">
-      <div class="benefit-item">
-        <i class="fas fa-balance-scale"></i>
-        <span>Hormone Regulation</span>
-      </div>
-      <div class="benefit-item">
-        <i class="fas fa-bolt"></i>
-        <span>Energy Boost</span>
-      </div>
-      <div class="benefit-item">
-        <i class="fas fa-thermometer-empty"></i>
-        <span>Metabolism Support</span>
-      </div>
-      <div class="benefit-item">
-        <i class="fas fa-heart"></i>
-        <span>Natural Therapies</span>
-      </div>
-    </div>
-    <button class="cta-button" onclick="window.location.href='{{ url_for('services') }}'">Support Thyroid Health</button>
-  </div>
-  <div class="slide-image"></div>
-</div>
-
-<!-- Digestive Health Slide -->
-<div class="carousel-slide digestive-slide">
-  <div class="slide-content">
-    <h2>Heal Your Gut, Transform Your Health</h2>
-    <p>Comprehensive plans to address digestive issues through microbiome restoration.</p>
-    <div class="benefits-grid">
-      <div class="benefit-item">
-        <i class="fas fa-seedling"></i>
-        <span>Gut Healing</span>
-      </div>
-      <div class="benefit-item">
-        <i class="fas fa-bacteria"></i>
-        <span>Microbiome Support</span>
-      </div>
-      <div class="benefit-item">
-        <i class="fas fa-burn"></i>
-        <span>Reduce Bloating</span>
-      </div>
-      <div class="benefit-item">
-        <i class="fas fa-utensils"></i>
-        <span>Personalized Diet</span>
-      </div>
-    </div>
-    <button class="cta-button" onclick="window.location.href='{{ url_for('services') }}'">Improve Digestion</button>
-  </div>
-  <div class="slide-image"></div>
-</div>
-
-<!-- Menopausal Management Slide -->
-<div class="carousel-slide menopausal-slide">
-  <div class="slide-content">
-    <h2>Navigate Menopause with Confidence</h2>
-    <p>Holistic support for managing menopausal symptoms naturally.</p>
-    <div class="benefits-grid">
-      <div class="benefit-item">
-        <i class="fas fa-fire"></i>
-        <span>Hot Flash Relief</span>
-      </div>
-      <div class="benefit-item">
-        <i class="fas fa-moon"></i>
-        <span>Better Sleep</span>
-      </div>
-      <div class="benefit-item">
-        <i class="fas fa-smile"></i>
-        <span>Mood Support</span>
-      </div>
-      <div class="benefit-item">
-        <i class="fas fa-heart"></i>
-        <span>Hormone Balance</span>
-      </div>
-    </div>
-    <button class="cta-button" onclick="window.location.href='{{ url_for('services') }}'">Ease Menopause Transition</button>
-  </div>
-  <div class="slide-image"></div>
-</div>
-
-<!-- Acupuncture slide -->
-<div class="carousel-slide acupuncture-slide">
-  <div class="slide-content">
-    <h2>Restore Balance with Acupuncture Therapy</h2>
-    <p>Experience the healing power of traditional Chinese medicine to relieve pain, reduce stress, and restore your body's natural energy flow.</p>
-    <div class="benefits-grid">
-      <div class="benefit-item">
-        <i class="fas fa-leaf"></i>
-        <span>Pain Relief</span>
-      </div>
-      <div class="benefit-item">
-        <i class="fas fa-cloud-sun"></i>
-        <span>Stress Reduction</span>
-      </div>
-      <div class="benefit-item">
-        <i class="fas fa-moon"></i>
-        <span>Better Sleep</span>
-      </div>
-      <div class="benefit-item">
-        <i class="fas fa-heartbeat"></i>
-        <span>Improved Circulation</span>
-      </div>
-    </div>
-    <button class="cta-button" onclick="window.location.href='{{ url_for('services') }}'">Book Acupuncture Session</button>
-  </div>
-  <div class="slide-image"></div>
-</div>
-
-        <!-- Carousel Navigation -->
-        <div class="carousel-arrow arrow-left">
-          <i class="fas fa-chevron-left"></i>
+      <div class="carousel-inner">
+        <!-- Detox Slide -->
+        <div class="carousel-item active" style="background-image: url('static/images/detoxhero.jpg');">
+          <div class="carousel-caption">
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-8">
+                  <h2 class="display-5 fw-bold">Revitalize Your Body with Our Detox Program</h2>
+                  <p class="lead">Experience a complete body reset with our science-backed 14-day detox program.</p>
+                  <div class="benefits-grid">
+                    <div class="benefit-item"><i class="fas fa-bolt"></i><span>Boost Energy</span></div>
+                    <div class="benefit-item"><i class="fas fa-leaf"></i><span>Flush Toxins</span></div>
+                    <div class="benefit-item"><i class="fas fa-utensils"></i><span>Improve Digestion</span></div>
+                    <div class="benefit-item"><i class="fas fa-heart"></i><span>Enhance Immunity</span></div>
+                  </div>
+                  <a href="{{ url_for('services') }}" class="btn btn-success btn-lg mt-3">Start Your Detox Journey</a>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="carousel-arrow arrow-right">
-          <i class="fas fa-chevron-right"></i>
+
+        <!-- Weight Loss Slide -->
+        <div class="carousel-item" style="background-image: url('static/images/weightloss.jpg');">
+            <div class="carousel-caption">
+              <div class="container">
+                <div class="row">
+                  <div class="col-lg-8">
+                    <h2 class="display-5 fw-bold">Sustainable Weight Loss That Actually Lasts</h2>
+                    <p class="lead">Our holistic approach helps you achieve and maintain your ideal weight.</p>
+                    <div class="benefits-grid">
+                        <div class="benefit-item"><i class="fas fa-weight"></i><span>Healthy Weight Loss</span></div>
+                        <div class="benefit-item"><i class="fas fa-apple-alt"></i><span>Personalized Nutrition</span></div>
+                        <div class="benefit-item"><i class="fas fa-running"></i><span>Exercise Strategies</span></div>
+                        <div class="benefit-item"><i class="fas fa-brain"></i><span>Behavioral Coaching</span></div>
+                    </div>
+                    <a href="{{ url_for('services') }}" class="btn btn-success btn-lg mt-3">Begin Your Transformation</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+        <!-- Diabetes Plan Slide -->
+        <div class="carousel-item" style="background-image: url('static/images/diabeteshero.jpg');">
+          <div class="carousel-caption">
+              <div class="container">
+                  <div class="row">
+                      <div class="col-lg-8">
+                          <h2 class="display-5 fw-bold">Take Control of Your Diabetes Journey</h2>
+                          <p class="lead">Our comprehensive diabetes management program helps you live healthier.</p>
+                          <div class="benefits-grid">
+                              <div class="benefit-item"><i class="fas fa-utensils"></i><span>Personalized Meal Plans</span></div>
+                              <div class="benefit-item"><i class="fas fa-heartbeat"></i><span>Blood Sugar Control</span></div>
+                              <div class="benefit-item"><i class="fas fa-walking"></i><span>Activity Guidance</span></div>
+                              <div class="benefit-item"><i class="fas fa-pills"></i><span>Medication Reduction</span></div>
+                          </div>
+                          <a href="{{ url_for('services') }}" class="btn btn-success btn-lg mt-3">Manage Diabetes Effectively</a>
+                      </div>
+                  </div>
+              </div>
+          </div>
         </div>
         
-        <div class="carousel-nav">
-          <div class="nav-dot active" data-slide="0"></div>
-          <div class="nav-dot" data-slide="1"></div>
-          <div class="nav-dot" data-slide="2"></div>
-          <div class="nav-dot" data-slide="3"></div>
-          <div class="nav-dot" data-slide="4"></div>
-          <div class="nav-dot" data-slide="5"></div>
-          <div class="nav-dot" data-slide="6"></div> 
+        <!-- Thyroid Health Slide -->
+        <div class="carousel-item" style="background-image: url('static/images/thyroidhero.jpg');">
+          <div class="carousel-caption">
+              <div class="container">
+                  <div class="row">
+                      <div class="col-lg-8">
+                          <h2 class="display-5 fw-bold">Balance Your Thyroid Naturally</h2>
+                          <p class="lead">Specialized support to restore hormonal balance and energy levels.</p>
+                          <div class="benefits-grid">
+                              <div class="benefit-item"><i class="fas fa-balance-scale"></i><span>Hormone Regulation</span></div>
+                              <div class="benefit-item"><i class="fas fa-bolt"></i><span>Energy Boost</span></div>
+                              <div class="benefit-item"><i class="fas fa-thermometer-empty"></i><span>Metabolism Support</span></div>
+                              <div class="benefit-item"><i class="fas fa-heart"></i><span>Natural Therapies</span></div>
+                          </div>
+                          <a href="{{ url_for('services') }}" class="btn btn-success btn-lg mt-3">Support Thyroid Health</a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+        </div>
+        
+        <!-- Digestive Health Slide -->
+        <div class="carousel-item" style="background-image: url('static/images/guthealthhero.jpg');">
+          <div class="carousel-caption">
+              <div class="container">
+                  <div class="row">
+                      <div class="col-lg-8">
+                          <h2 class="display-5 fw-bold">Heal Your Gut, Transform Your Health</h2>
+                          <p class="lead">Comprehensive plans to address digestive issues through microbiome restoration.</p>
+                          <div class="benefits-grid">
+                              <div class="benefit-item"><i class="fas fa-seedling"></i><span>Gut Healing</span></div>
+                              <div class="benefit-item"><i class="fas fa-bacteria"></i><span>Microbiome Support</span></div>
+                              <div class="benefit-item"><i class="fas fa-burn"></i><span>Reduce Bloating</span></div>
+                              <div class="benefit-item"><i class="fas fa-utensils"></i><span>Personalized Diet</span></div>
+                          </div>
+                          <a href="{{ url_for('services') }}" class="btn btn-success btn-lg mt-3">Improve Digestion</a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+        </div>
+  
+        <!-- Menopausal Management Slide -->
+        <div class="carousel-item" style="background-image: url('static/images/menopausehero.jpg');">
+          <div class="carousel-caption">
+              <div class="container">
+                  <div class="row">
+                      <div class="col-lg-8">
+                          <h2 class="display-5 fw-bold">Navigate Menopause with Confidence</h2>
+                          <p class="lead">Holistic support for managing menopausal symptoms naturally.</p>
+                          <div class="benefits-grid">
+                              <div class="benefit-item"><i class="fas fa-fire"></i><span>Hot Flash Relief</span></div>
+                              <div class="benefit-item"><i class="fas fa-moon"></i><span>Better Sleep</span></div>
+                              <div class="benefit-item"><i class="fas fa-smile"></i><span>Mood Support</span></div>
+                              <div class="benefit-item"><i class="fas fa-heart"></i><span>Hormone Balance</span></div>
+                          </div>
+                          <a href="{{ url_for('services') }}" class="btn btn-success btn-lg mt-3">Ease Menopause Transition</a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+        </div>
+  
+        <!-- Acupuncture slide -->
+        <div class="carousel-item" style="background-image: url('static/images/accupuncturehero.jpg');">
+          <div class="carousel-caption">
+              <div class="container">
+                  <div class="row">
+                      <div class="col-lg-8">
+                          <h2 class="display-5 fw-bold">Restore Balance with Acupuncture Therapy</h2>
+                          <p class="lead">Experience the healing power of traditional Chinese medicine to relieve pain, reduce stress, and restore your body's natural energy flow.</p>
+                          <div class="benefits-grid">
+                              <div class="benefit-item"><i class="fas fa-leaf"></i><span>Pain Relief</span></div>
+                              <div class="benefit-item"><i class="fas fa-cloud-sun"></i><span>Stress Reduction</span></div>
+                              <div class="benefit-item"><i class="fas fa-moon"></i><span>Better Sleep</span></div>
+                              <div class="benefit-item"><i class="fas fa-heartbeat"></i><span>Improved Circulation</span></div>
+                          </div>
+                          <a href="{{ url_for('services') }}" class="btn btn-success btn-lg mt-3">Book Acupuncture Session</a>
+                      </div>
+                  </div>
+              </div>
+          </div>
         </div>
       </div>
-      </div>
+  
+      <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
     </div>
   </section>
 
@@ -1173,6 +1167,31 @@
 <script>
   // Initialize AOS (Animate on Scroll)
   AOS.init({ easing: 'ease-in-out', duration: 800, once: true, offset: 50 });
+
+  // Ensure header stays on top
+document.addEventListener('DOMContentLoaded', function() {
+  const header = document.querySelector('header');
+  if (header) {
+    header.style.zIndex = '1000'; // Higher than hero section
+  }
+  
+  // Mobile menu toggle
+  const mobileMenuButton = document.getElementById('mobileMenuButton');
+  const mobileMenu = document.getElementById('mobileMenu');
+  
+  if (mobileMenuButton && mobileMenu) {
+    mobileMenuButton.addEventListener('click', function() {
+      mobileMenu.classList.toggle('hidden');
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', function(e) {
+      if (!mobileMenu.contains(e.target) && e.target !== mobileMenuButton) {
+        mobileMenu.classList.add('hidden');
+      }
+    });
+  }
+});
 
 // Hero Carousel Functionality
 function initCarousel() {
