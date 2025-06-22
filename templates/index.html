@@ -215,6 +215,7 @@
     .yogakshema-link:hover { color: white; transform: translateY(-2px); text-shadow: 0 0 8px rgba(255,255,255,0.5); }
     .yogakshema-highlight { z-index: 0; filter: blur(6px); opacity: 0.8; }
 
+<<<<<<< HEAD
     /* --- NEW BOOTSTRAP HERO SECTION STYLES --- */
     .hero-section {
         padding-top: 80px; /* Space for fixed header */
@@ -315,6 +316,87 @@
         }
         .carousel-caption h2 { font-size: 2rem; }
     }
+=======
+.hero {
+  height: 80vh;
+  min-height: 600px; 
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  background-color: white;
+  margin-top: 80px;
+}
+
+.hero-carousel {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.carousel-container {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.carousel-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5%;
+  box-sizing: border-box;
+}
+
+.carousel-slide.active {
+  opacity: 1;
+}
+    
+.slide-image {
+  width: 45%;
+  height: 60%; /* Reduced from 80% */
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+  overflow: hidden;
+}
+
+
+
+.slide-content {
+  position: relative;
+  width: 45%;
+  padding: 30px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.slide-content h2 {
+  font-size: 2.2rem;
+  margin-bottom: 15px;
+  line-height: 1.2;
+  color: #2c3e50;
+  font-weight: 700;
+}
+
+.slide-content p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  color: #555;
+}
+>>>>>>> 8a2097b7699642a0856426a7f76a250396fe4f17
 
 .cta-button {
   background-color: #4CAF50;
