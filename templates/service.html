@@ -244,10 +244,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header class="fixed top-0 left-0 right-0 w-full z-[100] bg-gray-800 shadow-md">
-     <div class="container mx-auto flex items-center justify-between px-4 py-2 md:py-3">
+<!-- Header -->
+<header class="fixed top-0 left-0 right-0 w-full z-[100] bg-gray-800 shadow-md">
+    <div class="container mx-auto flex items-center justify-between px-4 py-2 md:py-3">
       <div class="flex items-center space-x-3">
-        <a href="{{ url_for('home') }}" class="flex items-center space-x-3">
+        <a href="{{ url_for('index') }}" class="flex items-center space-x-3">
           <div class="relative w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden border-2 border-green-400">
             <img src="{{ url_for('static', filename='images/logo1.png') }}" alt="Logo" class="w-full h-full object-cover" />
           </div>
@@ -255,18 +256,21 @@
         </a>
       </div>
       <nav class="hidden md:flex items-center space-x-5 text-white text-base md:text-lg font-medium">
-        <a href="{{ url_for('index') }}#home" class="hover:text-green-400 relative group">Home <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-green-400 transition-all duration-300 group-hover:w-full"></span></a>
+        <a href="{{ url_for('index') }}" class="hover:text-green-400 relative group">Home <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-green-400 transition-all duration-300 group-hover:w-full"></span></a>
         <a href="{{ url_for('about') }}" class="hover:text-green-400 relative group">About <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-green-400 transition-all duration-300 group-hover:w-full"></span></a>
         <a href="{{ url_for('gallery') }}" class="hover:text-green-400 relative group">Gallery <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-green-400 transition-all duration-300 group-hover:w-full"></span></a>
         <div class="relative group">
+          <a href="{{ url_for('services') }}" class="hover:text-green-400 flex items-center gap-1">Services
+            <svg class="w-4 h-4 transition-transform duration-200 group-hover:rotate-180" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.939l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clip-rule="evenodd"/></svg>
+          </a>
           <div class="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-60 bg-white text-gray-800 rounded-md shadow-xl opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300 invisible group-hover:visible z-50 py-1">
-          <a href="/service" class="block px-4 py-2 hover:text-green-600 transition duration-200">Gental Detox Cleanse</a>
-          <a href="/service" class="block px-4 py-2 hover:text-green-600 transition duration-200">Diabetes Support Plan</a>
-          <a href="/service" class="block px-4 py-2 hover:text-green-600 transition duration-200">Thyroid Balance Therapy</a>
-          <a href="/service" class="block px-4 py-2 hover:text-green-600 transition duration-200">Digestive Wellness Plan</a>
-          <a href="/service" class="block px-4 py-2 hover:text-green-600 transition duration-200">Menopausal management</a>
-          <a href="/service" class="block px-4 py-2 hover:text-green-600 transition duration-200">Acupuncture therapy</a>
-          <a href="/service" class="block px-4 py-2 hover:text-green-600 transition duration-200">Healthy Body Transformation</a>
+          <a href="{{ url_for('services') }}#gentle-reset" class="block px-4 py-2 hover:text-green-600 transition duration-200">Gental Detox Cleanse</a>
+          <a href="{{ url_for('services') }}#metabolic-harmony" class="block px-4 py-2 hover:text-green-600 transition duration-200">Diabetes Support Plan</a>
+          <a href="{{ url_for('services') }}#blood-sugar" class="block px-4 py-2 hover:text-green-600 transition duration-200">Thyroid Balance Therapy</a>
+          <a href="{{ url_for('services') }}#thyroid" class="block px-4 py-2 hover:text-green-600 transition duration-200">Digestive Wellness Plan</a>
+          <a href="{{ url_for('services') }}#gut-healing" class="block px-4 py-2 hover:text-green-600 transition duration-200">Menopausal management</a>
+          <a href="{{ url_for('services') }}#monopause" class="block px-4 py-2 hover:text-green-600 transition duration-200">Acupuncture therapy</a>
+          <a href="{{ url_for('services') }}#mindful-nourishment" class="block px-4 py-2 hover:text-green-600 transition duration-200">Healthy Body Transformation</a>
         </div>
         </div>
         <a href="{{ url_for('contact_get') }}" class="hover:text-green-400 relative group">Contact <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-green-400 transition-all duration-300 group-hover:w-full"></span></a>
@@ -280,24 +284,33 @@
         </button>
       </div>
     </div>
-    <div id="mobileMenu" class="hidden md:hidden absolute top-full left-0 right-0 bg-gray-800 shadow-lg py-2 z-40">
-      <a href="{{ url_for('index') }}#home" class="block px-5 py-3 text-white hover:bg-gray-700 transition duration-150">Home</a>
-      <a href="{{ url_for('about') }}" class="block px-5 py-3 text-white hover:bg-gray-700 transition duration-150">About</a>
-      <a href="{{ url_for('gallery') }}" class="block px-5 py-3 text-white hover:bg-gray-700 transition duration-150">Gallery</a>
-      <div class="relative group">
-        <button class="flex items-center justify-between w-full px-5 py-3 text-left text-white hover:bg-gray-700 transition duration-150">Services
-          <svg class="w-4 h-4 ml-1 transform group-focus-within:rotate-180 transition-transform" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.939l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clip-rule="evenodd"/></svg>
-        </button>
-        <div class="hidden group-focus-within:block bg-gray-700 mt-0">
-          <a href="{{ url_for('dummy') }}" class="block pl-8 pr-5 py-2.5 text-sm text-gray-300 hover:bg-gray-600 hover:text-white transition duration-150">Gentle Detox Cleanse</a>
-          <a href="{{ url_for('diabetics') }}" class="block pl-8 pr-5 py-2.5 text-sm text-gray-300 hover:bg-gray-600 hover:text-white transition duration-150">Diabetes Support Plan</a>
-        </div>
-      </div>
-      <a href="{{ url_for('contact_get') }}" class="block px-5 py-3 text-white hover:bg-gray-700 transition duration-150">Contact</a>
-      <a href="http://yoga-kshema.in" target="_blank" rel="noopener noreferrer" class="block px-5 py-3 text-white hover:bg-gray-700 transition duration-150 flex items-center"><span class="mr-2">🧘</span><span>Yogakshema</span></a>
+  <div id="mobileMenu" class="hidden md:hidden absolute top-full left-0 right-0 bg-gray-800 shadow-lg py-2 z-40">
+    <a href="{{ url_for('index') }}" class="block px-5 py-3 text-white hover:bg-gray-700 transition duration-150">Home</a>
+    <a href="{{ url_for('about') }}" class="block px-5 py-3 text-white hover:bg-gray-700 transition duration-150">About</a>
+    <a href="{{ url_for('gallery') }}" class="block px-5 py-3 text-white hover:bg-gray-700 transition duration-150">Gallery</a>
+    
+    <div class="relative group">
+      <button class="flex items-center justify-between w-full px-5 py-3 text-left text-white hover:bg-gray-700 transition duration-150">
+        Services
+        <svg class="w-4 h-4 ml-1 transform group-focus-within:rotate-180 transition-transform" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.939l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clip-rule="evenodd"/>
+        </svg>
+      </button>
+      <div class="hidden group-focus-within:block bg-gray-700 mt-0">
+        <a href="{{ url_for('index') }}#services" class="block pl-8 pr-5 py-2.5 text-sm text-gray-300 hover:bg-gray-600 hover:text-white transition duration-150">All Services Overview</a>
+        <a href="{{ url_for('dummy') }}" class="block pl-8 pr-5 py-2.5 text-sm text-gray-300 hover:bg-gray-600 hover:text-white transition duration-150">Gentle Detox Cleanse</a>
+        <a href="{{ url_for('diabetics') }}" class="block pl-8 pr-5 py-2.5 text-sm text-gray-300 hover:bg-gray-600 hover:text-white transition duration-150">Diabetes Support Plan</a>
+         </div>
     </div>
+    
+    <a href="{{ url_for('contact_get') }}" class="block px-5 py-3 text-white hover:bg-gray-700 transition duration-150">Contact</a>
+    <a href="{{ url_for('base') }}" class="block px-5 py-3 text-white hover:bg-gray-700 transition duration-150 flex items-center">
+      <span class="mr-2">🧘</span>
+      <span>Yogakshema</span>
+    </a>
+  </div>
   </header>
-
+  
     <div class="hero-header" style="margin-top: 80px;">
         <div class="container">
             <h1>Transformative Wellness Journeys</h1>
@@ -320,7 +333,7 @@
         <div>
           <h4 class="text-lg font-semibold mb-4 text-white">Quick Links</h4>
           <ul class="space-y-2.5 text-sm">
-            <li><a href="{{ url_for('index') }}#home" class="hover:text-green-400 transition-colors duration-200">Home</a></li>
+            <li><a href="{{ url_for('index') }}" class="hover:text-green-400 transition-colors duration-200">Home</a></li>
             <li><a href="{{ url_for('about') }}" class="hover:text-green-400 transition-colors duration-200">About Us</a></li>
             <li><a href="{{ url_for('services') }}" class="hover:text-green-400 transition-colors duration-200">Our Services</a></li>
             <li><a href="{{ url_for('gallery') }}" class="hover:text-green-400 transition-colors duration-200">Gallery</a></li>

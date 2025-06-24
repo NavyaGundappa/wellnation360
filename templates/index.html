@@ -3,10 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
   <link rel="icon" href="static/images/logo1.png" type="image/x-icon">
   <title>WellNation360 | Your Complete Wellness & Health Companion</title>
@@ -112,16 +111,14 @@
     .swiper-pagination-bullet { background: white; opacity: 0.5; }
     .swiper-pagination-bullet-active { background: #4ade80; opacity: 1; }
 
-    section { width: 100%; /* overflow: hidden; Be careful with this on sections with internal scroll */ }
+    section { width: 100%; }
 
     /* Services Section CSS for Horizontal Scrolling */
     .services-section { background: white; padding: 60px 0; width: 100%; }
     .services-section .services-title { text-align: center; font-size: 2.5rem; margin-bottom: 1rem; color: #2c3e50; font-weight: 700; }
     .services-section > p { text-align: center; font-size: 1.1rem; color: #555; margin-bottom: 3rem; max-width: 800px; margin-left: auto; margin-right: auto; padding: 0 1rem; }
 
-    .horizontal-scroll-wrapper { /* Common wrapper for services and reviews */
-        position: relative; /* For absolute positioning of nav buttons */
-    }
+    .horizontal-scroll-wrapper { position: relative; }
     .horizontal-scroll-container {
       display: flex; flex-wrap: nowrap; overflow-x: auto; gap: 2rem; padding: 20px;
       scroll-behavior: smooth; -webkit-overflow-scrolling: touch; scroll-snap-type: x mandatory;
@@ -130,7 +127,7 @@
     .horizontal-scroll-container::-webkit-scrollbar { display: none; }
     .horizontal-scroll-container { -ms-overflow-style: none; scrollbar-width: none; }
 
-    .service-block, .review-card-horizontal { /* Common base for card styling */
+    .service-block, .review-card-horizontal {
       background: #ffffff; border-radius: 16px; padding: 1.5rem;
       box-shadow: 0 8px 24px rgba(59, 130, 246, 0.1);
       display: flex; flex-direction: column; justify-content: space-between;
@@ -142,8 +139,7 @@
       box-shadow: 0 12px 32px rgba(59, 130, 246, 0.2);
     }
 
-    /* Service card specific styling */
-    .service-block { flex: 0 0 300px; min-height: 480px; /* Increased min-height */ }
+    .service-block { flex: 0 0 300px; min-height: 480px; }
     .service-header { margin-bottom: 1rem; }
     .service-image { width: 100%; height: 180px; object-fit: cover; border-radius: 8px; transition: transform 0.3s ease; margin-bottom: 1rem; }
     .service-block:hover .service-image { transform: scale(1.05); }
@@ -158,7 +154,6 @@
     .enroll-btn { background-color: #28a745; color: white; border: 1px solid #28a745; }
     .enroll-btn:hover { background-color: #218838; border-color: #1e7e34; }
 
-    /* Horizontal scroll navigation arrows */
     .horizontal-scroll-nav {
       display: flex; justify-content: center; gap: 1rem; margin-top: 1.5rem;
     }
@@ -170,20 +165,18 @@
     .horizontal-scroll-nav button:hover { background: #f8f9fa; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); }
     .horizontal-scroll-nav button:disabled { opacity: 0.5; cursor: not-allowed; }
 
-    /* Reviews Section */
-    .reviews-section { background: #f0f4f8; padding: 60px 0 40px 0; } /* Light blue-grey background */
+    .reviews-section { background: #f0f4f8; padding: 60px 0 40px 0; }
     .reviews-title-container { text-align: center; margin-bottom: 40px; }
-    .reviews-title-container h4 { font-size: 2.5rem; font-weight: 700; color: #334155; margin-bottom: 8px; } /* Darker slate color */
-    .reviews-title-container p { font-size: 1.1rem; color: #64748b; max-width: 700px; margin: 0 auto; } /* Softer text color */
+    .reviews-title-container h4 { font-size: 2.5rem; font-weight: 700; color: #334155; margin-bottom: 8px; }
+    .reviews-title-container p { font-size: 1.1rem; color: #64748b; max-width: 700px; margin: 0 auto; }
 
-    /* Review card specific styling for horizontal scroll */
     .review-card-horizontal {
-        flex: 0 0 320px; /* Fixed width for horizontal scroll */
-        min-height: 250px; /* Adjust as needed */
+        flex: 0 0 320px;
+        min-height: 250px;
         padding: 24px;
         background: #fff;
-        border: 1px solid #e2e8f0; /* Lighter border */
-        box-shadow: 0 6px 12px rgba(100,116,139,0.1); /* Softer shadow */
+        border: 1px solid #e2e8f0;
+        box-shadow: 0 6px 12px rgba(100,116,139,0.1);
     }
      .review-card-horizontal:hover {
       transform: translateY(-4px);
@@ -192,12 +185,11 @@
     .review-header { display: flex; align-items: center; gap: 14px; margin-bottom: 18px; }
     .reviewer-avatar { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; background: #e2e8f0; }
     .review-info { display: flex; flex-direction: column; }
-    .reviewer-name { font-weight: 600; color: #1e293b; font-size: 1.1rem; } /* Darker name */
-    .review-rating { color: #facc15; font-size: 1.1rem; } /* Tailwind yellow-400 */
-    .review-content-text { font-size: 1rem; color: #475569; margin-bottom: 16px; margin-top: 8px; line-height: 1.6; } /* Slate color for text */
-    .review-media { width: 100%; margin-top: auto; /* Pushes media to bottom if content is short */ padding-top:12px; }
+    .reviewer-name { font-weight: 600; color: #1e293b; font-size: 1.1rem; }
+    .review-rating { color: #facc15; font-size: 1.1rem; }
+    .review-content-text { font-size: 1rem; color: #475569; margin-bottom: 16px; margin-top: 8px; line-height: 1.6; }
+    .review-media { width: 100%; margin-top: auto; padding-top:12px; }
     .review-media img, .review-media video { max-width: 100%; max-height: 150px; object-fit:contain; border-radius: 10px; background: #f8fafc; margin:0 auto; display:block; }
-
 
     @media (max-width: 768px) {
       .services-section .services-title, .reviews-title-container h4 { font-size: 2rem; }
@@ -206,140 +198,39 @@
       .review-card-horizontal { flex: 0 0 85vw; padding: 1.25rem; }
       .horizontal-scroll-container { padding: 20px 10px; gap: 1.5rem; }
     }
-    /* Other styles (header, footer, hero, etc. remain largely the same) */
-    .yogakshema-link { /* Ensure this is defined if used */
+    
+    .yogakshema-link {
       padding: 0.25rem 1rem; border-radius: 9999px; overflow: hidden;
       transition: all 0.3s ease; position: relative; font-weight: 600;
       text-shadow: 0 0 4px rgba(0,0,0,0.3);
     }
     .yogakshema-link:hover { color: white; transform: translateY(-2px); text-shadow: 0 0 8px rgba(255,255,255,0.5); }
     .yogakshema-highlight { z-index: 0; filter: blur(6px); opacity: 0.8; }
+    
+    /* --- HERO SECTION STYLES --- */
+    .hero {
+      height: 90vh;
+      min-height: 600px; 
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f9fa; /* Fallback color */
+      margin-top: 80px; /* Space for fixed header */
+    }
 
-<<<<<<< HEAD
-    /* --- NEW BOOTSTRAP HERO SECTION STYLES --- */
-    .hero-section {
-        padding-top: 80px; /* Space for fixed header */
-        background-color: #f8f9fa; /* A light fallback background */
+    .hero-carousel {
+      height: 100%;
+      width: 100%;
+      position: relative;
     }
-    .carousel-item {
-        height: 90vh;
-        min-height: 600px;
-        background-size: cover;
-        background-position: center center;
-        position: relative;
-    }
-    /* Gradient overlay for better text readability */
-    .carousel-item::before {
-        content: '';
-        position: absolute;
-        top: 0; left: 0; right: 0; bottom: 0;
-        background: linear-gradient(to right, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0) 100%);
-    }
-    .carousel-caption {
-        position: absolute;
-        left: 0;
-        right: auto;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 100%;
-        max-width: 50%;
-        padding-left: 5%;
-        text-align: left;
-        background: none; /* Override bootstrap default background */
-    }
-    .carousel-caption h2 {
-        font-size: 3rem;
-        color: #fff;
-        text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
-        font-weight: 700;
-    }
-    .carousel-caption p.lead {
-        color: #f8f9fa;
-        font-size: 1.25rem;
-        margin-bottom: 1.5rem;
-    }
-    .benefits-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1rem;
-        margin-bottom: 1.5rem;
-    }
-    .benefit-item {
-        display: flex;
-        align-items: center;
-        gap: 0.75rem;
-        background: rgba(255, 255, 255, 0.8); /* Decreased transparency by increasing alpha from 0.15 to 0.3 */
-        padding: 0.75rem;
-        border-radius: 0.5rem;
-        color: #f8f9fa;
-        font-weight: 500;
-        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
-        backdrop-filter: blur(5px);
-        -webkit-backdrop-filter: blur(5px);
-    }
-    .benefit-item i {
-        font-size: 1.5rem;
-        color: #4ade80; /* A green color from the original design */
-    }
-    /* Responsive Adjustments for Hero Section */
-    @media (max-width: 992px) {
-        .carousel-item { min-height: 500px; }
-        .carousel-caption { max-width: 70%; }
-        .carousel-caption h2 { font-size: 2.5rem; }
-    }
-    @media (max-width: 768px) {
-        .hero-section { padding-top: 70px; } /* Adjust for smaller header height */
-        .carousel-item {
-            height: auto;
-            min-height: 80vh;
-        }
-        /* Darken the overlay on mobile for better contrast */
-        .carousel-item::before {
-            background: rgba(0, 0, 0, 0.6);
-        }
-        .carousel-caption {
-            position: relative;
-            transform: none;
-            top: auto;
-            left: auto;
-            right: auto;
-            width: 100%;
-            max-width: 100%;
-            text-align: center;
-            padding: 3rem 1.5rem;
-        }
-        .benefits-grid {
-            grid-template-columns: 1fr;
-            margin-left: auto;
-            margin-right: auto;
-            max-width: 350px;
-        }
-        .carousel-caption h2 { font-size: 2rem; }
-    }
-=======
-.hero {
-  height: 80vh;
-  min-height: 600px; 
-  width: 100%;
-  position: relative;
-  overflow: hidden;
-  margin: 0;
-  padding: 0;
-  background-color: white;
-  margin-top: 80px;
-}
 
-.hero-carousel {
-  height: 100%;
-  width: 100%;
-  position: relative;
-}
-
-.carousel-container {
-  height: 100%;
-  width: 100%;
-  position: relative;
-}
+    .carousel-container {
+      height: 100%;
+      width: 100%;
+      position: relative;
+    }
 
 .carousel-slide {
   position: absolute;
@@ -349,336 +240,182 @@
   height: 100%;
   opacity: 0;
   transition: opacity 1s ease-in-out;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 5%;
-  box-sizing: border-box;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  z-index: 1;
 }
 
 .carousel-slide.active {
   opacity: 1;
-}
-    
-.slide-image {
-  width: 45%;
-  height: 60%; /* Reduced from 80% */
-  background-size: cover;
-  background-position: center;
-  border-radius: 20px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-  overflow: hidden;
+  z-index: 2;
 }
 
-
-
+.carousel-slide::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0) 100%);
+  z-index: 1;
+}        
 .slide-content {
-  position: relative;
-  width: 45%;
-  padding: 30px;
-  background: white;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-  animation: fadeInUp 0.8s ease-out;
+    position: relative;
+    z-index: 2;
+    max-width: 50%;
+    padding: 30px;
+    margin-top: 300px;
+    margin-left: 100px; /* Push right */
+    animation: fadeInUp 0.8s ease-out;
+    color: #f8f9fa;
 }
 
-.slide-content h2 {
-  font-size: 2.2rem;
-  margin-bottom: 15px;
-  line-height: 1.2;
-  color: #2c3e50;
-  font-weight: 700;
-}
+    .slide-content h2 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+      font-weight: 700;
+      color: #fff;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+    }
 
-.slide-content p {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  margin-bottom: 30px;
-  color: #555;
-}
->>>>>>> 8a2097b7699642a0856426a7f76a250396fe4f17
+    .slide-content p {
+      font-size: 1.25rem;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+      color: #f0f0f0;
+    }
 
-.cta-button {
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  padding: 12px 24px;
-  border-radius: 30px;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-}
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin: 20px 0;
+    }
 
-.cta-button:hover {
-  background-color: #3e8e41;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(0,0,0,0.3);
-}
+    .benefit-item {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        background: rgba(255, 255, 255, 0.15);
+        padding: 0.75rem;
+        border-radius: 0.5rem;
+        font-weight: 500;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+    }
 
-/* Slide-specific backgrounds */
-.detox-slide .slide-image {
-  background-image: url('static/images/detoxhero.jpg');
-}
+    .benefit-item i {
+        font-size: 1.5rem;
+        color: #4ade80;
+    }
 
-.weightloss-slide .slide-image {
-  background-image: url('static/images/weightloss.jpg');
-}
-
-.diabetes-slide .slide-image {
-  background-image: url('static/images/diabeteshero.jpg');
-}
-
-.thyroid-slide .slide-image {
-  background-image: url('static/images/thyroidhero.jpg');
-}
-
-.digestive-slide .slide-image {
-  background-image: url('static/images/guthealthhero.jpg');
-}
-
-.menopausal-slide .slide-image {
-  background-image: url('static/images/menopausehero.jpg');
-}
-
-/* Acupuncture Slide Specific Styles */
-.acupuncture-slide {
-  background: linear-gradient(90deg, #f8f9fa 0%, #e9ecef 100%);
-}
-
-.acupuncture-slide .slide-image {
-  background-image: url('static/images/accupuncturehero.jpg');
-  background-position: center;
-}
-
-/* Benefits grid styling - make this available to all slides */
-.benefits-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 15px;
-  margin: 20px 0;
-}
-
-.benefit-item span {
-  color: #555;
-}
-
-/* Responsive adjustments */
-@media (max-width: 900px) {
-  .benefits-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* Carousel Navigation */
-.carousel-nav {
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 10px;
-  z-index: 100;
-}
-
-.nav-dot {
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background: rgba(0, 0, 0, 0.2);
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.nav-dot.active {
-  background: #4CAF50;
-  transform: scale(1.2);
-}
+    .benefit-item span {
+      color: #f8f9fa;
+    }
     
-.carousel-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: white;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  z-index: 100;
-  transition: 0.3s;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  color: #4CAF50;
-}
+    .carousel-nav {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 10px;
+      z-index: 100;
+    }
 
-.carousel-arrow:hover {
-  background: #4CAF50;
-  color: white;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-}
+    .nav-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.5);
+      cursor: pointer;
+      transition: 0.3s;
+    }
 
-.arrow-left {
-  left: 20px;
-}
+    .nav-dot.active {
+      background: #4CAF50;
+      transform: scale(1.2);
+    }
+        
+    .carousel-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.2);
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 100;
+      transition: 0.3s;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: white;
+    }
 
-.arrow-right {
-  right: 20px;
-}
+    .carousel-arrow:hover {
+      background: #4CAF50;
+      color: white;
+    }
 
-/* Stats Section */
-.stats-section {
-  display: flex;
-  justify-content: space-around;
-  text-align: center;
-  padding: 40px 0;
-  margin-top: 30px;
-  border-top: 1px solid #eee;
-  border-bottom: 1px solid #eee;
-  background: white;
-}
+    .arrow-left { left: 30px; }
+    .arrow-right { right: 30px; }
 
-.stat-item {
-  padding: 20px;
-}
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 
-.stat-item i {
-  font-size: 2.5rem;
-  margin-bottom: 15px;
-  color: #8BC34A;
-}
+    /* Responsive Design for Hero */
+    @media (max-width: 992px) {
+        .slide-content { max-width: 70%; }
+        .slide-content h2 { font-size: 2.5rem; }
+    }
 
-.stat-number {
-  font-size: 2.2rem;
-  font-weight: 700;
-  margin-bottom: 5px;
-  color: #4CAF50;
-}
+    @media (max-width: 768px) {
+        .hero { height: auto; min-height: 80vh; }
+        .carousel-slide {
+            justify-content: center;
+            text-align: center;
+            padding: 3rem 1.5rem;
+        }
+        .carousel-slide::before { background: rgba(0, 0, 0, 0.6); }
+        .slide-content { max-width: 100%; padding: 0; }
+        .benefits-grid {
+            grid-template-columns: 1fr;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 350px;
+        }
+        .slide-content h2 { font-size: 2rem; }
+        .carousel-arrow { display: none; }
+    }
 
-.stat-label {
-  font-size: 1.1rem;
-  color: #666;
-}
+    .scrolling-text {
+      display: inline-block;
+      padding-left: 100%;
+      animation: scrollText 20s linear infinite;
+      white-space: nowrap;
+    }
 
-/* Animations */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Responsive Design */
-@media (max-width: 900px) {
-  .hero {
-    height: auto;
-    min-height: auto;
-    padding-top: 80px; /* Space for header */
-    padding-bottom: 60px;
-  }
-
-  .carousel-slide {
-    flex-direction: column;
-    padding: 20px;
-    text-align: center;
-    justify-content: flex-start;
-    position: relative;
-    height: auto;
-    opacity: 1;
-    margin-bottom: 20px;
-  }
-  
-  .slide-content {
-    width: 100%;
-    margin-bottom: 30px;
-  }
-  
-  .slide-image {
-    width: 100%;
-    height: 300px;
-    order: -1; /* Image first on mobile */
-    margin-bottom: 20px;
-  }
-  
-  .slide-content h2 {
-    font-size: 2.2rem;
-  }
-  .carousel-arrow {
-    display: none; /* Hide arrows on mobile */
-  }
-  
-  .carousel-nav {
-    position: relative;
-    bottom: auto;
-    margin-top: 20px;
-  }
-}
-
-@media (max-width: 600px) {
-  .carousel-slide {
-    padding: 20px;
-  }
-  
-  .slide-content {
-    padding: 20px;
-  }
-  .slide-content h2 {
-    font-size: 1.5rem;
-  }
-  
-  .slide-content p {
-    font-size: 1rem;
-  }
-  
-  .carousel-arrow {
-    width: 40px;
-    height: 40px;
-  }
-  
-  .stats-section {
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .benefits-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .benefit-item {
-    font-size: 0.9rem;
-  }
-}
-
-/* Adjust the about section to come right after hero */
-#about {
-  scroll-margin-top: 100vh;
-}
-
-.scrolling-text {
-  display: inline-block;
-  padding-left: 100%;
-  animation: scrollText 20s linear infinite;
-  white-space: nowrap;
-}
-
-@keyframes scrollText {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-100%); }
-}
+    @keyframes scrollText {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
   </style>
 </head>
 <body class="bg-gradient-to-br from-green-100 via-blue-50 to-purple-100 text-gray-800">
 
-  <header class="fixed top-0 left-0 right-0 w-full z-[100] bg-gray-800 shadow-md">
+<header class="fixed top-0 left-0 right-0 w-full z-[100] bg-gray-800 shadow-md">
     <div class="container mx-auto flex items-center justify-between px-4 py-2 md:py-3">
       <div class="flex items-center space-x-3">
-        <a href="{{ url_for('home') }}" class="flex items-center space-x-3">
+        <a href="{{ url_for('index') }}" class="flex items-center space-x-3">
           <div class="relative w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden border-2 border-green-400">
             <img src="{{ url_for('static', filename='images/logo1.png') }}" alt="Logo" class="w-full h-full object-cover" />
           </div>
@@ -686,21 +423,21 @@
         </a>
       </div>
       <nav class="hidden md:flex items-center space-x-5 text-white text-base md:text-lg font-medium">
-        <a href="{{ url_for('index') }}#home" class="hover:text-green-400 relative group">Home <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-green-400 transition-all duration-300 group-hover:w-full"></span></a>
+        <a href="{{ url_for('index') }}" class="hover:text-green-400 relative group">Home <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-green-400 transition-all duration-300 group-hover:w-full"></span></a>
         <a href="{{ url_for('about') }}" class="hover:text-green-400 relative group">About <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-green-400 transition-all duration-300 group-hover:w-full"></span></a>
         <a href="{{ url_for('gallery') }}" class="hover:text-green-400 relative group">Gallery <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-green-400 transition-all duration-300 group-hover:w-full"></span></a>
         <div class="relative group">
-          <a href="{{ url_for('index') }}#services" class="hover:text-green-400 flex items-center gap-1">Services
+          <a href="{{ url_for('services') }}" class="hover:text-green-400 flex items-center gap-1">Services
             <svg class="w-4 h-4 transition-transform duration-200 group-hover:rotate-180" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.939l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clip-rule="evenodd"/></svg>
           </a>
           <div class="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-60 bg-white text-gray-800 rounded-md shadow-xl opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300 invisible group-hover:visible z-50 py-1">
-          <a href="/service" class="block px-4 py-2 hover:text-green-600 transition duration-200">Gental Detox Cleanse</a>
-          <a href="/service" class="block px-4 py-2 hover:text-green-600 transition duration-200">Diabetes Support Plan</a>
-          <a href="/service" class="block px-4 py-2 hover:text-green-600 transition duration-200">Thyroid Balance Therapy</a>
-          <a href="/service" class="block px-4 py-2 hover:text-green-600 transition duration-200">Digestive Wellness Plan</a>
-          <a href="/service" class="block px-4 py-2 hover:text-green-600 transition duration-200">Menopausal management</a>
-          <a href="/service" class="block px-4 py-2 hover:text-green-600 transition duration-200">Acupuncture therapy</a>
-          <a href="/service" class="block px-4 py-2 hover:text-green-600 transition duration-200">Healthy Body Transformation</a>
+          <a href="{{ url_for('services') }}#gentle-reset" class="block px-4 py-2 hover:text-green-600 transition duration-200">Gental Detox Cleanse</a>
+          <a href="{{ url_for('services') }}#metabolic-harmony" class="block px-4 py-2 hover:text-green-600 transition duration-200">Diabetes Support Plan</a>
+          <a href="{{ url_for('services') }}#blood-sugar" class="block px-4 py-2 hover:text-green-600 transition duration-200">Thyroid Balance Therapy</a>
+          <a href="{{ url_for('services') }}#thyroid" class="block px-4 py-2 hover:text-green-600 transition duration-200">Digestive Wellness Plan</a>
+          <a href="{{ url_for('services') }}#gut-healing" class="block px-4 py-2 hover:text-green-600 transition duration-200">Menopausal management</a>
+          <a href="{{ url_for('services') }}#monopause" class="block px-4 py-2 hover:text-green-600 transition duration-200">Acupuncture therapy</a>
+          <a href="{{ url_for('services') }}#mindful-nourishment" class="block px-4 py-2 hover:text-green-600 transition duration-200">Healthy Body Transformation</a>
         </div>
         </div>
         <a href="{{ url_for('contact_get') }}" class="hover:text-green-400 relative group">Contact <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-green-400 transition-all duration-300 group-hover:w-full"></span></a>
@@ -714,25 +451,8 @@
         </button>
       </div>
     </div>
-    <div id="mobileMenu" class="hidden md:hidden absolute top-full left-0 right-0 bg-gray-800 shadow-lg py-2 z-40">
-      <a href="{{ url_for('index') }}#home" class="block px-5 py-3 text-white hover:bg-gray-700 transition duration-150">Home</a>
-      <a href="{{ url_for('about') }}" class="block px-5 py-3 text-white hover:bg-gray-700 transition duration-150">About</a>
-      <a href="{{ url_for('gallery') }}" class="block px-5 py-3 text-white hover:bg-gray-700 transition duration-150">Gallery</a>
-      <div class="relative group">
-        <button class="flex items-center justify-between w-full px-5 py-3 text-left text-white hover:bg-gray-700 transition duration-150">Services
-          <svg class="w-4 h-4 ml-1 transform group-focus-within:rotate-180 transition-transform" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.939l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clip-rule="evenodd"/></svg>
-        </button>
-        <div class="hidden group-focus-within:block bg-gray-700 mt-0">
-          <a href="{{ url_for('services') }}" class="block pl-8 pr-5 py-2.5 text-sm text-gray-300 hover:bg-gray-600 hover:text-white transition duration-150">All Services Overview</a>
-          <a href="{{ url_for('dummy') }}" class="block pl-8 pr-5 py-2.5 text-sm text-gray-300 hover:bg-gray-600 hover:text-white transition duration-150">Gentle Detox Cleanse</a>
-          <a href="{{ url_for('diabetics') }}" class="block pl-8 pr-5 py-2.5 text-sm text-gray-300 hover:bg-gray-600 hover:text-white transition duration-150">Diabetes Support Plan</a>
-        </div>
-      </div>
-      <a href="{{ url_for('contact_get') }}" class="block px-5 py-3 text-white hover:bg-gray-700 transition duration-150">Contact</a>
-      <a href="http://yoga-kshema.in" target="_blank" rel="noopener noreferrer" class="block px-5 py-3 text-white hover:bg-gray-700 transition duration-150 flex items-center"><span class="mr-2">🧘</span><span>Yogakshema</span></a>
-    </div>
   <div id="mobileMenu" class="hidden md:hidden absolute top-full left-0 right-0 bg-gray-800 shadow-lg py-2 z-40">
-    <a href="{{ url_for('index') }}#home" class="block px-5 py-3 text-white hover:bg-gray-700 transition duration-150">Home</a>
+    <a href="{{ url_for('index') }}" class="block px-5 py-3 text-white hover:bg-gray-700 transition duration-150">Home</a>
     <a href="{{ url_for('about') }}" class="block px-5 py-3 text-white hover:bg-gray-700 transition duration-150">About</a>
     <a href="{{ url_for('gallery') }}" class="block px-5 py-3 text-white hover:bg-gray-700 transition duration-150">Gallery</a>
     
@@ -744,191 +464,137 @@
         </svg>
       </button>
       <div class="hidden group-focus-within:block bg-gray-700 mt-0">
-        <a href="{{ url_for('services') }}" class="block pl-8 pr-5 py-2.5 text-sm text-gray-300 hover:bg-gray-600 hover:text-white transition duration-150">All Services Overview</a>
+        <a href="{{ url_for('index') }}#services" class="block pl-8 pr-5 py-2.5 text-sm text-gray-300 hover:bg-gray-600 hover:text-white transition duration-150">All Services Overview</a>
         <a href="{{ url_for('dummy') }}" class="block pl-8 pr-5 py-2.5 text-sm text-gray-300 hover:bg-gray-600 hover:text-white transition duration-150">Gentle Detox Cleanse</a>
         <a href="{{ url_for('diabetics') }}" class="block pl-8 pr-5 py-2.5 text-sm text-gray-300 hover:bg-gray-600 hover:text-white transition duration-150">Diabetes Support Plan</a>
          </div>
     </div>
     
     <a href="{{ url_for('contact_get') }}" class="block px-5 py-3 text-white hover:bg-gray-700 transition duration-150">Contact</a>
-    <a href="http://yoga-kshema.in" class="block px-5 py-3 text-white hover:bg-gray-700 transition duration-150 flex items-center">
-      <span class="mr-2"></span>
+    <a href="{{ url_for('base') }}" class="block px-5 py-3 text-white hover:bg-gray-700 transition duration-150 flex items-center">
+      <span class="mr-2">🧘</span>
       <span>Yogakshema</span>
     </a>
   </div>
   </header>
 
-  <section id="home" class="hero-section">
-    <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
-      <div class="carousel-indicators">
-        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
-        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
-        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="5" aria-label="Slide 6"></button>
-        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="6" aria-label="Slide 7"></button>
-      </div>
-
-      <div class="carousel-inner">
-        <!-- Detox Slide -->
-        <div class="carousel-item active" style="background-image: url('static/images/detoxhero.jpg');">
-          <div class="carousel-caption">
-            <div class="container">
-              <div class="row">
-                <div class="col-lg-8">
-                  <h2 class="display-5 fw-bold">Revitalize Your Body with Our Detox Program</h2>
-                  <p class="lead">Experience a complete body reset with our science-backed 14-day detox program.</p>
-                  <div class="benefits-grid">
-                    <div class="benefit-item"><i class="fas fa-bolt"></i><span>Boost Energy</span></div>
-                    <div class="benefit-item"><i class="fas fa-leaf"></i><span>Flush Toxins</span></div>
-                    <div class="benefit-item"><i class="fas fa-utensils"></i><span>Improve Digestion</span></div>
-                    <div class="benefit-item"><i class="fas fa-heart"></i><span>Enhance Immunity</span></div>
-                  </div>
-                  <a href="{{ url_for('services') }}" class="btn btn-success btn-lg mt-3">Start Your Detox Journey</a>
+<section id="home" class="hero">
+    <div class="hero-carousel">
+        <div class="carousel-container"> 
+            <div class="carousel-slide active" style="background-image: url('static/images/detoxhero.jpg'); background-color: #333;">
+                <div class="slide-content">
+                    <h2>Revitalize Your Body with Our Detox Program</h2>
+                    <p>Experience a complete body reset with our science-backed 14-day detox program.</p>
+                    <div class="benefits-grid">
+                        <div class="benefit-item"><i class="fas fa-bolt"></i><span>Boost Energy</span></div>
+                        <div class="benefit-item"><i class="fas fa-leaf"></i><span>Flush Toxins</span></div>
+                        <div class="benefit-item"><i class="fas fa-utensils"></i><span>Improve Digestion</span></div>
+                        <div class="benefit-item"><i class="fas fa-heart"></i><span>Enhance Immunity</span></div>
+                    </div>
+                    <a href="{{ url_for('services') }}" class="cta-button">Start Your Detox Journey</a>
                 </div>
-              </div>
             </div>
-          </div>
-        </div>
 
-        <!-- Weight Loss Slide -->
-        <div class="carousel-item" style="background-image: url('static/images/weightloss.jpg');">
-            <div class="carousel-caption">
-              <div class="container">
-                <div class="row">
-                  <div class="col-lg-8">
-                    <h2 class="display-5 fw-bold">Sustainable Weight Loss That Actually Lasts</h2>
-                    <p class="lead">Our holistic approach helps you achieve and maintain your ideal weight.</p>
+            <div class="carousel-slide" style="background-image: url('static/images/weightloss.jpg'); background-color: red;">
+                <div class="slide-content">
+                    <h2>Sustainable Weight Loss That Actually Lasts</h2>
+                    <p>Our holistic approach helps you achieve and maintain your ideal weight.</p>
                     <div class="benefits-grid">
                         <div class="benefit-item"><i class="fas fa-weight"></i><span>Healthy Weight Loss</span></div>
                         <div class="benefit-item"><i class="fas fa-apple-alt"></i><span>Personalized Nutrition</span></div>
                         <div class="benefit-item"><i class="fas fa-running"></i><span>Exercise Strategies</span></div>
                         <div class="benefit-item"><i class="fas fa-brain"></i><span>Behavioral Coaching</span></div>
                     </div>
-                    <a href="{{ url_for('services') }}" class="btn btn-success btn-lg mt-3">Begin Your Transformation</a>
-                  </div>
+                    <a href="{{ url_for('services') }}" class="cta-button">Begin Your Transformation</a>
                 </div>
-              </div>
             </div>
-          </div>
-        
-        <!-- Diabetes Plan Slide -->
-        <div class="carousel-item" style="background-image: url('static/images/diabeteshero.jpg');">
-          <div class="carousel-caption">
-              <div class="container">
-                  <div class="row">
-                      <div class="col-lg-8">
-                          <h2 class="display-5 fw-bold">Take Control of Your Diabetes Journey</h2>
-                          <p class="lead">Our comprehensive diabetes management program helps you live healthier.</p>
-                          <div class="benefits-grid">
-                              <div class="benefit-item"><i class="fas fa-utensils"></i><span>Personalized Meal Plans</span></div>
-                              <div class="benefit-item"><i class="fas fa-heartbeat"></i><span>Blood Sugar Control</span></div>
-                              <div class="benefit-item"><i class="fas fa-walking"></i><span>Activity Guidance</span></div>
-                              <div class="benefit-item"><i class="fas fa-pills"></i><span>Medication Reduction</span></div>
-                          </div>
-                          <a href="{{ url_for('services') }}" class="btn btn-success btn-lg mt-3">Manage Diabetes Effectively</a>
-                      </div>
-                  </div>
-              </div>
-          </div>
+
+            <div class="carousel-slide" style="background-image: url('static/images/diabeteshero.jpg'); background-color: blue;">
+                <div class="slide-content">
+                    <h2>Take Control of Your Diabetes Journey</h2>
+                    <p>Our comprehensive diabetes management program helps you live healthier.</p>
+                    <div class="benefits-grid">
+                        <div class="benefit-item"><i class="fas fa-utensils"></i><span>Personalized Meal Plans</span></div>
+                        <div class="benefit-item"><i class="fas fa-heartbeat"></i><span>Blood Sugar Control</span></div>
+                        <div class="benefit-item"><i class="fas fa-walking"></i><span>Activity Guidance</span></div>
+                        <div class="benefit-item"><i class="fas fa-pills"></i><span>Medication Reduction</span></div>
+                    </div>
+                    <a href="{{ url_for('services') }}" class="cta-button">Manage Diabetes Effectively</a>
+                </div>
+            </div>
+
+            <div class="carousel-slide" style="background-image: url('static/images/thyroidhero.jpg'); background-color: green;">
+                <div class="slide-content">
+                    <h2>Balance Your Thyroid Naturally</h2>
+                    <p>Specialized support to restore hormonal balance and energy levels.</p>
+                    <div class="benefits-grid">
+                        <div class="benefit-item"><i class="fas fa-balance-scale"></i><span>Hormone Regulation</span></div>
+                        <div class="benefit-item"><i class="fas fa-bolt"></i><span>Energy Boost</span></div>
+                        <div class="benefit-item"><i class="fas fa-thermometer-empty"></i><span>Metabolism Support</span></div>
+                        <div class="benefit-item"><i class="fas fa-heart"></i><span>Natural Therapies</span></div>
+                    </div>
+                    <a href="{{ url_for('services') }}" class="cta-button">Support Thyroid Health</a>
+                </div>
+            </div>
+
+            <div class="carousel-slide" style="background-image: url('static/images/guthealthhero.jpg'); background-color: orange;">
+                <div class="slide-content">
+                    <h2>Heal Your Gut, Transform Your Health</h2>
+                    <p>Comprehensive plans to address digestive issues through microbiome restoration.</p>
+                    <div class="benefits-grid">
+                        <div class="benefit-item"><i class="fas fa-seedling"></i><span>Gut Healing</span></div>
+                        <div class="benefit-item"><i class="fas fa-bacteria"></i><span>Microbiome Support</span></div>
+                        <div class="benefit-item"><i class="fas fa-burn"></i><span>Reduce Bloating</span></div>
+                        <div class="benefit-item"><i class="fas fa-utensils"></i><span>Personalized Diet</span></div>
+                    </div>
+                    <a href="{{ url_for('services') }}" class="cta-button">Improve Digestion</a>
+                </div>
+            </div>
+
+            <div class="carousel-slide" style="background-image: url('static/images/menopausehero.jpg'); background-color: purple;">
+                <div class="slide-content">
+                    <h2>Navigate Menopause with Confidence</h2>
+                    <p>Holistic support for managing menopausal symptoms naturally.</p>
+                    <div class="benefits-grid">
+                        <div class="benefit-item"><i class="fas fa-fire"></i><span>Hot Flash Relief</span></div>
+                        <div class="benefit-item"><i class="fas fa-moon"></i><span>Better Sleep</span></div>
+                        <div class="benefit-item"><i class="fas fa-smile"></i><span>Mood Support</span></div>
+                        <div class="benefit-item"><i class="fas fa-heart"></i><span>Hormone Balance</span></div>
+                    </div>
+                    <a href="{{ url_for('services') }}" class="cta-button">Ease Menopause Transition</a>
+                </div>
+            </div>
+
+            <div class="carousel-slide" style="background-image: url('static/images/accupuncturehero.jpg'); background-color: teal;">
+                <div class="slide-content">
+                    <h2>Restore Balance with Acupuncture</h2>
+                    <p>Experience healing through traditional Chinese medicine to relieve pain and reduce stress.</p>
+                    <div class="benefits-grid">
+                        <div class="benefit-item"><i class="fas fa-leaf"></i><span>Pain Relief</span></div>
+                        <div class="benefit-item"><i class="fas fa-cloud-sun"></i><span>Stress Reduction</span></div>
+                        <div class="benefit-item"><i class="fas fa-moon"></i><span>Better Sleep</span></div>
+                        <div class="benefit-item"><i class="fas fa-heartbeat"></i><span>Improved Circulation</span></div>
+                    </div>
+                    <a href="{{ url_for('services') }}" class="cta-button">Book Acupuncture Session</a>
+                </div>
+            </div>
+
         </div>
-        
-        <!-- Thyroid Health Slide -->
-        <div class="carousel-item" style="background-image: url('static/images/thyroidhero.jpg');">
-          <div class="carousel-caption">
-              <div class="container">
-                  <div class="row">
-                      <div class="col-lg-8">
-                          <h2 class="display-5 fw-bold">Balance Your Thyroid Naturally</h2>
-                          <p class="lead">Specialized support to restore hormonal balance and energy levels.</p>
-                          <div class="benefits-grid">
-                              <div class="benefit-item"><i class="fas fa-balance-scale"></i><span>Hormone Regulation</span></div>
-                              <div class="benefit-item"><i class="fas fa-bolt"></i><span>Energy Boost</span></div>
-                              <div class="benefit-item"><i class="fas fa-thermometer-empty"></i><span>Metabolism Support</span></div>
-                              <div class="benefit-item"><i class="fas fa-heart"></i><span>Natural Therapies</span></div>
-                          </div>
-                          <a href="{{ url_for('services') }}" class="btn btn-success btn-lg mt-3">Support Thyroid Health</a>
-                      </div>
-                  </div>
-              </div>
-          </div>
+
+        <div class="carousel-arrow arrow-left"><i class="fas fa-chevron-left"></i></div>
+        <div class="carousel-arrow arrow-right"><i class="fas fa-chevron-right"></i></div>
+
+        <div class="carousel-nav">
+            <div class="nav-dot active" data-slide="0"></div>
+            <div class="nav-dot" data-slide="1"></div>
+            <div class="nav-dot" data-slide="2"></div>
+            <div class="nav-dot" data-slide="3"></div>
+            <div class="nav-dot" data-slide="4"></div>
+            <div class="nav-dot" data-slide="5"></div>
+            <div class="nav-dot" data-slide="6"></div>
         </div>
-        
-        <!-- Digestive Health Slide -->
-        <div class="carousel-item" style="background-image: url('static/images/guthealthhero.jpg');">
-          <div class="carousel-caption">
-              <div class="container">
-                  <div class="row">
-                      <div class="col-lg-8">
-                          <h2 class="display-5 fw-bold">Heal Your Gut, Transform Your Health</h2>
-                          <p class="lead">Comprehensive plans to address digestive issues through microbiome restoration.</p>
-                          <div class="benefits-grid">
-                              <div class="benefit-item"><i class="fas fa-seedling"></i><span>Gut Healing</span></div>
-                              <div class="benefit-item"><i class="fas fa-bacteria"></i><span>Microbiome Support</span></div>
-                              <div class="benefit-item"><i class="fas fa-burn"></i><span>Reduce Bloating</span></div>
-                              <div class="benefit-item"><i class="fas fa-utensils"></i><span>Personalized Diet</span></div>
-                          </div>
-                          <a href="{{ url_for('services') }}" class="btn btn-success btn-lg mt-3">Improve Digestion</a>
-                      </div>
-                  </div>
-              </div>
-          </div>
-        </div>
-  
-        <!-- Menopausal Management Slide -->
-        <div class="carousel-item" style="background-image: url('static/images/menopausehero.jpg');">
-          <div class="carousel-caption">
-              <div class="container">
-                  <div class="row">
-                      <div class="col-lg-8">
-                          <h2 class="display-5 fw-bold">Navigate Menopause with Confidence</h2>
-                          <p class="lead">Holistic support for managing menopausal symptoms naturally.</p>
-                          <div class="benefits-grid">
-                              <div class="benefit-item"><i class="fas fa-fire"></i><span>Hot Flash Relief</span></div>
-                              <div class="benefit-item"><i class="fas fa-moon"></i><span>Better Sleep</span></div>
-                              <div class="benefit-item"><i class="fas fa-smile"></i><span>Mood Support</span></div>
-                              <div class="benefit-item"><i class="fas fa-heart"></i><span>Hormone Balance</span></div>
-                          </div>
-                          <a href="{{ url_for('services') }}" class="btn btn-success btn-lg mt-3">Ease Menopause Transition</a>
-                      </div>
-                  </div>
-              </div>
-          </div>
-        </div>
-  
-        <!-- Acupuncture slide -->
-        <div class="carousel-item" style="background-image: url('static/images/accupuncturehero.jpg');">
-          <div class="carousel-caption">
-              <div class="container">
-                  <div class="row">
-                      <div class="col-lg-8">
-                          <h2 class="display-5 fw-bold">Restore Balance with Acupuncture Therapy</h2>
-                          <p class="lead">Experience the healing power of traditional Chinese medicine to relieve pain, reduce stress, and restore your body's natural energy flow.</p>
-                          <div class="benefits-grid">
-                              <div class="benefit-item"><i class="fas fa-leaf"></i><span>Pain Relief</span></div>
-                              <div class="benefit-item"><i class="fas fa-cloud-sun"></i><span>Stress Reduction</span></div>
-                              <div class="benefit-item"><i class="fas fa-moon"></i><span>Better Sleep</span></div>
-                              <div class="benefit-item"><i class="fas fa-heartbeat"></i><span>Improved Circulation</span></div>
-                          </div>
-                          <a href="{{ url_for('services') }}" class="btn btn-success btn-lg mt-3">Book Acupuncture Session</a>
-                      </div>
-                  </div>
-              </div>
-          </div>
-        </div>
-      </div>
-  
-      <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
     </div>
-  </section>
+</section>
 
 
   <section id="about" class="relative z-0 py-16 px-6 bg-white scroll-mt-20">
@@ -1084,13 +750,11 @@
       </div>
   </section>
 
-  <!-- Add this section right before the reviews section -->
-<section class="py-16 bg-gray-50">
+  <section class="py-16 bg-gray-50">
   <div class="max-w-4xl mx-auto px-4">
     <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-12">Frequently Asked Questions</h2>
     
     <div class="space-y-4">
-      <!-- FAQ Item 1 -->
       <div class="bg-white rounded-xl shadow-md overflow-hidden">
         <button class="faq-question w-full text-left px-6 py-4 flex justify-between items-center focus:outline-none">
           <h3 class="text-lg font-semibold text-gray-800">What is Wellnation360?</h3>
@@ -1105,7 +769,6 @@
         </div>
       </div>
       
-      <!-- FAQ Item 2 -->
       <div class="bg-white rounded-xl shadow-md overflow-hidden">
         <button class="faq-question w-full text-left px-6 py-4 flex justify-between items-center focus:outline-none">
           <h3 class="text-lg font-semibold text-gray-800">What is Yogakshema and how is it related?</h3>
@@ -1120,7 +783,6 @@
         </div>
       </div>
       
-      <!-- FAQ Item 3 -->
       <div class="bg-white rounded-xl shadow-md overflow-hidden">
         <button class="faq-question w-full text-left px-6 py-4 flex justify-between items-center focus:outline-none">
           <h3 class="text-lg font-semibold text-gray-800">How can I reach Wellnation360 or Yogakshema?</h3>
@@ -1139,7 +801,6 @@
         </div>
       </div>
       
-      <!-- FAQ Item 4 -->
       <div class="bg-white rounded-xl shadow-md overflow-hidden">
         <button class="faq-question w-full text-left px-6 py-4 flex justify-between items-center focus:outline-none">
           <h3 class="text-lg font-semibold text-gray-800">Do I need any medical tests before joining a program?</h3>
@@ -1154,7 +815,6 @@
         </div>
       </div>
 
-      <!-- FAQ Item 6 -->
       <div class="bg-white rounded-xl shadow-md overflow-hidden">
         <button class="faq-question w-full text-left px-6 py-4 flex justify-between items-center focus:outline-none">
           <h3 class="text-lg font-semibold text-gray-800">Can I combine different therapies?</h3>
@@ -1188,7 +848,6 @@
     </div>
   </section>
 
-  <!-- Footer -->
   <footer id="footer" class="bg-gray-800 text-gray-300 py-12 md:py-16">
     <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 text-center md:text-left">
         <div>
@@ -1246,447 +905,219 @@
     </a>
   </div>
 
+  
 <script>
-  // Initialize AOS (Animate on Scroll)
+// --- Scripts organized in one DOMContentLoaded listener ---
+document.addEventListener('DOMContentLoaded', function() {
+  
   AOS.init({ easing: 'ease-in-out', duration: 800, once: true, offset: 50 });
 
-  // Ensure header stays on top
-document.addEventListener('DOMContentLoaded', function() {
-  const header = document.querySelector('header');
-  if (header) {
-    header.style.zIndex = '1000'; // Higher than hero section
-  }
-  
   // Mobile menu toggle
   const mobileMenuButton = document.getElementById('mobileMenuButton');
   const mobileMenu = document.getElementById('mobileMenu');
-  
   if (mobileMenuButton && mobileMenu) {
-    mobileMenuButton.addEventListener('click', function() {
-      mobileMenu.classList.toggle('hidden');
-    });
-    
-    // Close menu when clicking outside
-    document.addEventListener('click', function(e) {
-      if (!mobileMenu.contains(e.target) && e.target !== mobileMenuButton) {
-        mobileMenu.classList.add('hidden');
-      }
-    });
-  }
-});
-
-// Hero Carousel Functionality
-function initCarousel() {
-  const slides = document.querySelectorAll('.carousel-slide');
-  const dots = document.querySelectorAll('.nav-dot');
-  const prevArrow = document.querySelector('.arrow-left');
-  const nextArrow = document.querySelector('.arrow-right');
-  
-  if (!slides.length || !dots.length || !prevArrow || !nextArrow) {
-    console.error('Carousel elements not found');
-    return;
-  }
-
-  let currentSlide = 0;
-  const slideCount = slides.length;
-  let slideInterval;
-  
-  // Function to show a specific slide
-  function showSlide(index) {
-    // Hide all slides
-    slides.forEach(slide => {
-      slide.classList.remove('active');
-    });
-    
-    // Remove active class from all dots
-    dots.forEach(dot => {
-      dot.classList.remove('active');
-    });
-    
-    // Show the selected slide
-    slides[index].classList.add('active');
-    
-    // Activate the corresponding dot
-    dots[index].classList.add('active');
-    
-    currentSlide = index;
-  }
-  
-  // Next slide function
-  function nextSlide() {
-    let nextIndex = (currentSlide + 1) % slideCount;
-    showSlide(nextIndex);
-  }
-  
-  // Previous slide function
-  function prevSlide() {
-    let prevIndex = (currentSlide - 1 + slideCount) % slideCount;
-    showSlide(prevIndex);
-  }
-  
-  // Auto-rotate slides
-  function startAutoRotation() {
-    slideInterval = setInterval(nextSlide, 5000);
-  }
-  
-  // Initialize carousel
-  function init() {
-    showSlide(0);
-    startAutoRotation();
-    
-    // Event listeners for arrows
-    prevArrow.addEventListener('click', function() {
-      clearInterval(slideInterval);
-      prevSlide();
-      startAutoRotation();
-    });
-    
-    nextArrow.addEventListener('click', function() {
-      clearInterval(slideInterval);
-      nextSlide();
-      startAutoRotation();
-    });
-    
-    // Event listeners for dots
-    dots.forEach(dot => {
-      dot.addEventListener('click', function() {
-        clearInterval(slideInterval);
-        const slideIndex = parseInt(this.getAttribute('data-slide'));
-        showSlide(slideIndex);
-        startAutoRotation();
-      });
-    });
-    
-    // Pause auto-rotation when hovering over carousel
-    const carousel = document.querySelector('.carousel-container');
-    if (carousel) {
-      carousel.addEventListener('mouseenter', function() {
-        clearInterval(slideInterval);
-      });
-      
-      carousel.addEventListener('mouseleave', startAutoRotation);
-    }
-  }
-  
-  init();
-}
-
-// Initialize when DOM is ready
-document.addEventListener('DOMContentLoaded', initCarousel);
-
-  // Set current year in footer
-  document.getElementById('currentYear').textContent = new Date().getFullYear();
-
-  // Mobile Menu Toggle
-  const mobileMenuButton = document.getElementById('mobileMenuButton');
-  const mobileMenu = document.getElementById('mobileMenu');
-  if (mobileMenuButton && mobileMenu) {
-    const mobileMenuServiceButton = mobileMenu.querySelector('.group > button');
-    const mobileMenuServiceDropdown = mobileMenu.querySelector('.group > div');
-
     mobileMenuButton.addEventListener('click', (event) => {
       event.stopPropagation();
       mobileMenu.classList.toggle('hidden');
     });
-    if (mobileMenuServiceButton && mobileMenuServiceDropdown) {
-      mobileMenuServiceButton.addEventListener('click', (event) => {
-        event.stopPropagation();
-        mobileMenuServiceDropdown.classList.toggle('hidden');
-      });
-    }
-    mobileMenu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
+    document.addEventListener('click', (e) => {
+      if (!mobileMenu.contains(e.target) && !mobileMenuButton.contains(e.target)) {
         mobileMenu.classList.add('hidden');
-        if (mobileMenuServiceDropdown) mobileMenuServiceDropdown.classList.add('hidden');
-      });
-    });
-    document.addEventListener('click', (event) => {
-      if (mobileMenu && !mobileMenu.classList.contains('hidden') &&
-          !mobileMenu.contains(event.target) && event.target !== mobileMenuButton && !mobileMenuButton.contains(event.target)) {
-        mobileMenu.classList.add('hidden');
-        if (mobileMenuServiceDropdown) mobileMenuServiceDropdown.classList.add('hidden');
       }
     });
   }
 
-  // Hero Section Swiper Carousel
-  new Swiper('.services-swiper', {
-    slidesPerView: 1, spaceBetween: 20, loop: true,
-    autoplay: { delay: 4000, disableOnInteraction: false },
-    pagination: { el: '.swiper-pagination', clickable: true },
-    navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
-    breakpoints: { 640: { slidesPerView: 2 }, 768: { slidesPerView: 3 }, 1024: { slidesPerView: 4 } }
-  });
+  // Set current year in footer
+  document.getElementById('currentYear').textContent = new Date().getFullYear();
 
-  // --- Services Display ---
-  const servicesDataFromFlask = {{ services_data | tojson | safe }};
+  // --- REWRITTEN HERO CAROUSEL SCRIPT ---
+  function initCarousel() {
+    const slides = document.querySelectorAll('.carousel-slide');
+    const dots = document.querySelectorAll('.nav-dot');
+    const prevArrow = document.querySelector('.arrow-left');
+    const nextArrow = document.querySelector('.arrow-right');
+    const carouselContainer = document.querySelector('.hero-carousel');
+    
+    if (slides.length === 0) return;
 
-function createServiceBlock(serviceItem) {
+    let currentSlide = 0;
+    const slideCount = slides.length;
+    let slideInterval;
+    let isPaused = false;
+
+    function showSlide(index) {
+        if (index < 0 || index >= slideCount) return;
+        
+        slides.forEach(slide => slide.classList.remove('active'));
+        dots.forEach(dot => dot.classList.remove('active'));
+        
+        slides[index].classList.add('active');
+        dots[index].classList.add('active');
+        
+        currentSlide = index;
+    }
+
+    function advanceSlide() {
+        if (!isPaused) {
+            const nextIndex = (currentSlide + 1) % slideCount;
+            showSlide(nextIndex);
+        }
+    }
+    
+    function manualAdvance(nextIndex) {
+        showSlide(nextIndex);
+        // Reset the timer
+        clearInterval(slideInterval);
+        slideInterval = setInterval(advanceSlide, 5000);
+    }
+
+    prevArrow.addEventListener('click', () => {
+        const prevIndex = (currentSlide - 1 + slideCount) % slideCount;
+        manualAdvance(prevIndex);
+    });
+
+    nextArrow.addEventListener('click', () => {
+        const nextIndex = (currentSlide + 1) % slideCount;
+        manualAdvance(nextIndex);
+    });
+
+    dots.forEach(dot => {
+        dot.addEventListener('click', function() {
+            const slideIndex = parseInt(this.getAttribute('data-slide'));
+            manualAdvance(slideIndex);
+        });
+    });
+    
+    carouselContainer.addEventListener('mouseenter', () => { isPaused = true; });
+    carouselContainer.addEventListener('mouseleave', () => { isPaused = false; });
+    
+    // Set initial state and start the timer
+    showSlide(0);
+    slideInterval = setInterval(advanceSlide, 5000);
+  }
+  
+  initCarousel();
+
+  // Services Display
+  function createServiceBlock(serviceItem) {
     const block = document.createElement("div");
     block.className = "service-block";
     block.setAttribute('data-aos', 'fade-up');
-
-    // Default image if none provided
     const imageUrl = serviceItem.image_url || "{{ url_for('static', filename='images/service-placeholder.jpg') }}";
     
-    // Create the base HTML
     block.innerHTML = `
-        <img src="${imageUrl}" 
-            alt="${serviceItem.service_name || 'Service Image'}" 
-            class="service-image" 
-            loading="lazy">
+        <img src="${imageUrl}" alt="${serviceItem.service_name || 'Service Image'}" class="service-image" loading="lazy">
         <div class="service-header">
             <h3 class="service-name">${serviceItem.service_name || 'Service Name'}</h3>
             <p class="timing"><i class="far fa-clock mr-1.5"></i>${serviceItem.time || 'Schedule not specified'}</p>
             <p class="instructor"><i class="fas fa-chalkboard-teacher mr-1.5"></i>${serviceItem.instructor_name || 'Instructor not specified'}</p>
         </div>
         <div class="mt-auto">
-            <div class="price-and-plans">
-                </div>
+            <div class="price-and-plans"></div>
             <div class="buttons">
                 <button class="details-btn">View Details</button>
                 <button class="enroll-btn">Enroll Now</button>
             </div>
-        </div>
-    `;
+        </div>`;
 
-    // Handle pricing plans
     const priceAndPlansDiv = block.querySelector('.price-and-plans');
-    
     if (serviceItem.plans && serviceItem.plans.length > 0) {
         if (serviceItem.plans.length === 1) {
-            // Single plan - just show the price
             const plan = serviceItem.plans[0];
-            priceAndPlansDiv.innerHTML = `
-                <p class="service-price">₹${plan.price.toLocaleString('en-IN')} ${plan.months > 1 ? `for ${plan.months} months` : ''}</p>
-            `;
+            priceAndPlansDiv.innerHTML = `<p class="service-price">₹${plan.price.toLocaleString('en-IN')} ${plan.months > 1 ? `for ${plan.months} months` : ''}</p>`;
         } else {
-            // Multiple plans - create dropdown
             const cheapestPlan = [...serviceItem.plans].sort((a, b) => a.price - b.price)[0];
-            let optionsHtml = '';
-            
-            serviceItem.plans.sort((a, b) => a.months - b.months).forEach(plan => {
-                optionsHtml += `<option value="${plan.months}" data-price="${plan.price}">
-                    ${plan.months} month${plan.months > 1 ? 's' : ''} - ₹${plan.price.toLocaleString('en-IN')}
-                </option>`;
-            });
-
+            let optionsHtml = serviceItem.plans.sort((a, b) => a.months - b.months).map(plan =>
+                `<option value="${plan.months}" data-price="${plan.price}">${plan.months} month${plan.months > 1 ? 's' : ''} - ₹${plan.price.toLocaleString('en-IN')}</option>`
+            ).join('');
             priceAndPlansDiv.innerHTML = `
-                <div class="plan-selector">
-                    <select class="plan-select">
-                        ${optionsHtml}
-                    </select>
-                </div>
-                <p class="service-price">₹${cheapestPlan.price.toLocaleString('en-IN')}</p>
-            `;
-
-            // Add event listener to update price when plan changes
-            const planSelect = block.querySelector('.plan-select');
-            const priceDisplay = block.querySelector('.service-price');
+                <div class="plan-selector"><select class="plan-select">${optionsHtml}</select></div>
+                <p class="service-price">₹${cheapestPlan.price.toLocaleString('en-IN')}</p>`;
             
-            planSelect.addEventListener('change', () => {
-                const selectedOption = planSelect.options[planSelect.selectedIndex];
-                const price = selectedOption.dataset.price;
-                priceDisplay.textContent = `₹${parseFloat(price).toLocaleString('en-IN')}`;
+            block.querySelector('.plan-select').addEventListener('change', (e) => {
+                const price = e.target.options[e.target.selectedIndex].dataset.price;
+                block.querySelector('.service-price').textContent = `₹${parseFloat(price).toLocaleString('en-IN')}`;
             });
         }
     } else {
-        // No plans available
-        priceAndPlansDiv.innerHTML = `
-            <p class="service-price">Contact for Pricing</p>
-            <p class="no-plans">Custom plans available</p>
-        `;
+        priceAndPlansDiv.innerHTML = `<p class="service-price">Contact for Pricing</p><p class="no-plans">Custom plans available</p>`;
     }
 
-    // Set up button click handlers
-    const detailsBtn = block.querySelector('.details-btn');
-    const enrollBtn = block.querySelector('.enroll-btn');
-    
-    detailsBtn.addEventListener('click', () => {
-        // Go to service-specific page based on service name
-        const serviceName = serviceItem.service_name.toLowerCase().replace(/\s+/g, '_');
-        window.location.href = `{{ url_for('services') }}`;
-    });
-    
-    enrollBtn.addEventListener('click', () => {
+    block.querySelector('.details-btn').addEventListener('click', () => window.location.href = `{{ url_for('services') }}`);
+    block.querySelector('.enroll-btn').addEventListener('click', () => {
         let queryString = `service_enroll=${encodeURIComponent(serviceItem.service_name)}`;
-        
-        // If there's a plan selector, add the selected plan to the URL
         const planSelect = block.querySelector('.plan-select');
         if (planSelect) {
             const selectedOption = planSelect.options[planSelect.selectedIndex];
             queryString += `&months=${selectedOption.value}&price=${selectedOption.dataset.price}`;
         }
-        
         window.location.href = `{{ url_for('contact_get') }}?${queryString}`;
     });
-
     return block;
-}
-
-
-    // --- AUTOSCROLL LOGIC START ---
-    let servicesScrollInterval;
-    let reviewsScrollInterval;
-
-    /**
-     * Starts an autoscrolling interval for a given container.
-     * @param {HTMLElement} container The container element to scroll.
-     * @param {number} intervalTime The time in ms between scrolls.
-     * @returns {number} The interval ID.
-     */
-    function startAutoscroll(container, intervalTime = 2000) {
-        return setInterval(() => {
-            if (!container) return;
-            // Check if scroll is at the end
-            if (container.scrollLeft + container.clientWidth >= container.scrollWidth - 1) {
-                // If at the end, smoothly scroll back to the start
-                container.scrollTo({ left: 0, behavior: 'smooth' });
-            } else {
-                // Get the width of the first item to determine scroll distance
-                const itemWidth = container.firstElementChild?.offsetWidth || 300;
-                // The gap is set to 2rem (32px) in the CSS
-                const gap = 32;
-                container.scrollBy({ left: itemWidth + gap, behavior: 'smooth' });
-            }
-        }, intervalTime);
-    }
-    // --- AUTOSCROLL LOGIC END ---
+  }
 
   async function displayServices() {
     const container = document.getElementById('servicesContainer');
-    if (!container) { 
-      console.error("Services container not found."); 
-      return; 
-    }
-
+    if (!container) return;
     try {
       container.innerHTML = '<p class="text-center text-gray-500 py-8">Loading services...</p>';
-      
       const response = await fetch('/api/services');
       if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-      
       const allServices = await response.json();
+      const servicesData = allServices.filter(s => s.website && s.website.toLowerCase() === "wellnation360");
       
-      const servicesData = allServices.filter(service => 
-        service.website && service.website.toLowerCase() === "wellnation360"
-      );
-      
-      if (!servicesData || servicesData.length === 0) {
-        container.innerHTML = '<p class="text-center text-gray-600 py-10 px-4 w-full">No services currently available for Wellnation360. Please check back soon!</p>';
+      if (servicesData.length === 0) {
+        container.innerHTML = '<p class="text-center text-gray-600 py-10 px-4 w-full">No services available. Please check back soon!</p>';
         return;
       }
-      
       container.innerHTML = '';
-      servicesData.forEach(service => {
-        container.appendChild(createServiceBlock(service));
-      });
-      
+      servicesData.forEach(service => container.appendChild(createServiceBlock(service)));
       setupHorizontalScroll('servicesContainer', 'servicesNav');
-      
-      // --- AUTOSCROLL ACTIVATION FOR SERVICES ---
-      clearInterval(servicesScrollInterval); // Clear previous interval if any
-      servicesScrollInterval = startAutoscroll(container);
-
-      // Removed mouseenter/mouseleave for autoscroll pause
-      // container.addEventListener('mouseenter', () => clearInterval(servicesScrollInterval));
-      // container.addEventListener('mouseleave', () => {
-      //     clearInterval(servicesScrollInterval);
-      //     servicesScrollInterval = startAutoscroll(container);
-      // });
-      
-      // Pause autoscroll when focusing on a plan dropdown
-      container.addEventListener('focusin', (e) => {
-          if (e.target.matches('.plan-select')) {
-              clearInterval(servicesScrollInterval);
-          }
-      });
-
-      // Resume autoscroll when the plan dropdown loses focus
-      container.addEventListener('focusout', (e) => {
-          if (e.target.matches('.plan-select')) {
-              clearInterval(servicesScrollInterval); // Clear again to prevent multiple intervals
-              servicesScrollInterval = startAutoscroll(container);
-          }
-      });
-      
     } catch (error) {
       console.error('Error loading services:', error);
-      container.innerHTML = `
-        <p class="text-center text-red-500 py-10 px-4 w-full">
-          Could not load services. Please try again later or 
-          <a href="{{ url_for('contact_get') }}" class="text-green-600 underline">contact us</a>.
-        </p>
-      `;
+      container.innerHTML = `<p class="text-center text-red-500 py-10 px-4 w-full">Could not load services. Please <a href="{{ url_for('contact_get') }}" class="text-green-600 underline">contact us</a>.</p>`;
     }
   }
 
-  // FAQ Toggle Functionality
-document.querySelectorAll('.faq-question').forEach(question => {
-  question.addEventListener('click', () => {
-    const answer = question.nextElementSibling;
-    const icon = question.querySelector('svg');
-    
-    // Toggle answer visibility
-    answer.classList.toggle('hidden');
-    
-    // Toggle icon rotation
-    icon.classList.toggle('rotate-180');
-    
-    // Close other open answers
-    document.querySelectorAll('.faq-question').forEach(q => {
-      if (q !== question) {
-        q.nextElementSibling.classList.add('hidden');
-        q.querySelector('svg').classList.remove('rotate-180');
+  // FAQ Toggle
+  document.querySelectorAll('.faq-question').forEach(question => {
+    question.addEventListener('click', () => {
+      const answer = question.nextElementSibling;
+      const icon = question.querySelector('svg');
+      const isHidden = answer.classList.contains('hidden');
+      document.querySelectorAll('.faq-answer').forEach(ans => ans.classList.add('hidden'));
+      document.querySelectorAll('.faq-question svg').forEach(ic => ic.classList.remove('rotate-180'));
+      if (isHidden) {
+          answer.classList.remove('hidden');
+          icon.classList.add('rotate-180');
       }
     });
   });
-});
 
-  // --- Reviews Display ---
+  // Reviews Display
   async function fetchReviews() {
     try {
       const response = await fetch('/api/reviews');
-      if (!response.ok) return getDefaultReviews();
-      
+      if (!response.ok) return [];
       const data = await response.json();
-      
-      const wellnationReviews = data.reviews.filter(review => 
-        review.platform && review.platform.toLowerCase() === "wellnation360"
-      );
-      
-      return wellnationReviews.length > 0 ? wellnationReviews : getDefaultReviews();
-      
+      return data.reviews.filter(r => r.platform && r.platform.toLowerCase() === "wellnation360");
     } catch (error) {
       console.error('Error fetching reviews:', error);
-      return getDefaultReviews();
+      return [];
     }
   }
 
-function getDefaultReviews() { // Fallback static reviews
-    return [
-        { reviewer_name: "Priya S.", rating: 5, content: "The detox plan was amazing! Feeling so much lighter and energetic. Highly recommend.", reviewer_image_url: null, media_type: null, media_url: null },
-        { reviewer_name: "Rajesh K.", rating: 4, content: "Great guidance for managing my diabetes. The diet tips were very practical.", reviewer_image_url: null, media_type: "image", media_url: "{{ url_for('static', filename='images/review-placeholder-1.jpg') }}" },
-        { reviewer_name: "Anita V.", rating: 5, content: "Lost 5kgs with the weight loss program! The support from Dt. Ritu was fantastic.", reviewer_image_url: "{{ url_for('static', filename='images/review-placeholder-user.png') }}", media_type: null, media_url: null }
-    ];
-}
-
-function createReviewCard(review) {
+  function createReviewCard(review) {
     const card = document.createElement('div');
     card.className = 'review-card-horizontal';
-    card.setAttribute('data-aos', 'fade-up');
-
-    const avatarUrl = review.reviewer_image_url || `https://ui-avatars.com/api/?name=${encodeURIComponent(review.reviewer_name || 'User')}&background=e0e7ff&color=4338ca&bold=true`;
-    const stars = '★'.repeat(review.rating || 0) + '☆'.repeat(5 - (review.rating || 0));
+    const avatarUrl = review.reviewer_image_url || `https://ui-avatars.com/api/?name=${encodeURIComponent(review.reviewer_name || 'U')}&background=e0e7ff&color=4338ca&bold=true`;
+    const stars = '★'.repeat(review.rating || 5) + '☆'.repeat(5 - (review.rating || 5));
     let mediaElement = '';
     if (review.media_url) {
-        if (review.media_type === 'image') {
-            mediaElement = `<img src="${review.media_url}" alt="Review media for ${review.reviewer_name}" loading="lazy">`;
-        } else if (review.media_type === 'video') {
-            mediaElement = `<video controls src="${review.media_url}" loading="lazy"></video>`;
-        }
+        mediaElement = review.media_type === 'image' 
+            ? `<img src="${review.media_url}" alt="Review media" loading="lazy">` 
+            : `<video controls src="${review.media_url}" loading="lazy"></video>`;
     }
-
     card.innerHTML = `
         <div class="review-header">
             <img src="${avatarUrl}" class="reviewer-avatar" alt="${review.reviewer_name || 'Reviewer'}">
@@ -1696,226 +1127,52 @@ function createReviewCard(review) {
             </div>
         </div>
         ${review.content ? `<p class="review-content-text">${review.content}</p>` : ''}
-        ${mediaElement ? `<div class="review-media">${mediaElement}</div>` : ''}
-    `;
+        ${mediaElement ? `<div class="review-media">${mediaElement}</div>` : ''}`;
     return card;
-}
+  }
 
-async function displayReviews() {
+  async function displayReviews() {
     const container = document.getElementById('reviewsListContainer');
-    if (!container) { console.error("Reviews container not found."); return; }
-
+    if (!container) return;
     const reviews = await fetchReviews();
-    if (!reviews || reviews.length === 0) {
+    if (reviews.length === 0) {
         container.innerHTML = '<p class="text-center text-gray-600 py-10 px-4 w-full">No reviews yet. Be the first to share your experience!</p>';
         return;
     }
-    container.innerHTML = ''; // Clear loading/fallback
+    container.innerHTML = '';
     reviews.forEach(review => container.appendChild(createReviewCard(review)));
     setupHorizontalScroll('reviewsListContainer', 'reviewsNav');
+  }
 
-    // --- AUTOSCROLL ACTIVATION FOR REVIEWS ---
-    clearInterval(reviewsScrollInterval); // Clear previous interval
-    reviewsScrollInterval = startAutoscroll(container, 4500); // Start new one
-
-    // Removed mouseenter/mouseleave for autoscroll pause for reviews as well
-    // container.addEventListener('mouseenter', () => clearInterval(reviewsScrollInterval));
-    // container.addEventListener('mouseleave', () => {
-    //     clearInterval(reviewsScrollInterval);
-    //     reviewsScrollInterval = startAutoscroll(container, 4500);
-    // });
-}
-
-
-
-  // --- Generic Horizontal Scroll Setup ---
+  // Generic Horizontal Scroll
   function setupHorizontalScroll(containerId, navId) {
     const container = document.getElementById(containerId);
     const navElement = document.getElementById(navId);
-
-    if (!container || !navElement) {
-      console.warn(`Container or Nav not found for ${containerId}/${navId}`);
+    if (!container || !navElement || container.children.length < 2) {
+      if(navElement) navElement.innerHTML = '';
       return;
     }
-    // Check if container has children, otherwise no need for nav
-    if (container.children.length <=1 && !(container.children[0] && container.children[0].classList.contains('service-block') || container.children[0].classList.contains('review-card-horizontal'))) {
-        navElement.innerHTML = ''; // Clear nav if no real items
-        return;
-    }
-
-
     navElement.innerHTML = `
       <button aria-label="Previous" class="scroll-prev"><i class="fas fa-chevron-left"></i></button>
-      <button aria-label="Next" class="scroll-next"><i class="fas fa-chevron-right"></i></button>
-    `;
+      <button aria-label="Next" class="scroll-next"><i class="fas fa-chevron-right"></i></button>`;
     const prevBtn = navElement.querySelector('.scroll-prev');
     const nextBtn = navElement.querySelector('.scroll-next');
 
-    function updateNavButtons() {
-      if (!container.firstChild || !prevBtn || !nextBtn) return; // Ensure elements exist
-      const itemWidth = container.firstChild.offsetWidth || 300; // Approx item width
-      const scrollThreshold = 10; // Small threshold
-
-      prevBtn.disabled = container.scrollLeft <= scrollThreshold;
-      nextBtn.disabled = container.scrollLeft >= (container.scrollWidth - container.clientWidth - scrollThreshold);
+    function updateNav() {
+      prevBtn.disabled = container.scrollLeft < 10;
+      nextBtn.disabled = container.scrollLeft >= (container.scrollWidth - container.clientWidth - 10);
     }
-
-    prevBtn.addEventListener('click', () => {
-      const itemWidth = container.firstChild.offsetWidth || 320; // Use first child's width + gap
-      container.scrollBy({ left: -(itemWidth + 32), behavior: 'smooth' }); // 32 is gap (2rem)
-    });
-    nextBtn.addEventListener('click', () => {
-      const itemWidth = container.firstChild.offsetWidth || 320;
-      container.scrollBy({ left: (itemWidth + 32), behavior: 'smooth' });
-    });
-
-    // Debounce or throttle resize/scroll listeners if performance becomes an issue
-    let scrollTimeout;
-    container.addEventListener('scroll', () => {
-        clearTimeout(scrollTimeout);
-        scrollTimeout = setTimeout(updateNavButtons, 50); // Update after scroll settles
-    });
-    window.addEventListener('resize', updateNavButtons);
-    
-    // Initial check and update after items are potentially loaded
-    setTimeout(updateNavButtons, 200); // Small delay to allow layout to settle
+    prevBtn.addEventListener('click', () => container.scrollBy({ left: -(container.firstChild.offsetWidth + 32), behavior: 'smooth' }));
+    nextBtn.addEventListener('click', () => container.scrollBy({ left: (container.firstChild.offsetWidth + 32), behavior: 'smooth' }));
+    container.addEventListener('scroll', () => requestAnimationFrame(updateNav));
+    window.addEventListener('resize', updateNav);
+    setTimeout(updateNav, 200);
   }
 
-    const scrollContainer = document.querySelector('.service-scroll-container');
-    const serviceScroll = document.querySelector('.service-scroll');
-    
-    // The hero section's autoscroll is handled by its specific animation, not the general autoscroll function
-    // So keep this one as it is or remove if it's no longer desired for the hero section.
-    // As per the request, this affects the hero section's autoscroll.
-    // If you want the hero scroll to ALSO only stop on dropdown click, you'd need dropdowns in hero cards
-    // or modify this logic to be part of the general autoscroll system.
-    // For now, removing this to keep hero scrolling unless specific interaction is added.
-    /*
-    scrollContainer.addEventListener('mouseenter', () => {
-      serviceScroll.style.animationPlayState = 'paused';
-    });
-    
-    scrollContainer.addEventListener('mouseleave', () => {
-      serviceScroll.style.animationPlayState = 'running';
-    });
-    */
-    
-
-  // --- DOMContentLoaded ---
-  document.addEventListener('DOMContentLoaded', () => {
-    displayServices();
-    displayReviews();
-
-    // MODIFICATION: Logic to duplicate hero service cards for infinite scroll
-    if (serviceScroll) {
-      const originalCards = serviceScroll.querySelectorAll('.service-card');
-      
-      // Duplicate cards for seamless loop
-      originalCards.forEach(card => {
-        const clone = card.cloneNode(true);
-        clone.removeAttribute('data-aos'); // remove animation attributes from clones
-        serviceScroll.appendChild(clone);
-      });
-    }
-
-  if (navigator.serviceWorker) {
-    navigator.serviceWorker.getRegistrations().then(registrations => {
-      registrations.forEach(reg => reg.unregister())
-    });
-  }
-    // MODIFICATION: Moved click handler here to apply to original AND cloned cards
-    document.querySelectorAll('.service-card').forEach(card => {
-        card.addEventListener('click', function(event) {
-        // Check if the click target is a plan selector or a button
-        if (event.target.matches('.plan-select') || event.target.matches('.details-btn') || event.target.matches('.enroll-btn')) {
-            // Do nothing, let the specific element's handler take over
-            return;
-        }
-        const serviceTitle = this.querySelector('h3').textContent;
-        // The click should still just go to the main services section
-        window.location.hash = '#services';
-        });
-    });
-        // CAROUSEL FUNCTIONALITY
-    document.addEventListener('DOMContentLoaded', function() {
-      const slides = document.querySelectorAll('.carousel-slide');
-      const dots = document.querySelectorAll('.nav-dot');
-      const prevArrow = document.querySelector('.arrow-left');
-      const nextArrow = document.querySelector('.arrow-right');
-      
-      let currentSlide = 0;
-      const slideCount = slides.length;
-      
-      // Function to show a specific slide
-      function showSlide(index) {
-        // Hide all slides
-        slides.forEach(slide => {
-          slide.classList.remove('active');
-        });
-        
-        // Remove active class from all dots
-        dots.forEach(dot => {
-          dot.classList.remove('active');
-        });
-        
-        // Show the selected slide
-        slides[index].classList.add('active');
-        
-        // Activate the corresponding dot
-        dots[index].classList.add('active');
-        
-        currentSlide = index;
-      }
-      
-      // Next slide function
-      function nextSlide() {
-        let nextIndex = (currentSlide + 1) % slideCount;
-        showSlide(nextIndex);
-      }
-      
-      // Previous slide function
-      function prevSlide() {
-        let prevIndex = (currentSlide - 1 + slideCount) % slideCount;
-        showSlide(prevIndex);
-      }
-      
-      // Auto-rotate slides every 5 seconds
-      let slideInterval = setInterval(nextSlide, 5000);
-      
-      // Event listeners for arrows
-      prevArrow.addEventListener('click', function() {
-        clearInterval(slideInterval);
-        prevSlide();
-        slideInterval = setInterval(nextSlide, 5000);
-      });
-      
-      nextArrow.addEventListener('click', function() {
-        clearInterval(slideInterval);
-        nextSlide();
-        slideInterval = setInterval(nextSlide, 5000);
-      });
-      
-      // Event listeners for dots
-      dots.forEach(dot => {
-        dot.addEventListener('click', function() {
-          clearInterval(slideInterval);
-          const slideIndex = parseInt(this.getAttribute('data-slide'));
-          showSlide(slideIndex);
-          slideInterval = setInterval(nextSlide, 5000);
-        });
-      });
-      
-      // Pause auto-rotation when hovering over carousel
-      const carousel = document.querySelector('.carousel-container');
-      carousel.addEventListener('mouseenter', function() {
-        clearInterval(slideInterval);
-      });
-      
-      carousel.addEventListener('mouseleave', function() {
-        slideInterval = setInterval(nextSlide, 5000);
-      });
-    });
-  });
+  // Initial data fetch
+  displayServices();
+  displayReviews();
+});
 </script>
 </body>
 </html>
