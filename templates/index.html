@@ -404,10 +404,137 @@
       white-space: nowrap;
     }
 
+/* Mobile Menu Styles */
+#mobileMenu {
+  display: none;
+  position: fixed;
+  top: 80px;
+  left: 0;
+  right: 0;
+  background: rgba(31, 41, 55, 0.98);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 1000;
+  max-height: calc(100vh - 80px);
+  overflow-y: auto;
+  transition: all 0.3s ease;
+}
+
+#mobileMenu a, #mobileMenu button {
+  display: block;
+  width: 100%;
+  padding: 15px 20px;
+  color: white;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: background 0.3s;
+}
+
+#mobileMenu a:hover, #mobileMenu button:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+#mobileMenu .hidden {
+  display: none;
+}
+
+/* Submenu items */
+#mobileMenu div div {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+#mobileMenu div div a {
+  padding-left: 30px;
+  font-size: 0.9rem;
+}
+
+@media (min-width: 768px) {
+  #mobileMenuButton, #mobileMenu {
+    display: none !important;
+  }
+}
+
+/* Hero Section Mobile Fixes */
+@media (max-width: 768px) {
+  .hero {
+    height: auto;
+    min-height: 100vh;
+    margin-top: 70px;
+  }
+  
+  .slide-content {
+    max-width: 100%;
+    padding: 20px;
+    margin: 120px auto 0;
+    text-align: center;
+  }
+  
+  .slide-content h2 {
+    font-size: 1.8rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  .slide-content p {
+    font-size: 1rem;
+    margin-bottom: 1.2rem;
+  }
+  
+  .benefits-grid {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+  }
+  
+  .benefit-item {
+    justify-content: center;
+    padding: 0.5rem;
+  }
+  
+  .carousel-nav {
+    bottom: 15px;
+  }
+  
+  .carousel-arrow {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .arrow-left { left: 10px; }
+  .arrow-right { right: 10px; }
+}
+
+@media (max-width: 480px) {
+  .slide-content {
+    margin-top: 80px;
+  }
+  
+  .slide-content h2 {
+    font-size: 1.5rem;
+  }
+  
+  .cta-button {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+}
     @keyframes scrollText {
       0% { transform: translateX(0); }
       100% { transform: translateX(-100%); }
     }
+
+    @media (max-width: 768px) {
+  header {
+    padding: 0.5rem 1rem;
+  }
+  
+  .relative.w-16.h-16 {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .text-xl.md\\:text-3xl {
+    font-size: 1.25rem;
+  }
+}
   </style>
 </head>
 <body class="bg-gradient-to-br from-green-100 via-blue-50 to-purple-100 text-gray-800">
@@ -432,12 +559,13 @@
           </a>
           <div class="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-60 bg-white text-gray-800 rounded-md shadow-xl opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300 invisible group-hover:visible z-50 py-1">
           <a href="{{ url_for('services') }}#gentle-reset" class="block px-4 py-2 hover:text-green-600 transition duration-200">Gental Detox Cleanse</a>
-          <a href="{{ url_for('services') }}#metabolic-harmony" class="block px-4 py-2 hover:text-green-600 transition duration-200">Diabetes Support Plan</a>
-          <a href="{{ url_for('services') }}#blood-sugar" class="block px-4 py-2 hover:text-green-600 transition duration-200">Thyroid Balance Therapy</a>
-          <a href="{{ url_for('services') }}#thyroid" class="block px-4 py-2 hover:text-green-600 transition duration-200">Digestive Wellness Plan</a>
-          <a href="{{ url_for('services') }}#gut-healing" class="block px-4 py-2 hover:text-green-600 transition duration-200">Menopausal management</a>
-          <a href="{{ url_for('services') }}#monopause" class="block px-4 py-2 hover:text-green-600 transition duration-200">Acupuncture therapy</a>
-          <a href="{{ url_for('services') }}#mindful-nourishment" class="block px-4 py-2 hover:text-green-600 transition duration-200">Healthy Body Transformation</a>
+          <a href="{{ url_for('services') }}#metabolic-harmony" class="block px-4 py-2 hover:text-green-600 transition duration-200">Healthy Body Transformation</a>
+          <a href="{{ url_for('services') }}#blood-sugar" class="block px-4 py-2 hover:text-green-600 transition duration-200">Diabetes Support Plan</a>
+          <a href="{{ url_for('services') }}#thyroid" class="block px-4 py-2 hover:text-green-600 transition duration-200">Thyroid Balance Therapy</a>
+          <a href="{{ url_for('services') }}#gut-healing" class="block px-4 py-2 hover:text-green-600 transition duration-200">Digestive Wellness Plan</a>
+          <a href="{{ url_for('services') }}#monopause" class="block px-4 py-2 hover:text-green-600 transition duration-200">Menopausal management</a>
+          <a href="{{ url_for('services') }}#energy-flow" class="block px-4 py-2 hover:text-green-600 transition duration-200">Acupuncture therapy</a>
+          <a href="{{ url_for('services') }}#mindful-nourishment" class="block px-4 py-2 hover:text-green-600 transition duration-200">Pychological Councelling</a>
         </div>
         </div>
         <a href="{{ url_for('contact_get') }}" class="hover:text-green-400 relative group">Contact <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-green-400 transition-all duration-300 group-hover:w-full"></span></a>
@@ -926,6 +1054,19 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   }
+
+document.querySelectorAll('#mobileMenu button').forEach(button => {
+  button.addEventListener('click', function() {
+    const submenu = this.nextElementSibling;
+    if (submenu) {
+      submenu.classList.toggle('hidden');
+      const icon = this.querySelector('svg');
+      if (icon) {
+        icon.classList.toggle('rotate-180');
+      }
+    }
+  });
+});
 
   // Set current year in footer
   document.getElementById('currentYear').textContent = new Date().getFullYear();
