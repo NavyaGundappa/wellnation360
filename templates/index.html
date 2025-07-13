@@ -208,17 +208,91 @@
     .yogakshema-highlight { z-index: 0; filter: blur(6px); opacity: 0.8; }
     
     /* --- HERO SECTION STYLES --- */
-    .hero {
-      height: 90vh;
-      min-height: 600px; 
-      width: 100%;
-      position: relative;
-      overflow: hidden;
-      margin: 0;
-      padding: 0;
-      background-color: #f8f9fa; /* Fallback color */
-      margin-top: 80px; /* Space for fixed header */
-    }
+  
+/* Updated Hero Section Styles */
+.hero {
+  height: 90vh;
+  min-height: 600px;
+  max-height: 800px; /* Added max-height for larger screens */
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f9fa;
+  margin-top: 80px;
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 768px) {
+  .hero {
+    height: auto;
+    min-height: 400px; /* Reduced min-height for mobile */
+    max-height: 500px; /* Smaller max-height for mobile */
+    margin-top: 70px;
+  }
+  
+  .slide-content {
+    max-width: 100%;
+    padding: 20px;
+    margin: 80px auto 0; /* Reduced top margin for mobile */
+    text-align: center;
+  }
+  
+  .slide-content h2 {
+    font-size: 1.8rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  .slide-content p {
+    font-size: 1rem;
+    margin-bottom: 1.2rem;
+  }
+  
+  .benefits-grid {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+    gap: 0.5rem;
+  }
+  
+  .benefit-item {
+    justify-content: center;
+    padding: 0.5rem;
+    font-size: 0.9rem;
+  }
+  
+  .carousel-nav {
+    bottom: 15px;
+  }
+  
+  .carousel-arrow {
+    width: 40px;
+    height: 40px;
+    font-size: 0.8rem;
+  }
+  
+  .arrow-left { left: 10px; }
+  .arrow-right { right: 10px; }
+}
+
+@media (max-width: 480px) {
+  .slide-content {
+    margin-top: 60px;
+  }
+  
+  .slide-content h2 {
+    font-size: 1.5rem;
+  }
+  
+  .cta-button {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+  
+  .benefit-item i {
+    font-size: 1.2rem;
+  }
+}7
 
     .hero-carousel {
       height: 100%;
@@ -554,7 +628,7 @@
         <a href="{{ url_for('about') }}" class="hover:text-green-400 relative group">About <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-green-400 transition-all duration-300 group-hover:w-full"></span></a>
         <a href="{{ url_for('gallery') }}" class="hover:text-green-400 relative group">Gallery <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-green-400 transition-all duration-300 group-hover:w-full"></span></a>
         <div class="relative group">
-          <a href="{{ url_for('services') }}" class="hover:text-green-400 flex items-center gap-1">Services
+          <a href="{{ url_for('index') }}#services" class="hover:text-green-400 flex items-center gap-1">Services
             <svg class="w-4 h-4 transition-transform duration-200 group-hover:rotate-180" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.939l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clip-rule="evenodd"/></svg>
           </a>
           <div class="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-60 bg-white text-gray-800 rounded-md shadow-xl opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300 invisible group-hover:visible z-50 py-1">
@@ -609,7 +683,7 @@
 <section id="home" class="hero">
     <div class="hero-carousel">
         <div class="carousel-container"> 
-            <div class="carousel-slide active" style="background-image: url('static/images/detox_hero.jpg'); background-color: #333;">
+            <div class="carousel-slide active" style="background-image: url('static/images/Detox_hero.jpg'); background-color: #333;">
                 <div class="slide-content">
                     <h2>Revitalize Your Body with Our Detox Program</h2>
                     <p>Experience a complete body reset with our science-backed 14-day detox program.</p>
@@ -878,7 +952,7 @@
       </div>
   </section>
 
-  <section class="py-16 bg-gray-50">
+<section class="py-16 bg-gray-50">
   <div class="max-w-4xl mx-auto px-4">
     <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-12">Frequently Asked Questions</h2>
     
@@ -899,7 +973,7 @@
       
       <div class="bg-white rounded-xl shadow-md overflow-hidden">
         <button class="faq-question w-full text-left px-6 py-4 flex justify-between items-center focus:outline-none">
-          <h3 class="text-lg font-semibold text-gray-800">What is Yogakshema and how is it related?</h3>
+          <h3 class="text-lg font-semibold text-gray-800">What is Yogakshema and how is it related to wellnation360?</h3>
           <svg class="w-5 h-5 text-green-600 transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
           </svg>
@@ -921,10 +995,25 @@
         <div class="faq-answer px-6 pb-4 hidden">
           <p class="text-gray-600">
             You can reach us through multiple channels:<br><br>
-            - <strong>Wellnation360:</strong> Call +91 9341444968 or email wellnation360@gmail.com<br>
+            - <strong>Wellnation360:</strong> Call +91 9945186968 or email wellnation360@gmail.com<br>
             - <strong>Yogakshema:</strong> Visit <a href="http://yoga-kshema.in" class="text-green-600 hover:underline" target="_blank">yoga-kshema.in</a><br>
-            - <strong>Location:</strong> Kasavanahalli, Bangalore 560035<br>
+            - <strong>Location:</strong> Wellnation360 & Yogakshema, Kasavanahalli, Bangalore 560035<br>
             - <strong>Social Media:</strong> Links in our footer
+          </p>
+        </div>
+      </div>
+
+      <!-- New FAQ Item Added Here -->
+      <div class="bg-white rounded-xl shadow-md overflow-hidden">
+        <button class="faq-question w-full text-left px-6 py-4 flex justify-between items-center focus:outline-none">
+          <h3 class="text-lg font-semibold text-gray-800">Can I do the programs online?</h3>
+          <svg class="w-5 h-5 text-green-600 transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+        <div class="faq-answer px-6 pb-4 hidden">
+          <p class="text-gray-600">
+            Yes! We offer online consultations and programs for those who cannot visit in person. Our nutrition counseling, yoga sessions, and wellness coaching can all be conducted virtually through video calls. Only certain therapies like acupuncture require in-person visits.
           </p>
         </div>
       </div>
@@ -1001,15 +1090,15 @@
           <div class="text-sm leading-relaxed space-y-3">
             <div class="flex items-center justify-center md:justify-start gap-2 hover:text-green-400 transition-colors duration-200">
               <i class="fas fa-map-marker-alt text-green-400 text-base w-5 text-center"></i>
-              <a href="https://maps.google.com/?q=Kasavanahalli,Bangalore,560035" target="_blank" rel="noopener noreferrer" class="hover:underline">Kasavanahalli, Bangalore 560035</a>
+              <a href="https://www.google.com/maps/place/Wellnation360+and+Yogakshema/@12.9001441,77.6561143,15z/data=!3m1!4b1!4m6!3m5!1s0x3bae1340f6cdbabf:0x3b40ff97221cbb19!8m2!3d12.9001238!4d77.6745684!16s%2Fg%2F11xmgn8tx9?entry=ttu&g_ep=EgoyMDI1MDYzMC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" class="hover:underline">Wellnation360 & Yogakshema, Kasavanahalli, Bangalore 560035</a>
             </div>
             <div class="flex items-center justify-center md:justify-start gap-2 hover:text-green-400 transition-colors duration-200">
               <i class="fas fa-phone-alt text-green-400 text-base w-5 text-center"></i>
-              <a href="tel:+919341444968" class="hover:underline">+91 9341444968</a>
+              <a href="tel:+919945186968" class="hover:underline">+91 9945186968</a>
             </div>
              <div class="flex items-center justify-center md:justify-start gap-2 hover:text-green-400 transition-colors duration-200">
               <i class="fas fa-envelope text-green-400 text-base w-5 text-center"></i>
-              <a href="mailto:wellnation360@gmail.com" class="hover:underline"> wellnation360@gmail.com</a>
+              <a href="https://mail.google.com/mail/?view=cm&fs=1&to=Wellnation360@gmail.com" class="hover:underline"> wellnation360@gmail.com</a>
             </div>
           </div>
         </div>
@@ -1018,7 +1107,7 @@
           <div class="flex justify-center md:justify-start space-x-5">
             <a href="https://www.instagram.com/healholistically_wellnation360?igsh=b3NwdWFjamEyd3Q5" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="text-2xl hover:text-pink-500 transition-colors duration-200"><i class="fab fa-instagram"></i></a>
             <a href="https://youtube.com/@wellnation3603?si=4kRF5qbO-v8UrAw5" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="text-2xl hover:text-red-500 transition-colors duration-200"><i class="fab fa-youtube"></i></a>
-            <a href="https://facebook.com/wellnation360" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="text-2xl hover:text-blue-600 transition-colors duration-200"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.facebook.com/people/Wellnation360/100063911838416/?rdid=50XcnV4ONiKnTt7s&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1CPqvRX7jP%2F" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="text-2xl hover:text-blue-600 transition-colors duration-200"><i class="fab fa-facebook"></i></a>
           </div>
            <p class="text-xs mt-6 text-gray-400">Stay connected for wellness tips, updates, and community events.</p>
         </div>
@@ -1027,7 +1116,7 @@
   </footer>
 
   <div class="fixed bottom-8 right-8 z-50 group">
-    <a href="https://wa.me/919341444968?text=Hello%20Wellnation360,%20I'd%20like%20to%20inquire%20about%20your%20services." target="_blank" class="flex items-center gap-2 bg-white pl-3 pr-2 py-2 rounded-full shadow-lg border border-gray-200 hover:pr-3 transition-all duration-300">
+    <a href="https://wa.me/919945186968?text=Hello%20Wellnation360,%20I'd%20like%20to%20inquire%20about%20your%20services." target="_blank" class="flex items-center gap-2 bg-white pl-3 pr-2 py-2 rounded-full shadow-lg border border-gray-200 hover:pr-3 transition-all duration-300">
       <span class="opacity-0 group-hover:opacity-100 w-0 group-hover:w-auto overflow-hidden transition-all duration-300 text-sm font-medium">Let's chat!</span>
       <img src="{{ url_for('static', filename='images/whatsapp.png') }}" alt="WhatsApp" class="w-10 h-10 lazy-load" loading="lazy">
     </a>

@@ -432,16 +432,16 @@ def delete_gallery_item(id):
 # Create default admin user if not exists
 with app.app_context():
     if not User.query.first():
-        hashed_password = generate_password_hash('admin123')
+        hashed_password = generate_password_hash('wellnation@360')
         default_user = User(
-            username='admin',
-            email='admin@wellness.com',
+            username='wellnation360',
+            email='wellnation360@gmail.com',
             password=hashed_password,
             profile_pic=None
         )
         db.session.add(default_user)
         db.session.commit()
-        print("Default admin user created - username: admin, password: 123")
+        print("Default admin user created - username: wellnation360, password: wellnation@360")
 
 #===============================================User End===================================================
 
@@ -529,7 +529,7 @@ def index():
             "plans": plans_list_for_json, # Pass all plans
             "display_price": display_price_info # Pass the formatted price for the card
         })
-    return render_template('index.html', services_data=services_data)
+    return render_template('index1.html', services_data=services_data)
 
 @app.route("/dummy")
 def dummy():
@@ -890,6 +890,8 @@ def book_service():
         return jsonify({
             "error": "An unexpected error occurred. Please try again later."
         }), 500
+
+    
 
 if __name__ == '__main__':
     app.run(debug=True, port=5003)

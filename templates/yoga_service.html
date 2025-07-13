@@ -282,7 +282,7 @@
         <div class="absolute top-full left-0 mt-2 w-64 bg-white text-black rounded-md shadow-lg opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300 invisible group-hover:visible z-50" id="services-dropdown-menu">
         </div>
       </div>
-      <a href="#reviews" class="hover:text-green-300">Reviews</a>
+      <a href="{{ url_for('yogakshema') }}#reviews" class="hover:text-green-300">Reviews</a>
       <a href="{{ url_for('contact_get') }}" class="hover:text-green-300">Contact</a>
     </nav>
 
@@ -290,7 +290,7 @@
       <a href="{{ url_for('index') }}" class="block py-2 text-white hover:text-green-300">Home</a>
       <a href="{{ url_for('about') }}" class="block py-2 text-white hover:text-green-300">About</a>
       <a href="{{ url_for('yoga_service') }}" class="block py-2 text-white hover:text-green-300">Services</a>
-      <a href="#reviews" class="block py-2 text-white hover:text-green-300">Reviews</a>
+      <a href="{{ url_for('yogakshema') }}#reviews" class="block py-2 text-white hover:text-green-300">Reviews</a>
       <a href="{{ url_for('contact_get') }}" class="block py-2 text-white hover:text-green-300">Contact</a>
     </div>
   </header>
@@ -330,24 +330,24 @@
           <div class="text-sm leading-relaxed space-y-3">
             <div class="flex items-center justify-center md:justify-start gap-2 hover:text-green-400 transition-colors duration-200">
               <i class="fas fa-map-marker-alt text-green-400 text-base w-5 text-center"></i>
-              <a href="https://maps.google.com/?q=Kasavanahalli,Bangalore,560035" target="_blank" rel="noopener noreferrer" class="hover:underline">Kasavanahalli, Bangalore 560035</a>
+              <a href="https://www.google.com/maps/place/Wellnation360+and+Yogakshema/@12.9001441,77.6561143,15z/data=!3m1!4b1!4m6!3m5!1s0x3bae1340f6cdbabf:0x3b40ff97221cbb19!8m2!3d12.9001238!4d77.6745684!16s%2Fg%2F11xmgn8tx9?entry=ttu&g_ep=EgoyMDI1MDYzMC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" class="hover:underline">Wellnation360 & Yogakshema, Kasavanahalli, Bangalore 560035</a>
             </div>
             <div class="flex items-center justify-center md:justify-start gap-2 hover:text-green-400 transition-colors duration-200">
               <i class="fas fa-phone-alt text-green-400 text-base w-5 text-center"></i>
-              <a href="tel:+919341444968" class="hover:underline">+91 9341444968</a>
+              <a href="tel:+919945186968" class="hover:underline">+91 9945186968</a>
             </div>
              <div class="flex items-center justify-center md:justify-start gap-2 hover:text-green-400 transition-colors duration-200">
               <i class="fas fa-envelope text-green-400 text-base w-5 text-center"></i>
-              <a href="mailto:wellnation360@gmail.com" class="hover:underline"> wellnation360@gmail.com</a>
+              <a href="https://mail.google.com/mail/?view=cm&fs=1&to=Wellnation360@gmail.com" class="hover:underline"> wellnation360@gmail.com</a>
             </div>
           </div>
         </div>
         <div>
           <h4 class="text-lg font-semibold mb-4 text-white">Follow Us</h4>
           <div class="flex justify-center md:justify-start space-x-5">
-            <a href="https://www.instagram.com/healholistically_wellnation360?igsh=b3NwdWFjamEyd3Q5" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="text-2xl hover:text-pink-500 transition-colors duration-200"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.instagram.com/yogakshema_wellnation360?igsh=MWtid2c4eWgwOWU2Mw%3D%3D" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="text-2xl hover:text-pink-500 transition-colors duration-200"><i class="fab fa-instagram"></i></a>
             <a href="https://youtube.com/@wellnation3603?si=4kRF5qbO-v8UrAw5" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="text-2xl hover:text-red-500 transition-colors duration-200"><i class="fab fa-youtube"></i></a>
-            <a href="https://facebook.com/wellnation360" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="text-2xl hover:text-blue-600 transition-colors duration-200"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.facebook.com/people/Wellnation360/100063911838416/?rdid=50XcnV4ONiKnTt7s&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1CPqvRX7jP%2F" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="text-2xl hover:text-blue-600 transition-colors duration-200"><i class="fab fa-facebook"></i></a>
           </div>
            <p class="text-xs mt-6 text-gray-400">Stay connected for wellness tips, updates, and community events.</p>
         </div>
@@ -356,7 +356,7 @@
   </footer>
 
     <div class="fixed bottom-8 right-8 z-50 group">
-         <a href="https://wa.me/919341444968?text=Hello%20Wellnation360,%20I'd%20like%20to%20inquire%20about%20your%20services." target="_blank" class="flex items-center gap-2 bg-white pl-3 pr-2 py-2 rounded-full shadow-lg border border-gray-200 hover:pr-3 transition-all duration-300">
+         <a href="https://wa.me/919945186968?text=Hello%20Wellnation360,%20I'd%20like%20to%20inquire%20about%20your%20services." target="_blank" class="flex items-center gap-2 bg-white pl-3 pr-2 py-2 rounded-full shadow-lg border border-gray-200 hover:pr-3 transition-all duration-300">
             <span class="opacity-0 group-hover:opacity-100 w-0 group-hover:w-auto overflow-hidden transition-all duration-300 text-sm font-medium">Let's chat!</span>
             <img src="{{ url_for('static', filename='images/whatsapp.png') }}" alt="WhatsApp" class="w-10 h-10 lazy-load" loading="lazy">
         </a>
@@ -380,33 +380,43 @@
                 id: "hatha-yoga",
                 image: "static/images/hathayoga.webp",
                 name: "Hatha Yoga",
-                instructor: "Yoga Instructor",
-                description: "Experience the foundational practice of Hatha Yoga, focusing on slow and controlled movements, traditional asanas, and breathwork to build strength, flexibility, and inner peace. This practice is ideal for beginners and those seeking a gentle yet profound yoga experience.",
+                instructor: "Teebabriah",
+                description: "Balance your breath and body with the classical practice of Hatha Yoga, focusing on steady postures, deep breathing, and mindfulness to enhance strength, flexibility, and inner calm.",
                 benefits: [
-                    "Improved flexibility and strength",
-                    "Stress reduction and mental clarity",
-                    "Better posture and body alignment",
-                    "Enhanced breath awareness and control"
+                    "Boosts flexibility and posture",
+                    "Improves breathing and relaxation",
+                    "Builds foundational strength and awareness"
                 ]
             },
             {
                 id: "aerial-yoga",
-                image: "static/images/aerialyoga.jpg",
+                image: "static/images/aerial_yoga.jpg",
                 name: "Aerial Yoga",
-                instructor: "Aerial Yoga Instructor",
-                description: "Defy gravity and explore a unique yoga experience with Aerial Yoga. Using soft fabric hammocks, this practice allows for deeper stretches, spinal decompression, and playful inversions. It's a fun way to improve strength, flexibility, and balance.",
+                instructor: "Teebabriah",
+                description: "Defy gravity and elevate your soul as you flow through suspended sequences that improve balance, core control, and spine decompression — all while having fun in the air!",
                 benefits: [
-                    "Spinal decompression and pain relief",
-                    "Increased flexibility and balance",
-                    "Core strength development and body awareness",
-                    "Fun and creative movement with anti-gravity benefits"
+                    "Increases spinal health and core strength",
+                    "Enhances flexibility through deeper stretches",
+                    "Reduces joint pressure and boosts mood"
+                ]
+            },
+            {
+                id: "theraphy-yoga",
+                image: "static/images/Theraphyyoga.jpg",
+                name: "Therapy Yoga",
+                instructor: "Teebabriah",
+                description: "Heal through movement. Personalized for physical, emotional, or chronic conditions, Therapy Yoga offers a gentle yet effective path to recovery, mobility, and inner peace.",
+                benefits: [
+                    "Supports injury recovery and pain relief",
+                    "Improves joint mobility and circulation",
+                    "Aids in emotional release and mental clarity"
                 ]
             },
             {
                 id: "chakra-meditation",
-                image: "static/images/chakrameditaion.jpg",
+                image: "static/images/chakrayoga.jpg",
                 name: "Chakra Meditation",
-                instructor: "Meditation Guide",
+                instructor: "Teebabriah",
                 description: "Balance your energy centers with guided Chakra Meditation. This practice focuses on aligning and activating your seven chakras, promoting emotional well-being, spiritual growth, and a deeper connection to your inner self.",
                 benefits: [
                     "Energy balance and vitality",
@@ -416,16 +426,75 @@
                 ]
             },
             {
-                id: "yoga-arthritis",
-                image: "static/images/athrits.jpg",
-                name: "Yoga for Arthritis & More",
-                instructor: "Therapeutic Yoga Specialist",
-                description: "Gentle and therapeutic yoga sessions designed to alleviate symptoms of arthritis and other conditions. Focuses on gentle movements, joint mobility, and pain management through mindful practice, tailored to individual needs.",
+                id: "senior-citizen-yoga",
+                image: "static/images/seniorcitizenyoga.png",
+                name: "Senior Citizen Yoga",
+                instructor: "Teebabriah",
+                description: "Move with grace and confidence. This gentle yoga is tailored for seniors, helping to improve balance, joint mobility, and overall wellness in a safe, supportive way.",
                 benefits: [
-                    "Improved joint flexibility and range of motion",
-                    "Reduced pain and stiffness in affected areas",
-                    "Increased strength and balance, improving daily function",
-                    "Enhanced quality of life through mindful movement"
+                    "Improves flexibility and bone strength",
+                    "Enhances balance to prevent falls",
+                    "Supports cardiovascular and mental health"
+                ]
+            },
+            {
+                id: "pregnancy-yoga",
+                image: "static/images/Pregnancyyoga.png",
+                name: "Pregnancy Yoga",
+                instructor: "Teebabriah",
+                description: "Nurture your body and baby. Safe, soothing, and strengthening — Pregnancy Yoga supports you through all trimesters with breathwork, gentle movement, and emotional connection.",
+                benefits: [
+                    "Eases pregnancy discomforts and back pain",
+                    "Prepares body and mind for childbirth",
+                    "Enhances bonding with the baby"
+                ]
+            },
+            {
+                id: "chair-yoga",
+                image: "static/images/chairyoga.png",
+                name: "Chair Yoga",
+                instructor: "Teebabriah",
+                description: "Yoga for everyone, everywhere. Perfect for those with limited mobility, Chair Yoga allows you to enjoy the benefits of yoga while seated or with support.",
+                benefits: [
+                    "Improves joint mobility and blood flow",
+                    "Relieves stiffness and tension",
+                    "Encourages mindfulness and relaxation"
+                ]
+            },
+            {
+                id: "Props-yoga",
+                image: "static/images/propsyoga.png",
+                name: "Props Yoga",
+                instructor: "Teebabriah",
+                description: "Deepen your practice with mindful support. Using blocks, straps, bolsters, and more — Props Yoga refines alignment, reduces strain, and makes postures accessible for all.",
+                benefits: [
+                    "Enhances posture precision and depth",
+                    "Reduces risk of injury",
+                    "Ideal for beginners and therapeutic needs"
+                ]
+            },
+            {
+                id: "power-yoga",
+                image: "static/images/power-yoga.png",
+                name: "Power Yoga",
+                instructor: "Teebabriah",
+                description: "Unleash your inner fire with this dynamic, fast-paced style designed to build stamina, detoxify, and tone your entire body while calming your mind.",
+                benefits: [
+                    "Boosts metabolism and cardiovascular health",
+                    "Builds lean muscle and endurance",
+                    "Improves focus, resilience, and energy"
+                ]
+            },
+            {
+                id: "workshop",
+                image: "static/images/workshop.png",
+                name: "Workshops & Special Programs",
+                instructor: "Therapeutic Yoga Specialist",
+                description: "Transform knowledge into experience. Our workshops dive deep into themes like mindfulness, inversions, backbends, or detox — perfect for both beginners and seasoned yogis looking to grow.",
+                benefits: [
+                    "Learn new techniques and deepen practice",
+                    "Interactive sessions with hands-on guidance",
+                    "Builds community, confidence, and consistency"
                 ]
             }
       ];
