@@ -5,7 +5,6 @@
 
 {% block content %}
 <div class="d-flex justify-content-between mb-4">
-
     <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addReviewModal">
         <i class="bi bi-plus-circle"></i> Add Review
     </button>
@@ -18,9 +17,14 @@
             <div class="card-body">
                 <div class="d-flex align-items-center mb-3">
                     {% if review.reviewer_image %}
-                    <img src="{{ url_for('static', filename='uploads/' + review.reviewer_image) }}" class="review-img me-3" alt="{{ review.reviewer_name }}">
+                    <img src="{{ url_for('static', filename='uploads/' + review.reviewer_image) }}"
+                        class="review-img me-3" alt="{{ review.reviewer_name }}">
                     {% else %}
-                    <img src="https://via.placeholder.com/60" class="review-img me-3" alt="No image">
+                    <div class="avatar me-3"
+                        style="width: 60px; height: 60px; background-color: #{{ '%06x' % (review.id * 1000 % 0xffffff) }}; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.5rem;">
+                        {{ review.reviewer_name[0]|upper }}{% if review.reviewer_name.split()|length > 1 %}{{
+                        review.reviewer_name.split()[1][0]|upper }}{% endif %}
+                    </div>
                     {% endif %}
                     <div>
                         <h5 class="mb-1">{{ review.reviewer_name }}</h5>
@@ -32,23 +36,26 @@
                             <i class="bi bi-star"></i>
                             {% endfor %}
                         </div>
-                        <small class="text-muted">{{ review.platform }} • {{ review.created_at.strftime('%b %d, %Y') }}</small>
+                        <small class="text-muted">{{ review.platform }} • {{ review.created_at.strftime('%b %d, %Y')
+                            }}</small>
                     </div>
                 </div>
                 <p class="card-text">{{ review.content }}</p>
                 {% if review.media_path %}
-                    {% if review.media_type == 'image' %}
-                    <img src="{{ url_for('static', filename='uploads/' + review.media_path) }}" class="img-fluid rounded mb-3" alt="Review media">
-                    {% else %}
-                    <video controls class="img-fluid rounded mb-3">
-                        <source src="{{ url_for('static', filename='uploads/' + review.media_path) }}" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                    {% endif %}
+                {% if review.media_type == 'image' %}
+                <img src="{{ url_for('static', filename='uploads/' + review.media_path) }}"
+                    class="img-fluid rounded mb-3" alt="Review media">
+                {% else %}
+                <video controls class="img-fluid rounded mb-3">
+                    <source src="{{ url_for('static', filename='uploads/' + review.media_path) }}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                {% endif %}
                 {% endif %}
             </div>
             <div class="card-footer bg-transparent">
-                <a href="{{ url_for('delete_review', id=review.id) }}" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this review?')">
+                <a href="{{ url_for('delete_review', id=review.id) }}" class="btn btn-sm btn-danger"
+                    onclick="return confirm('Are you sure you want to delete this review?')">
                     <i class="bi bi-trash"></i> Delete
                 </a>
             </div>
@@ -82,7 +89,8 @@
                         </div>
                         <div class="col-md-12">
                             <label for="reviewer_image" class="form-label">Reviewer Image (Optional)</label>
-                            <input class="form-control" type="file" id="reviewer_image" name="reviewer_image" accept="image/*">
+                            <input class="form-control" type="file" id="reviewer_image" name="reviewer_image"
+                                accept="image/*">
                         </div>
                         <div class="col-md-6">
                             <label for="rating" class="form-label">Rating</label>
@@ -123,7 +131,7 @@
 
 {% block scripts %}
 <script>
-    document.getElementById('media_type').addEventListener('change', function() {
+    document.getElementById('media_type').addEventListener('change', function () {
         const mediaUploadContainer = document.getElementById('mediaUploadContainer');
         if (this.value) {
             mediaUploadContainer.style.display = 'block';

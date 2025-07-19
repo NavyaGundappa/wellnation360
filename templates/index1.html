@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,215 +10,504 @@
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
   <link rel="icon" href="static/images/logo1.png" type="image/x-icon">
   <title>WellNation360 | Your Complete Wellness & Health Companion</title>
-<meta name="description" content="Discover holistic health solutions, natural wellness tips, and premium health products at WellNation360. Your journey to better health starts here."/>
-<meta name="keywords" content="Wellness, Natural Health, Holistic Health, Health Products, Fitness, Nutrition, Mental Wellness, WellNation360"/>
-<meta name="author" content="WellNation360"/>
-<meta property="og:title" content="WellNation360 | Your Complete Wellness & Health Companion"/>
-<meta property="og:description" content="Explore holistic wellness solutions, expert health tips, and natural products for a healthier lifestyle."/>
-<meta property="og:type" content="website"/>
-<meta property="og:url" content=”https://wellnation360.com”/>
-<meta property="og:image" content=”https://wellnation360.com/static/images/logo1.png”/>
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="WellNation360 | Your Complete Wellness & Health Companion"/>
-<meta name="twitter:description" content="Natural wellness tips, holistic healing, and premium health solutions. Start your wellness journey with WellNation360."/>
-<meta name="twitter:image" content="https://wellnation360.com/static/images/logo1.png">
+  <meta name="description"
+    content="Discover holistic health solutions, natural wellness tips, and premium health products at WellNation360. Your journey to better health starts here." />
+  <meta name="keywords"
+    content="Wellness, Natural Health, Holistic Health, Health Products, Fitness, Nutrition, Mental Wellness, WellNation360" />
+  <meta name="author" content="WellNation360" />
+  <meta property="og:title" content="WellNation360 | Your Complete Wellness & Health Companion" />
+  <meta property="og:description"
+    content="Explore holistic wellness solutions, expert health tips, and natural products for a healthier lifestyle." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content=”https://wellnation360.com” />
+  <meta property="og:image" content=”https://wellnation360.com/static/images/logo1.png” />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="WellNation360 | Your Complete Wellness & Health Companion" />
+  <meta name="twitter:description"
+    content="Natural wellness tips, holistic healing, and premium health solutions. Start your wellness journey with WellNation360." />
+  <meta name="twitter:image" content="https://wellnation360.com/static/images/logo1.png">
   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    html, body {
+    html,
+    body {
       overflow-x: hidden;
       width: 100%;
       max-width: 100%;
       scroll-behavior: smooth;
     }
-.price-and-plans {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    margin-bottom: 1rem;
-}
 
-.cta-button {
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  padding: 12px 24px;
-  border-radius: 30px;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-}
+    .price-and-plans {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
 
-.cta-button:hover {
-  background-color: #3e8e41;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(0,0,0,0.3);
-}
+    .cta-button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 30px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
 
-.service-price {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #3b82f6;
-    text-align: center;
-    margin-top: 0.5rem;
-}
+    .cta-button:hover {
+      background-color: #3e8e41;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    }
 
-.plan-selector {
-    position: relative;
-    margin-bottom: 0.5rem;
-}
+    .service-price {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #3b82f6;
+      text-align: center;
+      margin-top: 0.5rem;
+    }
 
-.plan-selector select {
-    width: 100%;
-    padding: 8px 12px;
-    border-radius: 6px;
-    border: 1px solid #d1d5db;
-    background-color: #f9fafb;
-    appearance: none;
-    cursor: pointer;
-    font-size: 14px;
-}
+    .plan-selector {
+      position: relative;
+      margin-bottom: 0.5rem;
+    }
 
-.plan-selector::after {
-    content: "▼";
-    position: absolute;
-    right: 12px;
-    top: 50%;
-    transform: translateY(-50%);
-    pointer-events: none;
-    color: #6b7280;
-    font-size: 10px;
-}
+    .plan-selector select {
+      width: 100%;
+      padding: 8px 12px;
+      border-radius: 6px;
+      border: 1px solid #d1d5db;
+      background-color: #f9fafb;
+      appearance: none;
+      cursor: pointer;
+      font-size: 14px;
+    }
 
-.no-plans {
-    font-size: 0.85rem;
-    color: #6b7280;
-    margin-top: 8px;
-    font-style: italic;
-    text-align: center;
-}
-    .services-swiper { /* Hero Carousel */
+    .plan-selector::after {
+      content: "▼";
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      pointer-events: none;
+      color: #6b7280;
+      font-size: 10px;
+    }
+
+    .no-plans {
+      font-size: 0.85rem;
+      color: #6b7280;
+      margin-top: 8px;
+      font-style: italic;
+      text-align: center;
+    }
+
+    .services-swiper {
+      /* Hero Carousel */
       padding: 20px 0;
     }
-    .swiper-slide { height: auto; }
-    .swiper-button-next, .swiper-button-prev {
-      color: #4ade80; background: rgba(0,0,0,0.5); width: 40px; height: 40px;
-      border-radius: 50%; display: flex; align-items: center; justify-content: center;
-    }
-    .swiper-button-next:after, .swiper-button-prev:after { font-size: 1.5rem; }
-    .swiper-pagination-bullet { background: white; opacity: 0.5; }
-    .swiper-pagination-bullet-active { background: #4ade80; opacity: 1; }
 
-    section { width: 100%; }
+    .swiper-slide {
+      height: auto;
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+      color: #4ade80;
+      background: rgba(0, 0, 0, 0.5);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .swiper-button-next:after,
+    .swiper-button-prev:after {
+      font-size: 1.5rem;
+    }
+
+    .swiper-pagination-bullet {
+      background: white;
+      opacity: 0.5;
+    }
+
+    .swiper-pagination-bullet-active {
+      background: #4ade80;
+      opacity: 1;
+    }
+
+    section {
+      width: 100%;
+    }
 
     /* Services Section CSS for Horizontal Scrolling */
-    .services-section { background: white; padding: 60px 0; width: 100%; }
-    .services-section .services-title { text-align: center; font-size: 2.5rem; margin-bottom: 1rem; color: #2c3e50; font-weight: 700; }
-    .services-section > p { text-align: center; font-size: 1.1rem; color: #555; margin-bottom: 3rem; max-width: 800px; margin-left: auto; margin-right: auto; padding: 0 1rem; }
+    .services-section {
+      background: white;
+      padding: 60px 0;
+      width: 100%;
+    }
 
-    .horizontal-scroll-wrapper { position: relative; }
+    .services-section .services-title {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: #2c3e50;
+      font-weight: 700;
+    }
+
+    .services-section>p {
+      text-align: center;
+      font-size: 1.1rem;
+      color: #555;
+      margin-bottom: 3rem;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 0 1rem;
+    }
+
+    .horizontal-scroll-wrapper {
+      position: relative;
+    }
+
     .horizontal-scroll-container {
-      display: flex; flex-wrap: nowrap; overflow-x: auto; gap: 2rem; padding: 20px;
-      scroll-behavior: smooth; -webkit-overflow-scrolling: touch; scroll-snap-type: x mandatory;
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      gap: 2rem;
+      padding: 20px;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      scroll-snap-type: x mandatory;
       max-width: 100%;
     }
-    .horizontal-scroll-container::-webkit-scrollbar { display: none; }
-    .horizontal-scroll-container { -ms-overflow-style: none; scrollbar-width: none; }
 
-    .service-block, .review-card-horizontal {
-      background: #ffffff; border-radius: 16px; padding: 1.5rem;
-      box-shadow: 0 8px 24px rgba(59, 130, 246, 0.1);
-      display: flex; flex-direction: column; justify-content: space-between;
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-      border: 1px solid #e5e7eb; scroll-snap-align: start;
+    .horizontal-scroll-container::-webkit-scrollbar {
+      display: none;
     }
-    .service-block:hover, .review-card-horizontal:hover {
+
+    .horizontal-scroll-container {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    .service-block,
+    .review-card-horizontal {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 1.5rem;
+      box-shadow: 0 8px 24px rgba(59, 130, 246, 0.1);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      border: 1px solid #e5e7eb;
+      scroll-snap-align: start;
+    }
+
+    .service-block:hover,
+    .review-card-horizontal:hover {
       transform: translateY(-5px) scale(1.02);
       box-shadow: 0 12px 32px rgba(59, 130, 246, 0.2);
     }
 
-    .service-block { flex: 0 0 300px; min-height: 480px; }
-    .service-header { margin-bottom: 1rem; }
-    .service-image { width: 100%; height: 180px; object-fit: cover; border-radius: 8px; transition: transform 0.3s ease; margin-bottom: 1rem; }
-    .service-block:hover .service-image { transform: scale(1.05); }
-    .service-name { font-weight: 600; font-size: 1.35rem; color: #1a1a1a; margin-bottom: 0.5rem; line-height: 1.3; }
-    .timing, .instructor { font-size: 0.9rem; color: #555; margin: 0.25rem 0; }
-    .service-price { font-size: 1.2rem; font-weight: bold; color: #3b82f6; margin-bottom: 0.5rem; margin-top: auto; }
-    .service-plans-note { font-size: 0.8rem; color: #777; margin-bottom: 1rem; }
-    .buttons { display: flex; gap: 0.75rem; margin-top: 1rem; }
-    .buttons button { padding: 10px 16px; font-size: 0.9rem; font-weight: 500; border-radius: 0.5rem; transition: all 0.2s ease; flex-grow: 1; cursor: pointer; }
-    .details-btn { background-color: #6c757d; color: white; border: 1px solid #6c757d; }
-    .details-btn:hover { background-color: #5a6268; border-color: #545b62; }
-    .enroll-btn { background-color: #28a745; color: white; border: 1px solid #28a745; }
-    .enroll-btn:hover { background-color: #218838; border-color: #1e7e34; }
+    .service-block {
+      flex: 0 0 300px;
+      min-height: 480px;
+    }
+
+    .service-header {
+      margin-bottom: 1rem;
+    }
+
+    .service-image {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 8px;
+      transition: transform 0.3s ease;
+      margin-bottom: 1rem;
+    }
+
+    .service-block:hover .service-image {
+      transform: scale(1.05);
+    }
+
+    .service-name {
+      font-weight: 600;
+      font-size: 1.35rem;
+      color: #1a1a1a;
+      margin-bottom: 0.5rem;
+      line-height: 1.3;
+    }
+
+    .timing,
+    .instructor {
+      font-size: 0.9rem;
+      color: #555;
+      margin: 0.25rem 0;
+    }
+
+    .service-price {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #3b82f6;
+      margin-bottom: 0.5rem;
+      margin-top: auto;
+    }
+
+    .service-plans-note {
+      font-size: 0.8rem;
+      color: #777;
+      margin-bottom: 1rem;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+
+    .buttons button {
+      padding: 10px 16px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      border-radius: 0.5rem;
+      transition: all 0.2s ease;
+      flex-grow: 1;
+      cursor: pointer;
+    }
+
+    .details-btn {
+      background-color: #6c757d;
+      color: white;
+      border: 1px solid #6c757d;
+    }
+
+    .details-btn:hover {
+      background-color: #5a6268;
+      border-color: #545b62;
+    }
+
+    .enroll-btn {
+      background-color: #28a745;
+      color: white;
+      border: 1px solid #28a745;
+    }
+
+    .enroll-btn:hover {
+      background-color: #218838;
+      border-color: #1e7e34;
+    }
 
     .horizontal-scroll-nav {
-      display: flex; justify-content: center; gap: 1rem; margin-top: 1.5rem;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1.5rem;
     }
-    .horizontal-scroll-nav button {
-      width: 44px; height: 44px; border-radius: 50%; background: white;
-      border: 1px solid #ddd; display: flex; align-items: center; justify-content: center;
-      cursor: pointer; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); transition: all 0.2s ease;
-    }
-    .horizontal-scroll-nav button:hover { background: #f8f9fa; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); }
-    .horizontal-scroll-nav button:disabled { opacity: 0.5; cursor: not-allowed; }
 
-    .reviews-section { background: #f0f4f8; padding: 60px 0 40px 0; }
-    .reviews-title-container { text-align: center; margin-bottom: 40px; }
-    .reviews-title-container h4 { font-size: 2.5rem; font-weight: 700; color: #334155; margin-bottom: 8px; }
-    .reviews-title-container p { font-size: 1.1rem; color: #64748b; max-width: 700px; margin: 0 auto; }
+    .horizontal-scroll-nav button {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: white;
+      border: 1px solid #ddd;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      transition: all 0.2s ease;
+    }
+
+    .horizontal-scroll-nav button:hover {
+      background: #f8f9fa;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .horizontal-scroll-nav button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .reviews-section {
+      background: #f0f4f8;
+      padding: 60px 0 40px 0;
+    }
+
+    .reviews-title-container {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .reviews-title-container h4 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #334155;
+      margin-bottom: 8px;
+    }
+
+    .reviews-title-container p {
+      font-size: 1.1rem;
+      color: #64748b;
+      max-width: 700px;
+      margin: 0 auto;
+    }
 
     .review-card-horizontal {
-        flex: 0 0 320px;
-        min-height: 250px;
-        padding: 24px;
-        background: #fff;
-        border: 1px solid #e2e8f0;
-        box-shadow: 0 6px 12px rgba(100,116,139,0.1);
+      flex: 0 0 320px;
+      min-height: 250px;
+      padding: 24px;
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 6px 12px rgba(100, 116, 139, 0.1);
     }
-     .review-card-horizontal:hover {
+
+    .review-card-horizontal:hover {
       transform: translateY(-4px);
-      box-shadow: 0 10px 20px rgba(100,116,139,0.15);
+      box-shadow: 0 10px 20px rgba(100, 116, 139, 0.15);
     }
-    .review-header { display: flex; align-items: center; gap: 14px; margin-bottom: 18px; }
-    .reviewer-avatar { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; background: #e2e8f0; }
-    .review-info { display: flex; flex-direction: column; }
-    .reviewer-name { font-weight: 600; color: #1e293b; font-size: 1.1rem; }
-    .review-rating { color: #facc15; font-size: 1.1rem; }
-    .review-content-text { font-size: 1rem; color: #475569; margin-bottom: 16px; margin-top: 8px; line-height: 1.6; }
-    .review-media { width: 100%; margin-top: auto; padding-top:12px; }
-    .review-media img, .review-media video { max-width: 100%; max-height: 150px; object-fit:contain; border-radius: 10px; background: #f8fafc; margin:0 auto; display:block; }
+
+    .review-header {
+      display: flex;
+      align-items: center;
+      gap: 4px !important;
+      margin-bottom: 0 !important;
+    }
+
+    .reviewer-avatar {
+      width: 32px !important;
+      height: 32px !important;
+      margin: 0 !important;
+    }
+
+    .review-info {
+      display: flex;
+      flex-direction: column;
+      gap: 0 !important;
+    }
+
+    .reviewer-name {
+      font-weight: 600;
+      color: #1e293b;
+      font-size: 1rem;
+      padding: 0 !important;
+      margin: 0 !important;
+      line-height: 1.2 !important;
+    }
+
+    .review-rating {
+      color: #facc15;
+      font-size: 0.9rem;
+      /* Smaller rating stars */
+      margin: 0 !important;
+      line-height: 1 !important;
+    }
+
+    .review-content-text {
+      font-size: 0.9rem;
+      color: #475569;
+      margin: 0 !important;
+      padding: 0 !important;
+      line-height: 1.4 !important;
+      margin-top: -2px !important;
+      margin-bottom: 0 !important;
+    }
+
+    .review-media {
+      width: 100%;
+      margin-top: auto;
+      padding-top: 12px;
+    }
+
+    .review-media img,
+    .review-media video {
+      max-width: 100%;
+      max-height: 150px;
+      object-fit: contain;
+      border-radius: 10px;
+      background: #f8fafc;
+      margin: 0 auto;
+      display: block;
+    }
 
     @media (max-width: 768px) {
-      .services-section .services-title, .reviews-title-container h4 { font-size: 2rem; }
-      .services-section > p, .reviews-title-container p { font-size: 1rem; margin-bottom: 2rem; }
-      .service-block { flex: 0 0 85vw; min-height: auto; padding: 1.25rem; }
-      .review-card-horizontal { flex: 0 0 85vw; padding: 1.25rem; }
-      .horizontal-scroll-container { padding: 20px 10px; gap: 1.5rem; }
+
+      .services-section .services-title,
+      .reviews-title-container h4 {
+        font-size: 2rem;
+      }
+
+      .services-section>p,
+      .reviews-title-container p {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+      }
+
+      .service-block {
+        flex: 0 0 85vw;
+        min-height: auto;
+        padding: 1.25rem;
+      }
+
+      .review-card-horizontal {
+        flex: 0 0 320px;
+        min-height: 250px;
+        padding: 12px !important;
+        background: #fff;
+        border: 1px solid #e2e8f0;
+        box-shadow: 0 6px 12px rgba(100, 116, 139, 0.1);
+      }
+
+      .horizontal-scroll-container {
+        padding: 20px 10px;
+        gap: 1.5rem;
+      }
     }
-    
+
     .yogakshema-link {
-      padding: 0.25rem 1rem; border-radius: 9999px; overflow: hidden;
-      transition: all 0.3s ease; position: relative; font-weight: 600;
-      text-shadow: 0 0 4px rgba(0,0,0,0.3);
+      padding: 0.25rem 1rem;
+      border-radius: 9999px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      position: relative;
+      font-weight: 600;
+      text-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
     }
-    .yogakshema-link:hover { color: white; transform: translateY(-2px); text-shadow: 0 0 8px rgba(255,255,255,0.5); }
-    .yogakshema-highlight { z-index: 0; filter: blur(6px); opacity: 0.8; }
-    
+
+    .yogakshema-link:hover {
+      color: white;
+      transform: translateY(-2px);
+      text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+    }
+
+    .yogakshema-highlight {
+      z-index: 0;
+      filter: blur(6px);
+      opacity: 0.8;
+    }
+
     /* --- HERO SECTION STYLES --- */
     .hero {
       height: 90vh;
-      min-height: 600px; 
+      min-height: 600px;
       width: 100%;
       position: relative;
       overflow: hidden;
       margin: 0;
       padding: 0;
-      background-color: #f8f9fa; /* Fallback color */
-      margin-top: 80px; /* Space for fixed header */
+      background-color: #f8f9fa;
+      /* Fallback color */
+      margin-top: 80px;
+      /* Space for fixed header */
     }
 
     .hero-carousel {
@@ -232,45 +522,47 @@
       position: relative;
     }
 
-.carousel-slide {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  z-index: 1;
-}
+    .carousel-slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      z-index: 1;
+    }
 
-.carousel-slide.active {
-  opacity: 1;
-  z-index: 2;
-}
+    .carousel-slide.active {
+      opacity: 1;
+      z-index: 2;
+    }
 
-.carousel-slide::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(to right, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0) 100%);
-  z-index: 1;
-}        
-.slide-content {
-    position: relative;
-    z-index: 2;
-    max-width: 50%;
-    padding: 30px;
-    margin-top: 250px;
-    margin-left: 100px; /* Push right */
-    animation: fadeInUp 0.8s ease-out;
-    color: #f8f9fa;
-}
+    .carousel-slide::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(to right, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0) 100%);
+      z-index: 1;
+    }
+
+    .slide-content {
+      position: relative;
+      z-index: 2;
+      max-width: 50%;
+      padding: 30px;
+      margin-top: 250px;
+      margin-left: 100px;
+      /* Push right */
+      animation: fadeInUp 0.8s ease-out;
+      color: #f8f9fa;
+    }
 
     .slide-content h2 {
       font-size: 3rem;
@@ -278,7 +570,7 @@
       line-height: 1.2;
       font-weight: 700;
       color: #fff;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
     }
 
     .slide-content p {
@@ -296,27 +588,27 @@
     }
 
     .benefit-item {
-        display: flex;
-        align-items: center;
-        gap: 0.75rem;
-        background: rgba(255, 255, 255, 0.15);
-        padding: 0.75rem;
-        border-radius: 0.5rem;
-        font-weight: 500;
-        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
-        backdrop-filter: blur(5px);
-        -webkit-backdrop-filter: blur(5px);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: rgba(255, 255, 255, 0.15);
+      padding: 0.75rem;
+      border-radius: 0.5rem;
+      font-weight: 500;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
     }
 
     .benefit-item i {
-        font-size: 1.5rem;
-        color: #4ade80;
+      font-size: 1.5rem;
+      color: #4ade80;
     }
 
     .benefit-item span {
       color: #f8f9fa;
     }
-    
+
     .carousel-nav {
       position: absolute;
       bottom: 30px;
@@ -340,7 +632,7 @@
       background: #4CAF50;
       transform: scale(1.2);
     }
-        
+
     .carousel-arrow {
       position: absolute;
       top: 50%;
@@ -364,37 +656,72 @@
       color: white;
     }
 
-    .arrow-left { left: 30px; }
-    .arrow-right { right: 30px; }
+    .arrow-left {
+      left: 30px;
+    }
+
+    .arrow-right {
+      right: 30px;
+    }
 
     @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     /* Responsive Design for Hero */
     @media (max-width: 992px) {
-        .slide-content { max-width: 70%; }
-        .slide-content h2 { font-size: 2.5rem; }
+      .slide-content {
+        max-width: 70%;
+      }
+
+      .slide-content h2 {
+        font-size: 2.5rem;
+      }
     }
 
     @media (max-width: 768px) {
-        .hero { height: auto; min-height: 80vh; }
-        .carousel-slide {
-            justify-content: center;
-            text-align: center;
-            padding: 3rem 1.5rem;
-        }
-        .carousel-slide::before { background: rgba(0, 0, 0, 0.6); }
-        .slide-content { max-width: 100%; padding: 0; }
-        .benefits-grid {
-            grid-template-columns: 1fr;
-            margin-left: auto;
-            margin-right: auto;
-            max-width: 350px;
-        }
-        .slide-content h2 { font-size: 2rem; }
-        .carousel-arrow { display: none; }
+      .hero {
+        height: auto;
+        min-height: 80vh;
+      }
+
+      .carousel-slide {
+        justify-content: center;
+        text-align: center;
+        padding: 3rem 1.5rem;
+      }
+
+      .carousel-slide::before {
+        background: rgba(0, 0, 0, 0.6);
+      }
+
+      .slide-content {
+        max-width: 100%;
+        padding: 0;
+      }
+
+      .benefits-grid {
+        grid-template-columns: 1fr;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 350px;
+      }
+
+      .slide-content h2 {
+        font-size: 2rem;
+      }
+
+      .carousel-arrow {
+        display: none;
+      }
     }
 
     .scrolling-text {
@@ -404,342 +731,437 @@
       white-space: nowrap;
     }
 
-/* Mobile Menu Styles */
-#mobileMenu {
-  display: none;
-  position: fixed;
-  top: 80px;
-  left: 0;
-  right: 0;
-  background: rgba(31, 41, 55, 0.98);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  z-index: 1000;
-  max-height: calc(100vh - 80px);
-  overflow-y: auto;
-  transition: all 0.3s ease;
-}
+    /* Mobile Menu Styles */
+    #mobileMenu {
+      display: none;
+      position: fixed;
+      top: 80px;
+      left: 0;
+      right: 0;
+      background: rgba(31, 41, 55, 0.98);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      z-index: 1000;
+      max-height: calc(100vh - 80px);
+      overflow-y: auto;
+      transition: all 0.3s ease;
+    }
 
-#mobileMenu a, #mobileMenu button {
-  display: block;
-  width: 100%;
-  padding: 15px 20px;
-  color: white;
-  text-align: left;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  transition: background 0.3s;
-}
+    #mobileMenu a,
+    #mobileMenu button {
+      display: block;
+      width: 100%;
+      padding: 15px 20px;
+      color: white;
+      text-align: left;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      transition: background 0.3s;
+    }
 
-#mobileMenu a:hover, #mobileMenu button:hover {
-  background: rgba(255, 255, 255, 0.1);
-}
+    #mobileMenu a:hover,
+    #mobileMenu button:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
 
-#mobileMenu .hidden {
-  display: none;
-}
+    #mobileMenu .hidden {
+      display: none;
+    }
 
-/* Submenu items */
-#mobileMenu div div {
-  background: rgba(0, 0, 0, 0.2);
-}
+    /* Submenu items */
+    #mobileMenu div div {
+      background: rgba(0, 0, 0, 0.2);
+    }
 
-#mobileMenu div div a {
-  padding-left: 30px;
-  font-size: 0.9rem;
-}
+    #mobileMenu div div a {
+      padding-left: 30px;
+      font-size: 0.9rem;
+    }
 
-@media (min-width: 768px) {
-  #mobileMenuButton, #mobileMenu {
-    display: none !important;
-  }
-}
+    @media (min-width: 768px) {
 
-/* Hero Section Mobile Fixes */
-@media (max-width: 768px) {
-  .hero {
-    height: auto;
-    min-height: 100vh;
-    margin-top: 70px;
-  }
-  
-  .slide-content {
-    max-width: 100%;
-    padding: 20px;
-    margin: 120px auto 0;
-    text-align: center;
-  }
-  
-  .slide-content h2 {
-    font-size: 1.8rem;
-    margin-bottom: 0.8rem;
-  }
-  
-  .slide-content p {
-    font-size: 1rem;
-    margin-bottom: 1.2rem;
-  }
-  
-  .benefits-grid {
-    grid-template-columns: 1fr;
-    max-width: 100%;
-  }
-  
-  .benefit-item {
-    justify-content: center;
-    padding: 0.5rem;
-  }
-  
-  .carousel-nav {
-    bottom: 15px;
-  }
-  
-  .carousel-arrow {
-    width: 40px;
-    height: 40px;
-  }
-  
-  .arrow-left { left: 10px; }
-  .arrow-right { right: 10px; }
-}
+      #mobileMenuButton,
+      #mobileMenu {
+        display: none !important;
+      }
+    }
 
-@media (max-width: 480px) {
-  .slide-content {
-    margin-top: 80px;
-  }
-  
-  .slide-content h2 {
-    font-size: 1.5rem;
-  }
-  
-  .cta-button {
-    padding: 10px 20px;
-    font-size: 0.9rem;
-  }
-}
+    /* Hero Section Mobile Fixes */
+    @media (max-width: 768px) {
+      .hero {
+        height: auto;
+        min-height: 100vh;
+        margin-top: 70px;
+      }
+
+      .slide-content {
+        max-width: 100%;
+        padding: 20px;
+        margin: 120px auto 0;
+        text-align: center;
+      }
+
+      .slide-content h2 {
+        font-size: 1.8rem;
+        margin-bottom: 0.8rem;
+      }
+
+      .slide-content p {
+        font-size: 1rem;
+        margin-bottom: 1.2rem;
+      }
+
+      .benefits-grid {
+        grid-template-columns: 1fr;
+        max-width: 100%;
+      }
+
+      .benefit-item {
+        justify-content: center;
+        padding: 0.5rem;
+      }
+
+      .carousel-nav {
+        bottom: 15px;
+      }
+
+      .carousel-arrow {
+        width: 40px;
+        height: 40px;
+      }
+
+      .arrow-left {
+        left: 10px;
+      }
+
+      .arrow-right {
+        right: 10px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .slide-content {
+        margin-top: 80px;
+      }
+
+      .slide-content h2 {
+        font-size: 1.5rem;
+      }
+
+      .cta-button {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+      }
+    }
+
     @keyframes scrollText {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-100%); }
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-100%);
+      }
     }
 
     @media (max-width: 768px) {
-  header {
-    padding: 0.5rem 1rem;
-  }
-  
-  .relative.w-16.h-16 {
-    width: 40px;
-    height: 40px;
-  }
-  
-  .text-xl.md\\:text-3xl {
-    font-size: 1.25rem;
-  }
-}
+      header {
+        padding: 0.5rem 1rem;
+      }
+
+      .relative.w-16.h-16 {
+        width: 40px;
+        height: 40px;
+      }
+
+      .text-xl.md\\:text-3xl {
+        font-size: 1.25rem;
+      }
+    }
+
+    .condition-pills {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .pill {
+      background: white;
+      border: 1px solid #3a7bd5;
+      color: #3a7bd5;
+      padding: 8px 16px;
+      border-radius: 9999px;
+      transition: all 0.3s ease;
+      font-size: 0.95rem;
+    }
+
+    .pill:hover {
+      background: #3a7bd5;
+      color: white;
+      transform: translateY(-2px);
+    }
   </style>
 </head>
-<body class="bg-gradient-to-br from-green-100 via-blue-50 to-purple-100 text-gray-800">
 
-<header class="fixed top-0 left-0 right-0 w-full z-[100] bg-gray-800 shadow-md">
+<body class="bg-gradient-to-br from-green-100 via-blue-50 to-purple-100 text-gray-800">
+  <header class="fixed top-0 left-0 right-0 w-full z-[100] bg-gray-800 shadow-md">
     <div class="container mx-auto flex items-center justify-between px-4 py-2 md:py-3">
       <div class="flex items-center space-x-3">
         <a href="{{ url_for('index') }}" class="flex items-center space-x-3">
           <div class="relative w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden border-2 border-green-400">
-            <img src="{{ url_for('static', filename='images/logo1.png') }}" alt="Logo" class="w-full h-full object-cover" />
+            <img src="{{ url_for('static', filename='images/logo1.png') }}" alt="Logo"
+              class="w-full h-full object-cover" />
           </div>
           <span class="text-xl md:text-3xl font-bold text-white">Wellnation360</span>
         </a>
       </div>
       <nav class="hidden md:flex items-center space-x-5 text-white text-base md:text-lg font-medium">
-        <a href="{{ url_for('index') }}" class="hover:text-green-400 relative group">Home <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-green-400 transition-all duration-300 group-hover:w-full"></span></a>
-        <a href="{{ url_for('about') }}" class="hover:text-green-400 relative group">About <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-green-400 transition-all duration-300 group-hover:w-full"></span></a>
-        <a href="{{ url_for('gallery') }}" class="hover:text-green-400 relative group">Gallery <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-green-400 transition-all duration-300 group-hover:w-full"></span></a>
+        <a href="{{ url_for('index') }}" class="hover:text-green-400 relative group">Home <span
+            class="absolute left-0 -bottom-1 w-0 h-0.5 bg-green-400 transition-all duration-300 group-hover:w-full"></span></a>
+        <a href="{{ url_for('about') }}" class="hover:text-green-400 relative group">About <span
+            class="absolute left-0 -bottom-1 w-0 h-0.5 bg-green-400 transition-all duration-300 group-hover:w-full"></span></a>
+        <a href="{{ url_for('gallery') }}" class="hover:text-green-400 relative group">Gallery <span
+            class="absolute left-0 -bottom-1 w-0 h-0.5 bg-green-400 transition-all duration-300 group-hover:w-full"></span></a>
         <div class="relative group">
           <a href="#services" class="hover:text-green-400 flex items-center gap-1">Services
-            <svg class="w-4 h-4 transition-transform duration-200 group-hover:rotate-180" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.939l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clip-rule="evenodd"/></svg>
+            <svg class="w-4 h-4 transition-transform duration-200 group-hover:rotate-180" fill="currentColor"
+              viewBox="0 0 20 20">
+              <path fill-rule="evenodd"
+                d="M5.23 7.21a.75.75 0 011.06.02L10 10.939l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z"
+                clip-rule="evenodd" />
+            </svg>
           </a>
-          <div class="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-60 bg-white text-gray-800 rounded-md shadow-xl opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300 invisible group-hover:visible z-50 py-1">
-          <a href="{{ url_for('services') }}#gentle-reset" class="block px-4 py-2 hover:text-green-600 transition duration-200">Gental Detox Cleanse</a>
-          <a href="{{ url_for('services') }}#metabolic-harmony" class="block px-4 py-2 hover:text-green-600 transition duration-200">Healthy Body Transformation</a>
-          <a href="{{ url_for('services') }}#blood-sugar" class="block px-4 py-2 hover:text-green-600 transition duration-200">Diabetes Support Plan</a>
-          <a href="{{ url_for('services') }}#thyroid" class="block px-4 py-2 hover:text-green-600 transition duration-200">Thyroid Balance Therapy</a>
-          <a href="{{ url_for('services') }}#gut-healing" class="block px-4 py-2 hover:text-green-600 transition duration-200">Digestive Wellness Plan</a>
-          <a href="{{ url_for('services') }}#monopause" class="block px-4 py-2 hover:text-green-600 transition duration-200">Menopausal management</a>
-          <a href="{{ url_for('services') }}#energy-flow" class="block px-4 py-2 hover:text-green-600 transition duration-200">Acupuncture therapy</a>
-          <a href="{{ url_for('services') }}#mindful-nourishment" class="block px-4 py-2 hover:text-green-600 transition duration-200">Pychological Councelling</a>
+          <div
+            class="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-60 bg-white text-gray-800 rounded-md shadow-xl opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300 invisible group-hover:visible z-50 py-1">
+            <a href="{{ url_for('services') }}#gentle-reset"
+              class="block px-4 py-2 hover:text-green-600 transition duration-200">Gental Detox Cleanse</a>
+            <a href="{{ url_for('services') }}#metabolic-harmony"
+              class="block px-4 py-2 hover:text-green-600 transition duration-200">Healthy Body Transformation</a>
+            <a href="{{ url_for('services') }}#blood-sugar"
+              class="block px-4 py-2 hover:text-green-600 transition duration-200">Diabetes Support Plan</a>
+            <a href="{{ url_for('services') }}#thyroid"
+              class="block px-4 py-2 hover:text-green-600 transition duration-200">Thyroid Balance Therapy</a>
+            <a href="{{ url_for('services') }}#gut-healing"
+              class="block px-4 py-2 hover:text-green-600 transition duration-200">Digestive Wellness Plan</a>
+            <a href="{{ url_for('services') }}#monopause"
+              class="block px-4 py-2 hover:text-green-600 transition duration-200">Menopausal management</a>
+            <a href="{{ url_for('services') }}#energy-flow"
+              class="block px-4 py-2 hover:text-green-600 transition duration-200">Acupuncture therapy</a>
+            <a href="{{ url_for('services') }}#mindful-nourishment"
+              class="block px-4 py-2 hover:text-green-600 transition duration-200">Pychological Councelling</a>
+            <a href="{{ url_for('services') }}#additional-conditions"
+              class="block px-4 py-2 hover:text-green-600 transition duration-200">We also specializes in</a>
+          </div>
         </div>
-        </div>
-        <a href="{{ url_for('contact_get') }}" class="hover:text-green-400 relative group">Contact <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-green-400 transition-all duration-300 group-hover:w-full"></span></a>
-        <a href="http://yoga-kshema.in" target="_blank" rel="noopener noreferrer" class="text-white relative yogakshema-link group"> <span class="relative z-10 flex items-center"><span class="mr-1"></span><span>Yogakshema</span></span>
-            <span class="absolute inset-0 bg-gradient-to-r from-amber-500 to-orange-600 rounded-full scale-0 opacity-0 group-hover:scale-105 group-hover:opacity-100 transition-all duration-500 yogakshema-highlight"></span>
+        <a href="{{ url_for('contact_get') }}" class="hover:text-green-400 relative group">Contact <span
+            class="absolute left-0 -bottom-1 w-0 h-0.5 bg-green-400 transition-all duration-300 group-hover:w-full"></span></a>
+        <a href="http://yoga-kshema.in" target="_blank" rel="noopener noreferrer"
+          class="text-white relative yogakshema-link group"> <span class="relative z-10 flex items-center"><span
+              class="mr-1"></span><span>Yogakshema</span></span>
+          <span
+            class="absolute inset-0 bg-gradient-to-r from-amber-500 to-orange-600 rounded-full scale-0 opacity-0 group-hover:scale-105 group-hover:opacity-100 transition-all duration-500 yogakshema-highlight"></span>
         </a>
       </nav>
       <div class="md:hidden">
         <button id="mobileMenuButton" class="text-white p-2 focus:outline-none">
-          <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+          <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
         </button>
       </div>
     </div>
-  <div id="mobileMenu" class="hidden md:hidden absolute top-full left-0 right-0 bg-gray-800 shadow-lg py-2 z-40">
-    <a href="{{ url_for('index') }}" class="block px-5 py-3 text-white hover:bg-gray-700 transition duration-150">Home</a>
-    <a href="{{ url_for('about') }}" class="block px-5 py-3 text-white hover:bg-gray-700 transition duration-150">About</a>
-    <a href="{{ url_for('gallery') }}" class="block px-5 py-3 text-white hover:bg-gray-700 transition duration-150">Gallery</a>
-    
-    <div class="relative group">
-      <button class="flex items-center justify-between w-full px-5 py-3 text-left text-white hover:bg-gray-700 transition duration-150">
-        Services
-        <svg class="w-4 h-4 ml-1 transform group-focus-within:rotate-180 transition-transform" fill="currentColor" viewBox="0 0 20 20">
-          <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.939l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clip-rule="evenodd"/>
-        </svg>
-      </button>
-      <div class="hidden group-focus-within:block bg-gray-700 mt-0">
-        <a href="{{ url_for('index') }}#services" class="block pl-8 pr-5 py-2.5 text-sm text-gray-300 hover:bg-gray-600 hover:text-white transition duration-150">All Services Overview</a>
-        <a href="{{ url_for('dummy') }}" class="block pl-8 pr-5 py-2.5 text-sm text-gray-300 hover:bg-gray-600 hover:text-white transition duration-150">Gentle Detox Cleanse</a>
-        <a href="{{ url_for('diabetics') }}" class="block pl-8 pr-5 py-2.5 text-sm text-gray-300 hover:bg-gray-600 hover:text-white transition duration-150">Diabetes Support Plan</a>
-         </div>
+    <div id="mobileMenu" class="hidden md:hidden absolute top-full left-0 right-0 bg-gray-800 shadow-lg py-2 z-40">
+      <a href="{{ url_for('index') }}"
+        class="block px-5 py-3 text-white hover:bg-gray-700 transition duration-150">Home</a>
+      <a href="{{ url_for('about') }}"
+        class="block px-5 py-3 text-white hover:bg-gray-700 transition duration-150">About</a>
+      <a href="{{ url_for('gallery') }}"
+        class="block px-5 py-3 text-white hover:bg-gray-700 transition duration-150">Gallery</a>
+
+      <div class="relative group">
+        <button
+          class="flex items-center justify-between w-full px-5 py-3 text-left text-white hover:bg-gray-700 transition duration-150">
+          Services
+          <svg class="w-4 h-4 ml-1 transform group-focus-within:rotate-180 transition-transform" fill="currentColor"
+            viewBox="0 0 20 20">
+            <path fill-rule="evenodd"
+              d="M5.23 7.21a.75.75 0 011.06.02L10 10.939l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z"
+              clip-rule="evenodd" />
+          </svg>
+        </button>
+        <div class="hidden group-focus-within:block bg-gray-700 mt-0">
+          <a href="{{ url_for('index') }}#services"
+            class="block pl-8 pr-5 py-2.5 text-sm text-gray-300 hover:bg-gray-600 hover:text-white transition duration-150">All
+            Services Overview</a>
+          <a href="{{ url_for('dummy') }}"
+            class="block pl-8 pr-5 py-2.5 text-sm text-gray-300 hover:bg-gray-600 hover:text-white transition duration-150">Gentle
+            Detox Cleanse</a>
+          <a href="{{ url_for('diabetics') }}"
+            class="block pl-8 pr-5 py-2.5 text-sm text-gray-300 hover:bg-gray-600 hover:text-white transition duration-150">Diabetes
+            Support Plan</a>
+        </div>
+      </div>
+
+      <a href="{{ url_for('contact_get') }}"
+        class="block px-5 py-3 text-white hover:bg-gray-700 transition duration-150">Contact</a>
+      <a href="{{ url_for('base') }}"
+        class="block px-5 py-3 text-white hover:bg-gray-700 transition duration-150 flex items-center">
+        <span class="mr-2">🧘</span>
+        <span>Yogakshema</span>
+      </a>
     </div>
-    
-    <a href="{{ url_for('contact_get') }}" class="block px-5 py-3 text-white hover:bg-gray-700 transition duration-150">Contact</a>
-    <a href="{{ url_for('base') }}" class="block px-5 py-3 text-white hover:bg-gray-700 transition duration-150 flex items-center">
-      <span class="mr-2">🧘</span>
-      <span>Yogakshema</span>
-    </a>
-  </div>
   </header>
 
-<section id="home" class="hero">
+  <section id="home" class="hero">
     <div class="hero-carousel">
-        <div class="carousel-container"> 
-            <div class="carousel-slide active" style="background-image: url('static/images/detox_hero.jpg'); background-color: #333;">
-                <div class="slide-content">
-                    <h2>Revitalize Your Body with Our Detox Program</h2>
-                    <p>Experience a complete body reset with our science-backed 14-day detox program.</p>
-                    <div class="benefits-grid">
-                        <div class="benefit-item"><i class="fas fa-bolt"></i><span>Boost Energy</span></div>
-                        <div class="benefit-item"><i class="fas fa-leaf"></i><span>Flush Toxins</span></div>
-                        <div class="benefit-item"><i class="fas fa-utensils"></i><span>Improve Digestion</span></div>
-                        <div class="benefit-item"><i class="fas fa-heart"></i><span>Enhance Immunity</span></div>
-                    </div>
-                    <a href="{{ url_for('services') }}" class="cta-button">Start Your Detox Journey</a>
-                </div>
+      <div class="carousel-container">
+        <div class="carousel-slide active"
+          style="background-image: url('static/images/Detox_hero.jpg'); background-color: #333;">
+          <div class="slide-content">
+            <h2>Revitalize Your Body with Our Detox Program</h2>
+            <p>Experience a complete body reset with our science-backed 14-day detox program.</p>
+            <div class="benefits-grid">
+              <div class="benefit-item"><i class="fas fa-bolt"></i><span>Boost Energy</span></div>
+              <div class="benefit-item"><i class="fas fa-leaf"></i><span>Flush Toxins</span></div>
+              <div class="benefit-item"><i class="fas fa-utensils"></i><span>Improve Digestion</span></div>
+              <div class="benefit-item"><i class="fas fa-heart"></i><span>Enhance Immunity</span></div>
             </div>
-
-            <div class="carousel-slide" style="background-image: url('static/images/weightloss.jpg'); background-color: red;">
-                <div class="slide-content">
-                    <h2>Sustainable Weight Loss That Actually Lasts</h2>
-                    <p>Our holistic approach helps you achieve and maintain your ideal weight.</p>
-                    <div class="benefits-grid">
-                        <div class="benefit-item"><i class="fas fa-weight"></i><span>Healthy Weight Loss</span></div>
-                        <div class="benefit-item"><i class="fas fa-apple-alt"></i><span>Personalized Nutrition</span></div>
-                        <div class="benefit-item"><i class="fas fa-running"></i><span>Exercise Strategies</span></div>
-                        <div class="benefit-item"><i class="fas fa-brain"></i><span>Behavioral Coaching</span></div>
-                    </div>
-                    <a href="{{ url_for('services') }}" class="cta-button">Begin Your Transformation</a>
-                </div>
-            </div>
-
-            <div class="carousel-slide" style="background-image: url('static/images/diabeteshero.jpg'); background-color: blue;">
-                <div class="slide-content">
-                    <h2>Take Control of Your Diabetes Journey</h2>
-                    <p>Our comprehensive diabetes management program helps you live healthier.</p>
-                    <div class="benefits-grid">
-                        <div class="benefit-item"><i class="fas fa-utensils"></i><span>Personalized Meal Plans</span></div>
-                        <div class="benefit-item"><i class="fas fa-heartbeat"></i><span>Blood Sugar Control</span></div>
-                        <div class="benefit-item"><i class="fas fa-walking"></i><span>Activity Guidance</span></div>
-                        <div class="benefit-item"><i class="fas fa-pills"></i><span>Medication Reduction</span></div>
-                    </div>
-                    <a href="{{ url_for('services') }}" class="cta-button">Manage Diabetes Effectively</a>
-                </div>
-            </div>
-
-            <div class="carousel-slide" style="background-image: url('static/images/thyroidhero.jpg'); background-color: green;">
-                <div class="slide-content">
-                    <h2>Balance Your Thyroid Naturally</h2>
-                    <p>Specialized support to restore hormonal balance and energy levels.</p>
-                    <div class="benefits-grid">
-                        <div class="benefit-item"><i class="fas fa-balance-scale"></i><span>Hormone Regulation</span></div>
-                        <div class="benefit-item"><i class="fas fa-bolt"></i><span>Energy Boost</span></div>
-                        <div class="benefit-item"><i class="fas fa-thermometer-empty"></i><span>Metabolism Support</span></div>
-                        <div class="benefit-item"><i class="fas fa-heart"></i><span>Natural Therapies</span></div>
-                    </div>
-                    <a href="{{ url_for('services') }}" class="cta-button">Support Thyroid Health</a>
-                </div>
-            </div>
-
-            <div class="carousel-slide" style="background-image: url('static/images/guthealthhero.jpg'); background-color: orange;">
-                <div class="slide-content">
-                    <h2>Heal Your Gut, Transform Your Health</h2>
-                    <p>Comprehensive plans to address digestive issues through microbiome restoration.</p>
-                    <div class="benefits-grid">
-                        <div class="benefit-item"><i class="fas fa-seedling"></i><span>Gut Healing</span></div>
-                        <div class="benefit-item"><i class="fas fa-bacteria"></i><span>Microbiome Support</span></div>
-                        <div class="benefit-item"><i class="fas fa-burn"></i><span>Reduce Bloating</span></div>
-                        <div class="benefit-item"><i class="fas fa-utensils"></i><span>Personalized Diet</span></div>
-                    </div>
-                    <a href="{{ url_for('services') }}" class="cta-button">Improve Digestion</a>
-                </div>
-            </div>
-
-            <div class="carousel-slide" style="background-image: url('static/images/menopausehero.jpg'); background-color: purple;">
-                <div class="slide-content">
-                    <h2>Navigate Menopause with Confidence</h2>
-                    <p>Holistic support for managing menopausal symptoms naturally.</p>
-                    <div class="benefits-grid">
-                        <div class="benefit-item"><i class="fas fa-fire"></i><span>Hot Flash Relief</span></div>
-                        <div class="benefit-item"><i class="fas fa-moon"></i><span>Better Sleep</span></div>
-                        <div class="benefit-item"><i class="fas fa-smile"></i><span>Mood Support</span></div>
-                        <div class="benefit-item"><i class="fas fa-heart"></i><span>Hormone Balance</span></div>
-                    </div>
-                    <a href="{{ url_for('services') }}" class="cta-button">Ease Menopause Transition</a>
-                </div>
-            </div>
-
-            <div class="carousel-slide" style="background-image: url('static/images/accupuncturehero.jpg'); background-color: teal;">
-                <div class="slide-content">
-                    <h2>Restore Balance with Acupuncture</h2>
-                    <p>Experience healing through traditional Chinese medicine to relieve pain and reduce stress.</p>
-                    <div class="benefits-grid">
-                        <div class="benefit-item"><i class="fas fa-leaf"></i><span>Pain Relief</span></div>
-                        <div class="benefit-item"><i class="fas fa-cloud-sun"></i><span>Stress Reduction</span></div>
-                        <div class="benefit-item"><i class="fas fa-moon"></i><span>Better Sleep</span></div>
-                        <div class="benefit-item"><i class="fas fa-heartbeat"></i><span>Improved Circulation</span></div>
-                    </div>
-                    <a href="{{ url_for('services') }}" class="cta-button">Book Acupuncture Session</a>
-                </div>
-            </div>
-
+            <a href="{{ url_for('services') }}" class="cta-button">Start Your Detox Journey</a>
+          </div>
         </div>
 
-        <div class="carousel-arrow arrow-left"><i class="fas fa-chevron-left"></i></div>
-        <div class="carousel-arrow arrow-right"><i class="fas fa-chevron-right"></i></div>
-
-        <div class="carousel-nav">
-            <div class="nav-dot active" data-slide="0"></div>
-            <div class="nav-dot" data-slide="1"></div>
-            <div class="nav-dot" data-slide="2"></div>
-            <div class="nav-dot" data-slide="3"></div>
-            <div class="nav-dot" data-slide="4"></div>
-            <div class="nav-dot" data-slide="5"></div>
-            <div class="nav-dot" data-slide="6"></div>
+        <div class="carousel-slide"
+          style="background-image: url('static/images/weightloss.jpg'); background-color: red;">
+          <div class="slide-content">
+            <h2>Sustainable Weight Loss That Actually Lasts</h2>
+            <p>Our holistic approach helps you achieve and maintain your ideal weight.</p>
+            <div class="benefits-grid">
+              <div class="benefit-item"><i class="fas fa-weight"></i><span>Healthy Weight Loss</span></div>
+              <div class="benefit-item"><i class="fas fa-apple-alt"></i><span>Personalized Nutrition</span></div>
+              <div class="benefit-item"><i class="fas fa-running"></i><span>Exercise Strategies</span></div>
+              <div class="benefit-item"><i class="fas fa-brain"></i><span>Behavioral Coaching</span></div>
+            </div>
+            <a href="{{ url_for('services') }}" class="cta-button">Begin Your Transformation</a>
+          </div>
         </div>
+
+        <div class="carousel-slide"
+          style="background-image: url('static/images/diabeteshero.jpg'); background-color: blue;">
+          <div class="slide-content">
+            <h2>Take Control of Your Diabetes Journey</h2>
+            <p>Our comprehensive diabetes management program helps you live healthier.</p>
+            <div class="benefits-grid">
+              <div class="benefit-item"><i class="fas fa-utensils"></i><span>Personalized Meal Plans</span></div>
+              <div class="benefit-item"><i class="fas fa-heartbeat"></i><span>Blood Sugar Control</span></div>
+              <div class="benefit-item"><i class="fas fa-walking"></i><span>Activity Guidance</span></div>
+              <div class="benefit-item"><i class="fas fa-pills"></i><span>Medication Reduction</span></div>
+            </div>
+            <a href="{{ url_for('services') }}" class="cta-button">Manage Diabetes Effectively</a>
+          </div>
+        </div>
+
+        <div class="carousel-slide"
+          style="background-image: url('static/images/thyroidhero.jpg'); background-color: green;">
+          <div class="slide-content">
+            <h2>Balance Your Thyroid Naturally</h2>
+            <p>Specialized support to restore hormonal balance and energy levels.</p>
+            <div class="benefits-grid">
+              <div class="benefit-item"><i class="fas fa-balance-scale"></i><span>Hormone Regulation</span></div>
+              <div class="benefit-item"><i class="fas fa-bolt"></i><span>Energy Boost</span></div>
+              <div class="benefit-item"><i class="fas fa-thermometer-empty"></i><span>Metabolism Support</span></div>
+              <div class="benefit-item"><i class="fas fa-heart"></i><span>Natural Therapies</span></div>
+            </div>
+            <a href="{{ url_for('services') }}" class="cta-button">Support Thyroid Health</a>
+          </div>
+        </div>
+
+        <div class="carousel-slide"
+          style="background-image: url('static/images/guthealthhero.jpg'); background-color: orange;">
+          <div class="slide-content">
+            <h2>Heal Your Gut, Transform Your Health</h2>
+            <p>Comprehensive plans to address digestive issues through microbiome restoration.</p>
+            <div class="benefits-grid">
+              <div class="benefit-item"><i class="fas fa-seedling"></i><span>Gut Healing</span></div>
+              <div class="benefit-item"><i class="fas fa-bacteria"></i><span>Microbiome Support</span></div>
+              <div class="benefit-item"><i class="fas fa-burn"></i><span>Reduce Bloating</span></div>
+              <div class="benefit-item"><i class="fas fa-utensils"></i><span>Personalized Diet</span></div>
+            </div>
+            <a href="{{ url_for('services') }}" class="cta-button">Improve Digestion</a>
+          </div>
+        </div>
+
+        <div class="carousel-slide"
+          style="background-image: url('static/images/menopausehero.jpg'); background-color: purple;">
+          <div class="slide-content">
+            <h2>Navigate Menopause with Confidence</h2>
+            <p>Holistic support for managing menopausal symptoms naturally.</p>
+            <div class="benefits-grid">
+              <div class="benefit-item"><i class="fas fa-fire"></i><span>Hot Flash Relief</span></div>
+              <div class="benefit-item"><i class="fas fa-moon"></i><span>Better Sleep</span></div>
+              <div class="benefit-item"><i class="fas fa-smile"></i><span>Mood Support</span></div>
+              <div class="benefit-item"><i class="fas fa-heart"></i><span>Hormone Balance</span></div>
+            </div>
+            <a href="{{ url_for('services') }}" class="cta-button">Ease Menopause Transition</a>
+          </div>
+        </div>
+
+        <div class="carousel-slide"
+          style="background-image: url('static/images/accupuncturehero.jpg'); background-color: teal;">
+          <div class="slide-content">
+            <h2>Restore Balance with Acupuncture</h2>
+            <p>Experience healing through traditional Chinese medicine to relieve pain and reduce stress.</p>
+            <div class="benefits-grid">
+              <div class="benefit-item"><i class="fas fa-leaf"></i><span>Pain Relief</span></div>
+              <div class="benefit-item"><i class="fas fa-cloud-sun"></i><span>Stress Reduction</span></div>
+              <div class="benefit-item"><i class="fas fa-moon"></i><span>Better Sleep</span></div>
+              <div class="benefit-item"><i class="fas fa-heartbeat"></i><span>Improved Circulation</span></div>
+            </div>
+            <a href="{{ url_for('services') }}" class="cta-button">Book Acupuncture Session</a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="carousel-arrow arrow-left"><i class="fas fa-chevron-left"></i></div>
+      <div class="carousel-arrow arrow-right"><i class="fas fa-chevron-right"></i></div>
+
+      <div class="carousel-nav">
+        <div class="nav-dot active" data-slide="0"></div>
+        <div class="nav-dot" data-slide="1"></div>
+        <div class="nav-dot" data-slide="2"></div>
+        <div class="nav-dot" data-slide="3"></div>
+        <div class="nav-dot" data-slide="4"></div>
+        <div class="nav-dot" data-slide="5"></div>
+        <div class="nav-dot" data-slide="6"></div>
+      </div>
     </div>
-</section>
-
+  </section>
 
   <section id="about" class="relative z-0 py-16 px-6 bg-white scroll-mt-20">
     <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-10 md:gap-16">
-        <div class="md:w-2/5 flex justify-center" data-aos="fade-right">
-          <div class="relative w-72 h-72 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden shadow-2xl border-4 border-green-300 p-2 bg-white">
-            <img src="{{ url_for('static', filename='images/logo1.png') }}" alt="Wellnation360 Logo" class="w-full h-full object-contain rounded-full">
-          </div>
-        </div>
-        <div class="md:w-3/5 w-full text-center md:text-left" data-aos="fade-left">
-      <h3 class="text-3xl font-bold mb-4">About Us</h3>
-      <p class="text-gray-600 text-lg mb-6">
-        At Wellnation360, we empower you to live a healthier, more balanced life. We blend modern science with ancient wisdom to help you reconnect with your body and mind. Through a combination of natural healing, mindful practices, and expert guidance, our holistic approach guides you toward vitality and well-being. Whether it's through diet correction, physical strength, or the ancient practices of meditation and acupuncture, we support you in achieving a life of balance, vitality, and true wellness.
-      </p>
-      <a href="{{ url_for('about') }}" class="bg-green-600 hover:bg-green-700 text-white font-semibold px-8 py-3.5 rounded-lg transition duration-300 shadow-md hover:shadow-lg text-lg">Explore More</a>
+      <div class="md:w-2/5 flex justify-center" data-aos="fade-right">
+        <div
+          class="relative w-72 h-72 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden shadow-2xl border-4 border-green-300 p-2 bg-white">
+          <img src="{{ url_for('static', filename='images/logo1.png') }}" alt="Wellnation360 Logo"
+            class="w-full h-full object-contain rounded-full">
         </div>
       </div>
+      <div class="md:w-3/5 w-full text-center md:text-left" data-aos="fade-left">
+        <h3 class="text-3xl font-bold mb-4">About Us</h3>
+        <p class="text-gray-600 text-lg mb-6">
+          At Wellnation360, we empower you to live a healthier, more balanced life. We blend modern science with ancient
+          wisdom to help you reconnect with your body and mind. Through a combination of natural healing, mindful
+          practices, and expert guidance, our holistic approach guides you toward vitality and well-being. Whether it's
+          through diet correction, physical strength, or the ancient practices of meditation and acupuncture, we support
+          you in achieving a life of balance, vitality, and true wellness.
+        </p>
+        <a href="{{ url_for('about') }}"
+          class="bg-green-600 hover:bg-green-700 text-white font-semibold px-8 py-3.5 rounded-lg transition duration-300 shadow-md hover:shadow-lg text-lg">Explore
+          More</a>
+      </div>
+    </div>
   </section>
 
   <section id="services" class="services-section scroll-mt-20">
@@ -749,57 +1171,86 @@
         <p class="text-center text-gray-500 py-8 col-span-full">Loading services...</p>
       </div>
       <div id="servicesNav" class="horizontal-scroll-nav">
-        </div>
+      </div>
     </div>
   </section>
 
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center mb-12">We Also Provide Specialized Support For</h2>
+
+      <div class="condition-pills">
+        <a href="{{ url_for('services') }}#additional-conditions" class="pill">Anemia</a>
+        <a href="{{ url_for('services') }}#additional-conditions" class="pill">Bariatric Nutrition</a>
+        <a href="{{ url_for('services') }}#additional-conditions" class="pill">Cholesterol</a>
+        <p class="text-lg mb-6">We address <span class="font-semibold text-green-600">50+ conditions</span>—click any to
+          explore tailored solutions.</p>
+      </div>
+  </section>
+
   <section class="bg-gradient-to-br from-[#222222] to-[#1a1a1a] text-white py-20 px-6 md:px-24" id="about-ritu">
-  <div data-aos="fade-up" data-aos-delay="100" class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-    <div class="flex justify-center" data-aos="fade-right" data-aos-delay="200">
-      <img src="static/images/profilepic.jpeg" alt="Ritu - Nutrition Expert" class="rounded-2xl shadow-lg w-full max-w-sm object-cover">
-    </div>
-    <div data-aos="fade-left" data-aos-delay="300">
-      <h2 class="text-[40px] font-extrabold text-light_yellow mb-6">Meet Dt.Ritu Kapoor</h2>
-      <p class="text-lg md:text-xl text-gray-300 leading-relaxed mb-4">
-        Ritu is a passionate advocate of healing through nutrition, grounded in both scientific research and holistic wellness. She completed her graduation in <span class="text-yellow-300">Botany from Miranda House, Delhi</span>, and holds dual postgraduate degrees — in <span class="text-yellow-300">Biotechnology from Pune University</span>, specializing in <span class="italic">Animal Tissue Culture</span>, and in <span class="text-yellow-300">Nutrition & Dietetics from Bangalore</span>.
-      </p>
-      <p class="text-gray-400 mb-4">
-        With experience as a research fellow working on cell culture, Ritu developed a deep understanding of how cellular nourishment influences health. She strongly believes:
-      </p>
-      <p class="italic text-md text-yellow-200 mb-6">
-        “Ultimate outcome in terms of health is how well our cells are nourished to keep our DNA matter strong and stable.”
-      </p>
-      <p class="text-gray-300 leading-relaxed mb-6">
-        She has worked as a clinical dietitian at <span class="text-yellow-300">Manipal Hospital</span> and <span class="text-yellow-300">Aarogya Hastha Hospital</span>, where she helped patients restore health through mindful and personalized nutrition plans. Ritu’s guiding motto is <span class="text-yellow-200 font-semibold">“Prevention is better than cure”</span>, and her mission is to empower individuals to take charge of their well-being through sustainable choices.
-      </p>
-      <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 mt-8">
-        <a href="http://wellnation360.com/contact" 
-           class="inline-block bg-yellow-500 text-dark_blue font-bold py-3 px-6 sm:py-4 sm:px-8 rounded-lg shadow-lg transition-all duration-300 transform hover:bg-yellow-600 hover:scale-105 focus:outline-none text-center" 
-           data-aos="zoom-in" 
-           data-aos-delay="400">
-          Book a Consultation
-        </a>
-        
-        <a href="http://wellnation360.com/about" 
-           class="inline-block border-2 sm:border-4 border-yellow-500 text-yellow-500 font-bold py-3 px-6 sm:py-4 sm:px-8 rounded-lg shadow-lg transition-all duration-300 transform hover:bg-yellow-500 hover:text-dark_blue hover:scale-105 focus:outline-none text-center whitespace-nowrap" 
-           data-aos="zoom-in" 
-           data-aos-delay="500">
-          Dr. Ritu and Team Profile
-        </a>
+    <div data-aos="fade-up" data-aos-delay="100"
+      class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <div class="flex justify-center" data-aos="fade-right" data-aos-delay="200">
+        <img src="static/images/profilepic.jpeg" alt="Ritu - Nutrition Expert"
+          class="rounded-2xl shadow-lg w-full max-w-sm object-cover">
+      </div>
+      <div data-aos="fade-left" data-aos-delay="300">
+        <h2 class="text-[40px] font-extrabold text-light_yellow mb-6">Meet Dt.Ritu Kapoor</h2>
+        <p class="text-lg md:text-xl text-gray-300 leading-relaxed mb-4">
+          Ritu is a passionate advocate of healing through nutrition, grounded in both scientific research and holistic
+          wellness. She completed her graduation in <span class="text-yellow-300">Botany from Miranda House,
+            Delhi</span>, and holds dual postgraduate degrees — in <span class="text-yellow-300">Biotechnology from Pune
+            University</span>, specializing in <span class="italic">Animal Tissue Culture</span>, and in <span
+            class="text-yellow-300">Nutrition & Dietetics from Bangalore</span>.
+        </p>
+        <p class="text-gray-400 mb-4">
+          With experience as a research fellow working on cell culture, Ritu developed a deep understanding of how
+          cellular nourishment influences health. She strongly believes:
+        </p>
+        <p class="italic text-md text-yellow-200 mb-6">
+          “Ultimate outcome in terms of health is how well our cells are nourished to keep our DNA matter strong and
+          stable.”
+        </p>
+        <p class="text-gray-300 leading-relaxed mb-6">
+          She has worked as a clinical dietitian at <span class="text-yellow-300">Manipal Hospital</span> and <span
+            class="text-yellow-300">Aarogya Hastha Hospital</span>, where she helped patients restore health through
+          mindful and personalized nutrition plans. Ritu’s guiding motto is <span
+            class="text-yellow-200 font-semibold">“Prevention is better than cure”</span>, and her mission is to empower
+          individuals to take charge of their well-being through sustainable choices.
+        </p>
+        <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 mt-8">
+          <a href="http://wellnation360.com/contact"
+            class="inline-block bg-yellow-500 text-dark_blue font-bold py-3 px-6 sm:py-4 sm:px-8 rounded-lg shadow-lg transition-all duration-300 transform hover:bg-yellow-600 hover:scale-105 focus:outline-none text-center"
+            data-aos="zoom-in" data-aos-delay="400">
+            Book a Consultation
+          </a>
+
+          <a href="http://wellnation360.com/about"
+            class="inline-block border-2 sm:border-4 border-yellow-500 text-yellow-500 font-bold py-3 px-6 sm:py-4 sm:px-8 rounded-lg shadow-lg transition-all duration-300 transform hover:bg-yellow-500 hover:text-dark_blue hover:scale-105 focus:outline-none text-center whitespace-nowrap"
+            data-aos="zoom-in" data-aos-delay="500">
+            Dr. Ritu and Team Profile
+          </a>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
 
   <section id="youtube" data-aos="fade-up" class="py-16 px-4 text-center bg-gray-50">
     <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Watch Our Wellness Insights</h2>
-    <p class="text-lg text-gray-600 mb-10 max-w-2xl mx-auto">Explore tips, discussions, and success stories on our YouTube channel.</p>
+    <p class="text-lg text-gray-600 mb-10 max-w-2xl mx-auto">Explore tips, discussions, and success stories on our
+      YouTube channel.</p>
     <div class="max-w-3xl mx-auto px-4">
       <div class="aspect-w-16 aspect-h-9 rounded-xl overflow-hidden shadow-xl border-4 border-white">
-        <iframe src="https://youtu.be/FmcA5yZtqQc?si=c5OBhRfocmQIepKG" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy" class="w-full h-full"></iframe>
+        <iframe src="https://youtu.be/FmcA5yZtqQc?si=c5OBhRfocmQIepKG" title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen loading="lazy" class="w-full h-full"></iframe>
       </div>
-      <p class="mt-8 text-green-700 text-lg"><a href="https://youtube.com/@wellnation3603?si=4kRF5qbO-v8UrAw5" target="_blank" class="font-semibold hover:underline inline-flex items-center gap-2 group">Visit Our YouTube Channel <i class="fab fa-youtube text-red-600 text-2xl group-hover:scale-110 transition-transform"></i></a></p>
+      <p class="mt-8 text-green-700 text-lg"><a href="https://youtube.com/@wellnation3603?si=4kRF5qbO-v8UrAw5"
+          target="_blank" class="font-semibold hover:underline inline-flex items-center gap-2 group">Visit Our YouTube
+          Channel <i class="fab fa-youtube text-red-600 text-2xl group-hover:scale-110 transition-transform"></i></a>
+      </p>
     </div>
   </section>
 
@@ -807,30 +1258,36 @@
     <div class="max-w-7xl mx-auto">
       <div class="text-center mb-12" data-aos="fade-up">
         <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-3">Wellness Wisdom</h2>
-        <p class="text-lg text-gray-600 max-w-2xl mx-auto">Explore our collection of insightful articles on holistic health, nutrition, and mindful living.</p>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">Explore our collection of insightful articles on holistic
+          health, nutrition, and mindful living.</p>
       </div>
-    <div class="grid grid-cols-1 md:grid-cols-5 gap-6">
-        <article class="md:col-span-3 bg-green-50 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
+      <div class="grid grid-cols-1 md:grid-cols-5 gap-6">
+        <article
+          class="md:col-span-3 bg-green-50 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
           <div class="h-full flex flex-col md:flex-row">
             <div class="md:w-1/2 h-64 md:h-auto">
               <img src="static/images/gut-health.jpg" alt="Featured Post" class="w-full h-full object-cover">
             </div>
             <div class="p-8 md:w-1/2 flex flex-col justify-center">
-              <span class="inline-block bg-green-100 text-green-800 text-xs font-semibold px-3 py-1 rounded-full mb-3">FEATURED</span>
+              <span
+                class="inline-block bg-green-100 text-green-800 text-xs font-semibold px-3 py-1 rounded-full mb-3">FEATURED</span>
               <h3 class="text-2xl font-bold text-gray-800 mb-3">The Mind-Gut Connection</h3>
-              <p class="text-gray-600 mb-4">How your digestive health impacts mental wellbeing and what you can do about it...</p>
+              <p class="text-gray-600 mb-4">How your digestive health impacts mental wellbeing and what you can do about
+                it...</p>
               <a href="/gut_health" class="mt-auto text-green-600 font-medium flex items-center group">
                 Read Story
-                <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none"
+                  stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                 </svg>
               </a>
             </div>
           </div>
         </article>
-  
+
         <div class="md:col-span-2 space-y-6">
-          <article class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 flex">
+          <article
+            class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 flex">
             <div class="w-1/3">
               <img src="static/images/dietmodification.jpg" alt="Yoga Tips" class="w-full h-25 object-contain">
             </div>
@@ -840,13 +1297,14 @@
               <a href="/diet_modification" class="text-sm text-green-600 font-medium inline-flex items-center">
                 Read
                 <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                 </svg>
               </a>
             </div>
           </article>
-  
-          <article class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 flex">
+
+          <article
+            class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 flex">
             <div class="w-1/3">
               <img src="static/images/sleepblog.webp" alt="Nutrition" class="w-full h-25 object-contain">
             </div>
@@ -856,13 +1314,14 @@
               <a href="/sleep_modification" class="text-sm text-green-600 font-medium inline-flex items-center">
                 Read
                 <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                 </svg>
               </a>
             </div>
           </article>
-  
-          <article class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 flex">
+
+          <article
+            class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 flex">
             <div class="w-1/3">
               <img src="static/images/mediation.webp" alt="Meditation" class="w-full h-full object-cover">
             </div>
@@ -872,113 +1331,136 @@
               <a href="/meditation" class="text-sm text-green-600 font-medium inline-flex items-center">
                 Read
                 <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                 </svg>
               </a>
             </div>
           </article>
-
-          </div>
         </div>
-        <div class="text-center mt-12" data-aos="fade-up"><a href="/gut_health" class="inline-flex items-center px-8 py-3.5 border-2 border-green-600 text-green-600 rounded-lg font-semibold hover:bg-green-600 hover:text-white transition-colors duration-300 text-lg shadow-sm hover:shadow-md">Explore All Articles <svg class="w-5 h-5 ml-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg></a></div>
       </div>
+      <div class="text-center mt-12" data-aos="fade-up"><a href="/gut_health"
+          class="inline-flex items-center px-8 py-3.5 border-2 border-green-600 text-green-600 rounded-lg font-semibold hover:bg-green-600 hover:text-white transition-colors duration-300 text-lg shadow-sm hover:shadow-md">Explore
+          All Articles <svg class="w-5 h-5 ml-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg></a></div>
+    </div>
   </section>
 
   <section class="py-16 bg-gray-50">
-  <div class="max-w-4xl mx-auto px-4">
-    <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-12">Frequently Asked Questions</h2>
-    
-    <div class="space-y-4">
-      <div class="bg-white rounded-xl shadow-md overflow-hidden">
-        <button class="faq-question w-full text-left px-6 py-4 flex justify-between items-center focus:outline-none">
-          <h3 class="text-lg font-semibold text-gray-800">What is Wellnation360?</h3>
-          <svg class="w-5 h-5 text-green-600 transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-          </svg>
-        </button>
-        <div class="faq-answer px-6 pb-4 hidden">
-          <p class="text-gray-600">
-            Wellnation360 is a holistic wellness center that combines modern science with ancient wisdom to help you achieve optimal health. We offer personalized programs for detox, weight management, diabetes support, thyroid balance, digestive health, and more through nutrition, lifestyle changes, and therapies like acupuncture.
-          </p>
-        </div>
-      </div>
-      
-      <div class="bg-white rounded-xl shadow-md overflow-hidden">
-        <button class="faq-question w-full text-left px-6 py-4 flex justify-between items-center focus:outline-none">
-          <h3 class="text-lg font-semibold text-gray-800">What is Yogakshema and how is it related?</h3>
-          <svg class="w-5 h-5 text-green-600 transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-          </svg>
-        </button>
-        <div class="faq-answer px-6 pb-4 hidden">
-          <p class="text-gray-600">
-            Yogakshema is our sister organization focused on traditional yoga and meditation practices. While Wellnation360 takes a more clinical approach to wellness with nutrition and therapies, Yogakshema complements this with yoga, pranayama, and meditation practices. Together they provide a complete mind-body wellness solution.
-          </p>
-        </div>
-      </div>
-      
-      <div class="bg-white rounded-xl shadow-md overflow-hidden">
-        <button class="faq-question w-full text-left px-6 py-4 flex justify-between items-center focus:outline-none">
-          <h3 class="text-lg font-semibold text-gray-800">How can I reach Wellnation360 or Yogakshema?</h3>
-          <svg class="w-5 h-5 text-green-600 transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-          </svg>
-        </button>
-        <div class="faq-answer px-6 pb-4 hidden">
-          <p class="text-gray-600">
-            You can reach us through multiple channels:<br><br>
-            - <strong>Wellnation360:</strong> Call +91 9945186968 or email wellnation360@gmail.com<br>
-            - <strong>Yogakshema:</strong> Visit <a href="http://yoga-kshema.in" class="text-green-600 hover:underline" target="_blank">yoga-kshema.in</a><br>
-            - <strong>Location:</strong> Wellnation360 & Yogakshema, Kasavanahalli, Bangalore 560035<br>
-            - <strong>Social Media:</strong> Links in our footer
-          </p>
-        </div>
-      </div>
-      
-      <div class="bg-white rounded-xl shadow-md overflow-hidden">
-        <button class="faq-question w-full text-left px-6 py-4 flex justify-between items-center focus:outline-none">
-          <h3 class="text-lg font-semibold text-gray-800">Can I do the programs online?</h3>
-          <svg class="w-5 h-5 text-green-600 transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-          </svg>
-        </button>
-        <div class="faq-answer px-6 pb-4 hidden">
-          <p class="text-gray-600">
-            Yes! We offer online consultations and programs for those who cannot visit in person. Our nutrition counseling, yoga sessions, and wellness coaching can all be conducted virtually through video calls. Only certain therapies like acupuncture require in-person visits.
-          </p>
-        </div>
-      </div>
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-12">Frequently Asked Questions</h2>
 
-      <div class="bg-white rounded-xl shadow-md overflow-hidden">
-        <button class="faq-question w-full text-left px-6 py-4 flex justify-between items-center focus:outline-none">
-          <h3 class="text-lg font-semibold text-gray-800">Do I need any medical tests before joining a program?</h3>
-          <svg class="w-5 h-5 text-green-600 transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-          </svg>
-        </button>
-        <div class="faq-answer px-6 pb-4 hidden">
-          <p class="text-gray-600">
-            For certain programs like diabetes management or thyroid balance, we recommend having recent blood test reports (within 3 months). For general wellness programs, no prior tests are needed. During your initial consultation, we'll assess your needs and may recommend specific tests if required.
-          </p>
+      <div class="space-y-4">
+        <div class="bg-white rounded-xl shadow-md overflow-hidden">
+          <button class="faq-question w-full text-left px-6 py-4 flex justify-between items-center focus:outline-none">
+            <h3 class="text-lg font-semibold text-gray-800">What is Wellnation360?</h3>
+            <svg class="w-5 h-5 text-green-600 transform transition-transform duration-300" fill="none"
+              viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="faq-answer px-6 pb-4 hidden">
+            <p class="text-gray-600">
+              Wellnation360 is a holistic wellness center that combines modern science with ancient wisdom to help you
+              achieve optimal health. We offer personalized programs for detox, weight management, diabetes support,
+              thyroid balance, digestive health, and more through nutrition, lifestyle changes, and therapies like
+              acupuncture.
+            </p>
+          </div>
         </div>
-      </div>
 
-      <div class="bg-white rounded-xl shadow-md overflow-hidden">
-        <button class="faq-question w-full text-left px-6 py-4 flex justify-between items-center focus:outline-none">
-          <h3 class="text-lg font-semibold text-gray-800">Can I combine different therapies?</h3>
-          <svg class="w-5 h-5 text-green-600 transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-          </svg>
-        </button>
-        <div class="faq-answer px-6 pb-4 hidden">
-          <p class="text-gray-600">
-            Absolutely! In fact, we encourage an integrated approach. Many clients combine nutritional therapy with acupuncture or yoga practices from Yogakshema. Our team coordinates to create a comprehensive plan that safely combines different modalities for maximum benefit.
-          </p>
+        <div class="bg-white rounded-xl shadow-md overflow-hidden">
+          <button class="faq-question w-full text-left px-6 py-4 flex justify-between items-center focus:outline-none">
+            <h3 class="text-lg font-semibold text-gray-800">What is Yogakshema and how is it related?</h3>
+            <svg class="w-5 h-5 text-green-600 transform transition-transform duration-300" fill="none"
+              viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="faq-answer px-6 pb-4 hidden">
+            <p class="text-gray-600">
+              Yogakshema is our sister organization focused on traditional yoga and meditation practices. While
+              Wellnation360 takes a more clinical approach to wellness with nutrition and therapies, Yogakshema
+              complements this with yoga, pranayama, and meditation practices. Together they provide a complete
+              mind-body wellness solution.
+            </p>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-md overflow-hidden">
+          <button class="faq-question w-full text-left px-6 py-4 flex justify-between items-center focus:outline-none">
+            <h3 class="text-lg font-semibold text-gray-800">How can I reach Wellnation360 or Yogakshema?</h3>
+            <svg class="w-5 h-5 text-green-600 transform transition-transform duration-300" fill="none"
+              viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="faq-answer px-6 pb-4 hidden">
+            <p class="text-gray-600">
+              You can reach us through multiple channels:<br><br>
+              - <strong>Wellnation360:</strong> Call +91 9945186968 or email wellnation360@gmail.com<br>
+              - <strong>Yogakshema:</strong> Visit <a href="http://yoga-kshema.in"
+                class="text-green-600 hover:underline" target="_blank">yoga-kshema.in</a><br>
+              - <strong>Location:</strong> Wellnation360 & Yogakshema, Kasavanahalli, Bangalore 560035<br>
+              - <strong>Social Media:</strong> Links in our footer
+            </p>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-md overflow-hidden">
+          <button class="faq-question w-full text-left px-6 py-4 flex justify-between items-center focus:outline-none">
+            <h3 class="text-lg font-semibold text-gray-800">Can I do the programs online?</h3>
+            <svg class="w-5 h-5 text-green-600 transform transition-transform duration-300" fill="none"
+              viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="faq-answer px-6 pb-4 hidden">
+            <p class="text-gray-600">
+              Yes! We offer online consultations and programs for those who cannot visit in person. Our nutrition
+              counseling, yoga sessions, and wellness coaching can all be conducted virtually through video calls. Only
+              certain therapies like acupuncture require in-person visits.
+            </p>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-md overflow-hidden">
+          <button class="faq-question w-full text-left px-6 py-4 flex justify-between items-center focus:outline-none">
+            <h3 class="text-lg font-semibold text-gray-800">Do I need any medical tests before joining a program?</h3>
+            <svg class="w-5 h-5 text-green-600 transform transition-transform duration-300" fill="none"
+              viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="faq-answer px-6 pb-4 hidden">
+            <p class="text-gray-600">
+              For certain programs like diabetes management or thyroid balance, we recommend having recent blood test
+              reports (within 3 months). For general wellness programs, no prior tests are needed. During your initial
+              consultation, we'll assess your needs and may recommend specific tests if required.
+            </p>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-md overflow-hidden">
+          <button class="faq-question w-full text-left px-6 py-4 flex justify-between items-center focus:outline-none">
+            <h3 class="text-lg font-semibold text-gray-800">Can I combine different therapies?</h3>
+            <svg class="w-5 h-5 text-green-600 transform transition-transform duration-300" fill="none"
+              viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="faq-answer px-6 pb-4 hidden">
+            <p class="text-gray-600">
+              Absolutely! In fact, we encourage an integrated approach. Many clients combine nutritional therapy with
+              acupuncture or yoga practices from Yogakshema. Our team coordinates to create a comprehensive plan that
+              safely combines different modalities for maximum benefit.
+            </p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+
 
   <section class="reviews-section scroll-mt-20">
     <div class="container mx-auto px-4">
@@ -991,182 +1473,205 @@
           <p class="text-center text-gray-500 py-8 col-span-full">Loading reviews...</p>
         </div>
         <div id="reviewsNav" class="horizontal-scroll-nav">
-          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <footer id="footer" class="bg-gray-800 text-gray-300 py-12 md:py-16">
     <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 text-center md:text-left">
-        <div>
-          <h4 class="text-xl font-semibold mb-4 text-white">Wellnation360</h4>
-          <p class="text-sm leading-relaxed mb-4">Your partner in holistic health and mindful living...</p>
-           <div class="relative w-24 h-24 mx-auto md:mx-0 rounded-full overflow-hidden border-2 border-green-500">
-            <img src="{{ url_for('static', filename='images/logo1.png') }}" alt="Wellnation360 Small Logo" class="w-full h-full object-cover" />
-          </div>
-        </div>
-        <div>
-          <h4 class="text-lg font-semibold mb-4 text-white">Quick Links</h4>
-          <ul class="space-y-2.5 text-sm">
-            <li><a href="{{ url_for('index') }}#home" class="hover:text-green-400 transition-colors duration-200">Home</a></li>
-            <li><a href="{{ url_for('about') }}" class="hover:text-green-400 transition-colors duration-200">About Us</a></li>
-            <li><a href="{{ url_for('services') }}" class="hover:text-green-400 transition-colors duration-200">Our Services</a></li>
-            <li><a href="{{ url_for('gallery') }}" class="hover:text-green-400 transition-colors duration-200">Gallery</a></li>
-            <li><a href="https://yoga-kshema.in" class="hover:text-green-400 transition-colors duration-200" target="_blank" rel="noopener noreferrer">Yogakshema Website</a></li>
-            <li><a href="{{ url_for('contact_get') }}" class="hover:text-green-400 transition-colors duration-200">Contact Us</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4 class="text-lg font-semibold mb-4 text-white">Contact Info</h4>
-          <div class="text-sm leading-relaxed space-y-3">
-            <div class="flex items-center justify-center md:justify-start gap-2 hover:text-green-400 transition-colors duration-200">
-              <i class="fas fa-map-marker-alt text-green-400 text-base w-5 text-center"></i>
-              <a href="https://www.google.com/maps/place/Wellnation360+and+Yogakshema/@12.9001441,77.6561143,15z/data=!3m1!4b1!4m6!3m5!1s0x3bae1340f6cdbabf:0x3b40ff97221cbb19!8m2!3d12.9001238!4d77.6745684!16s%2Fg%2F11xmgn8tx9?entry=ttu&g_ep=EgoyMDI1MDYzMC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" class="hover:underline">Wellnation360 & Yogakshema, Kasavanahalli, Bangalore 560035</a>
-            </div>
-            <div class="flex items-center justify-center md:justify-start gap-2 hover:text-green-400 transition-colors duration-200">
-              <i class="fas fa-phone-alt text-green-400 text-base w-5 text-center"></i>
-              <a href="tel:+919945186968" class="hover:underline">+91 9945186968</a>
-            </div>
-             <div class="flex items-center justify-center md:justify-start gap-2 hover:text-green-400 transition-colors duration-200">
-              <i class="fas fa-envelope text-green-400 text-base w-5 text-center"></i>
-              <a href="mailto:wellnation360@gmail.com" class="hover:underline"> wellnation360@gmail.com</a>
-            </div>
-          </div>
-        </div>
-        <div>
-          <h4 class="text-lg font-semibold mb-4 text-white">Follow Us</h4>
-          <div class="flex justify-center md:justify-start space-x-5">
-            <a href="https://www.instagram.com/healholistically_wellnation360?igsh=b3NwdWFjamEyd3Q5" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="text-2xl hover:text-pink-500 transition-colors duration-200"><i class="fab fa-instagram"></i></a>
-            <a href="https://youtube.com/@wellnation3603?si=4kRF5qbO-v8UrAw5" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="text-2xl hover:text-red-500 transition-colors duration-200"><i class="fab fa-youtube"></i></a>
-            <a href="https://www.facebook.com/people/Wellnation360/100063911838416/?rdid=50XcnV4ONiKnTt7s&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1CPqvRX7jP%2F" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="text-2xl hover:text-blue-600 transition-colors duration-200"><i class="fab fa-facebook"></i></a>
-          </div>
-           <p class="text-xs mt-6 text-gray-400">Stay connected for wellness tips, updates, and community events.</p>
+      <div>
+        <h4 class="text-xl font-semibold mb-4 text-white">Wellnation360</h4>
+        <p class="text-sm leading-relaxed mb-4">Your partner in holistic health and mindful living...</p>
+        <div class="relative w-24 h-24 mx-auto md:mx-0 rounded-full overflow-hidden border-2 border-green-500">
+          <img src="{{ url_for('static', filename='images/logo1.png') }}" alt="Wellnation360 Small Logo"
+            class="w-full h-full object-cover" />
         </div>
       </div>
-    <div class="text-center text-sm mt-10 border-t border-gray-700 pt-8">© <span id="currentYear"></span> Wellnation360. All rights reserved.</div>
+      <div>
+        <h4 class="text-lg font-semibold mb-4 text-white">Quick Links</h4>
+        <ul class="space-y-2.5 text-sm">
+          <li><a href="{{ url_for('index') }}#home" class="hover:text-green-400 transition-colors duration-200">Home</a>
+          </li>
+          <li><a href="{{ url_for('about') }}" class="hover:text-green-400 transition-colors duration-200">About Us</a>
+          </li>
+          <li><a href="{{ url_for('services') }}" class="hover:text-green-400 transition-colors duration-200">Our
+              Services</a></li>
+          <li><a href="{{ url_for('gallery') }}" class="hover:text-green-400 transition-colors duration-200">Gallery</a>
+          </li>
+          <li><a href="https://yoga-kshema.in" class="hover:text-green-400 transition-colors duration-200"
+              target="_blank" rel="noopener noreferrer">Yogakshema Website</a></li>
+          <li><a href="{{ url_for('contact_get') }}" class="hover:text-green-400 transition-colors duration-200">Contact
+              Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-lg font-semibold mb-4 text-white">Contact Info</h4>
+        <div class="text-sm leading-relaxed space-y-3">
+          <div
+            class="flex items-center justify-center md:justify-start gap-2 hover:text-green-400 transition-colors duration-200">
+            <i class="fas fa-map-marker-alt text-green-400 text-base w-5 text-center"></i>
+            <a href="https://www.google.com/maps/place/Wellnation360+and+Yogakshema/@12.9001441,77.6561143,15z/data=!3m1!4b1!4m6!3m5!1s0x3bae1340f6cdbabf:0x3b40ff97221cbb19!8m2!3d12.9001238!4d77.6745684!16s%2Fg%2F11xmgn8tx9?entry=ttu&g_ep=EgoyMDI1MDYzMC4wIKXMDSoASAFQAw%3D%3D"
+              target="_blank" rel="noopener noreferrer" class="hover:underline">Wellnation360 & Yogakshema,
+              Kasavanahalli, Bangalore 560035</a>
+          </div>
+          <div
+            class="flex items-center justify-center md:justify-start gap-2 hover:text-green-400 transition-colors duration-200">
+            <i class="fas fa-phone-alt text-green-400 text-base w-5 text-center"></i>
+            <a href="tel:+919945186968" class="hover:underline">+91 9945186968</a>
+          </div>
+          <div
+            class="flex items-center justify-center md:justify-start gap-2 hover:text-green-400 transition-colors duration-200">
+            <i class="fas fa-envelope text-green-400 text-base w-5 text-center"></i>
+            <a href="mailto:wellnation360@gmail.com" class="hover:underline"> wellnation360@gmail.com</a>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h4 class="text-lg font-semibold mb-4 text-white">Follow Us</h4>
+        <div class="flex justify-center md:justify-start space-x-5">
+          <a href="https://www.instagram.com/healholistically_wellnation360?igsh=b3NwdWFjamEyd3Q5" target="_blank"
+            rel="noopener noreferrer" aria-label="Instagram"
+            class="text-2xl hover:text-pink-500 transition-colors duration-200"><i class="fab fa-instagram"></i></a>
+          <a href="https://youtube.com/@wellnation3603?si=4kRF5qbO-v8UrAw5" target="_blank" rel="noopener noreferrer"
+            aria-label="YouTube" class="text-2xl hover:text-red-500 transition-colors duration-200"><i
+              class="fab fa-youtube"></i></a>
+          <a href="https://www.facebook.com/people/Wellnation360/100063911838416/?rdid=50XcnV4ONiKnTt7s&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1CPqvRX7jP%2F"
+            target="_blank" rel="noopener noreferrer" aria-label="Facebook"
+            class="text-2xl hover:text-blue-600 transition-colors duration-200"><i class="fab fa-facebook"></i></a>
+        </div>
+        <p class="text-xs mt-6 text-gray-400">Stay connected for wellness tips, updates, and community events.</p>
+      </div>
+    </div>
+    <div class="text-center text-sm mt-10 border-t border-gray-700 pt-8">© <span id="currentYear"></span> Wellnation360.
+      All rights reserved.</div>
   </footer>
 
   <div class="fixed bottom-8 right-8 z-50 group">
-    <a href="https://wa.me/919945186968?text=Hello%20Wellnation360,%20I'd%20like%20to%20inquire%20about%20your%20services." target="_blank" class="flex items-center gap-2 bg-white pl-3 pr-2 py-2 rounded-full shadow-lg border border-gray-200 hover:pr-3 transition-all duration-300">
-      <span class="opacity-0 group-hover:opacity-100 w-0 group-hover:w-auto overflow-hidden transition-all duration-300 text-sm font-medium">Let's chat!</span>
-      <img src="{{ url_for('static', filename='images/whatsapp.png') }}" alt="WhatsApp" class="w-10 h-10 lazy-load" loading="lazy">
+    <a href="https://wa.me/919945186968?text=Hello%20Wellnation360,%20I'd%20like%20to%20inquire%20about%20your%20services."
+      target="_blank"
+      class="flex items-center gap-2 bg-white pl-3 pr-2 py-2 rounded-full shadow-lg border border-gray-200 hover:pr-3 transition-all duration-300">
+      <span
+        class="opacity-0 group-hover:opacity-100 w-0 group-hover:w-auto overflow-hidden transition-all duration-300 text-sm font-medium">Let's
+        chat!</span>
+      <img src="{{ url_for('static', filename='images/whatsapp.png') }}" alt="WhatsApp" class="w-10 h-10 lazy-load"
+        loading="lazy">
     </a>
   </div>
 
-  
-<script>
-// --- Scripts organized in one DOMContentLoaded listener ---
-document.addEventListener('DOMContentLoaded', function() {
-  
-  AOS.init({ easing: 'ease-in-out', duration: 800, once: true, offset: 50 });
+  <script>
+    // --- Scripts organized in one DOMContentLoaded listener ---
+    document.addEventListener('DOMContentLoaded', function () {
 
-  // Mobile menu toggle
-  const mobileMenuButton = document.getElementById('mobileMenuButton');
-  const mobileMenu = document.getElementById('mobileMenu');
-  if (mobileMenuButton && mobileMenu) {
-    mobileMenuButton.addEventListener('click', (event) => {
-      event.stopPropagation();
-      mobileMenu.classList.toggle('hidden');
-    });
-    document.addEventListener('click', (e) => {
-      if (!mobileMenu.contains(e.target) && !mobileMenuButton.contains(e.target)) {
-        mobileMenu.classList.add('hidden');
+      AOS.init({ easing: 'ease-in-out', duration: 800, once: true, offset: 50 });
+
+      // Mobile menu toggle
+      const mobileMenuButton = document.getElementById('mobileMenuButton');
+      const mobileMenu = document.getElementById('mobileMenu');
+      if (mobileMenuButton && mobileMenu) {
+        mobileMenuButton.addEventListener('click', (event) => {
+          event.stopPropagation();
+          mobileMenu.classList.toggle('hidden');
+        });
+        document.addEventListener('click', (e) => {
+          if (!mobileMenu.contains(e.target) && !mobileMenuButton.contains(e.target)) {
+            mobileMenu.classList.add('hidden');
+          }
+        });
       }
-    });
-  }
 
-document.querySelectorAll('#mobileMenu button').forEach(button => {
-  button.addEventListener('click', function() {
-    const submenu = this.nextElementSibling;
-    if (submenu) {
-      submenu.classList.toggle('hidden');
-      const icon = this.querySelector('svg');
-      if (icon) {
-        icon.classList.toggle('rotate-180');
-      }
-    }
-  });
-});
+      document.querySelectorAll('#mobileMenu button').forEach(button => {
+        button.addEventListener('click', function () {
+          const submenu = this.nextElementSibling;
+          if (submenu) {
+            submenu.classList.toggle('hidden');
+            const icon = this.querySelector('svg');
+            if (icon) {
+              icon.classList.toggle('rotate-180');
+            }
+          }
+        });
+      });
 
-  // Set current year in footer
-  document.getElementById('currentYear').textContent = new Date().getFullYear();
+      // Set current year in footer
+      document.getElementById('currentYear').textContent = new Date().getFullYear();
 
-  // --- REWRITTEN HERO CAROUSEL SCRIPT ---
-  function initCarousel() {
-    const slides = document.querySelectorAll('.carousel-slide');
-    const dots = document.querySelectorAll('.nav-dot');
-    const prevArrow = document.querySelector('.arrow-left');
-    const nextArrow = document.querySelector('.arrow-right');
-    const carouselContainer = document.querySelector('.hero-carousel');
-    
-    if (slides.length === 0) return;
+      // --- REWRITTEN HERO CAROUSEL SCRIPT ---
+      function initCarousel() {
+        const slides = document.querySelectorAll('.carousel-slide');
+        const dots = document.querySelectorAll('.nav-dot');
+        const prevArrow = document.querySelector('.arrow-left');
+        const nextArrow = document.querySelector('.arrow-right');
+        const carouselContainer = document.querySelector('.hero-carousel');
 
-    let currentSlide = 0;
-    const slideCount = slides.length;
-    let slideInterval;
-    let isPaused = false;
+        if (slides.length === 0) return;
 
-    function showSlide(index) {
-        if (index < 0 || index >= slideCount) return;
-        
-        slides.forEach(slide => slide.classList.remove('active'));
-        dots.forEach(dot => dot.classList.remove('active'));
-        
-        slides[index].classList.add('active');
-        dots[index].classList.add('active');
-        
-        currentSlide = index;
-    }
+        let currentSlide = 0;
+        const slideCount = slides.length;
+        let slideInterval;
+        let isPaused = false;
 
-    function advanceSlide() {
-        if (!isPaused) {
+        function showSlide(index) {
+          if (index < 0 || index >= slideCount) return;
+
+          slides.forEach(slide => slide.classList.remove('active'));
+          dots.forEach(dot => dot.classList.remove('active'));
+
+          slides[index].classList.add('active');
+          dots[index].classList.add('active');
+
+          currentSlide = index;
+        }
+
+        function advanceSlide() {
+          if (!isPaused) {
             const nextIndex = (currentSlide + 1) % slideCount;
             showSlide(nextIndex);
+          }
         }
-    }
-    
-    function manualAdvance(nextIndex) {
-        showSlide(nextIndex);
-        // Reset the timer
-        clearInterval(slideInterval);
-        slideInterval = setInterval(advanceSlide, 5000);
-    }
 
-    prevArrow.addEventListener('click', () => {
-        const prevIndex = (currentSlide - 1 + slideCount) % slideCount;
-        manualAdvance(prevIndex);
-    });
+        function manualAdvance(nextIndex) {
+          showSlide(nextIndex);
+          // Reset the timer
+          clearInterval(slideInterval);
+          slideInterval = setInterval(advanceSlide, 5000);
+        }
 
-    nextArrow.addEventListener('click', () => {
-        const nextIndex = (currentSlide + 1) % slideCount;
-        manualAdvance(nextIndex);
-    });
+        prevArrow.addEventListener('click', () => {
+          const prevIndex = (currentSlide - 1 + slideCount) % slideCount;
+          manualAdvance(prevIndex);
+        });
 
-    dots.forEach(dot => {
-        dot.addEventListener('click', function() {
+        nextArrow.addEventListener('click', () => {
+          const nextIndex = (currentSlide + 1) % slideCount;
+          manualAdvance(nextIndex);
+        });
+
+        dots.forEach(dot => {
+          dot.addEventListener('click', function () {
             const slideIndex = parseInt(this.getAttribute('data-slide'));
             manualAdvance(slideIndex);
+          });
         });
-    });
-    
-    carouselContainer.addEventListener('mouseenter', () => { isPaused = true; });
-    carouselContainer.addEventListener('mouseleave', () => { isPaused = false; });
-    
-    // Set initial state and start the timer
-    showSlide(0);
-    slideInterval = setInterval(advanceSlide, 5000);
-  }
-  
-  initCarousel();
 
-  // Services Display
-  function createServiceBlock(serviceItem) {
-    const block = document.createElement("div");
-    block.className = "service-block";
-    block.setAttribute('data-aos', 'fade-up');
-    const imageUrl = serviceItem.image_url || "{{ url_for('static', filename='images/service-placeholder.jpg') }}";
-    
-    block.innerHTML = `
+        carouselContainer.addEventListener('mouseenter', () => { isPaused = true; });
+        carouselContainer.addEventListener('mouseleave', () => { isPaused = false; });
+
+        // Set initial state and start the timer
+        showSlide(0);
+        slideInterval = setInterval(advanceSlide, 5000);
+      }
+
+      initCarousel();
+
+      // Services Display
+      function createServiceBlock(serviceItem) {
+        const block = document.createElement("div");
+        block.className = "service-block";
+        block.setAttribute('data-aos', 'fade-up');
+        const imageUrl = serviceItem.image_url || "{{ url_for('static', filename='images/service-placeholder.jpg') }}";
+
+        block.innerHTML = `
         <img src="${imageUrl}" alt="${serviceItem.service_name || 'Service Image'}" class="service-image" loading="lazy">
         <div class="service-header">
             <h3 class="service-name">${serviceItem.service_name || 'Service Name'}</h3>
@@ -1181,105 +1686,105 @@ document.querySelectorAll('#mobileMenu button').forEach(button => {
             </div>
         </div>`;
 
-    const priceAndPlansDiv = block.querySelector('.price-and-plans');
-    if (serviceItem.plans && serviceItem.plans.length > 0) {
-        if (serviceItem.plans.length === 1) {
+        const priceAndPlansDiv = block.querySelector('.price-and-plans');
+        if (serviceItem.plans && serviceItem.plans.length > 0) {
+          if (serviceItem.plans.length === 1) {
             const plan = serviceItem.plans[0];
             priceAndPlansDiv.innerHTML = `<p class="service-price">₹${plan.price.toLocaleString('en-IN')} ${plan.months > 1 ? `for ${plan.months} months` : ''}</p>`;
-        } else {
+          } else {
             const cheapestPlan = [...serviceItem.plans].sort((a, b) => a.price - b.price)[0];
             let optionsHtml = serviceItem.plans.sort((a, b) => a.months - b.months).map(plan =>
-                `<option value="${plan.months}" data-price="${plan.price}">${plan.months} month${plan.months > 1 ? 's' : ''} - ₹${plan.price.toLocaleString('en-IN')}</option>`
+              `<option value="${plan.months}" data-price="${plan.price}">${plan.months} month${plan.months > 1 ? 's' : ''} - ₹${plan.price.toLocaleString('en-IN')}</option>`
             ).join('');
             priceAndPlansDiv.innerHTML = `
                 <div class="plan-selector"><select class="plan-select">${optionsHtml}</select></div>
                 <p class="service-price">₹${cheapestPlan.price.toLocaleString('en-IN')}</p>`;
-            
-            block.querySelector('.plan-select').addEventListener('change', (e) => {
-                const price = e.target.options[e.target.selectedIndex].dataset.price;
-                block.querySelector('.service-price').textContent = `₹${parseFloat(price).toLocaleString('en-IN')}`;
-            });
-        }
-    } else {
-        priceAndPlansDiv.innerHTML = `<p class="service-price">Contact for Pricing</p><p class="no-plans">Custom plans available</p>`;
-    }
 
-    block.querySelector('.details-btn').addEventListener('click', () => window.location.href = `{{ url_for('services') }}`);
-    block.querySelector('.enroll-btn').addEventListener('click', () => {
-        let queryString = `service_enroll=${encodeURIComponent(serviceItem.service_name)}`;
-        const planSelect = block.querySelector('.plan-select');
-        if (planSelect) {
+            block.querySelector('.plan-select').addEventListener('change', (e) => {
+              const price = e.target.options[e.target.selectedIndex].dataset.price;
+              block.querySelector('.service-price').textContent = `₹${parseFloat(price).toLocaleString('en-IN')}`;
+            });
+          }
+        } else {
+          priceAndPlansDiv.innerHTML = `<p class="service-price">Contact for Pricing</p><p class="no-plans">Custom plans available</p>`;
+        }
+
+        block.querySelector('.details-btn').addEventListener('click', () => window.location.href = `{{ url_for('services') }}`);
+        block.querySelector('.enroll-btn').addEventListener('click', () => {
+          let queryString = `service_enroll=${encodeURIComponent(serviceItem.service_name)}`;
+          const planSelect = block.querySelector('.plan-select');
+          if (planSelect) {
             const selectedOption = planSelect.options[planSelect.selectedIndex];
             queryString += `&months=${selectedOption.value}&price=${selectedOption.dataset.price}`;
+          }
+          window.location.href = `{{ url_for('contact_get') }}?${queryString}`;
+        });
+        return block;
+      }
+
+      async function displayServices() {
+        const container = document.getElementById('servicesContainer');
+        if (!container) return;
+        try {
+          container.innerHTML = '<p class="text-center text-gray-500 py-8">Loading services...</p>';
+          const response = await fetch('/api/services');
+          if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+          const allServices = await response.json();
+          const servicesData = allServices.filter(s => s.website && s.website.toLowerCase() === "wellnation360");
+
+          if (servicesData.length === 0) {
+            container.innerHTML = '<p class="text-center text-gray-600 py-10 px-4 w-full">No services available. Please check back soon!</p>';
+            return;
+          }
+          container.innerHTML = '';
+          servicesData.forEach(service => container.appendChild(createServiceBlock(service)));
+          setupHorizontalScroll('servicesContainer', 'servicesNav');
+        } catch (error) {
+          console.error('Error loading services:', error);
+          container.innerHTML = `<p class="text-center text-red-500 py-10 px-4 w-full">Could not load services. Please <a href="{{ url_for('contact_get') }}" class="text-green-600 underline">contact us</a>.</p>`;
         }
-        window.location.href = `{{ url_for('contact_get') }}?${queryString}`;
-    });
-    return block;
-  }
-
-  async function displayServices() {
-    const container = document.getElementById('servicesContainer');
-    if (!container) return;
-    try {
-      container.innerHTML = '<p class="text-center text-gray-500 py-8">Loading services...</p>';
-      const response = await fetch('/api/services');
-      if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-      const allServices = await response.json();
-      const servicesData = allServices.filter(s => s.website && s.website.toLowerCase() === "wellnation360");
-      
-      if (servicesData.length === 0) {
-        container.innerHTML = '<p class="text-center text-gray-600 py-10 px-4 w-full">No services available. Please check back soon!</p>';
-        return;
       }
-      container.innerHTML = '';
-      servicesData.forEach(service => container.appendChild(createServiceBlock(service)));
-      setupHorizontalScroll('servicesContainer', 'servicesNav');
-    } catch (error) {
-      console.error('Error loading services:', error);
-      container.innerHTML = `<p class="text-center text-red-500 py-10 px-4 w-full">Could not load services. Please <a href="{{ url_for('contact_get') }}" class="text-green-600 underline">contact us</a>.</p>`;
-    }
-  }
 
-  // FAQ Toggle
-  document.querySelectorAll('.faq-question').forEach(question => {
-    question.addEventListener('click', () => {
-      const answer = question.nextElementSibling;
-      const icon = question.querySelector('svg');
-      const isHidden = answer.classList.contains('hidden');
-      document.querySelectorAll('.faq-answer').forEach(ans => ans.classList.add('hidden'));
-      document.querySelectorAll('.faq-question svg').forEach(ic => ic.classList.remove('rotate-180'));
-      if (isHidden) {
-          answer.classList.remove('hidden');
-          icon.classList.add('rotate-180');
+      // FAQ Toggle
+      document.querySelectorAll('.faq-question').forEach(question => {
+        question.addEventListener('click', () => {
+          const answer = question.nextElementSibling;
+          const icon = question.querySelector('svg');
+          const isHidden = answer.classList.contains('hidden');
+          document.querySelectorAll('.faq-answer').forEach(ans => ans.classList.add('hidden'));
+          document.querySelectorAll('.faq-question svg').forEach(ic => ic.classList.remove('rotate-180'));
+          if (isHidden) {
+            answer.classList.remove('hidden');
+            icon.classList.add('rotate-180');
+          }
+        });
+      });
+
+      // Reviews Display
+      async function fetchReviews() {
+        try {
+          const response = await fetch('/api/reviews');
+          if (!response.ok) return [];
+          const data = await response.json();
+          return data.reviews.filter(r => r.platform && r.platform.toLowerCase() === "wellnation360");
+        } catch (error) {
+          console.error('Error fetching reviews:', error);
+          return [];
+        }
       }
-    });
-  });
 
-  // Reviews Display
-  async function fetchReviews() {
-    try {
-      const response = await fetch('/api/reviews');
-      if (!response.ok) return [];
-      const data = await response.json();
-      return data.reviews.filter(r => r.platform && r.platform.toLowerCase() === "wellnation360");
-    } catch (error) {
-      console.error('Error fetching reviews:', error);
-      return [];
-    }
-  }
-
-  function createReviewCard(review) {
-    const card = document.createElement('div');
-    card.className = 'review-card-horizontal';
-    const avatarUrl = review.reviewer_image_url || `https://ui-avatars.com/api/?name=${encodeURIComponent(review.reviewer_name || 'U')}&background=e0e7ff&color=4338ca&bold=true`;
-    const stars = '★'.repeat(review.rating || 5) + '☆'.repeat(5 - (review.rating || 5));
-    let mediaElement = '';
-    if (review.media_url) {
-        mediaElement = review.media_type === 'image' 
-            ? `<img src="${review.media_url}" alt="Review media" loading="lazy">` 
+      function createReviewCard(review) {
+        const card = document.createElement('div');
+        card.className = 'review-card-horizontal';
+        const avatarUrl = review.reviewer_image_url || `https://ui-avatars.com/api/?name=${encodeURIComponent(review.reviewer_name || 'U')}&background=e0e7ff&color=4338ca&bold=true`;
+        const stars = '★'.repeat(review.rating || 5) + '☆'.repeat(5 - (review.rating || 5));
+        let mediaElement = '';
+        if (review.media_url) {
+          mediaElement = review.media_type === 'image'
+            ? `<img src="${review.media_url}" alt="Review media" loading="lazy">`
             : `<video controls src="${review.media_url}" loading="lazy"></video>`;
-    }
-    card.innerHTML = `
+        }
+        card.innerHTML = `
         <div class="review-header">
             <img src="${avatarUrl}" class="reviewer-avatar" alt="${review.reviewer_name || 'Reviewer'}">
             <div class="review-info">
@@ -1289,53 +1794,94 @@ document.querySelectorAll('#mobileMenu button').forEach(button => {
         </div>
         ${review.content ? `<p class="review-content-text">${review.content}</p>` : ''}
         ${mediaElement ? `<div class="review-media">${mediaElement}</div>` : ''}`;
-    return card;
-  }
+        return card;
+      }
+      async function displayReviews() {
+        const container = document.getElementById('reviewsListContainer');
+        if (!container) return;
 
-  async function displayReviews() {
-    const container = document.getElementById('reviewsListContainer');
-    if (!container) return;
-    const reviews = await fetchReviews();
-    if (reviews.length === 0) {
-        container.innerHTML = '<p class="text-center text-gray-600 py-10 px-4 w-full">No reviews yet. Be the first to share your experience!</p>';
-        return;
-    }
-    container.innerHTML = '';
-    reviews.forEach(review => container.appendChild(createReviewCard(review)));
-    setupHorizontalScroll('reviewsListContainer', 'reviewsNav');
-  }
+        try {
+          const reviews = await fetchReviews();
 
-  // Generic Horizontal Scroll
-  function setupHorizontalScroll(containerId, navId) {
-    const container = document.getElementById(containerId);
-    const navElement = document.getElementById(navId);
-    if (!container || !navElement || container.children.length < 2) {
-      if(navElement) navElement.innerHTML = '';
-      return;
-    }
-    navElement.innerHTML = `
+          if (reviews.length === 0) {
+            container.innerHTML = '<p class="text-center text-gray-600 py-10 px-4 w-full">No reviews yet. Be the first to share your experience!</p>';
+            return;
+          }
+
+          container.innerHTML = '';
+
+          reviews.forEach(review => {
+            const card = document.createElement('div');
+            card.className = 'review-card-horizontal';
+
+            // Use default avatar if none provided
+            const avatarUrl = review.reviewer_image_url ||
+              `https://ui-avatars.com/api/?name=${encodeURIComponent(review.reviewer_name || 'U')}&background=e0e7ff&color=4338ca&bold=true`;
+
+            // Create star rating
+            const stars = '★'.repeat(review.rating || 5) + '☆'.repeat(5 - (review.rating || 5));
+
+            // Create media element if exists
+            let mediaElement = '';
+            if (review.media_url) {
+              mediaElement = review.media_type === 'image'
+                ? `<img src="${review.media_url}" alt="Review media" class="max-w-full h-auto rounded-lg mt-2" loading="lazy">`
+                : `<video controls src="${review.media_url}" class="max-w-full h-auto rounded-lg mt-2" loading="lazy"></video>`;
+            }
+
+            // Create compact card layout without gaps
+            card.innerHTML = `
+        <div class="flex items-start gap-3">
+          <img src="${avatarUrl}" class="w-10 h-10 rounded-full object-cover" alt="${review.reviewer_name || 'Reviewer'}">
+          <div>
+            <div class="font-medium text-gray-800">${review.reviewer_name || 'Anonymous'}</div>
+            <div class="text-yellow-400 text-sm">${stars}</div>
+          </div>
+        </div>
+        <p class="text-gray-700 mt-1 text-sm">${review.content || ''}</p>
+        ${mediaElement}`;
+
+            container.appendChild(card);
+          })
+
+          setupHorizontalScroll('reviewsListContainer', 'reviewsNav');
+
+        } catch (error) {
+          console.error('Error displaying reviews:', error);
+          container.innerHTML = '<p class="text-center text-red-500 py-10 px-4 w-full">Failed to load reviews. Please try again later.</p>';
+        }
+      }
+      // Generic Horizontal Scroll
+      function setupHorizontalScroll(containerId, navId) {
+        const container = document.getElementById(containerId);
+        const navElement = document.getElementById(navId);
+        if (!container || !navElement || container.children.length < 2) {
+          if (navElement) navElement.innerHTML = '';
+          return;
+        }
+        navElement.innerHTML = `
       <button aria-label="Previous" class="scroll-prev"><i class="fas fa-chevron-left"></i></button>
       <button aria-label="Next" class="scroll-next"><i class="fas fa-chevron-right"></i></button>`;
-    const prevBtn = navElement.querySelector('.scroll-prev');
-    const nextBtn = navElement.querySelector('.scroll-next');
+        const prevBtn = navElement.querySelector('.scroll-prev');
+        const nextBtn = navElement.querySelector('.scroll-next');
 
-    function updateNav() {
-      prevBtn.disabled = container.scrollLeft < 10;
-      nextBtn.disabled = container.scrollLeft >= (container.scrollWidth - container.clientWidth - 10);
-    }
-    prevBtn.addEventListener('click', () => container.scrollBy({ left: -(container.firstChild.offsetWidth + 32), behavior: 'smooth' }));
-    nextBtn.addEventListener('click', () => container.scrollBy({ left: (container.firstChild.offsetWidth + 32), behavior: 'smooth' }));
-    container.addEventListener('scroll', () => requestAnimationFrame(updateNav));
-    window.addEventListener('resize', updateNav);
-    setTimeout(updateNav, 200);
-  }
+        function updateNav() {
+          prevBtn.disabled = container.scrollLeft < 10;
+          nextBtn.disabled = container.scrollLeft >= (container.scrollWidth - container.clientWidth - 10);
+        }
+        prevBtn.addEventListener('click', () => container.scrollBy({ left: -(container.firstChild.offsetWidth + 32), behavior: 'smooth' }));
+        nextBtn.addEventListener('click', () => container.scrollBy({ left: (container.firstChild.offsetWidth + 32), behavior: 'smooth' }));
+        container.addEventListener('scroll', () => requestAnimationFrame(updateNav));
+        window.addEventListener('resize', updateNav);
+        setTimeout(updateNav, 200);
+      }
 
-  // Initial data fetch
-  displayServices();
-  displayReviews();
-});
+      // Initial data fetch
+      displayServices();
+      displayReviews();
+    });
 
-
-</script>
+  </script>
 </body>
+
 </html>

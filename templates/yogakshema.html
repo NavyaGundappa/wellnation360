@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,43 +8,65 @@
   <link rel="icon" href="static/images/yogalogo1.png" type="image/x-icon">
   <title>Yogaksheema</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <style> /* Keep your existing styles */
+  <style>
+    /* Keep your existing styles */
     @keyframes fade-in-up {
-      0% { opacity: 0; transform: translateY(20px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-    .animate-fade-in-up { animation: fade-in-up 0.6s ease-out forwards; }
-    .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-    .hide-scrollbar::-webkit-scrollbar { display: none; }
-    .snap-center { scroll-snap-align: center; }
-    .snap-mandatory { scroll-snap-type: x mandatory; }
-    /* Remove ALL default dropdown arrows */
-select, .dropdown-toggle::after, [data-toggle="dropdown"]::after {
-  display: none !important;
-  content: none !important;
-}
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
 
-/* Force our SVG to be the only visible arrow */
-button svg {
-  display: block !important;
-}
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate-fade-in-up {
+      animation: fade-in-up 0.6s ease-out forwards;
+    }
+
+    .hide-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    .hide-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+
+    .snap-center {
+      scroll-snap-align: center;
+    }
+
+    .snap-mandatory {
+      scroll-snap-type: x mandatory;
+    }
   </style>
 </head>
+
 <body class="text-gray-800">
 
   <div class="fixed bottom-8 right-8 z-50 group">
-    <a href="https://wa.me/919945186968?text=Hello%20Wellnation360,%20I'd%20like%20to%20inquire%20about%20your%20services." target="_blank" class="flex items-center gap-2 bg-white pl-3 pr-2 py-2 rounded-full shadow-lg border border-gray-200 hover:pr-3 transition-all duration-300">
-      <span class="opacity-0 group-hover:opacity-100 w-0 group-hover:w-auto overflow-hidden transition-all duration-300 text-sm font-medium">Let's chat!</span>
-      <img src="{{ url_for('static', filename='images/whatsapp.png') }}" alt="WhatsApp" class="w-10 h-10 lazy-load" loading="lazy">
+    <a href="https://wa.me/919945186968?text=Hello%20Wellnation360,%20I'd%20like%20to%20inquire%20about%20your%20services."
+      target="_blank"
+      class="flex items-center gap-2 bg-white pl-3 pr-2 py-2 rounded-full shadow-lg border border-gray-200 hover:pr-3 transition-all duration-300">
+      <span
+        class="opacity-0 group-hover:opacity-100 w-0 group-hover:w-auto overflow-hidden transition-all duration-300 text-sm font-medium">Let's
+        chat!</span>
+      <img src="{{ url_for('static', filename='images/whatsapp.png') }}" alt="WhatsApp" class="w-10 h-10 lazy-load"
+        loading="lazy">
     </a>
   </div>
 
-  <header class="fixed top-0 left-0 w-full flex flex-col md:flex-row justify-between items-center p-4 z-50 bg-gray-800 shadow-md h-auto md:h-24">
+  <header
+    class="fixed top-0 left-0 w-full flex flex-col md:flex-row justify-between items-center p-4 z-50 bg-gray-800 shadow-md h-auto md:h-24">
     <div class="w-full md:w-auto flex justify-between items-center">
       <div class="flex items-center space-x-3">
         <a href="{{ url_for('index') }}" class="flex items-center space-x-3">
           <div class="relative w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden border-2 border-green-400">
-            <img src="{{ url_for('static', filename='images/logo1.png') }}" alt="Logo" class="w-full h-full object-cover" />
+            <img src="{{ url_for('static', filename='images/logo1.png') }}" alt="Logo"
+              class="w-full h-full object-cover" />
           </div>
           <span class="text-xl md:text-3xl font-bold text-white">Wellnation360</span>
         </a>
@@ -75,25 +98,23 @@ button svg {
       <a href="http://wellnation360.com/about" class="hover:text-green-300">About</a>
       <a href="http://wellnation360.com/glimpse" class="text-white relative group">
         Gallery
-        <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-green-400 transition-all duration-300 group-hover:w-full"></span>
+        <span
+          class="absolute left-0 -bottom-1 w-0 h-0.5 bg-green-400 transition-all duration-300 group-hover:w-full"></span>
       </a>
-<div class="text-white relative group">
-  <!-- Changed from <a> to <button> to prevent default browser styling -->
-  <button class="flex items-center gap-1 bg-transparent border-none p-0 text-white group-hover:text-green-400 focus:outline-none">
-    Services
-    <!-- Your single SVG arrow -->
-    <svg class="w-4 h-4 transition-transform duration-300 group-hover:rotate-180" 
-         fill="currentColor" 
-         viewBox="0 0 20 20"
-         style="display: block !important;">
-      <path d="M5.23 7.21a.75.75 0 011.06.02L10 10.939l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z"/>
-    </svg>
-  </button>
-  <div class="absolute top-full left-0 mt-2 w-64 bg-white text-black rounded-md shadow-lg opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300 invisible group-hover:visible z-50" 
-       id="services-dropdown-menu">
-    <!-- Dropdown content -->
-  </div>
-</div>
+      <div class="text-white relative group">
+        <a href="#services" class="text-white relative flex items-center gap-1 group-hover:text-green-400">
+          Services
+          <svg class="w-4 h-4 transition-transform duration-300 group-hover:rotate-180" fill="currentColor"
+            viewBox="0 0 20 20">
+            <path
+              d="M5.23 7.21a.75.75 0 011.06.02L10 10.939l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" />
+          </svg>
+        </a>
+        <div
+          class="absolute top-full left-0 mt-2 w-64 bg-white text-black rounded-md shadow-lg opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300 invisible group-hover:visible z-50"
+          id="services-dropdown-menu">
+        </div>
+      </div>
       <a href="#reviews" class="hover:text-green-300">Reviews</a>
       <a href="http://wellnation360.com/contact" class="hover:text-green-300">Contact</a>
     </nav>
@@ -107,7 +128,8 @@ button svg {
     </div>
   </header>
 
-  <section id="home" class="relative bg-cover bg-center h-screen pt-28 px-6 md:px-20 z-0" style="background-image: url('{{ url_for('static', filename='images/wellness.jpg') }}');">
+  <section id="home" class="relative bg-cover bg-center h-screen pt-28 px-6 md:px-20 z-0"
+    style="background-image: url('{{ url_for('static', filename='images/wellness.jpg') }}');">
     <div class="absolute inset-0 bg-black opacity-40 z-0"></div>
     <div class="relative z-10 flex flex-col md:flex-row items-center justify-between w-full max-w-7xl mx-auto h-full">
       <div class="md:w-1/2 text-center md:text-left text-white space-y-4">
@@ -118,10 +140,12 @@ button svg {
           Empowering your health with natural healing, mindful practices, and expert guidance.
         </p>
         <div class="flex justify-center md:justify-start gap-4">
-          <a href="http://wellnation360.com/about" class="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-full transition duration-300">
+          <a href="http://wellnation360.com/about"
+            class="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-full transition duration-300">
             Explore More
           </a>
-          <a href="http://wellnation360.com/contact" class="text-white bg-green-600 border border-green-600 hover:bg-white hover:text-green-600 px-6 py-3 rounded-full transition duration-300">
+          <a href="http://wellnation360.com/contact"
+            class="text-white bg-green-600 border border-green-600 hover:bg-white hover:text-green-600 px-6 py-3 rounded-full transition duration-300">
             Consult Now
           </a>
         </div>
@@ -133,89 +157,116 @@ button svg {
   <section id="about" class="relative z-0 py-16 px-6 bg-white scroll-mt-20">
     <!-- Content as before -->
     <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-10 md:gap-16">
-        <div class="md:w-2/5 flex justify-center" data-aos="fade-right">
-          <div class="relative w-72 h-72 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden shadow-2xl border-4 border-green-300 p-2 bg-white">
-            <img src="{{ url_for('static', filename='images/logo1.png') }}" alt="Wellnation360 Logo" class="w-full h-full object-contain rounded-full">
-          </div>
-        </div>
-        <div class="md:w-3/5 w-full text-center md:text-left" data-aos="fade-left">
-      <h3 class="text-3xl font-bold mb-4">About Us</h3>
-      <p class="text-gray-600 text-lg mb-6">
-        At Wellnation360, we empower you to live a healthier, more balanced life. We blend modern science with ancient wisdom to help you reconnect with your body and mind. Through a combination of natural healing, mindful practices, and expert guidance, our holistic approach guides you toward vitality and well-being. Whether it's through diet correction, physical strength, or the ancient practices of meditation and acupuncture, we support you in achieving a life of balance, vitality, and true wellness.
-      </p>
-      <a href="www.wellnation360.com/about" class="bg-green-600 hover:bg-green-700 text-white font-semibold px-8 py-3.5 rounded-lg transition duration-300 shadow-md hover:shadow-lg text-lg">Explore More</a>
+      <div class="md:w-2/5 flex justify-center" data-aos="fade-right">
+        <div
+          class="relative w-72 h-72 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden shadow-2xl border-4 border-green-300 p-2 bg-white">
+          <img src="{{ url_for('static', filename='images/logo1.png') }}" alt="Wellnation360 Logo"
+            class="w-full h-full object-contain rounded-full">
         </div>
       </div>
+      <div class="md:w-3/5 w-full text-center md:text-left" data-aos="fade-left">
+        <h3 class="text-3xl font-bold mb-4">About Us</h3>
+        <p class="text-gray-600 text-lg mb-6">
+          At Wellnation360, we empower you to live a healthier, more balanced life. We blend modern science with ancient
+          wisdom to help you reconnect with your body and mind. Through a combination of natural healing, mindful
+          practices, and expert guidance, our holistic approach guides you toward vitality and well-being. Whether it's
+          through diet correction, physical strength, or the ancient practices of meditation and acupuncture, we support
+          you in achieving a life of balance, vitality, and true wellness.
+        </p>
+        <a href="www.wellnation360.com/about"
+          class="bg-green-600 hover:bg-green-700 text-white font-semibold px-8 py-3.5 rounded-lg transition duration-300 shadow-md hover:shadow-lg text-lg">Explore
+          More</a>
+      </div>
+    </div>
   </section>
 
-<section id="services" class="p-10 bg-gray-50 scroll-mt-20">
-  <h3 class="text-3xl font-bold mb-6 text-center">Our Services</h3>
-  
-  <!-- Horizontal scroll container -->
-  <div class="relative">
-    <div id="servicesContainer" class="flex overflow-x-auto pb-8 snap-x snap-mandatory -mx-4 px-4 hide-scrollbar space-x-6">
-      <p id="loading-services" class="text-center text-gray-500 flex-shrink-0 w-full">Loading services...</p>
-    </div>
-    
-    <!-- Navigation buttons -->
-    <div class="flex justify-center mt-4 space-x-4" id="servicesNav">
-      <button id="prevService" class="bg-green-600 text-white p-2 rounded-full hover:bg-green-700">
-        <i class="fas fa-chevron-left"></i>
-      </button>
-      <button id="nextService" class="bg-green-600 text-white p-2 rounded-full hover:bg-green-700">
-        <i class="fas fa-chevron-right"></i>
-      </button>
-    </div>
-  </div>
-</section>
+  <section id="services" class="py-16 bg-gray-50 scroll-mt-20">
+    <div class="w-full px-4 sm:px-6 lg:px-8 mx-auto">
+      <h3 class="text-3xl font-bold mb-12 text-center">Our Services</h3>
 
-  <!-- Meet Dt. Ritu Kapoor Section -->
-<section class="bg-gradient-to-br from-[#222222] to-[#1a1a1a] text-white py-20 px-6 md:px-24" id="about-ritu">
-  <div data-aos="fade-up" data-aos-delay="100" class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-    <div class="flex justify-center" data-aos="fade-right" data-aos-delay="200">
-      <img src="static/images/profilepic.jpeg" alt="Ritu - Nutrition Expert" class="rounded-2xl shadow-lg w-full max-w-sm object-cover">
-    </div>
-    <div data-aos="fade-left" data-aos-delay="300">
-      <h2 class="text-[40px] font-extrabold text-light_yellow mb-6">Meet Dt.Ritu Kapoor</h2>
-      <p class="text-lg md:text-xl text-gray-300 leading-relaxed mb-4">
-        Ritu is a passionate advocate of healing through nutrition, grounded in both scientific research and holistic wellness. She completed her graduation in <span class="text-yellow-300">Botany from Miranda House, Delhi</span>, and holds dual postgraduate degrees — in <span class="text-yellow-300">Biotechnology from Pune University</span>, specializing in <span class="italic">Animal Tissue Culture</span>, and in <span class="text-yellow-300">Nutrition & Dietetics from Bangalore</span>.
-      </p>
-      <p class="text-gray-400 mb-4">
-        With experience as a research fellow working on cell culture, Ritu developed a deep understanding of how cellular nourishment influences health. She strongly believes:
-      </p>
-      <p class="italic text-md text-yellow-200 mb-6">
-        “Ultimate outcome in terms of health is how well our cells are nourished to keep our DNA matter strong and stable.”
-      </p>
-      <p class="text-gray-300 leading-relaxed mb-6">
-        She has worked as a clinical dietitian at <span class="text-yellow-300">Manipal Hospital</span> and <span class="text-yellow-300">Aarogya Hastha Hospital</span>, where she helped patients restore health through mindful and personalized nutrition plans. Ritu’s guiding motto is <span class="text-yellow-200 font-semibold">“Prevention is better than cure”</span>, and her mission is to empower individuals to take charge of their well-being through sustainable choices.
-      </p>
-      <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 mt-8">
-        <a href="http://wellnation360.com/contact" 
-           class="inline-block bg-yellow-500 text-dark_blue font-bold py-3 px-6 sm:py-4 sm:px-8 rounded-lg shadow-lg transition-all duration-300 transform hover:bg-yellow-600 hover:scale-105 focus:outline-none text-center" 
-           data-aos="zoom-in" 
-           data-aos-delay="400">
-          Book a Consultation
-        </a>
-        
-        <a href="http://wellnation360.com/about" 
-           class="inline-block border-2 sm:border-4 border-yellow-500 text-yellow-500 font-bold py-3 px-6 sm:py-4 sm:px-8 rounded-lg shadow-lg transition-all duration-300 transform hover:bg-yellow-500 hover:text-dark_blue hover:scale-105 focus:outline-none text-center whitespace-nowrap" 
-           data-aos="zoom-in" 
-           data-aos-delay="500">
-          Dr. Ritu and Team Profile
-        </a>
+      <!-- Horizontal scroll container -->
+      <div class="relative w-full">
+        <div id="servicesContainer"
+          class="flex overflow-x-auto pb-8 snap-x snap-mandatory hide-scrollbar space-x-8 pl-[calc((100vw-1280px)/2)] pr-[calc((100vw-1280px)/2)]">
+          <p id="loading-services" class="text-center text-gray-500 flex-shrink-0 w-full">Loading services...</p>
+        </div>
+
+        <!-- Navigation buttons -->
+        <div class="flex justify-center mt-8 space-x-4" id="servicesNav">
+          <button id="prevService" class="bg-green-600 text-white p-3 rounded-full hover:bg-green-700 transition">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <button id="nextService" class="bg-green-600 text-white p-3 rounded-full hover:bg-green-700 transition">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+
+  <!-- Meet Dt. Ritu Kapoor Section -->
+  <section class="bg-gradient-to-br from-[#222222] to-[#1a1a1a] text-white py-20 px-6 md:px-24" id="about-ritu">
+    <div data-aos="fade-up" data-aos-delay="100"
+      class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <div class="flex justify-center" data-aos="fade-right" data-aos-delay="200">
+        <img src="static/images/profilepic.jpeg" alt="Ritu - Nutrition Expert"
+          class="rounded-2xl shadow-lg w-full max-w-sm object-cover">
+      </div>
+      <div data-aos="fade-left" data-aos-delay="300">
+        <h2 class="text-[40px] font-extrabold text-light_yellow mb-6">Meet Dt.Ritu Kapoor</h2>
+        <p class="text-lg md:text-xl text-gray-300 leading-relaxed mb-4">
+          Ritu is a passionate advocate of healing through nutrition, grounded in both scientific research and holistic
+          wellness. She completed her graduation in <span class="text-yellow-300">Botany from Miranda House,
+            Delhi</span>, and holds dual postgraduate degrees — in <span class="text-yellow-300">Biotechnology from Pune
+            University</span>, specializing in <span class="italic">Animal Tissue Culture</span>, and in <span
+            class="text-yellow-300">Nutrition & Dietetics from Bangalore</span>.
+        </p>
+        <p class="text-gray-400 mb-4">
+          With experience as a research fellow working on cell culture, Ritu developed a deep understanding of how
+          cellular nourishment influences health. She strongly believes:
+        </p>
+        <p class="italic text-md text-yellow-200 mb-6">
+          “Ultimate outcome in terms of health is how well our cells are nourished to keep our DNA matter strong and
+          stable.”
+        </p>
+        <p class="text-gray-300 leading-relaxed mb-6">
+          She has worked as a clinical dietitian at <span class="text-yellow-300">Manipal Hospital</span> and <span
+            class="text-yellow-300">Aarogya Hastha Hospital</span>, where she helped patients restore health through
+          mindful and personalized nutrition plans. Ritu’s guiding motto is <span
+            class="text-yellow-200 font-semibold">“Prevention is better than cure”</span>, and her mission is to empower
+          individuals to take charge of their well-being through sustainable choices.
+        </p>
+        <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 mt-8">
+          <a href="http://wellnation360.com/contact"
+            class="inline-block bg-yellow-500 text-dark_blue font-bold py-3 px-6 sm:py-4 sm:px-8 rounded-lg shadow-lg transition-all duration-300 transform hover:bg-yellow-600 hover:scale-105 focus:outline-none text-center"
+            data-aos="zoom-in" data-aos-delay="400">
+            Book a Consultation
+          </a>
+
+          <a href="http://wellnation360.com/about"
+            class="inline-block border-2 sm:border-4 border-yellow-500 text-yellow-500 font-bold py-3 px-6 sm:py-4 sm:px-8 rounded-lg shadow-lg transition-all duration-300 transform hover:bg-yellow-500 hover:text-dark_blue hover:scale-105 focus:outline-none text-center whitespace-nowrap"
+            data-aos="zoom-in" data-aos-delay="500">
+            Dr. Ritu and Team Profile
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <section id="youtube" data-aos="fade-up" class="py-16 px-4 text-center bg-gray-50">
     <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Watch Our Wellness Insights</h2>
-    <p class="text-lg text-gray-600 mb-10 max-w-2xl mx-auto">Explore tips, discussions, and success stories on our YouTube channel.</p>
+    <p class="text-lg text-gray-600 mb-10 max-w-2xl mx-auto">Explore tips, discussions, and success stories on our
+      YouTube channel.</p>
     <div class="max-w-3xl mx-auto px-4">
       <div class="aspect-w-16 aspect-h-9 rounded-xl overflow-hidden shadow-xl border-4 border-white">
-        <iframe src="https://youtu.be/FmcA5yZtqQc?si=c5OBhRfocmQIepKG" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy" class="w-full h-full"></iframe>
+        <iframe src="https://youtu.be/FmcA5yZtqQc?si=c5OBhRfocmQIepKG" title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen loading="lazy" class="w-full h-full"></iframe>
       </div>
-      <p class="mt-8 text-green-700 text-lg"><a href="https://youtube.com/@wellnation3603?si=4kRF5qbO-v8UrAw5" target="_blank" class="font-semibold hover:underline inline-flex items-center gap-2 group">Visit Our YouTube Channel <i class="fab fa-youtube text-red-600 text-2xl group-hover:scale-110 transition-transform"></i></a></p>
+      <p class="mt-8 text-green-700 text-lg"><a href="https://youtube.com/@wellnation3603?si=4kRF5qbO-v8UrAw5"
+          target="_blank" class="font-semibold hover:underline inline-flex items-center gap-2 group">Visit Our YouTube
+          Channel <i class="fab fa-youtube text-red-600 text-2xl group-hover:scale-110 transition-transform"></i></a>
+      </p>
     </div>
   </section>
 
@@ -225,148 +276,165 @@ button svg {
         Client Transformations
       </h2>
       <div class="relative">
-        <div id="reviews-carousel" class="flex overflow-x-auto pb-8 snap-x snap-mandatory -mx-4 px-4 hide-scrollbar space-x-4">
+        <div id="reviews-carousel"
+          class="flex overflow-x-auto pb-8 snap-x snap-mandatory -mx-4 px-4 hide-scrollbar space-x-4">
           <p id="loading-reviews" class="text-center text-gray-500 flex-shrink-0 w-full">Loading reviews...</p>
         </div>
       </div>
       <div class="flex justify-center mt-8 space-x-2" id="review-dots-container">
-        </div>
+      </div>
     </div>
   </section>
 
   <!-- Footer -->
   <footer id="footer" class="bg-gray-800 text-gray-300 py-12 md:py-16">
     <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 text-center md:text-left">
-        <div>
-          <h4 class="text-xl font-semibold mb-4 text-white">Wellnation360</h4>
-          <p class="text-sm leading-relaxed mb-4">Your partner in holistic health and mindful living...</p>
-           <div class="relative w-24 h-24 mx-auto md:mx-0 rounded-full overflow-hidden border-2 border-green-500">
-            <img src="{{ url_for('static', filename='images/logo1.png') }}" alt="Wellnation360 Small Logo" class="w-full h-full object-cover" />
-          </div>
-        </div>
-        <div>
-          <h4 class="text-lg font-semibold mb-4 text-white">Quick Links</h4>
-          <ul class="space-y-2.5 text-sm">
-            <li><a href="{{ url_for('index') }}" class="hover:text-green-400 transition-colors duration-200">Home</a></li>
-            <li><a href="{{ url_for('about') }}" class="hover:text-green-400 transition-colors duration-200">About Us</a></li>
-            <li><a href="http://wellnation360.com/yoga_service" class="hover:text-green-400 transition-colors duration-200">Our Services</a></li>
-            <li><a href="{{ url_for('gallery') }}" class="hover:text-green-400 transition-colors duration-200">Gallery</a></li>
-            <li><a href="http://yoga-kshema.in" class="hover:text-green-400 transition-colors duration-200" target="_blank" rel="noopener noreferrer">Yogakshema Website</a></li>
-            <li><a href="{{ url_for('contact_get') }}" class="hover:text-green-400 transition-colors duration-200">Contact Us</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4 class="text-lg font-semibold mb-4 text-white">Contact Info</h4>
-          <div class="text-sm leading-relaxed space-y-3">
-            <div class="flex items-center justify-center md:justify-start gap-2 hover:text-green-400 transition-colors duration-200">
-              <i class="fas fa-map-marker-alt text-green-400 text-base w-5 text-center"></i>
-              <a href="https://www.google.com/maps/place/Wellnation360+and+Yogakshema/@12.9001441,77.6561143,15z/data=!3m1!4b1!4m6!3m5!1s0x3bae1340f6cdbabf:0x3b40ff97221cbb19!8m2!3d12.9001238!4d77.6745684!16s%2Fg%2F11xmgn8tx9?entry=ttu&g_ep=EgoyMDI1MDYzMC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" class="hover:underline">Wellnation360 & Yogakshema, Kasavanahalli, Bangalore 560035</a>
-            </div>
-            <div class="flex items-center justify-center md:justify-start gap-2 hover:text-green-400 transition-colors duration-200">
-              <i class="fas fa-phone-alt text-green-400 text-base w-5 text-center"></i>
-              <a href="tel:+919945186968" class="hover:underline">+91 9945186968</a>
-            </div>
-             <div class="flex items-center justify-center md:justify-start gap-2 hover:text-green-400 transition-colors duration-200">
-              <i class="fas fa-envelope text-green-400 text-base w-5 text-center"></i>
-              <a href="https://mail.google.com/mail/?view=cm&fs=1&to=Wellnation360@gmail.com" class="hover:underline"> wellnation360@gmail.com</a>
-            </div>
-          </div>
-        </div>
-        <div>
-          <h4 class="text-lg font-semibold mb-4 text-white">Follow Us</h4>
-          <div class="flex justify-center md:justify-start space-x-5">
-            <a href="https://www.instagram.com/yogakshema_wellnation360?igsh=MWtid2c4eWgwOWU2Mw%3D%3D" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="text-2xl hover:text-pink-500 transition-colors duration-200"><i class="fab fa-instagram"></i></a>
-            <a href="https://youtube.com/@wellnation3603?si=4kRF5qbO-v8UrAw5" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="text-2xl hover:text-red-500 transition-colors duration-200"><i class="fab fa-youtube"></i></a>
-            <a href="https://www.facebook.com/people/Wellnation360/100063911838416/?rdid=50XcnV4ONiKnTt7s&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1CPqvRX7jP%2F" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="text-2xl hover:text-blue-600 transition-colors duration-200"><i class="fab fa-facebook"></i></a>
-          </div>
-           <p class="text-xs mt-6 text-gray-400">Stay connected for wellness tips, updates, and community events.</p>
+      <div>
+        <h4 class="text-xl font-semibold mb-4 text-white">Wellnation360</h4>
+        <p class="text-sm leading-relaxed mb-4">Your partner in holistic health and mindful living...</p>
+        <div class="relative w-24 h-24 mx-auto md:mx-0 rounded-full overflow-hidden border-2 border-green-500">
+          <img src="{{ url_for('static', filename='images/logo1.png') }}" alt="Wellnation360 Small Logo"
+            class="w-full h-full object-cover" />
         </div>
       </div>
-    <div class="text-center text-sm mt-10 border-t border-gray-700 pt-8">© <span id="currentYear"></span> Wellnation360. All rights reserved.</div>
+      <div>
+        <h4 class="text-lg font-semibold mb-4 text-white">Quick Links</h4>
+        <ul class="space-y-2.5 text-sm">
+          <li><a href="{{ url_for('index') }}" class="hover:text-green-400 transition-colors duration-200">Home</a></li>
+          <li><a href="{{ url_for('about') }}" class="hover:text-green-400 transition-colors duration-200">About Us</a>
+          </li>
+          <li><a href="http://wellnation360.com/yoga_service"
+              class="hover:text-green-400 transition-colors duration-200">Our Services</a></li>
+          <li><a href="{{ url_for('gallery') }}" class="hover:text-green-400 transition-colors duration-200">Gallery</a>
+          </li>
+          <li><a href="http://yoga-kshema.in" class="hover:text-green-400 transition-colors duration-200"
+              target="_blank" rel="noopener noreferrer">Yogakshema Website</a></li>
+          <li><a href="{{ url_for('contact_get') }}" class="hover:text-green-400 transition-colors duration-200">Contact
+              Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-lg font-semibold mb-4 text-white">Contact Info</h4>
+        <div class="text-sm leading-relaxed space-y-3">
+          <div
+            class="flex items-center justify-center md:justify-start gap-2 hover:text-green-400 transition-colors duration-200">
+            <i class="fas fa-map-marker-alt text-green-400 text-base w-5 text-center"></i>
+            <a href="https://www.google.com/maps/place/Wellnation360+and+Yogakshema/@12.9001441,77.6561143,15z/data=!3m1!4b1!4m6!3m5!1s0x3bae1340f6cdbabf:0x3b40ff97221cbb19!8m2!3d12.9001238!4d77.6745684!16s%2Fg%2F11xmgn8tx9?entry=ttu&g_ep=EgoyMDI1MDYzMC4wIKXMDSoASAFQAw%3D%3D"
+              target="_blank" rel="noopener noreferrer" class="hover:underline">Wellnation360 & Yogakshema,
+              Kasavanahalli, Bangalore 560035</a>
+          </div>
+          <div
+            class="flex items-center justify-center md:justify-start gap-2 hover:text-green-400 transition-colors duration-200">
+            <i class="fas fa-phone-alt text-green-400 text-base w-5 text-center"></i>
+            <a href="tel:+919945186968" class="hover:underline">+91 9945186968</a>
+          </div>
+          <div
+            class="flex items-center justify-center md:justify-start gap-2 hover:text-green-400 transition-colors duration-200">
+            <i class="fas fa-envelope text-green-400 text-base w-5 text-center"></i>
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=Wellnation360@gmail.com" class="hover:underline">
+              wellnation360@gmail.com</a>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h4 class="text-lg font-semibold mb-4 text-white">Follow Us</h4>
+        <div class="flex justify-center md:justify-start space-x-5">
+          <a href="https://www.instagram.com/yogakshema_wellnation360?igsh=MWtid2c4eWgwOWU2Mw%3D%3D" target="_blank"
+            rel="noopener noreferrer" aria-label="Instagram"
+            class="text-2xl hover:text-pink-500 transition-colors duration-200"><i class="fab fa-instagram"></i></a>
+          <a href="https://youtube.com/@wellnation3603?si=4kRF5qbO-v8UrAw5" target="_blank" rel="noopener noreferrer"
+            aria-label="YouTube" class="text-2xl hover:text-red-500 transition-colors duration-200"><i
+              class="fab fa-youtube"></i></a>
+          <a href="https://www.facebook.com/people/Wellnation360/100063911838416/?rdid=50XcnV4ONiKnTt7s&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1CPqvRX7jP%2F"
+            target="_blank" rel="noopener noreferrer" aria-label="Facebook"
+            class="text-2xl hover:text-blue-600 transition-colors duration-200"><i class="fab fa-facebook"></i></a>
+        </div>
+        <p class="text-xs mt-6 text-gray-400">Stay connected for wellness tips, updates, and community events.</p>
+      </div>
+    </div>
+    <div class="text-center text-sm mt-10 border-t border-gray-700 pt-8">© <span id="currentYear"></span> Wellnation360.
+      All rights reserved.</div>
   </footer>
 
-<script>
-  // --- Mobile Menu Toggle ---
-  const mobileMenuButton = document.getElementById('mobile-menu-button');
-  const mobileMenu = document.getElementById('mobile-menu');
-  if (mobileMenuButton && mobileMenu) {
-    mobileMenuButton.addEventListener('click', function() {
-      const isExpanded = mobileMenu.classList.toggle('hidden');
-      mobileMenuButton.setAttribute('aria-expanded', !isExpanded);
-      // Toggle icon
-      mobileMenuButton.innerHTML = !isExpanded ? '<i class="fas fa-times text-2xl"></i>' : '<i class="fas fa-bars text-2xl"></i>';
-    });
-    // Close menu when a link is clicked
-    mobileMenu.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-            mobileMenu.classList.add('hidden');
-            mobileMenuButton.setAttribute('aria-expanded', 'false');
-            mobileMenuButton.innerHTML = '<i class="fas fa-bars text-2xl"></i>';
-        });
-    });
-  }
-
-  // Set current year in footer
-  document.getElementById('currentYear').textContent = new Date().getFullYear();
-  
-  // AOS (Animate on Scroll) Initialization
-  if (typeof AOS !== 'undefined') {
-      AOS.init({
-          duration: 800,
-          easing: 'ease-in-out-quad',
-          once: true,
-          offset: 50
+  <script>
+    // --- Mobile Menu Toggle ---
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (mobileMenuButton && mobileMenu) {
+      mobileMenuButton.addEventListener('click', function () {
+        const isExpanded = mobileMenu.classList.toggle('hidden');
+        mobileMenuButton.setAttribute('aria-expanded', !isExpanded);
+        // Toggle icon
+        mobileMenuButton.innerHTML = !isExpanded ? '<i class="fas fa-times text-2xl"></i>' : '<i class="fas fa-bars text-2xl"></i>';
       });
-  }
+      // Close menu when a link is clicked
+      mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.add('hidden');
+          mobileMenuButton.setAttribute('aria-expanded', 'false');
+          mobileMenuButton.innerHTML = '<i class="fas fa-bars text-2xl"></i>';
+        });
+      });
+    }
 
-const REVIEWS_API_ENDPOINT = "/api/reviews";
-const YOGAKSHEMA_PLATFORM_NAME = "Yogakshema";
+    // Set current year in footer
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
 
-// --- Dynamic Data Loading for Yogakshema ---
-document.addEventListener('DOMContentLoaded', function() {
-  // --- Fetch and Display Services ---
-  const servicesContainer = document.getElementById('servicesContainer');
-  const loadingServicesMsg = document.getElementById('loading-services');
-  const servicesDropdownMenu = document.getElementById('services-dropdown-menu');
-  const reviewsCarousel = document.getElementById('reviews-carousel');
-  const loadingReviewsMsg = document.getElementById('loading-reviews');
-  const reviewDotsContainer = document.getElementById('review-dots-container');
-  const prevServiceBtn = document.getElementById('prevService');
-  const nextServiceBtn = document.getElementById('nextService');
+    // AOS (Animate on Scroll) Initialization
+    if (typeof AOS !== 'undefined') {
+      AOS.init({
+        duration: 800,
+        easing: 'ease-in-out-quad',
+        once: true,
+        offset: 50
+      });
+    }
 
-  // Function to create service card with dropdown pricing
-  function createServiceCard(service) {
-    const card = document.createElement('div');
-    card.className = 'flex-shrink-0 w-80 bg-white rounded-2xl shadow-md p-4 snap-center';
-    card.id = `service-${service.name.toLowerCase().replace(/\s+/g, '-')}`;
+    const REVIEWS_API_ENDPOINT = "/api/reviews";
+    const YOGAKSHEMA_PLATFORM_NAME = "Yogakshema";
 
-    // Format pricing options as a dropdown with first option selected by default
-    let pricingHtml = '';
-    if (service.pricing_options && service.pricing_options.length > 0) {
-      const firstOption = service.pricing_options[0];
-      pricingHtml = `
+    // --- Dynamic Data Loading for Yogakshema ---
+    document.addEventListener('DOMContentLoaded', function () {
+      // --- Fetch and Display Services ---
+      const servicesContainer = document.getElementById('servicesContainer');
+      const loadingServicesMsg = document.getElementById('loading-services');
+      const servicesDropdownMenu = document.getElementById('services-dropdown-menu');
+      const reviewsCarousel = document.getElementById('reviews-carousel');
+      const loadingReviewsMsg = document.getElementById('loading-reviews');
+      const reviewDotsContainer = document.getElementById('review-dots-container');
+      const prevServiceBtn = document.getElementById('prevService');
+      const nextServiceBtn = document.getElementById('nextService');
+
+      // Function to create service card with dropdown pricing
+      function createServiceCard(service) {
+        const card = document.createElement('div');
+        card.className = 'flex-shrink-0 w-80 bg-white rounded-2xl shadow-md p-4 snap-center';
+        card.id = `service-${service.name.toLowerCase().replace(/\s+/g, '-')}`;
+
+        // Format pricing options as a dropdown with first option selected by default
+        let pricingHtml = '';
+        if (service.pricing_options && service.pricing_options.length > 0) {
+          const firstOption = service.pricing_options[0];
+          pricingHtml = `
         <div class="relative mt-2">
           <select class="block w-full p-2 border border-gray-300 rounded-md bg-white text-gray-700 focus:outline-none focus:ring-2 focus:ring-green-500">
-            ${service.pricing_options.map((option, index) => 
-              `<option value="${option.value}" ${index === 0 ? 'selected' : ''}>${option.text}: ₹${option.value}</option>`
-            ).join('')}
+            ${service.pricing_options.map((option, index) =>
+            `<option value="${option.value}" ${index === 0 ? 'selected' : ''}>${option.text}: ₹${option.value}</option>`
+          ).join('')}
           </select>
           <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-            <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-              <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
-            </svg>
           </div>
         </div>
       `;
-    } else {
-      pricingHtml = '<p class="text-gray-600">Contact for pricing</p>';
-    }
-    
-    // ... (rest of the createServiceCard function remains the same)
-    // Create image URL - assuming images are stored in static/uploads
-    const imageUrl = "{{ url_for('static', filename='') }}" + service.image;
+        } else {
+          pricingHtml = '<p class="text-gray-600">Contact for pricing</p>';
+        }
 
-    card.innerHTML = `
+        // ... (rest of the createServiceCard function remains the same)
+        // Create image URL - assuming images are stored in static/uploads
+        const imageUrl = "{{ url_for('static', filename='') }}" + service.image;
+
+        card.innerHTML = `
       <div class="h-full flex flex-col">
         <img src="${imageUrl}" alt="${service.name}" class="rounded-xl w-full h-48 object-cover mb-4" onerror="this.src='{{ url_for('static', filename='images/default-service.jpg') }}'">
         <div class="flex-grow">
@@ -385,109 +453,109 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
       </div>
     `;
-    return card;
-  }
-    
+        return card;
+      }
 
-  // Function to initialize service carousel
-  function initServiceCarousel() {
-    if (prevServiceBtn && nextServiceBtn) {
-      prevServiceBtn.addEventListener('click', () => {
-        servicesContainer.scrollBy({ left: -300, behavior: 'smooth' });
-      });
-      
-      nextServiceBtn.addEventListener('click', () => {
-        servicesContainer.scrollBy({ left: 300, behavior: 'smooth' });
-      });
-    }
-  }
 
-  // Fetch services
-  if (servicesContainer && loadingServicesMsg) {
-    fetch("/api/yogaservices")
-      .then(response => {
-        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-        return response.json();
-      })
-      .then(data => {
-        console.log('Services data:', data); // Debug log
-        
-        if (data.status !== "success" || !data.services) {
-          throw new Error('Invalid service data format');
+      // Function to initialize service carousel
+      function initServiceCarousel() {
+        if (prevServiceBtn && nextServiceBtn) {
+          prevServiceBtn.addEventListener('click', () => {
+            servicesContainer.scrollBy({ left: -300, behavior: 'smooth' });
+          });
+
+          nextServiceBtn.addEventListener('click', () => {
+            servicesContainer.scrollBy({ left: 300, behavior: 'smooth' });
+          });
         }
+      }
 
-        loadingServicesMsg.style.display = 'none';
-        servicesContainer.innerHTML = '';
+      // Fetch services
+      if (servicesContainer && loadingServicesMsg) {
+        fetch("/api/yogaservices")
+          .then(response => {
+            if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+            return response.json();
+          })
+          .then(data => {
+            console.log('Services data:', data); // Debug log
 
-        if (data.services.length > 0) {
-          data.services.forEach(service => {
-            const card = createServiceCard(service);
-            servicesContainer.appendChild(card);
-          });
+            if (data.status !== "success" || !data.services) {
+              throw new Error('Invalid service data format');
+            }
 
-          // Populate services dropdown menu
-          servicesDropdownMenu.innerHTML = '';
-          data.services.forEach(service => {
-            const dropdownLink = document.createElement('a');
-            dropdownLink.href = `#service-${service.name.toLowerCase().replace(/\s+/g, '-')}`;
-            dropdownLink.className = 'block px-4 py-2 hover:text-green-600 transition duration-200';
-            dropdownLink.textContent = service.name;
-            servicesDropdownMenu.appendChild(dropdownLink);
-          });
+            loadingServicesMsg.style.display = 'none';
+            servicesContainer.innerHTML = '';
 
-          initServiceCarousel();
-        } else {
-          servicesContainer.innerHTML = `
+            if (data.services.length > 0) {
+              data.services.forEach(service => {
+                const card = createServiceCard(service);
+                servicesContainer.appendChild(card);
+              });
+
+              // Populate services dropdown menu
+              servicesDropdownMenu.innerHTML = '';
+              data.services.forEach(service => {
+                const dropdownLink = document.createElement('a');
+                dropdownLink.href = `#service-${service.name.toLowerCase().replace(/\s+/g, '-')}`;
+                dropdownLink.className = 'block px-4 py-2 hover:text-green-600 transition duration-200';
+                dropdownLink.textContent = service.name;
+                servicesDropdownMenu.appendChild(dropdownLink);
+              });
+
+              initServiceCarousel();
+            } else {
+              servicesContainer.innerHTML = `
             <p class="text-center text-gray-500 flex-shrink-0 w-full">
               No services currently available.
             </p>`;
-        }
-      })
-      .catch(error => {
-        console.error('Error fetching services:', error);
-        loadingServicesMsg.style.display = 'none';
-        servicesContainer.innerHTML = `
+            }
+          })
+          .catch(error => {
+            console.error('Error fetching services:', error);
+            loadingServicesMsg.style.display = 'none';
+            servicesContainer.innerHTML = `
           <p class="text-center text-red-500 flex-shrink-0 w-full">
             Could not load services. Please try again later.
           </p>`;
-      });
-  }
+          });
+      }
 
-  // Reviews section (unchanged from your original)
-  if (reviewsCarousel && loadingReviewsMsg) {
-    fetch(REVIEWS_API_ENDPOINT)
-      .then(response => {
-        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-        return response.json();
-      })
-      .then(data => {
-        loadingReviewsMsg.style.display = 'none';
-        reviewsCarousel.innerHTML = '';
+      // Reviews section (unchanged from your original)
+      if (reviewsCarousel && loadingReviewsMsg) {
+        fetch(REVIEWS_API_ENDPOINT)
+          .then(response => {
+            if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+            return response.json();
+          })
+          .then(data => {
+            loadingReviewsMsg.style.display = 'none';
+            reviewsCarousel.innerHTML = '';
 
-        const platformReviews = data.reviews.filter(review => 
-          review.platform && review.platform.toLowerCase() === YOGAKSHEMA_PLATFORM_NAME.toLowerCase()
-        );
+            const platformReviews = data.reviews.filter(review =>
+              review.platform && review.platform.toLowerCase() === YOGAKSHEMA_PLATFORM_NAME.toLowerCase()
+            );
 
-        if (platformReviews.length > 0) {
-          platformReviews.forEach((review, index) => {
-            const reviewCard = document.createElement('div');
-            reviewCard.className = 'flex-shrink-0 w-80 md:w-96 bg-white rounded-xl shadow-lg p-6 snap-start';
-            
-            const defaultAvatar = `https://ui-avatars.com/api/?name=${encodeURIComponent(review.reviewer_name || 'Client')}&background=random&color=fff&bold=true&size=48`;
-            const avatarUrl = review.reviewer_image_url || defaultAvatar;
+            if (platformReviews.length > 0) {
+              platformReviews.forEach((review, index) => {
+                const reviewCard = document.createElement('div');
+                reviewCard.className = 'flex-shrink-0 w-80 md:w-96 bg-white rounded-xl shadow-lg p-6 snap-start';
 
-            const starsHtml = Array(5).fill(null).map((_, i) => 
-              `<i class="fas fa-star ${i < (review.rating || 0) ? 'text-yellow-400' : 'text-gray-300'}"></i>`
-            ).join('');
+                const defaultAvatar = `https://ui-avatars.com/api/?name=${encodeURIComponent(review.reviewer_name || 'Client')}&background=random&color=fff&bold=true&size=48`;
+                const avatarUrl = review.reviewer_image_url || defaultAvatar;
 
-            let mediaHtml = '';
-            if (review.media_url && review.media_type === 'image') {
-              mediaHtml = `<img src="${review.media_url}" alt="Review media" class="mt-4 rounded-lg w-full max-h-48 object-cover" onerror="this.style.display='none';">`;
-            } else if (review.media_url && review.media_type === 'video') {
-              mediaHtml = `<video controls src="${review.media_url}" class="mt-4 rounded-lg w-full max-h-60" poster="${avatarUrl}"><p>Your browser doesn't support video.</p></video>`;
-            }
+                const starsHtml = Array(5).fill(null).map((_, i) =>
+                  `<i class="fas fa-star ${i < (review.rating || 0) ? 'text-yellow-400' : 'text-gray-300'}"></i>`
+                ).join('');
 
-            reviewCard.innerHTML = `
+                let mediaHtml = '';
+                if (review.media_url && review.media_type === 'image') {
+                  mediaHtml = `<img src="${review.media_url}" alt="Review media" class="mt-4 rounded-lg w-full max-h-48 object-cover" onerror="this.style.display='none';">`;
+                } else if (review.media_url && review.media_type === 'video') {
+                  mediaHtml = `<video controls src="${review.media_url}" class="mt-4 rounded-lg w-full max-h-60" poster="${avatarUrl}"><p>Your browser doesn't support video.</p></video>`;
+                }
+
+                reviewCard.innerHTML = `
               <div class="flex items-start mb-3">
                 <img src="${avatarUrl}" alt="${review.reviewer_name || 'Client'}" class="w-12 h-12 rounded-full mr-4 border-2 border-green-200">
                 <div>
@@ -498,36 +566,37 @@ document.addEventListener('DOMContentLoaded', function() {
               <p class="text-gray-600 text-sm leading-relaxed mb-3">${review.content || 'Great experience!'}</p>
               ${mediaHtml}
             `;
-            reviewsCarousel.appendChild(reviewCard);
+                reviewsCarousel.appendChild(reviewCard);
 
-            // Add dot navigation
-            const dot = document.createElement('button');
-            dot.className = `w-3 h-3 rounded-full mx-1 ${index === 0 ? 'bg-green-600' : 'bg-gray-300'}`;
-            dot.addEventListener('click', () => {
-              reviewsCarousel.scrollTo({
-                left: index * (reviewCard.offsetWidth + 16),
-                behavior: 'smooth'
+                // Add dot navigation
+                const dot = document.createElement('button');
+                dot.className = `w-3 h-3 rounded-full mx-1 ${index === 0 ? 'bg-green-600' : 'bg-gray-300'}`;
+                dot.addEventListener('click', () => {
+                  reviewsCarousel.scrollTo({
+                    left: index * (reviewCard.offsetWidth + 16),
+                    behavior: 'smooth'
+                  });
+                });
+                reviewDotsContainer.appendChild(dot);
               });
-            });
-            reviewDotsContainer.appendChild(dot);
-          });
-        } else {
-          reviewsCarousel.innerHTML = `
+            } else {
+              reviewsCarousel.innerHTML = `
             <p class="text-center text-gray-500 flex-shrink-0 w-full">
               No reviews for Yogakshema yet. Be the first to share your experience!
             </p>`;
-        }
-      })
-      .catch(error => {
-        console.error('Error fetching reviews:', error);
-        loadingReviewsMsg.style.display = 'none';
-        reviewsCarousel.innerHTML = `
+            }
+          })
+          .catch(error => {
+            console.error('Error fetching reviews:', error);
+            loadingReviewsMsg.style.display = 'none';
+            reviewsCarousel.innerHTML = `
           <p class="text-center text-red-500 flex-shrink-0 w-full">
             Could not load reviews. Please try again later.
           </p>`;
-      });
-  }
-});
-</script>
+          });
+      }
+    });
+  </script>
 </body>
+
 </html>
