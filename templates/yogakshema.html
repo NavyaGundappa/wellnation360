@@ -256,14 +256,30 @@
     <p class="text-lg text-gray-600 mb-10 max-w-2xl mx-auto">Explore tips, discussions, and success stories on our
       YouTube channel.</p>
     <div class="max-w-3xl mx-auto px-4">
-      <div class="aspect-w-16 aspect-h-9 rounded-xl overflow-hidden shadow-xl border-4 border-white">
-        <iframe src="https://youtu.be/FmcA5yZtqQc?si=c5OBhRfocmQIepKG" title="YouTube video player" frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen loading="lazy" class="w-full h-full"></iframe>
+      <div class="relative group cursor-pointer"
+        onclick="window.open('https://youtu.be/NkOgkTjJmYA?si=HBS4hfmRxcn31kyR', '_blank')">
+        <!-- Thumbnail image -->
+        <img src="{{ url_for('static', filename='images/Utube.jpg') }}" alt="Wellnation360 YouTube Video"
+          class="w-full h-auto rounded-xl shadow-xl border-4 border-white transition-transform duration-300 group-hover:scale-[1.02]">
+
+        <!-- Play button overlay -->
+        <div class="absolute inset-0 flex items-center justify-center">
+          <div
+            class="w-16 h-16 md:w-20 md:h-20 bg-red-600 rounded-full flex items-center justify-center transform transition-all duration-300 group-hover:scale-110">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"
+              class="w-8 h-8 md:w-10 md:h-10 ml-1">
+              <path
+                d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.348a1.125 1.125 0 010 1.971l-11.54 6.347a1.125 1.125 0 01-1.667-.985V5.653z" />
+            </svg>
+          </div>
+        </div>
       </div>
-      <p class="mt-8 text-green-700 text-lg"><a href="https://youtube.com/@wellnation3603?si=4kRF5qbO-v8UrAw5"
-          target="_blank" class="font-semibold hover:underline inline-flex items-center gap-2 group">Visit Our YouTube
-          Channel <i class="fab fa-youtube text-red-600 text-2xl group-hover:scale-110 transition-transform"></i></a>
+      <p class="mt-8 text-green-700 text-lg">
+        <a href="https://www.youtube.com/watch?v=NkOgkTjJmYA" target="_blank"
+          class="font-semibold hover:underline inline-flex items-center gap-2 group">
+          Visit Our YouTube Channel
+          <i class="fab fa-youtube text-red-600 text-2xl group-hover:scale-110 transition-transform"></i>
+        </a>
       </p>
     </div>
   </section>
