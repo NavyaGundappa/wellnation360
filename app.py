@@ -580,7 +580,7 @@ def index():
             "plans": plans_list_for_json,  # Pass all plans
             "display_price": display_price_info  # Pass the formatted price for the card
         })
-    return render_template('index1.html', services_data=services_data)
+    return render_template('index.html', services_data=services_data)
 
 
 @app.route("/dummy")
