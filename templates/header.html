@@ -1,0 +1,216 @@
+<style>
+    /* Enhanced Header and Dropdown Styles */
+    header {
+        transition: all 0.3s ease;
+    }
+
+    /* Desktop Navigation Link Styles */
+    nav a:not(.cta-button):hover {
+        color: #4ade80;
+        /* green-400 */
+    }
+
+    nav a:not(.cta-button)::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -2px;
+        left: 0;
+        background-color: #4ade80;
+        /* green-400 */
+        transition: width 0.3s ease;
+    }
+
+    nav a:not(.cta-button):hover::after {
+        width: 100%;
+    }
+
+    /* Dropdown Styles */
+    .dropdown {
+        position: relative;
+    }
+
+    .dropdown-menu {
+        /* Initially hidden */
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: white;
+        min-width: 240px;
+        /* Slightly wider for better readability */
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        border-radius: 0.5rem;
+        padding: 0.5rem 0;
+        z-index: 1000;
+        border: 1px solid #e5e7eb;
+        /* gray-200 */
+        animation: fadeIn 0.3s ease-in-out;
+    }
+
+    /* Class to show the dropdown with JS */
+    .dropdown-menu.open {
+        display: block;
+    }
+
+    .dropdown-menu a {
+        color: #1f2937;
+        /* gray-800 */
+        padding: 0.75rem 1.25rem;
+        text-decoration: none;
+        display: block;
+        transition: all 0.2s ease;
+        font-size: 0.95rem;
+    }
+
+    .dropdown-menu a:hover {
+        color: #4ade80;
+        /* green-400 */
+        background-color: #f3f4f6;
+        /* gray-100 */
+        padding-left: 1.5rem;
+    }
+
+    .dropdown-menu a::after {
+        display: none;
+        /* Remove underline effect from dropdown items */
+    }
+
+    /* Mobile Menu Styles */
+    .mobile-menu {
+        display: none;
+        /* Hidden by default */
+        background-color: #1f2937;
+        /* gray-800 */
+        padding: 1rem 0;
+    }
+
+    .mobile-menu a {
+        display: block;
+        color: white;
+        padding: 0.75rem 1.5rem;
+        font-size: 1.1rem;
+        transition: background-color 0.2s ease, padding-left 0.2s ease;
+    }
+
+    .mobile-menu a:hover {
+        background-color: #374151;
+        /* gray-700 */
+        padding-left: 2rem;
+    }
+
+    /* Animation for dropdown */
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+</style>
+
+<header class="fixed top-0 left-0 right-0 w-full z-50 bg-gray-800 shadow-md">
+    <div class="container mx-auto">
+        <div class="relative z-10 flex items-center justify-between px-6 py-2 md:py-3">
+            <div class="flex items-center space-x-4">
+                <a href="{{ url_for('index') }}" class="flex items-center space-x-3">
+                    <div
+                        class="relative w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden border-2 border-green-400">
+                        <img src="{{ url_for('static', filename='images/logo1.png') }}" alt="Logo"
+                            class="w-full h-full object-cover" />
+                    </div>
+                    <span class="text-xl md:text-3xl font-bold text-white">Wellnation360</span>
+                </a>
+            </div>
+
+            <nav class="hidden md:flex items-center space-x-8 text-white text-base md:text-lg font-medium">
+                <a href="{{ url_for('index') }}" class="relative">Home</a>
+                <a href="{{ url_for('about') }}" class="relative">About</a>
+                <a href="{{ url_for('gallery') }}" class="relative">Gallery</a>
+                <div class="dropdown relative">
+                    <button id="dropdown-button" class="flex items-center space-x-1 relative group" aria-haspopup="true"
+                        aria-expanded="false">
+                        <span>Services</span>
+                        <i class="fas fa-chevron-down text-xs transition-transform duration-300"></i>
+                    </button>
+                    <div id="dropdown-menu" class="dropdown-menu">
+                        <a href="{{ url_for('services') }}#gentle-reset">Gentle Detox Cleanse</a>
+                        <a href="{{ url_for('services') }}#metabolic-harmony">Healthy Body Transformation</a>
+                        <a href="{{ url_for('services') }}#blood-sugar">Diabetes Support Plan</a>
+                        <a href="{{ url_for('services') }}#thyroid">Thyroid Balance Therapy</a>
+                        <a href="{{ url_for('services') }}#gut-healing">Digestive Wellness Plan</a>
+                        <a href="{{ url_for('services') }}#menopause">Menopausal Management</a>
+                        <a href="{{ url_for('services') }}#energy-flow">Acupuncture Therapy</a>
+                        <a href="{{ url_for('services') }}#mindful-nourishment">Psychological Counselling</a>
+                        <a href="{{ url_for('services') }}#additional-conditions">We also specialize in</a>
+                    </div>
+                </div>
+
+                <a href="{{ url_for('contact_get') }}" class="relative">Contact</a>
+                <a href="http://yoga-kshema.in" target="_blank" rel="noopener noreferrer"
+                    class="cta-button bg-gradient-to-r from-amber-500 to-orange-600 text-white px-4 py-2 rounded-full hover:shadow-lg transition-all duration-300">
+                    Yogakshema
+                </a>
+            </nav>
+
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-white text-2xl focus:outline-none">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="mobile-menu md:hidden">
+            <a href="{{ url_for('index') }}">Home</a>
+            <a href="{{ url_for('about') }}">About</a>
+            <a href="{{ url_for('gallery') }}">Gallery</a>
+            <a href="{{ url_for('services') }}">Services</a>
+            <a href="{{ url_for('contact_get') }}">Contact</a>
+            <a href="http://yoga-kshema.in" target="_blank" rel="noopener noreferrer">Yogakshema</a>
+        </div>
+    </div>
+</header>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const dropdownButton = document.getElementById('dropdown-button');
+        const dropdownMenu = document.getElementById('dropdown-menu');
+        const chevronIcon = dropdownButton.querySelector('i');
+
+        // Toggle mobile menu
+        mobileMenuButton.addEventListener('click', function () {
+            const isMenuOpen = mobileMenu.style.display === 'block';
+            mobileMenu.style.display = isMenuOpen ? 'none' : 'block';
+            // Optional: change hamburger to 'X' icon
+            this.innerHTML = isMenuOpen ? '<i class="fas fa-bars"></i>' : '<i class="fas fa-times"></i>';
+        });
+
+        // Toggle dropdown menu on click
+        dropdownButton.addEventListener('click', function (event) {
+            event.stopPropagation(); // Prevents the window click listener from closing it immediately
+            const isDropdownOpen = dropdownMenu.classList.contains('open');
+            dropdownMenu.classList.toggle('open');
+            dropdownButton.setAttribute('aria-expanded', !isDropdownOpen);
+            // Rotate chevron
+            chevronIcon.style.transform = !isDropdownOpen ? 'rotate(180deg)' : 'rotate(0deg)';
+        });
+
+        // Close dropdown when clicking outside of it
+        window.addEventListener('click', function (event) {
+            if (!dropdownButton.contains(event.target) && !dropdownMenu.contains(event.target)) {
+                if (dropdownMenu.classList.contains('open')) {
+                    dropdownMenu.classList.remove('open');
+                    dropdownButton.setAttribute('aria-expanded', 'false');
+                    chevronIcon.style.transform = 'rotate(0deg)';
+                }
+            }
+        });
+    });
+</script>

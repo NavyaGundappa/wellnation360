@@ -613,6 +613,11 @@ def weight_loss():
     return render_template("weightloss.html")
 
 
+@app.route("/header")
+def header():
+    return render_template("header.html")
+
+
 @app.route("/Diabetics")
 def diabetics():
     return render_template("diabetics.html")

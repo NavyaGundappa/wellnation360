@@ -160,49 +160,7 @@
 </head>
 
 <body>
-
-  <header class="fixed top-0 left-0 right-0 w-full z-50 bg-gray-800 shadow-md">
-    <div class="relative z-10 flex items-center justify-between px-6 py-2 md:py-3">
-      <div class="flex items-center space-x-4">
-        <a href="{{ url_for('index') }}" class="flex items-center space-x-3">
-          <div class="relative w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden border-2 border-green-400">
-            <img src="{{ url_for('static', filename='images/logo1.png') }}" alt="Logo"
-              class="w-full h-full object-cover" />
-          </div>
-          <span class="text-xl md:text-3xl font-bold text-white">Wellnation360</span>
-        </a>
-      </div>
-      <nav class="hidden md:flex items-center space-x-8 text-white text-base md:text-lg font-medium">
-        <a href="{{ url_for('index') }}" class="relative">Home</a>
-        <a href="{{ url_for('about') }}" class="relative">About</a>
-        <a href="{{ url_for('gallery') }}" class="relative">Gallery</a>
-
-        <div class="dropdown relative">
-          <button class="flex items-center space-x-1 relative group">
-            <span>Services</span>
-            <i class="fas fa-chevron-down text-xs transition-transform duration-200 group-hover:rotate-180"></i>
-          </button>
-          <div class="dropdown-menu">
-            <a href="{{ url_for('services') }}#gentle-reset">Gental Detox Cleanse</a>
-            <a href="{{ url_for('services') }}#metabolic-harmony">Healthy Body Transformation</a>
-            <a href="{{ url_for('services') }}#blood-sugar">Diabetes Support Plan</a>
-            <a href="{{ url_for('services') }}#thyroid">Thyroid Balance Therapy</a>
-            <a href="{{ url_for('services') }}#gut-healing">Digestive Wellness Plan</a>
-            <a href="{{ url_for('services') }}#menopause">Menopausal management</a>
-            <a href="{{ url_for('services') }}#energy-flow">Acupuncture therapy</a>
-            <a href="{{ url_for('services') }}#mindful-nourishment">Pychological Councelling</a>
-            <a href="{{ url_for('services') }}#additional-conditions">We also specializes in</a>
-          </div>
-        </div>
-
-        <a href="{{ url_for('contact_get') }}" class="relative">Contact</a>
-        <a href="http://yoga-kshema.in" target="_blank" rel="noopener noreferrer"
-          class="bg-gradient-to-r from-amber-500 to-orange-600 text-white px-4 py-2 rounded-full hover:shadow-lg transition-all duration-300">
-          Yogakshema
-        </a>
-      </nav>
-    </div>
-  </header>
+  {% include 'header.html' %}
 
   <section class="text-white py-20 px-6 text-center bg-cover bg-center relative"
     style="background-image: url('{{ url_for('static', filename='images/contact.jpg') }}'); background-repeat: no-repeat; background-size: cover; margin-top: 80px;"
@@ -297,7 +255,7 @@
               class="w-full p-3 border rounded focus:ring-2 focus:ring-yellow-500">
               <option value="">Select Branch*</option>
               <option value="Wellnation360">Wellnation360</option>
-              <option value="Yogaksheema">Yogaksheema</option>
+              <option value="Yogakshema">Yogakshema</option>
             </select>
           </div>
           <div>
@@ -308,21 +266,10 @@
           </div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div>
-            <label for="date" class="block text-sm font-medium text-gray-700 mb-1">Preferred Date*</label>
-            <input type="date" id="date" name="date" required
-              class="w-full p-3 border rounded focus:ring-2 focus:ring-yellow-500">
-          </div>
-          <div>
-            <label for="time" class="block text-sm font-medium text-gray-700 mb-1">Preferred Time*</label>
-            <select id="time" name="time" required class="w-full p-3 border rounded focus:ring-2 focus:ring-yellow-500">
-              <option value="">Select Time Slot*</option>
-              <option value="morning">Morning (9AM - 12PM)</option>
-              <option value="afternoon">Afternoon (12PM - 4PM)</option>
-              <option value="evening">Evening (4PM - 8PM)</option>
-            </select>
-          </div>
+        <div>
+          <label for="date" class="block text-sm font-medium text-gray-700 mb-1">Preferred Date*</label>
+          <input type="date" id="date" name="date" required
+            class="w-full p-3 border rounded focus:ring-2 focus:ring-yellow-500">
         </div>
 
         <div>
@@ -357,73 +304,7 @@
     </div>
   </div>
 
-  <footer id="footer" class="bg-gray-800 text-gray-300 py-12 md:py-16">
-    <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 text-center md:text-left">
-      <div>
-        <h4 class="text-xl font-semibold mb-4 text-white">Wellnation360</h4>
-        <p class="text-sm leading-relaxed mb-4">Your partner in holistic health and mindful living...</p>
-        <div class="relative w-24 h-24 mx-auto md:mx-0 rounded-full overflow-hidden border-2 border-green-500">
-          <img src="{{ url_for('static', filename='images/logo1.png') }}" alt="Wellnation360 Small Logo"
-            class="w-full h-full object-cover" />
-        </div>
-      </div>
-      <div>
-        <h4 class="text-lg font-semibold mb-4 text-white">Quick Links</h4>
-        <ul class="space-y-2.5 text-sm">
-          <li><a href="{{ url_for('index') }}" class="hover:text-green-400 transition-colors duration-200">Home</a></li>
-          <li><a href="{{ url_for('about') }}" class="hover:text-green-400 transition-colors duration-200">About Us</a>
-          </li>
-          <li><a href="{{ url_for('services') }}" class="hover:text-green-400 transition-colors duration-200">Our
-              Services</a></li>
-          <li><a href="{{ url_for('gallery') }}" class="hover:text-green-400 transition-colors duration-200">Gallery</a>
-          </li>
-          <li><a href="http://yoga-kshema.in/" class="hover:text-green-400 transition-colors duration-200"
-              target="_blank" rel="noopener noreferrer">Yogakshema Website</a></li>
-          <li><a href="{{ url_for('contact_get') }}" class="hover:text-green-400 transition-colors duration-200">Contact
-              Us</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4 class="text-lg font-semibold mb-4 text-white">Contact Info</h4>
-        <div class="text-sm leading-relaxed space-y-3">
-          <div
-            class="flex items-center justify-center md:justify-start gap-2 hover:text-green-400 transition-colors duration-200">
-            <i class="fas fa-map-marker-alt text-green-400 text-base w-5 text-center"></i>
-            <a href="https://www.google.com/maps/place/Wellnation360+and+Yogakshema/@12.9001441,77.6561143,15z/data=!3m1!4b1!4m6!3m5!1s0x3bae1340f6cdbabf:0x3b40ff97221cbb19!8m2!3d12.9001238!4d77.6745684!16s%2Fg%2F11xmgn8tx9?entry=ttu&g_ep=EgoyMDI1MDYzMC4wIKXMDSoASAFQAw%3D%3D"
-              target="_blank" rel="noopener noreferrer" class="hover:underline">Wellnation360 & Yogakshema,
-              Kasavanahalli, Bangalore 560035</a>
-          </div>
-          <div
-            class="flex items-center justify-center md:justify-start gap-2 hover:text-green-400 transition-colors duration-200">
-            <i class="fas fa-phone-alt text-green-400 text-base w-5 text-center"></i>
-            <a href="tel:+919945186968" class="hover:underline">+91 9945186968</a>
-          </div>
-          <div
-            class="flex items-center justify-center md:justify-start gap-2 hover:text-green-400 transition-colors duration-200">
-            <i class="fas fa-envelope text-green-400 text-base w-5 text-center"></i>
-            <a href="mailto:wellnation360@gmail.com" class="hover:underline"> wellnation360@gmail.com</a>
-          </div>
-        </div>
-      </div>
-      <div>
-        <h4 class="text-lg font-semibold mb-4 text-white">Follow Us</h4>
-        <div class="flex justify-center md:justify-start space-x-5">
-          <a href="https://www.instagram.com/healholistically_wellnation360?igsh=b3NwdWFjamEyd3Q5" target="_blank"
-            rel="noopener noreferrer" aria-label="Instagram"
-            class="text-2xl hover:text-pink-500 transition-colors duration-200"><i class="fab fa-instagram"></i></a>
-          <a href="https://youtube.com/@wellnation3603?si=4kRF5qbO-v8UrAw5" target="_blank" rel="noopener noreferrer"
-            aria-label="YouTube" class="text-2xl hover:text-red-500 transition-colors duration-200"><i
-              class="fab fa-youtube"></i></a>
-          <a href="https://www.facebook.com/people/Wellnation360/100063911838416/?rdid=50XcnV4ONiKnTt7s&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1CPqvRX7jP%2F"
-            target="_blank" rel="noopener noreferrer" aria-label="Facebook"
-            class="text-2xl hover:text-blue-600 transition-colors duration-200"><i class="fab fa-facebook"></i></a>
-        </div>
-        <p class="text-xs mt-6 text-gray-400">Stay connected for wellness tips, updates, and community events.</p>
-      </div>
-    </div>
-    <div class="text-center text-sm mt-10 border-t border-gray-700 pt-8">© <span id="currentYear"></span> Wellnation360.
-      All rights reserved.</div>
-  </footer>
+  {% include 'footer.html' %}
 
   <script>
     // Mobile menu toggle
@@ -488,6 +369,8 @@
     function showModal() {
       document.getElementById('successModal').classList.remove('hidden');
     }
+
+
 
     function closeModal() {
       document.getElementById('successModal').classList.add('hidden');
