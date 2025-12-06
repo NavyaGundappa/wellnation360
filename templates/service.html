@@ -22,7 +22,7 @@
     <meta name="twitter:description"
         content="Achieve better digestive health through expert care, gut therapy, and natural wellness strategies with WellNation360." />
     <meta name="twitter:image" content="https://wellnation360.com/static/images/logo1.png" />
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
         * {
@@ -100,11 +100,15 @@
         .service-image-col {
             flex: 1.2;
             position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
         }
 
         .service-image {
             width: 80%;
-            height: auto;
+            height: 350px;
+            object-fit: cover;
             border-radius: 12px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease;
@@ -516,7 +520,6 @@
 </head>
 
 <body class="bg-gray-50">
-    <!-- Header -->
     {% include 'header.html' %}
 
     <div class="hero-header" style="margin-top: 80px;">
@@ -531,7 +534,6 @@
     <div class="services-container" id="servicesContainer">
     </div>
 
-    <!-- How It Works Modal -->
     <div class="modal-overlay" id="howItWorksModal">
         <div class="modal-container">
             <button class="modal-close" id="closeModal">&times;</button>
@@ -720,6 +722,58 @@
                     "Enhanced digestion",
                     "Holistic symptom relief"
                 ]
+            },
+            {
+                id: "reiki-healing",
+                image: "static/images/reiki.png",
+                name: "Reiki Healing",
+                instructor: "Expert Practitioner",
+                description: "Reiki is a gentle yet powerful Japanese energy healing technique that channels universal life force energy to promote deep relaxation and emotional harmony. Experience calm energy flow and awaken your natural ability to heal from within.",
+                benefits: [
+                    "Release emotional blockages",
+                    "Restore energetic balance",
+                    "Reduce stress, anxiety, and fatigue",
+                    "Support physical healing and mental clarity"
+                ]
+            },
+            {
+                id: "quantum-healing",
+                image: "static/images/quantum.png",
+                name: "Quantum Healing",
+                instructor: "Expert Practitioner",
+                description: "Quantum Healing is a modern vibrational therapy rooted in the connection between Energy, Emotion, Mind consciousness, and physical health. This journey takes you from energy awareness to deep cellular renewal using guided visualization and frequency alignment.",
+                benefits: [
+                    "Shift limiting patterns and beliefs",
+                    "Harmonize your energy field",
+                    "Boost vitality and mental focus",
+                    "Reprogram the subconscious for positive transformation"
+                ]
+            },
+            {
+                id: "mudgar-practice",
+                image: "static/images/mudgar2.png",
+                name: "Mudgar Practice",
+                instructor: "Expert Practitioner",
+                description: "Mudgar practice is an ancient Indian strength and awareness discipline that combines body training with energy flow. Through mindful movements and breath coordination, we cultivate a strong body, a steady mind, and sacred energy.",
+                benefits: [
+                    "Build strength, flexibility, and endurance",
+                    "Enhance focus and body awareness",
+                    "Balance masculine and feminine energies",
+                    "Deepen connection between physical and spiritual strength"
+                ]
+            },
+            {
+                id: "tarot-reading",
+                image: "static/images/tarot.png",
+                name: "Tarot Reading",
+                instructor: "Expert Practitioner",
+                description: "Tarot is not just prediction — it’s guidance from the universe through intuitive cards that mirror your energy and life path. Find answers, gain perspective, and realign with your higher path through deep energetic mirroring.",
+                benefits: [
+                    "Relationships, career, and life direction guidance",
+                    "Emotional clarity and decision-making",
+                    "Identification of energetic blocks",
+                    "Spiritual growth and perspective shifts"
+                ]
             }
         ];
 
@@ -874,6 +928,42 @@
                 "Progress evaluation",
                 "Lifestyle adjustments for energy flow",
                 "Maintenance plan"
+            ],
+            "reiki-healing": [
+                "Initial energy field assessment",
+                "Setting healing intentions",
+                "Gentle hands-on or hands-off energy channeling",
+                "Chakra balancing and clearing",
+                "Deep relaxation integration",
+                "Post-session energetic feedback",
+                "Guidance for maintaining energy balance"
+            ],
+            "quantum-healing": [
+                "Discussion of emotional and physical patterns",
+                "Guided relaxation and grounding",
+                "Frequency alignment visualization",
+                "Subconscious block identification",
+                "Vibrational shift techniques",
+                "Cellular memory integration",
+                "Personalized affirmation tools"
+            ],
+            "mudgar-practice": [
+                "Physical mobility and posture assessment",
+                "Introduction to basic Mudgar swings",
+                "Breathwork coordination techniques",
+                "Progressive weight and flow training",
+                "Mind-muscle connection drills",
+                "Cool down and energy integration",
+                "Home practice guidelines"
+            ],
+            "tarot-reading": [
+                "Clarifying your questions and intent",
+                "Energetic connection and card shuffling",
+                "Intuitive spread selection",
+                "Deep dive interpretation of cards",
+                "Identification of underlying themes",
+                "Actionable guidance and advice",
+                "Closing summary and reflection"
             ]
         };
 

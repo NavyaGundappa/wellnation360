@@ -31,14 +31,12 @@ class User(db.Model):
     profile_pic = db.Column(db.String(200))
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
 
-# PricingPlan Model
-
 
 class PricingPlan(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     service_id = db.Column(db.Integer, db.ForeignKey(
         'service.id'), nullable=False)
-    months = db.Column(db.Integer, nullable=False)
+    months = db.Column(db.Float, nullable=False)
     price = db.Column(db.Float, nullable=False)
     # service relationship will be defined in Service model via back_populates
 
@@ -47,14 +45,22 @@ class PricingPlan(db.Model):
 
 class Service(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    # Corresponds to 'website' in form
     platform = db.Column(db.String(50), nullable=False)
     service_name = db.Column(db.String(100), nullable=False)
     instructor_name = db.Column(db.String(100), nullable=False)
-    # Corresponds to 'serviceTime' in form
     schedule = db.Column(db.String(100), nullable=False)
-    image_filename = db.Column(db.String(200))  # Store only the filename
+    image_filename = db.Column(db.String(200))
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
+
+    # --- NEW FIELDS ---
+    # e.g., "Weight Loss • Immunity"
+    best_for = db.Column(db.String(200))
+    duration = db.Column(db.String(50))          # e.g., "6 Weeks"
+    frequency = db.Column(db.String(100))        # e.g., "Weekly Consultations"
+    # Stores JSON string: [{"title":"Diet", "desc":"Plan"}, ...]
+    includes = db.Column(db.Text)
+    # ------------------
+
     plans = db.relationship('PricingPlan', backref='service',
                             lazy='dynamic', cascade="all, delete-orphan")
 
@@ -180,6 +186,11 @@ def admin_login():
 def logout():
     session.clear()
     return redirect(url_for('login'))
+
+
+@app.route('/packages')
+def packages():
+    return render_template('packages.html')
 
 
 @app.route('/dashboard')
@@ -577,6 +588,7 @@ def index():
             "instructor_name": service.instructor_name,
             "schedule": service.schedule,
             "image_url": image_url,  # Use the generated URL
+            "includes": service.includes,
             "plans": plans_list_for_json,  # Pass all plans
             "display_price": display_price_info  # Pass the formatted price for the card
         })
@@ -645,23 +657,35 @@ def get_services():
     for service_db in services_from_db:
         image_url = None
         if service_db.image_filename:
-            # Use forward slashes and proper path joining
             image_path = os.path.join(
                 'uploads', service_db.image_filename).replace('\\', '/')
             image_url = url_for('static', filename=image_path, _external=True)
 
         plans_list = [{"months": plan.months, "price": plan.price}
                       for plan in service_db.plans]
+
+        # Parse 'includes' from JSON string to List
+        includes_data = []
+        if service_db.includes:
+            try:
+                includes_data = json.loads(service_db.includes)
+            except:
+                includes_data = []
+
         services_list.append({
             "id": service_db.id,
-            # Map 'platform' (DB) to 'website' (JS/HTML)
             "website": service_db.platform,
             "service_name": service_db.service_name,
             "instructor_name": service_db.instructor_name,
-            # Map 'schedule' (DB) to 'time' (JS/HTML)
             "time": service_db.schedule,
             "image_url": image_url,
-            "plans": plans_list
+            "plans": plans_list,
+            # --- NEW FIELDS MAPPED ---
+            "best_for": service_db.best_for,
+            "duration": service_db.duration,
+            "frequency": service_db.frequency,
+            "includes": includes_data
+            # -------------------------
         })
     return jsonify(services_list)
 
@@ -711,37 +735,50 @@ def api_add_service():
         return jsonify({"error": "Unauthorized"}), 401
 
     try:
-        # Get form data
+        # 1. Retrieve Basic Form Data
         platform = request.form.get('website')
         service_name = request.form.get('serviceName')
         instructor_name = request.form.get('instructorName')
         schedule = request.form.get('serviceTime')
 
+        # 2. Retrieve New Extended Details
+        best_for = request.form.get('bestFor')
+        duration = request.form.get('duration')
+        frequency = request.form.get('frequency')
+        includes_json = request.form.get(
+            'includes_json')  # Received as a JSON string
+
         if not all([platform, service_name, instructor_name, schedule]):
             return jsonify({"error": "Missing required fields"}), 400
 
-        # Handle file upload with service name
+        # 3. Handle File Upload
         image_filename = None
         if 'serviceImage' in request.files:
             file = request.files['serviceImage']
             if file and file.filename:
+                # Uses the existing helper function in your app.py
                 image_filename = save_file(file, service_name=service_name)
                 if not image_filename:
                     return jsonify({"error": "Invalid image file type"}), 400
 
-        # Rest of your service creation code...
+        # 4. Create Service Object
         new_service = Service(
             platform=platform,
             service_name=service_name,
             instructor_name=instructor_name,
             schedule=schedule,
-            image_filename=image_filename
+            image_filename=image_filename,
+            # New Fields
+            best_for=best_for,
+            duration=duration,
+            frequency=frequency,
+            includes=includes_json
         )
 
         db.session.add(new_service)
-        db.session.flush()  # To get the new_service.id for plans
+        db.session.flush()  # Flush to generate the new_service.id for plans
 
-        # Handle pricing plans
+        # 5. Handle Pricing Plans
         months_list = request.form.getlist('months[]')
         prices_list = request.form.getlist('prices[]')
 
@@ -751,21 +788,19 @@ def api_add_service():
 
         for i in range(len(months_list)):
             try:
-                months = int(months_list[i])
+                months = float(months_list[i])
                 price = float(prices_list[i])
                 if months < 1 or price < 0:
                     raise ValueError("Invalid plan values")
+
                 plan = PricingPlan(service_id=new_service.id,
                                    months=months, price=price)
                 db.session.add(plan)
             except ValueError:
                 db.session.rollback()
-                return jsonify({"error": f"Invalid data for plan {i+1}: Months and prices must be valid numbers."}), 400
+                return jsonify({"error": f"Invalid data for plan {i+1}: Months and prices must be numbers."}), 400
 
         db.session.commit()
-
-        # Debug: Print the saved service
-        print("Service saved with image:", new_service.image_filename)
 
         return jsonify({
             "message": "Service added successfully!",
@@ -777,7 +812,6 @@ def api_add_service():
         db.session.rollback()
         current_app.logger.error(f"Error adding service: {str(e)}")
         return jsonify({"message": f"Error adding service: {str(e)}"}), 500
-
 # API route to update an existing service
 
 
@@ -788,7 +822,9 @@ def api_update_service(service_id):
         return jsonify({"error": "Unauthorized"}), 401
 
     service = Service.query.get_or_404(service_id)
+
     try:
+        # 1. Update Basic Fields (Keep existing if not provided)
         service.platform = request.form.get('website', service.platform)
         service.service_name = request.form.get(
             'serviceName', service.service_name)
@@ -796,35 +832,57 @@ def api_update_service(service_id):
             'instructorName', service.instructor_name)
         service.schedule = request.form.get('serviceTime', service.schedule)
 
+        # 2. Update New Extended Details
+        # We use request.form.get(key) because if the key is missing in the update,
+        # it might return None. If you want to keep old values when empty, use the second arg.
+        # However, for text inputs, empty strings are valid updates (clearing the field).
+        if 'bestFor' in request.form:
+            service.best_for = request.form.get('bestFor')
+        if 'duration' in request.form:
+            service.duration = request.form.get('duration')
+        if 'frequency' in request.form:
+            service.frequency = request.form.get('frequency')
+        if 'includes_json' in request.form:
+            service.includes = request.form.get('includes_json')
+
+        # 3. Handle Image Update
         if 'serviceImage' in request.files and request.files['serviceImage'].filename:
             new_image_filename = save_file(request.files['serviceImage'])
-            if new_image_filename:  # save_file might return None if extension not allowed
-                # Optionally, delete old image file from server
+
+            if new_image_filename:
+                # Delete old image file if it exists and is different
                 if service.image_filename and service.image_filename != new_image_filename:
                     old_image_path = os.path.join(
                         app.config['UPLOAD_FOLDER'], service.image_filename)
                     if os.path.exists(old_image_path):
-                        os.remove(old_image_path)
+                        try:
+                            os.remove(old_image_path)
+                        except Exception as e:
+                            current_app.logger.error(
+                                f"Error deleting old image: {e}")
+
                 service.image_filename = new_image_filename
-            else:  # New image provided but was invalid
+            else:
                 return jsonify({"error": "Invalid image file for update"}), 400
 
-        # Update plans: simpler approach is to delete old and add new
+        # 4. Update Pricing Plans
+        # Strategy: Delete all existing plans for this service and recreate them
         PricingPlan.query.filter_by(service_id=service.id).delete()
 
         months_list = request.form.getlist('months[]')
         prices_list = request.form.getlist('prices[]')
 
         if len(months_list) != len(prices_list):
-            db.session.rollback()  # Important: rollback changes made above if plans are bad
+            db.session.rollback()
             return jsonify({"error": "Mismatch in number of plan months and prices for update"}), 400
 
         for i in range(len(months_list)):
             try:
-                months = int(months_list[i])
+                months = float(months_list[i])
                 price = float(prices_list[i])
                 if months < 1 or price < 0:
-                    raise ValueError("Invalid plan values for update")
+                    raise ValueError("Invalid plan values")
+
                 plan = PricingPlan(service_id=service.id,
                                    months=months, price=price)
                 db.session.add(plan)
@@ -840,7 +898,6 @@ def api_update_service(service_id):
         current_app.logger.error(
             f"Error updating service {service_id}: {str(e)}")
         return jsonify({"message": f"Error updating service: {str(e)}"}), 500
-
 # API route to delete a service
 
 

@@ -6,6 +6,7 @@
 {% block content %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,23 +19,28 @@
             background-color: #f4f4f4;
             color: #333;
         }
+
         .container {
             background-color: #fff;
             padding: 20px;
             border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             margin-bottom: 20px;
         }
-        h2, h3 {
+
+        h2,
+        h3 {
             color: #333;
             border-bottom: 2px solid #eee;
             padding-bottom: 10px;
         }
+
         label {
             display: block;
             margin-top: 10px;
             font-weight: bold;
         }
+
         input[type="text"],
         input[type="number"],
         select,
@@ -46,18 +52,22 @@
             border-radius: 4px;
             box-sizing: border-box;
         }
+
         input[type="file"] {
             margin-top: 5px;
         }
+
         .plan-row {
             display: flex;
             gap: 10px;
             align-items: center;
             margin-bottom: 10px;
         }
+
         .plan-row input {
             width: 100px;
         }
+
         .plan-row button {
             padding: 8px 12px;
             background-color: #e74c3c;
@@ -66,6 +76,7 @@
             border-radius: 4px;
             cursor: pointer;
         }
+
         button {
             padding: 10px 15px;
             margin-top: 20px;
@@ -75,40 +86,51 @@
             border-radius: 4px;
             cursor: pointer;
         }
+
         button.add-plan-btn {
             background-color: #2ecc71;
         }
+
         button:hover {
             opacity: 0.9;
         }
+
         table {
             width: 100%;
             border-collapse: collapse;
             margin-top: 20px;
         }
-        th, td {
+
+        th,
+        td {
             border: 1px solid #ddd;
             padding: 10px;
             text-align: left;
         }
+
         th {
             background-color: #f0f0f0;
         }
+
         .actions button {
             margin: 0 5px 0 0;
             padding: 5px 10px;
         }
+
         .actions .edit-btn {
             background-color: #f39c12;
         }
+
         .actions .delete-btn {
             background-color: #c0392b;
         }
+
         .hidden {
             display: none;
         }
     </style>
 </head>
+
 <body>
 
     <div class="container">
@@ -131,17 +153,44 @@
             <label for="serviceTime">Time (e.g., Tue-Sun | 5:00-6:00):</label>
             <input type="text" id="serviceTime" name="serviceTime" required>
 
+            <div
+                style="background: #f9f9f9; padding: 15px; border: 1px solid #eee; margin-top: 15px; border-radius: 4px;">
+                <h3>Service Details</h3>
+
+                <label for="bestFor">Best For (e.g., Weight Loss • Immunity):</label>
+                <input type="text" id="bestFor" name="bestFor" placeholder="Target audience/condition">
+
+                <div style="display: flex; gap: 10px;">
+                    <div style="flex: 1;">
+                        <label for="duration">Duration (e.g., 6 Weeks):</label>
+                        <input type="text" id="duration" name="duration">
+                    </div>
+                    <div style="flex: 1;">
+                        <label for="frequency">Frequency (e.g., Weekly):</label>
+                        <input type="text" id="frequency" name="frequency">
+                    </div>
+                </div>
+
+                <label>What's Included:</label>
+                <div id="includesContainer">
+                </div>
+                <button type="button" class="add-plan-btn" onclick="addInclude()"
+                    style="margin-top:5px; font-size: 0.9em;">+ Add
+                    Item</button>
+            </div>
             <label for="serviceImage">Service Image:</label>
             <input type="file" id="serviceImage" name="serviceImage" accept="image/*">
-            <img id="imagePreview" src="#" alt="Image Preview" style="max-width: 100px; margin-top: 10px; display: none;"/>
+            <img id="imagePreview" src="#" alt="Image Preview"
+                style="max-width: 100px; margin-top: 10px; display: none;" />
 
 
             <h3>Pricing Plans</h3>
             <div id="plansContainer">
                 <div class="plan-row">
-                    <input type="number" name="months[]" placeholder="Months" min="1" required>
+                    <input type="number" name="months[]" placeholder="Months" min="0.1" step="0.1" required>
                     <input type="number" name="prices[]" placeholder="Price" min="0" step="0.01" required>
-                    <button type="button" class="remove-plan-btn" onclick="removePlan(this)" style="display:none;">Remove</button>
+                    <button type="button" class="remove-plan-btn" onclick="removePlan(this)"
+                        style="display:none;">Remove</button>
                 </div>
             </div>
             <button type="button" class="add-plan-btn" onclick="addPlan()">+ Add Plan</button>
@@ -177,7 +226,8 @@
                     <td><img src="placeholder.jpg" alt="Yoga Basics" width="50"></td>
                     <td>1: $50, 3: $130, 6: $250</td>
                     <td class="actions">
-                        <button class="edit-btn" onclick="editService(1, 'WellNation360', 'Yoga Basics', 'Jane Doe', 'Mon-Fri | 7:00-8:00', 'placeholder.jpg', [{months: 1, price: 50}, {months: 3, price: 130}])">Edit</button>
+                        <button class="edit-btn"
+                            onclick="editService(1, 'WellNation360', 'Yoga Basics', 'Jane Doe', 'Mon-Fri | 7:00-8:00', 'placeholder.jpg', [{months: 1, price: 50}, {months: 3, price: 130}])">Edit</button>
                         <button class="delete-btn" onclick="deleteService(1)">Delete</button>
                     </td>
                 </tr>
@@ -194,15 +244,14 @@
         const imagePreview = document.getElementById('imagePreview');
         const serviceImageInput = document.getElementById('serviceImage');
 
-        // --- Dynamic Plan Management ---
         function addPlan() {
             const planRow = document.createElement('div');
             planRow.classList.add('plan-row');
             planRow.innerHTML = `
-                <input type="number" name="months[]" placeholder="Months" min="1" required>
-                <input type="number" name="prices[]" placeholder="Price" min="0" step="0.01" required>
-                <button type="button" class="remove-plan-btn" onclick="removePlan(this)">Remove</button>
-            `;
+        <input type="number" name="months[]" placeholder="Months" min="0.1" step="0.1" required>
+        <input type="number" name="prices[]" placeholder="Price" min="0" step="0.01" required>
+        <button type="button" class="remove-plan-btn" onclick="removePlan(this)">Remove</button>
+    `;
             plansContainer.appendChild(planRow);
             updateRemoveButtons();
         }
@@ -236,36 +285,57 @@
             }
         }
 
-        // --- Form Submission (to be handled by Flask) ---
-        serviceForm.addEventListener('submit', async function(event) {
+        function addInclude(title = '', desc = '') {
+            const row = document.createElement('div');
+            row.classList.add('plan-row'); // reusing plan-row class for layout
+            row.style.alignItems = 'flex-start';
+            row.innerHTML = `
+            <div style="flex: 1;">
+                <input type="text" class="include-title" placeholder="Title (e.g. Diet)" value="${title}" style="width: 100%; margin-bottom: 2px;">
+                <input type="text" class="include-desc" placeholder="Description (e.g. Customized plan)" value="${desc}" style="width: 100%;">
+            </div>
+            <button type="button" class="remove-plan-btn" onclick="this.parentElement.remove()">Remove</button>
+        `;
+            includesContainer.appendChild(row);
+        }
+
+        serviceForm.addEventListener('submit', async function (event) {
             event.preventDefault();
             const formData = new FormData(this);
             const serviceId = serviceIdInput.value;
-            const url = serviceId ? `/api/service/update/${serviceId}` : '/api/service/add'; // Example API endpoints
-            const method = serviceId ? 'POST' : 'POST'; // Or 'PUT' for update if your backend supports it
+            const url = serviceId ? `/api/service/update/${serviceId}` : '/api/service/add';
 
-            // Construct plans object if needed by backend (FormData will send months[] and prices[])
-            // Or process it on the backend from the arrays.
-            // Example:
-            // const plans = [];
-            // const monthsInputs = document.querySelectorAll('input[name="months[]"]');
-            // const pricesInputs = document.querySelectorAll('input[name="prices[]"]');
-            // monthsInputs.forEach((monthInput, index) => {
-            //     plans.push({ months: monthInput.value, price: pricesInputs[index].value });
-            // });
-            // formData.append('plans_json', JSON.stringify(plans)); // If you want to send as JSON
+            // 1. Gather "Includes" Data
+            // We iterate over the dynamic rows we created in the DOM and build an array of objects
+            const includes = [];
+            document.querySelectorAll('#includesContainer .plan-row').forEach(row => {
+                const title = row.querySelector('.include-title').value.trim();
+                const desc = row.querySelector('.include-desc').value.trim();
+
+                // Only add if at least one field has content
+                if (title || desc) {
+                    includes.push({ title, desc });
+                }
+            });
+
+            // 2. Append to FormData as a JSON string
+            // The backend expects 'includes_json'
+            formData.append('includes_json', JSON.stringify(includes));
+
+            // Note: FormData automatically captures all other inputs with 'name' attributes
+            // (serviceName, instructorName, bestFor, duration, frequency, months[], prices[], etc.)
 
             try {
                 const response = await fetch(url, {
-                    method: method,
-                    body: formData // FormData handles multipart/form-data for file uploads
+                    method: 'POST',
+                    body: formData
                 });
 
                 if (response.ok) {
                     const result = await response.json();
                     alert(result.message || (serviceId ? 'Service updated successfully!' : 'Service added successfully!'));
                     resetForm();
-                    loadServices(); // Refresh the list
+                    loadServices(); // Refresh the table
                 } else {
                     const error = await response.json();
                     alert('Error: ' + (error.message || 'Could not save service.'));
@@ -339,12 +409,20 @@
 
         // Function to prepare the form for editing a service
         function editServicePreparer(service) {
+            // 1. Basic Fields
             serviceIdInput.value = service.id;
             document.getElementById('website').value = service.website;
             document.getElementById('serviceName').value = service.service_name;
             document.getElementById('instructorName').value = service.instructor_name;
             document.getElementById('serviceTime').value = service.time;
 
+            // 2. New Detail Fields
+            // Use empty string fallback in case these fields are null/undefined
+            document.getElementById('bestFor').value = service.best_for || '';
+            document.getElementById('duration').value = service.duration || '';
+            document.getElementById('frequency').value = service.frequency || '';
+
+            // 3. Image Preview
             if (service.image_url) {
                 imagePreview.src = service.image_url;
                 imagePreview.style.display = 'block';
@@ -352,31 +430,46 @@
                 imagePreview.style.display = 'none';
                 imagePreview.src = '#';
             }
-            // Note: File input cannot be programmatically set for security reasons.
-            // User will have to re-select image if they want to change it.
-            // You can display current image name or preview.
+            // Note: The file input (serviceImage) cannot be set programmatically for security reasons.
 
-            // Clear existing plan rows and populate with service's plans
-            plansContainer.innerHTML = '';
+            // 4. Populate "Includes"
+            includesContainer.innerHTML = ''; // Clear existing
+            if (service.includes && Array.isArray(service.includes) && service.includes.length > 0) {
+                service.includes.forEach(inc => {
+                    // Call the addInclude helper function defined in your script
+                    addInclude(inc.title, inc.desc);
+                });
+            } else {
+                // Optional: Add one empty row if you want the user to see a blank input immediately
+                // addInclude(); 
+            }
+
+            // 5. Populate Pricing Plans
+            plansContainer.innerHTML = ''; // Clear existing
             if (service.plans && service.plans.length > 0) {
                 service.plans.forEach(plan => {
                     const planRow = document.createElement('div');
                     planRow.classList.add('plan-row');
                     planRow.innerHTML = `
-                        <input type="number" name="months[]" placeholder="Months" value="${plan.months}" min="1" required>
-                        <input type="number" name="prices[]" placeholder="Price" value="${plan.price}" min="0" step="0.01" required>
-                        <button type="button" class="remove-plan-btn" onclick="removePlan(this)">Remove</button>
-                    `;
+                <input type="number" name="months[]" placeholder="Months" value="${plan.months}" min="0.1" step="0.1" required>
+                <input type="number" name="prices[]" placeholder="Price" value="${plan.price}" min="0" step="0.01" required>
+                <button type="button" class="remove-plan-btn" onclick="removePlan(this)">Remove</button>
+            `;
                     plansContainer.appendChild(planRow);
                 });
-            } else { // Add one empty plan row if no plans exist
-                addPlan();
+            } else {
+                addPlan(); // Add one empty plan row if no plans exist
             }
+
+            // Update button visibility for plans
             updateRemoveButtons();
 
+            // 6. UI Updates
             submitButton.textContent = 'Update Service';
             cancelEditButton.classList.remove('hidden');
-            window.scrollTo(0, 0); // Scroll to top to see the form
+
+            // Scroll to top so the user sees the form
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         // Function to delete a service (sends request to backend)
@@ -411,5 +504,6 @@
     </script>
 
 </body>
+
 </html>
 {% endblock %}

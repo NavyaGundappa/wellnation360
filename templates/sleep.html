@@ -90,6 +90,109 @@
             animation: pulse 8s infinite ease-in-out;
         }
 
+        /* Enhanced Header and Dropdown Styles */
+        header {
+            transition: all 0.3s ease;
+        }
+
+        /* Desktop Navigation Link Styles */
+        nav a:not(.cta-button):hover {
+            color: #4ade80;
+        }
+
+        nav a:not(.cta-button)::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #4ade80;
+            transition: width 0.3s ease;
+        }
+
+        nav a:not(.cta-button):hover::after {
+            width: 100%;
+        }
+
+        /* Dropdown Styles */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            display: none;
+            /* Initially hidden */
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            min-width: 240px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            border-radius: 0.5rem;
+            padding: 0.5rem 0;
+            z-index: 1000;
+            border: 1px solid #e5e7eb;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        /* Logic for hover to show menu (Added this back so it works without JS for desktop) */
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-menu a {
+            color: #1f2937;
+            padding: 0.75rem 1.25rem;
+            text-decoration: none;
+            display: block;
+            transition: all 0.2s ease;
+            font-size: 0.95rem;
+        }
+
+        .dropdown-menu a:hover {
+            color: #4ade80;
+            background-color: #f3f4f6;
+            padding-left: 1.5rem;
+        }
+
+        .dropdown-menu a::after {
+            display: none;
+        }
+
+        /* Mobile Menu Styles */
+        .mobile-menu {
+            display: none;
+            background-color: #1f2937;
+            padding: 1rem 0;
+        }
+
+        .mobile-menu a {
+            display: block;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            font-size: 1.1rem;
+            transition: background-color 0.2s ease, padding-left 0.2s ease;
+        }
+
+        .mobile-menu a:hover {
+            background-color: #374151;
+            padding-left: 2rem;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
         @keyframes pulse {
 
             0%,
@@ -104,94 +207,6 @@
 
         header {
             transition: all 0.3s ease;
-        }
-
-        /* Nav Link Hover Effect */
-        nav a:hover {
-            color: #4ade80;
-            /* green-400 */
-        }
-
-        nav a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -2px;
-            left: 0;
-            background-color: #4ade80;
-            /* green-400 */
-            transition: width 0.3s ease;
-        }
-
-        nav a:hover::after {
-            width: 100%;
-        }
-
-        /* Dropdown Styles */
-        .dropdown {
-            position: relative;
-        }
-
-        .dropdown:hover .dropdown-menu {
-            display: block;
-            animation: fadeIn 0.3s ease-in-out;
-        }
-
-        .dropdown-menu {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background-color: white;
-            min-width: 220px;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-            border-radius: 0.5rem;
-            padding: 0.5rem 0;
-            z-index: 50;
-            border: 1px solid #e5e7eb;
-            /* gray-200 */
-        }
-
-        .dropdown-menu a {
-            color: #1f2937;
-            /* gray-800 */
-            padding: 0.75rem 1.25rem;
-            text-decoration: none;
-            display: block;
-            transition: all 0.2s ease;
-            font-size: 0.95rem;
-        }
-
-        .dropdown-menu a:hover {
-            color: #4ade80;
-            /* green-400 */
-            background-color: #f3f4f6;
-            /* gray-100 */
-            padding-left: 1.5rem;
-        }
-
-        .dropdown-menu a::after {
-            display: none;
-            /* Remove underline effect from dropdown items */
-        }
-
-        /* Animation */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Ensure dropdown is above other elements */
-        .dropdown-content {
-            z-index: 1000;
         }
     </style>
 </head>

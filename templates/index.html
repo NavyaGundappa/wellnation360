@@ -27,6 +27,7 @@
     content="Natural wellness tips, holistic healing, and premium health solutions. Start your wellness journey with WellNation360." />
   <meta name="twitter:image" content="https://wellnation360.com/static/images/logo1.png">
   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
@@ -110,8 +111,41 @@
     }
 
     .services-swiper {
-      /* Hero Carousel */
-      padding: 20px 0;
+      width: 100%;
+      padding-bottom: 50px;
+    }
+
+    .services-swiper .swiper-slide {
+      width: auto;
+      height: auto;
+      display: flex;
+      justify-content: center;
+    }
+
+    .services-swiper .service-block {
+      width: 320px;
+      /* Fixed width for consistent look */
+      margin: 0;
+      /* Swiper handles the spacing */
+      flex: none;
+      /* Disable old flex behavior */
+    }
+
+    /* Custom Navigation Button Styles */
+    .swiper-button-next,
+    .swiper-button-prev {
+      background-color: white;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border: 1px solid #eee;
+    }
+
+    .swiper-button-next:after,
+    .swiper-button-prev:after {
+      font-size: 1.2rem;
+      font-weight: bold;
     }
 
     .swiper-slide {
@@ -253,7 +287,6 @@
     .timing,
     .instructor {
       font-size: 0.9rem;
-      color: #555;
       margin: 0.25rem 0;
     }
 
@@ -878,6 +911,59 @@
         font-size: 0.9rem;
       }
     }
+
+    .scrollbar-hide::-webkit-scrollbar {
+      display: none;
+    }
+
+    .scrollbar-hide {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    /* Navigation Buttons */
+    .nav-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 20;
+      background-color: rgba(255, 255, 255, 0.9);
+      border: 1px solid #e5e7eb;
+      color: #10b981;
+      /* Emerald-500 */
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .nav-btn:hover {
+      background-color: #10b981;
+      color: white;
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    .nav-btn-left {
+      left: 10px;
+    }
+
+    .nav-btn-right {
+      right: 10px;
+    }
+
+    /* Drag Cursor */
+    .cursor-grab {
+      cursor: grab;
+    }
+
+    .cursor-grabbing {
+      cursor: grabbing;
+    }
   </style>
 </head>
 
@@ -997,69 +1083,68 @@
         transform: translateY(0);
       }
     }
+
+    /* Swiper Specific Overrides */
+    .service-swiper-container {
+      width: 100%;
+      overflow: hidden;
+      /* Hides the scrollbar */
+      padding-bottom: 40px;
+      /* Space for pagination */
+    }
+
+    .swiper-slide {
+      height: auto;
+      /* Ensures cards stretch equally */
+      width: auto;
+      /* Let Swiper handle width based on content or JS settings */
+      display: flex;
+      /* Ensures the card inside fills the height */
+    }
+
+    .service-block {
+      width: 320px;
+      /* Fixed width for the cards */
+      height: 100%;
+      /* Fill the slide height */
+      margin: 0;
+      /* Swiper handles the gap via spaceBetween */
+      /* Remove flex: 0 0 300px from previous CSS if it conflicts */
+    }
+
+    /* Customizing Swiper Bullets/Arrows to match your theme */
+    .swiper-pagination-bullet-active {
+      background-color: #4ade80 !important;
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+      color: #3b82f6;
+      background: rgba(255, 255, 255, 0.9);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .swiper-button-next:after,
+    .swiper-button-prev:after {
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    .cursor-grab {
+      cursor: grab;
+      cursor: -webkit-grab;
+    }
+
+    .cursor-grabbing {
+      cursor: grabbing;
+      cursor: -webkit-grabbing;
+    }
   </style>
 
-  <header class="fixed top-0 left-0 right-0 w-full z-50 bg-gray-800 shadow-md">
-    <div class="container mx-auto">
-      <div class="relative z-10 flex items-center justify-between px-6 py-2 md:py-3">
-        <div class="flex items-center space-x-4">
-          <a href="{{ url_for('index') }}" class="flex items-center space-x-3">
-            <div class="relative w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden border-2 border-green-400">
-              <img src="{{ url_for('static', filename='images/logo1.png') }}" alt="Logo"
-                class="w-full h-full object-cover" />
-            </div>
-            <span class="text-xl md:text-3xl font-bold text-white">Wellnation360</span>
-          </a>
-        </div>
-
-        <nav class="hidden md:flex items-center space-x-8 text-white text-base md:text-lg font-medium">
-          <a href="{{ url_for('index') }}" class="relative">Home</a>
-          <a href="{{ url_for('about') }}" class="relative">About</a>
-          <a href="{{ url_for('gallery') }}" class="relative">Gallery</a>
-          <a href="#reviews" class="relative">Reviews</a>
-          <div class="dropdown relative">
-            <button id="dropdown-button" class="flex items-center space-x-1 relative group" aria-haspopup="true"
-              aria-expanded="false">
-              <span>Services</span>
-              <i class="fas fa-chevron-down text-xs transition-transform duration-300"></i>
-            </button>
-            <div id="dropdown-menu" class="dropdown-menu">
-              <a href="{{ url_for('services') }}#gentle-reset">Gentle Detox Cleanse</a>
-              <a href="{{ url_for('services') }}#metabolic-harmony">Healthy Body Transformation</a>
-              <a href="{{ url_for('services') }}#blood-sugar">Diabetes Support Plan</a>
-              <a href="{{ url_for('services') }}#thyroid">Thyroid Balance Therapy</a>
-              <a href="{{ url_for('services') }}#gut-healing">Digestive Wellness Plan</a>
-              <a href="{{ url_for('services') }}#menopause">Menopausal Management</a>
-              <a href="{{ url_for('services') }}#energy-flow">Acupuncture Therapy</a>
-              <a href="{{ url_for('services') }}#mindful-nourishment">Psychological Counselling</a>
-              <a href="{{ url_for('services') }}#additional-conditions">We also specialize in</a>
-            </div>
-          </div>
-
-          <a href="{{ url_for('contact_get') }}" class="relative">Contact</a>
-          <a href="http://yoga-kshema.in" target="_blank" rel="noopener noreferrer"
-            class="cta-button bg-gradient-to-r from-amber-500 to-orange-600 text-white px-4 py-2 rounded-full hover:shadow-lg transition-all duration-300">
-            Yogakshema
-          </a>
-        </nav>
-
-        <div class="md:hidden">
-          <button id="mobile-menu-button" class="text-white text-2xl focus:outline-none">
-            <i class="fas fa-bars"></i>
-          </button>
-        </div>
-      </div>
-
-      <div id="mobile-menu" class="mobile-menu md:hidden">
-        <a href="{{ url_for('index') }}">Home</a>
-        <a href="{{ url_for('about') }}">About</a>
-        <a href="{{ url_for('gallery') }}">Gallery</a>
-        <a href="#reviews">Reviews</a> <a href="{{ url_for('services') }}">Services</a>
-        <a href="{{ url_for('contact_get') }}">Contact</a>
-        <a href="http://yoga-kshema.in" target="_blank" rel="noopener noreferrer">Yogakshema</a>
-      </div>
-    </div>
-  </header>
+  {% include 'header.html' %}
 
   <script>
     document.addEventListener('DOMContentLoaded', function () {
@@ -1250,13 +1335,20 @@
     </div>
   </section>
 
-  <section id="services" class="services-section scroll-mt-20">
-    <h2 class="services-title">Our Holistic Services</h2>
-    <div class="horizontal-scroll-wrapper">
-      <div id="servicesContainer" class="horizontal-scroll-container">
-        <p class="text-center text-gray-500 py-8 col-span-full">Loading services...</p>
-      </div>
-      <div id="servicesNav" class="horizontal-scroll-nav">
+  <section id="services" class="py-16 sm:py-24 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <h2 class="text-3xl font-extrabold text-gray-900 text-center mb-12" data-aos="fade-up">
+        Our Services
+      </h2>
+
+      <div class="horizontal-scroll-wrapper relative group" data-aos="fade-up" data-aos-delay="200">
+        <div id="services-scroll-container" class="flex overflow-x-auto gap-8 pb-8 px-4 scrollbar-hide cursor-grab"
+          style="-webkit-overflow-scrolling: touch;">
+
+          <div id="services-loop-track" class="flex flex-nowrap space-x-8">
+            Loading services...
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -1659,12 +1751,12 @@
   </div>
 
   <script>
-    // --- Scripts organized in one DOMContentLoaded listener ---
     document.addEventListener('DOMContentLoaded', function () {
 
+      // 1. Initialize Animation Library
       AOS.init({ easing: 'ease-in-out', duration: 800, once: true, offset: 50 });
 
-      // Mobile menu toggle
+      // 2. Mobile Menu Logic
       const mobileMenuButton = document.getElementById('mobileMenuButton');
       const mobileMenu = document.getElementById('mobileMenu');
       if (mobileMenuButton && mobileMenu) {
@@ -1679,23 +1771,11 @@
         });
       }
 
-      document.querySelectorAll('#mobileMenu button').forEach(button => {
-        button.addEventListener('click', function () {
-          const submenu = this.nextElementSibling;
-          if (submenu) {
-            submenu.classList.toggle('hidden');
-            const icon = this.querySelector('svg');
-            if (icon) {
-              icon.classList.toggle('rotate-180');
-            }
-          }
-        });
-      });
+      // 3. Set Year
+      const yearSpan = document.getElementById('currentYear');
+      if (yearSpan) yearSpan.textContent = new Date().getFullYear();
 
-      // Set current year in footer
-      document.getElementById('currentYear').textContent = new Date().getFullYear();
-
-      // --- REWRITTEN HERO CAROUSEL SCRIPT ---
+      // 4. Hero Carousel
       function initCarousel() {
         const slides = document.querySelectorAll('.carousel-slide');
         const dots = document.querySelectorAll('.nav-dot');
@@ -1712,13 +1792,10 @@
 
         function showSlide(index) {
           if (index < 0 || index >= slideCount) return;
-
           slides.forEach(slide => slide.classList.remove('active'));
           dots.forEach(dot => dot.classList.remove('active'));
-
           slides[index].classList.add('active');
           dots[index].classList.add('active');
-
           currentSlide = index;
         }
 
@@ -1731,20 +1808,23 @@
 
         function manualAdvance(nextIndex) {
           showSlide(nextIndex);
-          // Reset the timer
           clearInterval(slideInterval);
           slideInterval = setInterval(advanceSlide, 5000);
         }
 
-        prevArrow.addEventListener('click', () => {
-          const prevIndex = (currentSlide - 1 + slideCount) % slideCount;
-          manualAdvance(prevIndex);
-        });
+        if (prevArrow) {
+          prevArrow.addEventListener('click', () => {
+            const prevIndex = (currentSlide - 1 + slideCount) % slideCount;
+            manualAdvance(prevIndex);
+          });
+        }
 
-        nextArrow.addEventListener('click', () => {
-          const nextIndex = (currentSlide + 1) % slideCount;
-          manualAdvance(nextIndex);
-        });
+        if (nextArrow) {
+          nextArrow.addEventListener('click', () => {
+            const nextIndex = (currentSlide + 1) % slideCount;
+            manualAdvance(nextIndex);
+          });
+        }
 
         dots.forEach(dot => {
           dot.addEventListener('click', function () {
@@ -1753,98 +1833,266 @@
           });
         });
 
-        carouselContainer.addEventListener('mouseenter', () => { isPaused = true; });
-        carouselContainer.addEventListener('mouseleave', () => { isPaused = false; });
+        if (carouselContainer) {
+          carouselContainer.addEventListener('mouseenter', () => { isPaused = true; });
+          carouselContainer.addEventListener('mouseleave', () => { isPaused = false; });
+        }
 
-        // Set initial state and start the timer
         showSlide(0);
         slideInterval = setInterval(advanceSlide, 5000);
       }
-
       initCarousel();
 
-      // Services Display
-      function createServiceBlock(serviceItem) {
-        const block = document.createElement("div");
-        block.className = "service-block";
-        block.setAttribute('data-aos', 'fade-up');
-        const imageUrl = serviceItem.image_url || "{{ url_for('static', filename='images/service-placeholder.jpg') }}";
+      // --- 5. HELPER: Icon Generator (Required for the card details) ---
+      const icon = (name, classes) => `<i data-lucide="${name}" class="${classes}"></i>`;
 
-        block.innerHTML = `
-        <img src="${imageUrl}" alt="${serviceItem.service_name || 'Service Image'}" class="service-image" loading="lazy">
-        <div class="service-header">
-            <h3 class="service-name">${serviceItem.service_name || 'Service Name'}</h3>
-            <p class="timing"><i class="far fa-clock mr-1.5"></i>${serviceItem.time || 'Schedule not specified'}</p>
-            <p class="instructor"><i class="fas fa-chalkboard-teacher mr-1.5"></i>${serviceItem.instructor_name || 'Instructor not specified'}</p>
-        </div>
-        <div class="mt-auto">
-            <div class="price-and-plans"></div>
-            <div class="buttons">
-                <button class="details-btn">View Details</button>
-                <button class="enroll-btn">Enroll Now</button>
-            </div>
-        </div>`;
+      // --- 6. DETAILED (But Compact) Service Card Generator ---
+      function createServiceCardHTML(service) {
 
-        const priceAndPlansDiv = block.querySelector('.price-and-plans');
-        if (serviceItem.plans && serviceItem.plans.length > 0) {
-          if (serviceItem.plans.length === 1) {
-            const plan = serviceItem.plans[0];
-            priceAndPlansDiv.innerHTML = `<p class="service-price">₹${plan.price.toLocaleString('en-IN')} ${plan.months > 1 ? `for ${plan.months} months` : ''}</p>`;
-          } else {
-            const cheapestPlan = [...serviceItem.plans].sort((a, b) => a.price - b.price)[0];
-            let optionsHtml = serviceItem.plans.sort((a, b) => a.months - b.months).map(plan =>
-              `<option value="${plan.months}" data-price="${plan.price}">${plan.months} month${plan.months > 1 ? 's' : ''} - ₹${plan.price.toLocaleString('en-IN')}</option>`
-            ).join('');
-            priceAndPlansDiv.innerHTML = `
-                <div class="plan-selector"><select class="plan-select">${optionsHtml}</select></div>
-                <p class="service-price">₹${cheapestPlan.price.toLocaleString('en-IN')}</p>`;
+        // 1. DATA PREPARATION (Simulating your screenshot data)
+        const bestForText = service.best_for || "General Wellness • Preventive Care • Health";
+        let includesList = service.includes || [
+          { title: "Diet Counselling", desc: "Customized meal plans" },
+          { title: "Therapies", desc: "Acupuncture & Yoga support" },
+          { title: "Healing", desc: "Energy balance & support" }
+        ];
 
-            block.querySelector('.plan-select').addEventListener('change', (e) => {
-              const price = e.target.options[e.target.selectedIndex].dataset.price;
-              block.querySelector('.service-price').textContent = `₹${parseFloat(price).toLocaleString('en-IN')}`;
-            });
-          }
-        } else {
-          priceAndPlansDiv.innerHTML = `<p class="service-price">Contact for Pricing</p><p class="no-plans">Custom plans available</p>`;
+        // Ensure includes is an array of objects for rendering
+        if (typeof includesList[0] === 'string') {
+          includesList = includesList.map(item => ({ title: item, desc: "" }));
         }
 
-        block.querySelector('.details-btn').addEventListener('click', () => window.location.href = `{{ url_for('services') }}`);
-        block.querySelector('.enroll-btn').addEventListener('click', () => {
-          let queryString = `service_enroll=${encodeURIComponent(serviceItem.service_name)}`;
-          const planSelect = block.querySelector('.plan-select');
-          if (planSelect) {
-            const selectedOption = planSelect.options[planSelect.selectedIndex];
-            queryString += `&months=${selectedOption.value}&price=${selectedOption.dataset.price}`;
-          }
-          window.location.href = `{{ url_for('contact_get') }}?${queryString}`;
-        });
-        return block;
+        // Generate HTML for the "Includes" list (Limit to 3 items)
+        const includesHTML = includesList.slice(0, 5).map(item => `
+        <li class="flex items-start text-xs text-gray-600 mb-1.5 leading-tight">
+            <i data-lucide="check-circle" class="w-3 h-3 text-emerald-600 mr-1.5 mt-0.5 shrink-0"></i>
+            <div>
+                <span class="font-bold text-gray-800">${item.title}:</span> 
+            </div>
+        </li>
+    `).join('');
+
+        // 2. Pricing Logic (Matches your "Investment" style)
+        let priceDisplay = '';
+        let bookLink = `{{ url_for('contact_get') }}?service_enroll=${encodeURIComponent(service.service_name)}`;
+
+        if (service.plans && service.plans.length > 0) {
+          const plan = service.plans.sort((a, b) => a.price - b.price)[0];
+          const originalPrice = service.original_price || Math.round(plan.price * 1.2);
+
+          priceDisplay = `
+          <div class="flex flex-col items-end">
+            <span class="text-[10px] text-red-400 line-through decoration-red-400">₹${originalPrice.toLocaleString('en-IN')}</span>
+            <span class="text-lg font-bold text-emerald-700 leading-none">₹${plan.price.toLocaleString('en-IN')}</span>
+          </div>
+        `;
+        } else {
+          priceDisplay = `<span class="text-sm text-gray-500 font-medium">Contact us</span>`;
+        }
+
+        const imageUrl = service.image_url || "static/images/service-placeholder.jpg";
+        const durationText = service.duration || "6 weeks";
+        const frequencyText = service.frequency || "Weekly consultations";
+
+        // 3. THE COMPACT HTML STRUCTURE
+        return `
+        <div class="min-w-[300px] max-w-[300px] md:min-w-[320px] md:max-w-[320px] flex-none snap-center" data-aos="fade-up">
+            <div class="bg-amber-50/50 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 border border-stone-200 flex flex-col h-full overflow-hidden group">
+                
+                <div class="relative h-36 shrink-0 overflow-hidden">
+                    <img src="${imageUrl}" alt="${service.service_name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                    <div class="absolute bottom-3 left-4 right-4 text-white">
+                        <h3 class="text-lg font-bold leading-tight text-shadow-sm">${service.service_name}</h3>
+                        <p class="instructor font-bold leading-tight text-white">Instructor: ${service.instructor_name}</p>
+                        <div class="text-[10px] text-emerald-100 font-medium mt-0.5">
+                            ${durationText} | ${frequencyText}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-4 flex flex-col flex-grow">
+                    
+                    <div class="mb-3 border-b border-stone-200 pb-2">
+                        <span class="text-[10px] font-bold text-stone-500 uppercase tracking-wider">Best For:</span>
+                        <p class="text-xs font-semibold text-emerald-800 leading-snug mt-0.5">
+                            ${bestForText}
+                        </p>
+                    </div>
+
+                    <div class="mb-3 flex-grow">
+                        <span class="text-[10px] font-bold text-stone-500 uppercase tracking-wider block mb-1">Includes:</span>
+                        <ul class="space-y-1">${includesHTML}</ul>
+                    </div>
+
+                    <div class="mt-auto pt-3 border-t border-stone-200 flex items-center justify-between bg-white -mx-4 -mb-4 px-4 py-3">
+                        ${priceDisplay}
+                        
+                        <a href="${bookLink}" class="bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold py-2 px-5 rounded-full transition-colors shadow-md flex items-center">
+                            Book Now
+                            <i data-lucide="arrow-right" class="ml-1 w-3 h-3"></i>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>`;
+      }
+
+
+      // 7. Generic Horizontal Scroll Helper (Only used for manual sections like Reviews)
+      function setupHorizontalScroll(containerId, navId) {
+        const container = document.getElementById(containerId);
+        const navElement = document.getElementById(navId);
+
+        // This function is now skipped for the services container (ID: services-scroll-container)
+        if (!container || !navElement || containerId === 'services-scroll-container' || container.children.length < 2) {
+          if (navElement) navElement.innerHTML = '';
+          return;
+        }
+
+        // Calculate the step size based on the first item in the container
+        const scrollStep = container.children[0].offsetWidth + 32;
+
+        navElement.innerHTML = `
+            <button aria-label="Previous" class="scroll-prev"><i class="fas fa-chevron-left"></i></button>
+            <button aria-label="Next" class="scroll-next"><i class="fas fa-chevron-right"></i></button>`;
+
+        const prevBtn = navElement.querySelector('.scroll-prev');
+        const nextBtn = navElement.querySelector('.scroll-next');
+
+        function updateNav() {
+          prevBtn.disabled = container.scrollLeft < 10;
+          nextBtn.disabled = container.scrollLeft >= (container.scrollWidth - container.clientWidth - 10);
+        }
+
+        prevBtn.addEventListener('click', () => container.scrollBy({ left: -scrollStep, behavior: 'smooth' }));
+        nextBtn.addEventListener('click', () => container.scrollBy({ left: scrollStep, behavior: 'smooth' }));
+        container.addEventListener('scroll', () => requestAnimationFrame(updateNav));
+        window.addEventListener('resize', updateNav);
+        setTimeout(updateNav, 200);
       }
 
       async function displayServices() {
-        const container = document.getElementById('servicesContainer');
-        if (!container) return;
+        const container = document.getElementById('services-scroll-container');
+        const track = document.getElementById('services-loop-track');
+        const prevBtn = document.getElementById('srv-prev');
+        const nextBtn = document.getElementById('srv-next');
+
+        if (!container || !track) return;
+
         try {
-          container.innerHTML = '<p class="text-center text-gray-500 py-8">Loading services...</p>';
           const response = await fetch('/api/services');
-          if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+          if (!response.ok) throw new Error('Failed to fetch');
           const allServices = await response.json();
           const servicesData = allServices.filter(s => s.website && s.website.toLowerCase() === "wellnation360");
 
           if (servicesData.length === 0) {
-            container.innerHTML = '<p class="text-center text-gray-600 py-10 px-4 w-full">No services available. Please check back soon!</p>';
+            track.innerHTML = 'No services found.';
             return;
           }
-          container.innerHTML = '';
-          servicesData.forEach(service => container.appendChild(createServiceBlock(service)));
-          setupHorizontalScroll('servicesContainer', 'servicesNav');
+
+          // 1. Render Original Cards
+          const cardsHTML = servicesData.map(createServiceCardHTML).join('');
+          track.innerHTML = cardsHTML;
+
+          // 2. Clone cards for infinite loop effect (Append a copy of the list to the end)
+          // We clone the entire list once to ensure smooth looping
+          track.innerHTML += cardsHTML;
+
+          if (window.lucide) lucide.createIcons();
+
+          // --- INFINITE SCROLL & MOUSE DRAG LOGIC ---
+
+          let isDown = false;
+          let startX;
+          let scrollLeft;
+          let autoScrollSpeed = 1; // Speed of auto scroll
+          let animationId;
+
+          // Calculate the width of one set of cards
+          const checkReset = () => {
+            // If we've scrolled past the first set of cards (halfway), reset to 0
+            if (container.scrollLeft >= track.scrollWidth / 2) {
+              container.scrollLeft = 0;
+            }
+            // If we scroll backward past 0 (impossible usually, but for drag logic)
+            else if (container.scrollLeft <= 0) {
+              // container.scrollLeft = track.scrollWidth / 2; // Optional: for bi-directional infinite
+            }
+          };
+
+          const autoScroll = () => {
+            container.scrollLeft += autoScrollSpeed;
+            checkReset();
+            animationId = requestAnimationFrame(autoScroll);
+          };
+
+          // Start Auto Scroll
+          animationId = requestAnimationFrame(autoScroll);
+
+          // Pause on Hover
+          container.addEventListener('mouseenter', () => cancelAnimationFrame(animationId));
+          container.addEventListener('mouseleave', () => {
+            cancelAnimationFrame(animationId);
+            animationId = requestAnimationFrame(autoScroll);
+          });
+
+          // --- MOUSE DRAG IMPLEMENTATION ---
+          container.addEventListener('mousedown', (e) => {
+            isDown = true;
+            container.classList.add('cursor-grabbing');
+            container.classList.remove('cursor-grab');
+            startX = e.pageX - container.offsetLeft;
+            scrollLeft = container.scrollLeft;
+            cancelAnimationFrame(animationId); // Stop auto scroll while dragging
+          });
+
+          container.addEventListener('mouseleave', () => {
+            isDown = false;
+            container.classList.remove('cursor-grabbing');
+            container.classList.add('cursor-grab');
+            // Resume auto scroll handled by the other mouseleave listener above
+          });
+
+          container.addEventListener('mouseup', () => {
+            isDown = false;
+            container.classList.remove('cursor-grabbing');
+            container.classList.add('cursor-grab');
+            cancelAnimationFrame(animationId);
+            animationId = requestAnimationFrame(autoScroll); // Resume
+          });
+
+          container.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - container.offsetLeft;
+            const walk = (x - startX) * 2; // Scroll-fast multiplier
+            container.scrollLeft = scrollLeft - walk;
+          });
+
+          // --- ARROW BUTTONS LOGIC ---
+          if (prevBtn && nextBtn) {
+            const scrollAmount = 340; // Card width + gap
+
+            prevBtn.addEventListener('click', () => {
+              container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+            });
+
+            nextBtn.addEventListener('click', () => {
+              container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+              // Check reset after smooth scroll completes (approx 500ms)
+              setTimeout(checkReset, 500);
+            });
+          }
+
         } catch (error) {
-          console.error('Error loading services:', error);
-          container.innerHTML = `<p class="text-center text-red-500 py-10 px-4 w-full">Could not load services. Please <a href="{{ url_for('contact_get') }}" class="text-green-600 underline">contact us</a>.</p>`;
+          console.error("Service Loading Error:", error);
+          track.innerHTML = `<div class="p-4 text-red-500">Error loading services.</div>`;
         }
       }
 
-      // FAQ Toggle
+      // 9. FAQ Toggle Logic
       document.querySelectorAll('.faq-question').forEach(question => {
         question.addEventListener('click', () => {
           const answer = question.nextElementSibling;
@@ -1859,7 +2107,7 @@
         });
       });
 
-      // Reviews Display
+      // 10. Reviews Logic
       async function fetchReviews() {
         try {
           const response = await fetch('/api/reviews');
@@ -1872,55 +2120,24 @@
         }
       }
 
-      function createReviewCard(review) {
-        const card = document.createElement('div');
-        card.className = 'review-card-horizontal';
-        const avatarUrl = review.reviewer_image_url || `https://ui-avatars.com/api/?name=${encodeURIComponent(review.reviewer_name || 'U')}&background=e0e7ff&color=4338ca&bold=true`;
-        const stars = '★'.repeat(review.rating || 5) + '☆'.repeat(5 - (review.rating || 5));
-        let mediaElement = '';
-        if (review.media_url) {
-          mediaElement = review.media_type === 'image'
-            ? `<img src="${review.media_url}" alt="Review media" loading="lazy">`
-            : `<video controls src="${review.media_url}" loading="lazy"></video>`;
-        }
-        card.innerHTML = `
-        <div class="review-header">
-            <img src="${avatarUrl}" class="reviewer-avatar" alt="${review.reviewer_name || 'Reviewer'}">
-            <div class="review-info">
-                <div class="reviewer-name">${review.reviewer_name || 'Anonymous'}</div>
-                <div class="review-rating">${stars}</div>
-            </div>
-        </div>
-        ${review.content ? `<p class="review-content-text">${review.content}</p>` : ''}
-        ${mediaElement ? `<div class="review-media">${mediaElement}</div>` : ''}`;
-        return card;
-      }
       async function displayReviews() {
         const container = document.getElementById('reviewsListContainer');
         if (!container) return;
 
         try {
           const reviews = await fetchReviews();
-
           if (reviews.length === 0) {
-            container.innerHTML = '<p class="text-center text-gray-600 py-10 px-4 w-full">No reviews yet. Be the first to share your experience!</p>';
+            container.innerHTML = '<p class="text-center text-gray-600 py-10 px-4 w-full">No reviews yet.</p>';
             return;
           }
 
           container.innerHTML = '';
-
           reviews.forEach(review => {
             const card = document.createElement('div');
             card.className = 'review-card-horizontal';
-
-            // Use default avatar if none provided
-            const avatarUrl = review.reviewer_image_url ||
-              `https://ui-avatars.com/api/?name=${encodeURIComponent(review.reviewer_name || 'U')}&background=e0e7ff&color=4338ca&bold=true`;
-
-            // Create star rating
+            const avatarUrl = review.reviewer_image_url || `https://ui-avatars.com/api/?name=${encodeURIComponent(review.reviewer_name || 'U')}&background=e0e7ff&color=4338ca&bold=true`;
             const stars = '★'.repeat(review.rating || 5) + '☆'.repeat(5 - (review.rating || 5));
 
-            // Create media element if exists
             let mediaElement = '';
             if (review.media_url) {
               mediaElement = review.media_type === 'image'
@@ -1928,58 +2145,31 @@
                 : `<video controls src="${review.media_url}" class="max-w-full h-auto rounded-lg mt-2" loading="lazy"></video>`;
             }
 
-            // Create compact card layout without gaps
             card.innerHTML = `
-        <div class="flex items-start gap-3">
-          <img src="${avatarUrl}" class="w-10 h-10 rounded-full object-cover" alt="${review.reviewer_name || 'Reviewer'}">
-          <div>
-            <div class="font-medium text-gray-800">${review.reviewer_name || 'Anonymous'}</div>
-            <div class="text-yellow-400 text-sm">${stars}</div>
-          </div>
-        </div>
-        <p class="text-gray-700 mt-1 text-sm">${review.content || ''}</p>
-        ${mediaElement}`;
+            <div class="flex items-start gap-3">
+              <img src="${avatarUrl}" class="w-10 h-10 rounded-full object-cover" alt="Reviewer">
+              <div>
+                <div class="font-medium text-gray-800">${review.reviewer_name || 'Anonymous'}</div>
+                <div class="text-yellow-400 text-sm">${stars}</div>
+              </div>
+            </div>
+            <p class="text-gray-700 mt-1 text-sm">${review.content || ''}</p>
+            ${mediaElement}`;
 
             container.appendChild(card);
-          })
+          });
 
           setupHorizontalScroll('reviewsListContainer', 'reviewsNav');
-
         } catch (error) {
-          console.error('Error displaying reviews:', error);
-          container.innerHTML = '<p class="text-center text-red-500 py-10 px-4 w-full">Failed to load reviews. Please try again later.</p>';
+          container.innerHTML = '<p class="text-center text-red-500">Failed to load reviews.</p>';
         }
       }
-      // Generic Horizontal Scroll
-      function setupHorizontalScroll(containerId, navId) {
-        const container = document.getElementById(containerId);
-        const navElement = document.getElementById(navId);
-        if (!container || !navElement || container.children.length < 2) {
-          if (navElement) navElement.innerHTML = '';
-          return;
-        }
-        navElement.innerHTML = `
-      <button aria-label="Previous" class="scroll-prev"><i class="fas fa-chevron-left"></i></button>
-      <button aria-label="Next" class="scroll-next"><i class="fas fa-chevron-right"></i></button>`;
-        const prevBtn = navElement.querySelector('.scroll-prev');
-        const nextBtn = navElement.querySelector('.scroll-next');
 
-        function updateNav() {
-          prevBtn.disabled = container.scrollLeft < 10;
-          nextBtn.disabled = container.scrollLeft >= (container.scrollWidth - container.clientWidth - 10);
-        }
-        prevBtn.addEventListener('click', () => container.scrollBy({ left: -(container.firstChild.offsetWidth + 32), behavior: 'smooth' }));
-        nextBtn.addEventListener('click', () => container.scrollBy({ left: (container.firstChild.offsetWidth + 32), behavior: 'smooth' }));
-        container.addEventListener('scroll', () => requestAnimationFrame(updateNav));
-        window.addEventListener('resize', updateNav);
-        setTimeout(updateNav, 200);
-      }
-
-      // Initial data fetch
+      // 11. EXECUTE FUNCTIONS
       displayServices();
       displayReviews();
-    });
 
+    }); // <--- THIS IS THE CORRECT CLOSING BRACE FOR DOMContentLoaded
   </script>
 </body>
 

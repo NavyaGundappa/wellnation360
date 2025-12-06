@@ -1,13 +1,6 @@
 <style>
-    /* Enhanced Header and Dropdown Styles */
-    header {
-        transition: all 0.3s ease;
-    }
-
-    /* Desktop Navigation Link Styles */
     nav a:not(.cta-button):hover {
         color: #4ade80;
-        /* green-400 */
     }
 
     nav a:not(.cta-button)::after {
@@ -18,7 +11,6 @@
         bottom: -2px;
         left: 0;
         background-color: #4ade80;
-        /* green-400 */
         transition: width 0.3s ease;
     }
 
@@ -26,64 +18,103 @@
         width: 100%;
     }
 
-    /* Dropdown Styles */
+    /* Dropdown Logic */
     .dropdown {
         position: relative;
     }
 
     .dropdown-menu {
-        /* Initially hidden */
         display: none;
+        /* Hidden by default */
         position: absolute;
         top: 100%;
         left: 0;
         background-color: white;
-        min-width: 240px;
-        /* Slightly wider for better readability */
+        min-width: 280px;
+        /* Slightly wider */
+        max-height: 400px;
+        /* Enable scrolling for long lists */
+        overflow-y: auto;
+        /* Show scrollbar when content exceeds max-height */
         box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         border-radius: 0.5rem;
         padding: 0.5rem 0;
         z-index: 1000;
         border: 1px solid #e5e7eb;
-        /* gray-200 */
         animation: fadeIn 0.3s ease-in-out;
     }
 
-    /* Class to show the dropdown with JS */
     .dropdown-menu.open {
         display: block;
     }
 
+    #services-dropdown-menu {
+        display: none;
+        position: absolute;
+        right: 0;
+        left: auto;
+        min-width: 500px;
+        padding: 1rem;
+        background-color: white;
+        border-radius: 0.5rem;
+        border: 1px solid #e5e7eb;
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        animation: fadeIn 0.2s ease-in-out;
+    }
+
+    #services-dropdown-menu.open {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.5rem;
+    }
+
+    /* Style for links within the services menu to fit column structure */
+    #services-dropdown-menu a {
+        width: 100%;
+        padding: 0.6rem 1rem;
+        border-radius: 0.375rem;
+        color: #374151;
+        font-size: 0.95rem;
+        transition: all 0.2s;
+        text-align: left;
+        white-space: normal;
+    }
+
+    #services-dropdown-menu a:hover {
+        background-color: #f0fdf4;
+        color: #166534;
+        transform: translateX(4px);
+    }
+
     .dropdown-menu a {
         color: #1f2937;
-        /* gray-800 */
         padding: 0.75rem 1.25rem;
         text-decoration: none;
         display: block;
         transition: all 0.2s ease;
         font-size: 0.95rem;
+        white-space: nowrap;
+        /* Prevent text wrap inside menu item */
     }
 
     .dropdown-menu a:hover {
         color: #4ade80;
-        /* green-400 */
         background-color: #f3f4f6;
-        /* gray-100 */
         padding-left: 1.5rem;
     }
 
     .dropdown-menu a::after {
         display: none;
-        /* Remove underline effect from dropdown items */
     }
 
-    /* Mobile Menu Styles */
+    /* Mobile Menu */
     .mobile-menu {
         display: none;
-        /* Hidden by default */
         background-color: #1f2937;
-        /* gray-800 */
         padding: 1rem 0;
+        max-height: 80vh;
+        overflow-y: auto;
     }
 
     .mobile-menu a {
@@ -92,15 +123,14 @@
         padding: 0.75rem 1.5rem;
         font-size: 1.1rem;
         transition: background-color 0.2s ease, padding-left 0.2s ease;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     .mobile-menu a:hover {
         background-color: #374151;
-        /* gray-700 */
         padding-left: 2rem;
     }
 
-    /* Animation for dropdown */
     @keyframes fadeIn {
         from {
             opacity: 0;
@@ -114,7 +144,7 @@
     }
 </style>
 
-<header class="fixed top-0 left-0 right-0 w-full z-50 bg-gray-800 shadow-md">
+<header class="fixed top-0 left-0 right-0 w-full z-50 bg-gray-800 shadow-md transition-all duration-300">
     <div class="container mx-auto">
         <div class="relative z-10 flex items-center justify-between px-6 py-2 md:py-3">
             <div class="flex items-center space-x-4">
@@ -132,13 +162,32 @@
                 <a href="{{ url_for('index') }}" class="relative">Home</a>
                 <a href="{{ url_for('about') }}" class="relative">About</a>
                 <a href="{{ url_for('gallery') }}" class="relative">Gallery</a>
+
+                <a href="{{ url_for('index') }}#reviews" class="relative">Reviews</a>
+
                 <div class="dropdown relative">
-                    <button id="dropdown-button" class="flex items-center space-x-1 relative group" aria-haspopup="true"
+                    <button id="blog-dropdown-button"
+                        class="flex items-center space-x-1 relative group focus:outline-none" aria-haspopup="true"
+                        aria-expanded="false">
+                        <span>Blog</span>
+                        <i class="fas fa-chevron-down text-xs transition-transform duration-300"></i>
+                    </button>
+                    <div id="blog-dropdown-menu" class="dropdown-menu">
+                        <a href="{{ url_for('gut_health') }}">Gut Health</a>
+                        <a href="{{ url_for('diet_modification') }}">Diet Modification</a>
+                        <a href="{{ url_for('meditation') }}">Meditation</a>
+                        <a href="{{ url_for('sleep_modification') }}">Importance Sleep</a>
+                    </div>
+                </div>
+
+                <div class="dropdown relative">
+                    <button id="services-dropdown-button"
+                        class="flex items-center space-x-1 relative group focus:outline-none" aria-haspopup="true"
                         aria-expanded="false">
                         <span>Services</span>
                         <i class="fas fa-chevron-down text-xs transition-transform duration-300"></i>
                     </button>
-                    <div id="dropdown-menu" class="dropdown-menu">
+                    <div id="services-dropdown-menu" class="dropdown-menu">
                         <a href="{{ url_for('services') }}#gentle-reset">Gentle Detox Cleanse</a>
                         <a href="{{ url_for('services') }}#metabolic-harmony">Healthy Body Transformation</a>
                         <a href="{{ url_for('services') }}#blood-sugar">Diabetes Support Plan</a>
@@ -147,6 +196,9 @@
                         <a href="{{ url_for('services') }}#menopause">Menopausal Management</a>
                         <a href="{{ url_for('services') }}#energy-flow">Acupuncture Therapy</a>
                         <a href="{{ url_for('services') }}#mindful-nourishment">Psychological Counselling</a>
+                        <a href="{{ url_for('services') }}#reiki-healing">Reiki Healing</a>
+                        <a href="{{ url_for('services') }}#quantum-healing">Quantum Healing</a>
+                        <a href="{{ url_for('services') }}#mudgar-practice">Mudgar Practice</a>
                         <a href="{{ url_for('services') }}#additional-conditions">We also specialize in</a>
                     </div>
                 </div>
@@ -169,6 +221,8 @@
             <a href="{{ url_for('index') }}">Home</a>
             <a href="{{ url_for('about') }}">About</a>
             <a href="{{ url_for('gallery') }}">Gallery</a>
+            <a href="{{ url_for('index') }}#reviews">Reviews</a>
+            <a href="{{ url_for('index') }}#blog">Blog</a>
             <a href="{{ url_for('services') }}">Services</a>
             <a href="{{ url_for('contact_get') }}">Contact</a>
             <a href="http://yoga-kshema.in" target="_blank" rel="noopener noreferrer">Yogakshema</a>
@@ -180,37 +234,58 @@
     document.addEventListener('DOMContentLoaded', function () {
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
-        const dropdownButton = document.getElementById('dropdown-button');
-        const dropdownMenu = document.getElementById('dropdown-menu');
-        const chevronIcon = dropdownButton.querySelector('i');
 
         // Toggle mobile menu
-        mobileMenuButton.addEventListener('click', function () {
-            const isMenuOpen = mobileMenu.style.display === 'block';
-            mobileMenu.style.display = isMenuOpen ? 'none' : 'block';
-            // Optional: change hamburger to 'X' icon
-            this.innerHTML = isMenuOpen ? '<i class="fas fa-bars"></i>' : '<i class="fas fa-times"></i>';
-        });
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', function () {
+                const isMenuOpen = mobileMenu.style.display === 'block';
+                mobileMenu.style.display = isMenuOpen ? 'none' : 'block';
+                this.innerHTML = isMenuOpen ? '<i class="fas fa-bars"></i>' : '<i class="fas fa-times"></i>';
+            });
+        }
 
-        // Toggle dropdown menu on click
-        dropdownButton.addEventListener('click', function (event) {
-            event.stopPropagation(); // Prevents the window click listener from closing it immediately
-            const isDropdownOpen = dropdownMenu.classList.contains('open');
-            dropdownMenu.classList.toggle('open');
-            dropdownButton.setAttribute('aria-expanded', !isDropdownOpen);
-            // Rotate chevron
-            chevronIcon.style.transform = !isDropdownOpen ? 'rotate(180deg)' : 'rotate(0deg)';
-        });
+        // Reusable function to handle dropdowns
+        function setupDropdown(buttonId, menuId) {
+            const btn = document.getElementById(buttonId);
+            const menu = document.getElementById(menuId);
 
-        // Close dropdown when clicking outside of it
-        window.addEventListener('click', function (event) {
-            if (!dropdownButton.contains(event.target) && !dropdownMenu.contains(event.target)) {
-                if (dropdownMenu.classList.contains('open')) {
-                    dropdownMenu.classList.remove('open');
-                    dropdownButton.setAttribute('aria-expanded', 'false');
-                    chevronIcon.style.transform = 'rotate(0deg)';
+            if (!btn || !menu) return;
+
+            const chevronIcon = btn.querySelector('i');
+
+            btn.addEventListener('click', function (event) {
+                event.stopPropagation();
+
+                // Close other open dropdowns first
+                document.querySelectorAll('.dropdown-menu.open').forEach(openMenu => {
+                    if (openMenu.id !== menuId) {
+                        openMenu.classList.remove('open');
+                        const otherBtn = document.querySelector(`[aria-controls="${openMenu.id}"]`) || openMenu.parentElement.querySelector('button');
+                        const otherIcon = otherBtn ? otherBtn.querySelector('i') : null;
+                        if (otherIcon) otherIcon.style.transform = 'rotate(0deg)';
+                    }
+                });
+
+                const isDropdownOpen = menu.classList.contains('open');
+                menu.classList.toggle('open');
+                btn.setAttribute('aria-expanded', !isDropdownOpen);
+                if (chevronIcon) chevronIcon.style.transform = !isDropdownOpen ? 'rotate(180deg)' : 'rotate(0deg)';
+            });
+
+            // Close when clicking outside
+            window.addEventListener('click', function (event) {
+                if (!btn.contains(event.target) && !menu.contains(event.target)) {
+                    if (menu.classList.contains('open')) {
+                        menu.classList.remove('open');
+                        btn.setAttribute('aria-expanded', 'false');
+                        if (chevronIcon) chevronIcon.style.transform = 'rotate(0deg)';
+                    }
                 }
-            }
-        });
+            });
+        }
+
+        // Initialize both dropdowns
+        setupDropdown('blog-dropdown-button', 'blog-dropdown-menu');
+        setupDropdown('services-dropdown-button', 'services-dropdown-menu');
     });
 </script>
