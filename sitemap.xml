@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    <!-- Home -->
+    <url>
+        <loc>https://wellnation360.com/</loc>
+    </url>
+
+    <!-- Main Pages -->
+    <url>
+        <loc>https://wellnation360.com/about</loc>
+    </url>
+
+    <url>
+        <loc>https://wellnation360.com/service</loc>
+    </url>
+
+    <url>
+        <loc>https://wellnation360.com/packages</loc>
+    </url>
+
+    <url>
+        <loc>https://wellnation360.com/contact</loc>
+    </url>
+
+    <!-- Wellness / Program Pages -->
+    <url>
+        <loc>https://wellnation360.com/yogakshema</loc>
+    </url>
+
+    <url>
+        <loc>https://wellnation360.com/meditation</loc>
+    </url>
+
+    <url>
+        <loc>https://wellnation360.com/diet_modification</loc>
+    </url>
+
+    <url>
+        <loc>https://wellnation360.com/gut_health</loc>
+    </url>
+
+    <url>
+        <loc>https://wellnation360.com/sleep_modification</loc>
+    </url>
+
+    <url>
+        <loc>https://wellnation360.com/weight_loss</loc>
+    </url>
+
+    <url>
+        <loc>https://wellnation360.com/Diabetics</loc>
+    </url>
+
+    <url>
+        <loc>https://wellnation360.com/Menopause</loc>
+    </url>
+
+    <!-- Yoga & Gallery -->
+    <url>
+        <loc>https://wellnation360.com/yoga_service</loc>
+    </url>
+
+    <url>
+        <loc>https://wellnation360.com/glimpse</loc>
+    </url>
+
+</urlset>
