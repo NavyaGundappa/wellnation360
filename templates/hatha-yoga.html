@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hatha Yoga | WellNation360</title>
+    <meta name="description"
+        content="Traditional Hatha Yoga sessions focused on physical alignment, breath control, and mental clarity to restore balance to your daily life.">
+    <link rel="icon" href="static/images/logo1.png" type="image/x-icon">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Open Sans', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif'],
+                    },
+                    colors: {
+                        yoga: {
+                            light: '#f3f7f6',
+                            DEFAULT: '#4a7c59',
+                            dark: '#2c4a35',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .hero-bg {
+            background: linear-gradient(to right, rgba(255, 255, 255, 0.9) 30%, rgba(255, 255, 255, 0.4) 100%),
+                url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=2000&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .nav-tab.active {
+            color: #4a7c59;
+            border-bottom-color: #4a7c59;
+        }
+    </style>
+</head>
+
+<body class="text-gray-700 bg-gray-50 antialiased">
+    {% include 'header.html' %}
+
+    <section class="hero-bg pt-32 pb-24 md:pt-40 md:pb-32 relative z-10">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div
+                class="inline-flex items-center gap-2 bg-yoga-light border border-green-200 text-yoga px-5 py-2 rounded-full text-sm font-semibold mb-6">
+                <i class="fa-solid fa-om"></i> Yoga Services › Hatha Yoga
+            </div>
+            <h1
+                class="font-heading text-4xl md:text-5xl lg:text-6xl font-extrabold text-yoga-dark leading-tight mb-6 max-w-3xl">
+                Align Your Body, <br class="hidden md:block"> Calm Your Mind.
+            </h1>
+            <p class="text-lg md:text-xl text-gray-700 max-w-2xl mb-10 leading-relaxed">
+                Experience the foundation of all yoga styles. Hatha Yoga focuses on physical postures (asanas) and
+                breathing techniques (pranayama) to bring peace to the mind and body.
+            </p>
+            <div class="flex flex-wrap gap-4">
+                <a href="/contact"
+                    class="bg-yoga hover:bg-yoga-dark text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 shadow-lg hover:shadow-xl flex items-center gap-2">
+                    <i class="fa-solid fa-leaf"></i> Join a Class
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-6 flex justify-start md:justify-center overflow-x-auto hide-scrollbar">
+            <a class="nav-tab active px-6 py-4 font-semibold text-gray-500 hover:text-yoga border-b-4 border-transparent whitespace-nowrap transition-colors"
+                href="#overview">The Practice</a>
+            <a class="nav-tab px-6 py-4 font-semibold text-gray-500 hover:text-yoga border-b-4 border-transparent whitespace-nowrap transition-colors"
+                href="#benefits">Benefits</a>
+            <a class="nav-tab px-6 py-4 font-semibold text-gray-500 hover:text-yoga border-b-4 border-transparent whitespace-nowrap transition-colors"
+                href="#session">What to Expect</a>
+            <a class="nav-tab px-6 py-4 font-semibold text-gray-500 hover:text-yoga border-b-4 border-transparent whitespace-nowrap transition-colors"
+                href="#instructor">Specialist</a>
+        </div>
+    </nav>
+
+    <section id="overview" class="py-20 md:py-28 bg-white">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="font-heading text-3xl md:text-4xl font-bold text-yoga-dark mb-6">The Foundations of Hatha
+                    </h2>
+                    <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                        Hatha Yoga is a classical practice that serves as the root of modern yoga. It focuses on slow,
+                        deliberate movements and steady holds to build internal heat and focus.
+                    </p>
+                    <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                        By balancing the "Ha" (Sun) and "Tha" (Moon) energies within us, this practice creates a
+                        harmonious state where physical strength meets mental stillness.
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="flex items-center gap-3 p-4 bg-yoga-light rounded-xl border border-green-100">
+                            <i class="fa-solid fa-check text-yoga"></i>
+                            <span class="font-semibold text-yoga-dark">Beginner Friendly</span>
+                        </div>
+                        <div class="flex items-center gap-3 p-4 bg-yoga-light rounded-xl border border-green-100">
+                            <i class="fa-solid fa-check text-yoga"></i>
+                            <span class="font-semibold text-yoga-dark">Mindfulness Based</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <img src="static/images/hathayoga.webp" alt="Yoga Practice"
+                        class="rounded-3xl shadow-2xl object-cover w-full h-[500px]">
+                    <div
+                        class="absolute -bottom-8 -right-8 bg-white p-6 rounded-2xl shadow-xl hidden md:block border border-gray-100">
+                        <p class="font-heading font-bold text-3xl text-yoga">60 Min</p>
+                        <p class="text-sm text-gray-500 font-semibold uppercase">Average Session</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="benefits" class="py-20 bg-yoga-light/30">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-heading text-3xl md:text-4xl font-bold text-yoga-dark">Holistic Benefits</h2>
+                <div class="w-16 h-1 bg-yoga mx-auto mt-4 rounded-full"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-10 rounded-3xl shadow-sm border border-gray-100 hover:shadow-lg transition">
+                    <i class="fa-solid fa-bone text-4xl text-yoga mb-6"></i>
+                    <h4 class="font-heading font-bold text-xl mb-4">Physical Vitality</h4>
+                    <p class="text-gray-600 text-sm leading-relaxed">Improves core strength, increases spinal
+                        flexibility, and helps lubricate the joints for better mobility in daily life.</p>
+                </div>
+                <div class="bg-white p-10 rounded-3xl shadow-sm border border-gray-100 hover:shadow-lg transition">
+                    <i class="fa-solid fa-wind text-4xl text-yoga mb-6"></i>
+                    <h4 class="font-heading font-bold text-xl mb-4">Breath Control</h4>
+                    <p class="text-gray-600 text-sm leading-relaxed">Deep breathing techniques increase lung capacity
+                        and activate the parasympathetic nervous system to reduce stress.</p>
+                </div>
+                <div class="bg-white p-10 rounded-3xl shadow-sm border border-gray-100 hover:shadow-lg transition">
+                    <i class="fa-solid fa-brain text-4xl text-yoga mb-6"></i>
+                    <h4 class="font-heading font-bold text-xl mb-4">Mental Clarity</h4>
+                    <p class="text-gray-600 text-sm leading-relaxed">The meditative nature of Hatha helps quiet the
+                        'monkey mind,' improving focus and emotional resilience.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="session" class="py-20 md:py-28 bg-white">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-heading text-3xl md:text-4xl font-bold text-yoga-dark">Your Journey in a Session</h2>
+                <div class="w-16 h-1 bg-yoga mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div
+                        class="w-16 h-16 bg-yoga text-white rounded-full flex items-center justify-center font-bold text-xl mx-auto mb-6">
+                        01</div>
+                    <h5 class="font-heading text-lg font-bold mb-3">Centering</h5>
+                    <p class="text-sm text-gray-500">A few moments of silence and breath awareness to arrive mentally on
+                        the mat.</p>
+                </div>
+                <div class="text-center">
+                    <div
+                        class="w-16 h-16 bg-yoga text-white rounded-full flex items-center justify-center font-bold text-xl mx-auto mb-6">
+                        02</div>
+                    <h5 class="font-heading text-lg font-bold mb-3">Pranayama</h5>
+                    <p class="text-sm text-gray-500">Focused breathing exercises to energize the body and clear the air
+                        passages.</p>
+                </div>
+                <div class="text-center">
+                    <div
+                        class="w-16 h-16 bg-yoga text-white rounded-full flex items-center justify-center font-bold text-xl mx-auto mb-6">
+                        03</div>
+                    <h5 class="font-heading text-lg font-bold mb-3">Asana Practice</h5>
+                    <p class="text-center text-sm text-gray-500">A sequence of standing, sitting, and lying poses
+                        designed for alignment.</p>
+                </div>
+                <div class="text-center">
+                    <div
+                        class="w-16 h-16 bg-yoga text-white rounded-full flex items-center justify-center font-bold text-xl mx-auto mb-6">
+                        04</div>
+                    <h5 class="font-heading text-lg font-bold mb-3">Savasana</h5>
+                    <p class="text-sm text-gray-500">Deep final relaxation to allow the body to absorb the benefits of
+                        the practice.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="instructor" class="py-20 bg-yoga-light/20">
+        <div class="max-w-4xl mx-auto px-6 lg:px-8">
+            <div
+                class="bg-white rounded-3xl p-10 md:p-16 text-center border border-gray-100 shadow-sm relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-yoga/5 rounded-full -mr-16 -mt-16"></div>
+                <div class="text-yoga text-7xl mb-6"><i class="fa-solid fa-user-tie"></i></div>
+                <h4 class="font-heading text-3xl font-bold text-gray-900">Teebabriah</h4>
+                <p class="text-yoga font-bold uppercase tracking-widest text-sm mt-2 mb-6">Certified Hatha Yoga
+                    Specialist</p>
+                <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                    With a deep understanding of body mechanics and traditional yogic philosophy, Teebabriah guides
+                    practitioners through safe, transformative sessions that cater to all fitness levels.
+                </p>
+                <a href="/contact"
+                    class="bg-yoga hover:bg-yoga-dark text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 inline-block shadow-md">Book
+                    with Teebabriah</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-yoga-dark py-20 text-center text-white">
+        <div class="max-w-4xl mx-auto px-6">
+            <h2 class="font-heading text-3xl md:text-5xl font-bold mb-8 italic">"Yoga is the journey of the self,
+                through the self, to the self."</h2>
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+                <a href="/contact"
+                    class="bg-white text-yoga-dark px-10 py-4 rounded-full font-bold hover:bg-gray-100 transition shadow-lg w-full sm:w-auto">Start
+                    Your Journey</a>
+                <a href="https://wa.me/919945186968"
+                    class="border-2 border-white/30 hover:border-white hover:bg-white/10 px-10 py-4 rounded-full font-bold transition w-full sm:w-auto flex justify-center items-center gap-2"><i
+                        class="fa-brands fa-whatsapp text-xl"></i> Chat with Us</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const tabs = document.querySelectorAll('.nav-tab');
+            const sections = document.querySelectorAll('section[id]');
+
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (scrollY >= (sectionTop - 150)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                tabs.forEach(tab => {
+                    tab.classList.remove('active', 'text-yoga', 'border-yoga');
+                    if (tab.getAttribute('href').includes(current)) {
+                        tab.classList.add('active', 'text-yoga', 'border-yoga');
+                    }
+                });
+            });
+        });
+    </script>
+
+    {% include 'footer.html' %}
+</body>
+
+</html>

@@ -640,9 +640,69 @@ def menopause():
     return render_template("menopause.html")
 
 
+@app.route("/psychological_support")
+def psychological_support():
+    return render_template("psychological-support.html")
+
+
+@app.route("/accupuncture")
+def energy_flow():
+    return render_template("energy-therapy.html")
+
+
+@app.route("/reiki-healing")
+def reiki_healing():
+    return render_template("reiki-healing.html")
+
+
+@app.route("/quantum-healing")
+def quantum_healing():
+    return render_template("quantum-healing.html")
+
+
+@app.route("/mudgar-therapy")
+def mudgar_therapy():
+    return render_template("mudgar-practice.html")
+
+
+@app.route("/tarot-reading")
+def tarot_reading():
+    return render_template("tarot-reading.html")
+
+
 @app.route("/about")
 def about():
     return render_template("about.html")
+
+
+@app.route("/gentle-body-reset")
+def gentle_reset():
+    return render_template("gentle-reset.html")
+
+
+@app.route("/metabolic-harmony")
+def metabolic_harmony():
+    return render_template("metabolic-harmony.html")
+
+
+@app.route("/diabetes-support")
+def blood_sugar():
+    return render_template("blood-suger.html")
+
+
+@app.route("/thyroid-nourishment")
+def tournament():
+    return render_template("tournament.html")
+
+
+@app.route("/gut-healing")
+def gut_healing():
+    return render_template("gut-health.html")
+
+
+@app.route("/menopause-support")
+def menopause_support():
+    return render_template("menopause.html")
 
 
 @app.route("/service")
@@ -968,6 +1028,51 @@ def contact_get():
 @app.route("/yoga_service", methods=["GET"])
 def yoga_service():
     return render_template("yoga_service.html")
+
+
+@app.route("/hatha-yoga")
+def hatha_yoga():
+    return render_template("hatha-yoga.html")
+
+
+@app.route("/arial-yoga")
+def arial_yoga():
+    return render_template("arial-yoga.html")
+
+
+@app.route("/therapeutic-yoga")
+def therapeutic_yoga():
+    return render_template("Therapy-yoga.html")
+
+
+@app.route("/chakra-meditation")
+def chakra_meditation():
+    return render_template("chakra-meditation.html")
+
+
+@app.route("/senior-citizen-yoga")
+def senior_citizen_yoga():
+    return render_template("senior-citizen-yoga.html")
+
+
+@app.route("/pregnancy-yoga")
+def pregnancy_yoga():
+    return render_template("pregnancy-yoga.html")
+
+
+@app.route("/chair-yoga")
+def chair_yoga():
+    return render_template("chair-yoga.html")
+
+
+@app.route("/props-yoga")
+def props_yoga():
+    return render_template("props-yoga.html")
+
+
+@app.route("/power-yoga")
+def power_yoga():
+    return render_template("power-yoga.html")
 
 
 @app.route("/book_service", methods=["POST"])

@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantum Healing | WellNation360</title>
+    <meta name="description"
+        content="A high-vibrational journey bridging consciousness and physical health. Experience the power of frequency alignment to unlock cellular renewal and deep mental clarity.">
+    <link rel="canonical" href="https://wellnation360.com/quantum-healing">
+    <link rel="icon" href="static/images/logo1.png" type="image/x-icon">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: #4a5a56;
+            background: #fbfcfb;
+            line-height: 1.7;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: "Montserrat", sans-serif;
+            color: #1a3c34;
+        }
+
+        /* ── Quantum-Themed Hero ── */
+        .hero {
+            /* Background image updated to a Quantum/Neural energy concept */
+            background: linear-gradient(to right, rgba(255, 255, 255, 0.92) 30%, rgba(255, 255, 255, 0.3) 100%),
+                url('https://images.unsplash.com/photo-1507413245164-6160d8298b31?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            padding: 160px 0 100px;
+            position: relative;
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            width: 100%;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #f0f4ff;
+            border: 1px solid #dbeafe;
+            color: #1e40af;
+            padding: 8px 20px;
+            border-radius: 100px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            line-height: 1.1;
+            margin-bottom: 24px;
+            font-weight: 700;
+            color: #0f172a;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 600px;
+            margin-bottom: 40px;
+            color: #334155;
+        }
+
+        .btn-primary {
+            background: #1a3c34;
+            color: #fff;
+            padding: 16px 36px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 10px 20px rgba(26, 60, 52, 0.15);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background: #2d5a3f;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px rgba(26, 60, 52, 0.25);
+        }
+
+        /* ── Navigation ── */
+        .section-nav {
+            position: sticky;
+            top: 0;
+            z-index: 9999;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #eaeaea;
+        }
+
+        .section-nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            overflow-x: auto;
+        }
+
+        .nav-tab {
+            padding: 20px 28px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: #7a8a86;
+            text-decoration: none;
+            white-space: nowrap;
+            border-bottom: 3px solid transparent;
+            transition: all 0.2s;
+        }
+
+        .nav-tab:hover,
+        .nav-tab.active {
+            color: #1a3c34;
+            border-bottom-color: #1a3c34;
+        }
+
+        /* ── Layout & Containers ── */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        section {
+            padding: 100px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        .divider {
+            width: 50px;
+            height: 3px;
+            background: #1a3c34;
+            border-radius: 2px;
+            margin: 20px auto 0;
+        }
+
+        /* ── Overview ── */
+        .overview-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .overview-image img {
+            width: 100%;
+            border-radius: 24px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
+        }
+
+        .why-choose {
+            background: #f8fafc;
+            border-radius: 24px;
+            padding: 40px;
+            margin-top: 40px;
+            border: 1px solid #f1f5f9;
+        }
+
+        .why-item {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 24px;
+        }
+
+        .why-icon {
+            width: 48px;
+            height: 48px;
+            background: #ffffff;
+            color: #1a3c34;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            flex-shrink: 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        /* ── Cards ── */
+        .approach-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .approach-card {
+            background: #ffffff;
+            border: 1px solid #f1f5f9;
+            border-radius: 20px;
+            padding: 32px;
+            transition: all 0.3s ease;
+        }
+
+        .approach-card:hover {
+            border-color: #1a3c34;
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+        }
+
+        .step-number {
+            width: 36px;
+            height: 36px;
+            background: #f0f4ff;
+            color: #1e40af;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        /* ── Instructor ── */
+        .doctor-card {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 48px;
+            text-align: center;
+            border: 1px solid #f1f5f9;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .doctor-spec {
+            color: #1e40af;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            margin: 12px 0 32px;
+        }
+
+        /* ── CTA ── */
+        .cta-strip {
+            background: #0f172a;
+            padding: 100px 0;
+            text-align: center;
+            color: #fff;
+        }
+
+        .cta-strip h2 {
+            color: #fff;
+            margin-bottom: 40px;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: #fff;
+            padding: 16px 36px;
+            border-radius: 50px;
+            text-decoration: none;
+            margin-left: 15px;
+            transition: all 0.3s;
+        }
+
+        .btn-outline:hover {
+            border-color: #fff;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        @media (max-width: 992px) {
+            .overview-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .hero {
+                text-align: center;
+                padding: 120px 0 80px;
+            }
+
+            .hero p {
+                margin: 0 auto 40px;
+            }
+        }
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    {% include 'header.html' %}
+
+    <section class="hero">
+        <div class="hero-inner">
+            <div class="hero-badge">
+                <i class="fa-solid fa-atom"></i> Home › Services › Quantum Healing
+            </div>
+            <h1>Quantum Healing</h1>
+            <p>A high-vibrational journey bridging consciousness and physical health. Experience the power of frequency
+                alignment to unlock cellular renewal and deep mental clarity.</p>
+            <div class="hero-actions">
+                <a href="/contact" class="btn-primary"><i class="fa-regular fa-calendar-days"></i> Book a Quantum
+                    Session</a>
+            </div>
+        </div>
+    </section>
+
+    <nav class="section-nav">
+        <div class="section-nav-inner">
+            <a class="nav-tab active" href="#overview">Overview & Benefits</a>
+            <a class="nav-tab" href="#how-it-works">How It Works</a>
+            <a class="nav-tab" href="#specialists">Your Instructor</a>
+        </div>
+    </nav>
+
+    <section id="overview">
+        <div class="container">
+            <div class="section-header">
+                <h2>Program Overview</h2>
+                <div class="divider"></div>
+            </div>
+
+            <div class="overview-grid">
+                <div class="overview-text">
+                    <p style="font-size: 1.15rem; margin-bottom: 24px;">Quantum Healing is a modern vibrational therapy
+                        rooted in the connection between Energy, Emotion, Mind consciousness, and physical health. This
+                        journey takes you from energy awareness to deep cellular renewal using guided visualization and
+                        frequency alignment.</p>
+
+                    <div class="why-choose">
+                        <h4
+                            style="font-size: 1.1rem; margin-bottom: 24px; text-transform: uppercase; letter-spacing: 1px; color: #1e293b;">
+                            Core Healing Benefits</h4>
+
+                        <div class="why-item">
+                            <div class="why-icon"><i class="fa-solid fa-code-branch"></i></div>
+                            <div>
+                                <h5 style="margin-bottom: 4px;">Shift Limiting Patterns</h5>
+                                <p style="font-size: 0.9rem;">Release old beliefs and emotional imprints stored in your
+                                    energy field.</p>
+                            </div>
+                        </div>
+                        <div class="why-item">
+                            <div class="why-icon"><i class="fa-solid fa-wave-square"></i></div>
+                            <div>
+                                <h5 style="margin-bottom: 4px;">Harmonize Your Energy</h5>
+                                <p style="font-size: 0.9rem;">Restore natural vibrational frequencies for total body
+                                    harmony.</p>
+                            </div>
+                        </div>
+                        <div class="why-item">
+                            <div class="why-icon"><i class="fa-solid fa-bolt"></i></div>
+                            <div>
+                                <h5 style="margin-bottom: 4px;">Vitality & Focus</h5>
+                                <p style="font-size: 0.9rem;">Boost your daily energy levels and achieve sharp mental
+                                    clarity.</p>
+                            </div>
+                        </div>
+                        <div class="why-item">
+                            <div class="why-icon"><i class="fa-solid fa-brain"></i></div>
+                            <div>
+                                <h5 style="margin-bottom: 4px;">Subconscious Reprogramming</h5>
+                                <p style="font-size: 0.9rem;">Transform your inner world to create a positive external
+                                    reality.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="overview-image">
+                    <img src="static/images/quantum.png" alt="Quantum Energy Field">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="how-it-works" style="background: #fff;">
+        <div class="container">
+            <div class="section-header">
+                <h2>The Quantum Process</h2>
+                <div class="divider"></div>
+            </div>
+
+            <div class="approach-cards">
+                <div class="approach-card">
+                    <div class="step-number">01</div>
+                    <h5>Energy Mapping</h5>
+                    <p style="font-size: 0.9rem; color: #64748b;">Identifying energy blockages and vibrational
+                        imbalances in your field.</p>
+                </div>
+                <div class="approach-card">
+                    <div class="step-number">02</div>
+                    <h5>Deep State Induction</h5>
+                    <p style="font-size: 0.9rem; color: #64748b;">Entering a Theta-brainwave state for maximum
+                        receptivity to healing.</p>
+                </div>
+                <div class="approach-card">
+                    <div class="step-number">03</div>
+                    <h5>Frequency Alignment</h5>
+                    <p style="font-size: 0.9rem; color: #64748b;">Using specialized techniques to realign your cells to
+                        their peak signature.</p>
+                </div>
+                <div class="approach-card">
+                    <div class="step-number">04</div>
+                    <h5>Cellular Integration</h5>
+                    <p style="font-size: 0.9rem; color: #64748b;">Solidifying the new frequency to ensure long-term
+                        physical and mental wellness.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="specialists" style="background: #f8fafc;">
+        <div class="container">
+            <div class="section-header">
+                <h2>Meet Your Instructor</h2>
+                <div class="divider"></div>
+            </div>
+
+            <div class="doctor-card">
+                <div style="font-size: 64px; color: #1a3c34; margin-bottom: 24px;">
+                    <i class="fa-solid fa-user-gear"></i>
+                </div>
+                <h4 style="font-size: 1.5rem;">Expert Practitioner</h4>
+                <div class="doctor-spec">Quantum Vibration Specialist</div>
+                <p style="margin-bottom: 32px; color: #475569;">Specializing in modern energy medicine and
+                    consciousness-based healing to help you reprogram your health at a cellular level.</p>
+                <a href="/contact" class="btn-primary">Inquire About Sessions</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="specialized-conditions" class="bg-[#f0f9ff] py-16 md:py-24">
+        <div class="max-width-[1200px] mx-auto px-6 container">
+
+            <div class="text-center mb-16">
+                <h2 class="font-['Montserrat'] font-bold text-4xl md:text-5xl text-[#0f172a] mb-6">We Also Specialize In
+                </h2>
+                <p class="font-['Open_Sans'] text-lg md:text-xl text-[#475569] max-w-3xl mx-auto leading-relaxed">
+                    Our expertise extends to comprehensive support for various health conditions, ensuring a holistic
+                    approach to your well-being.
+                </p>
+                <div class="w-[50px] h-[3px] bg-[#2d5a3f] rounded-[2px] mx-auto mt-6"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
+
+                <div
+                    class="bg-white p-10 rounded-3xl border border-[#e2e8f0] shadow-sm hover:shadow-lg transition-shadow duration-300 h-full">
+                    <h3
+                        class="font-['Montserrat'] font-semibold text-2xl text-[#1e40af] mb-8 pb-3 border-b-2 border-[#dbeafe]">
+                        Metabolic Conditions</h3>
+                    <ul class="space-y-5 text-[#475569] font-['Open_Sans'] text-[1.05rem]">
+                        <li class="flex items-center gap-3"><i
+                                class="fa-solid fa-circle-check text-[#60a5fa] text-sm"></i>
+                            Diabetes Mellitus</li>
+                        <li class="flex items-center gap-3"><i
+                                class="fa-solid fa-circle-check text-[#60a5fa] text-sm"></i>
+                            Hypertension</li>
+                        <li class="flex items-center gap-3"><i
+                                class="fa-solid fa-circle-check text-[#60a5fa] text-sm"></i>
+                            Cholesterol Management</li>
+                        <li class="flex items-center gap-3"><i
+                                class="fa-solid fa-circle-check text-[#60a5fa] text-sm"></i>
+                            Metabolic Diet</li>
+                        <li class="flex items-center gap-3"><i
+                                class="fa-solid fa-circle-check text-[#60a5fa] text-sm"></i>
+                            Thyroid Disorders</li>
+                    </ul>
+                </div>
+
+                <div
+                    class="bg-white p-10 rounded-3xl border border-[#e2e8f0] shadow-sm hover:shadow-lg transition-shadow duration-300 h-full">
+                    <h3
+                        class="font-['Montserrat'] font-semibold text-2xl text-[#1e40af] mb-8 pb-3 border-b-2 border-[#dbeafe]">
+                        Gastrointestinal Health</h3>
+                    <ul class="space-y-5 text-[#475569] font-['Open_Sans'] text-[1.05rem]">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-circle-check text-[#60a5fa] text-sm mt-1.5"></i>
+                            <span>GERD (Gastroesophageal Reflux Disease)</span>
+                        </li>
+                        <li class="flex items-center gap-3"><i
+                                class="fa-solid fa-circle-check text-[#60a5fa] text-sm"></i>
+                            Irritable Bowel Syndrome</li>
+                        <li class="flex items-center gap-3"><i
+                                class="fa-solid fa-circle-check text-[#60a5fa] text-sm"></i>
+                            Food Intolerances</li>
+                        <li class="flex items-center gap-3"><i
+                                class="fa-solid fa-circle-check text-[#60a5fa] text-sm"></i>
+                            Fatty Liver</li>
+                        <li class="flex items-center gap-3"><i
+                                class="fa-solid fa-circle-check text-[#60a5fa] text-sm"></i>
+                            Inflammatory Conditions</li>
+                    </ul>
+                </div>
+
+                <div
+                    class="bg-white p-10 rounded-3xl border border-[#e2e8f0] shadow-sm hover:shadow-lg transition-shadow duration-300 h-full">
+
+                    <div class="mb-12">
+                        <h3
+                            class="font-['Montserrat'] font-semibold text-2xl text-[#1e40af] mb-8 pb-3 border-b-2 border-[#dbeafe]">
+                            Women’s Health</h3>
+                        <ul class="space-y-5 text-[#475569] font-['Open_Sans'] text-[1.05rem]">
+                            <li class="flex items-center gap-3"><i
+                                    class="fa-solid fa-circle-check text-[#60a5fa] text-sm"></i> Polycystic Ovarian
+                                Syndrome
+                                (PCOS)</li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-circle-check text-[#60a5fa] text-sm mt-1.5"></i>
+                                <span>Pregnancy Nutrition (Pre, During, Post)</span>
+                            </li>
+                            <li class="flex items-center gap-3"><i
+                                    class="fa-solid fa-circle-check text-[#60a5fa] text-sm"></i> Anemia</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3
+                            class="font-['Montserrat'] font-semibold text-2xl text-[#1e40af] mb-8 pb-3 border-b-2 border-[#dbeafe]">
+                            Specialized Nutrition</h3>
+                        <ul class="space-y-5 text-[#475569] font-['Open_Sans'] text-[1.05rem]">
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-circle-check text-[#60a5fa] text-sm mt-1.5"></i>
+                                <span>Bariatric Nutrition (Pre and Post Surgery)</span>
+                            </li>
+                            <li class="flex items-center gap-3"><i
+                                    class="fa-solid fa-circle-check text-[#60a5fa] text-sm"></i> Healthy Skin and Hair
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-strip">
+        <div class="container">
+            <h2 style="font-size: clamp(1.8rem, 3vw, 2.5rem);">Ready to step into a new vibrational reality?</h2>
+            <div style="margin-top: 40px; display: flex; justify-content: center; flex-wrap: wrap; gap: 15px;">
+                <a href="/contact" class="btn-primary" style="background: #fff; color: #0f172a;">Begin Your Journey</a>
+                <a href="https://wa.me/919945186968" class="btn-outline"><i class="fa-brands fa-whatsapp"></i> Contact
+                    Us</a>
+            </div>
+        </div>
+    </section>
+
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const tabs = document.querySelectorAll('.nav-tab');
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    tabs.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+        });
+    </script>
+    {% include 'footer.html' %}
+</body>
+
+</html>

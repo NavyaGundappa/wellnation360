@@ -102,14 +102,47 @@
           class="absolute left-0 -bottom-1 w-0 h-0.5 bg-green-400 transition-all duration-300 group-hover:w-full"></span>
       </a>
       <div class="text-white relative group">
-        <a href="#services" class="text-white relative flex items-center gap-1 group-hover:text-green-400">
-          Services
-          <svg class="w-4 h-4 transition-transform duration-300 group-hover:rotate-180" fill="currentColor"
-            viewBox="0 0 20 20">
-            <path
-              d="M5.23 7.21a.75.75 0 011.06.02L10 10.939l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" />
-          </svg>
-        </a>
+        <div class="text-white relative group">
+          <a href="#services" class="text-white relative flex items-center gap-1 group-hover:text-green-400">
+            Services
+            <svg class="w-4 h-4 transition-transform duration-300 group-hover:rotate-180" fill="currentColor"
+              viewBox="0 0 20 20">
+              <path
+                d="M5.23 7.21a.75.75 0 011.06.02L10 10.939l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" />
+            </svg>
+          </a>
+          <div
+            class="absolute top-full left-0 mt-2 w-64 bg-white text-black rounded-md shadow-lg opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300 invisible group-hover:visible z-50 overflow-hidden"
+            id="services-dropdown-menu">
+            <a href="{{ url_for('hatha_yoga') }}" class="relative"
+              class="block px-4 py-3 hover:text-green-600 hover:bg-gray-50 transition duration-200 border-b border-gray-100 last:border-0">Hatha
+              Yoga</a>
+            <a href="{{ url_for('arial_yoga') }}"
+              class="block px-4 py-3 hover:text-green-600 hover:bg-gray-50 transition duration-200 border-b border-gray-100 last:border-0">Aerial
+              Yoga</a>
+            <a href="{{ url_for('therapeutic_yoga') }}"
+              class="block px-4 py-3 hover:text-green-600 hover:bg-gray-50 transition duration-200 border-b border-gray-100 last:border-0">Therapy
+              Yoga</a>
+            <a href="{{ url_for('chakra_meditation') }}"
+              class="block px-4 py-3 hover:text-green-600 hover:bg-gray-50 transition duration-200 border-b border-gray-100 last:border-0">Chakra
+              Meditation</a>
+            <a href="{{ url_for('senior_citizen_yoga') }}"
+              class="block px-4 py-3 hover:text-green-600 hover:bg-gray-50 transition duration-200 border-b border-gray-100 last:border-0">Senior
+              Citizen Yoga</a>
+            <a href="{{ url_for('pregnancy_yoga') }}"
+              class="block px-4 py-3 hover:text-green-600 hover:bg-gray-50 transition duration-200 border-b border-gray-100 last:border-0">Pregnancy
+              Yoga</a>
+            <a href="{{ url_for('chair_yoga') }}"
+              class="block px-4 py-3 hover:text-green-600 hover:bg-gray-50 transition duration-200 border-b border-gray-100 last:border-0">Chair
+              Yoga</a>
+            <a href="{{ url_for('props_yoga') }}"
+              class="block px-4 py-3 hover:text-green-600 hover:bg-gray-50 transition duration-200 border-b border-gray-100 last:border-0">Props
+              Yoga</a>
+            <a href="{{ url_for('power_yoga') }}"
+              class="block px-4 py-3 hover:text-green-600 hover:bg-gray-50 transition duration-200 border-b border-gray-100 last:border-0">Power
+              Yoga</a>
+          </div>
+        </div>
         <div
           class="absolute top-full left-0 mt-2 w-64 bg-white text-black rounded-md shadow-lg opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300 invisible group-hover:visible z-50"
           id="services-dropdown-menu">
@@ -440,15 +473,7 @@
                 servicesContainer.appendChild(card);
               });
 
-              // Populate services dropdown menu
-              servicesDropdownMenu.innerHTML = '';
-              data.services.forEach(service => {
-                const dropdownLink = document.createElement('a');
-                dropdownLink.href = `#service-${service.name.toLowerCase().replace(/\s+/g, '-')}`;
-                dropdownLink.className = 'block px-4 py-2 hover:text-green-600 transition duration-200';
-                dropdownLink.textContent = service.name;
-                servicesDropdownMenu.appendChild(dropdownLink);
-              });
+
 
               initServiceCarousel();
             } else {

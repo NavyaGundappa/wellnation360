@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aerial Yoga | WellNation360</title>
+    <meta name="description"
+        content="Defy gravity and elevate your soul with Aerial Yoga. Improve balance, core control, and spine decompression through suspended sequences.">
+    <link rel="icon" href="static/images/logo1.png" type="image/x-icon">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Open Sans', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif'],
+                    },
+                    colors: {
+                        aerial: {
+                            light: '#f0f4ff',
+                            DEFAULT: '#5d5fef',
+                            dark: '#3f41b5',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .hero-bg {
+            background: linear-gradient(to right, rgba(255, 255, 255, 0.9) 30%, rgba(255, 255, 255, 0.3) 100%),
+                url('https://images.unsplash.com/photo-1599447332282-582d07cfd38d?q=80&w=2000&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .nav-tab.active {
+            color: #5d5fef;
+            border-bottom-color: #5d5fef;
+        }
+
+        /* Float animation for the "Aerial" feel */
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        .float-element {
+            animation: float 4s ease-in-out infinite;
+        }
+    </style>
+</head>
+
+<body class="text-gray-700 bg-gray-50 antialiased">
+    {% include 'header.html' %}
+
+    <section class="hero-bg pt-32 pb-24 md:pt-40 md:pb-32 relative z-10">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div
+                class="inline-flex items-center gap-2 bg-aerial-light border border-blue-200 text-aerial px-5 py-2 rounded-full text-sm font-semibold mb-6">
+                <i class="fa-solid fa-cloud"></i> Yoga Services › Aerial Yoga
+            </div>
+            <h1
+                class="font-heading text-4xl md:text-5xl lg:text-6xl font-extrabold text-aerial-dark leading-tight mb-6 max-w-3xl">
+                Defy Gravity & <br class="hidden md:block"> Elevate Your Soul.
+            </h1>
+            <p class="text-lg md:text-xl text-gray-700 max-w-2xl mb-10 leading-relaxed">
+                Experience freedom in movement. Flow through suspended sequences that improve balance, core control, and
+                spine decompression—all while having fun in the air.
+            </p>
+            <div class="flex flex-wrap gap-4">
+                <a href="/contact"
+                    class="bg-aerial hover:bg-aerial-dark text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 shadow-lg hover:shadow-xl flex items-center gap-2">
+                    <i class="fa-solid fa-feather-pointed"></i> Book a Hammock
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-6 flex justify-start md:justify-center overflow-x-auto hide-scrollbar">
+            <a class="nav-tab active px-6 py-4 font-semibold text-gray-500 hover:text-aerial border-b-4 border-transparent whitespace-nowrap transition-colors"
+                href="#overview">The Experience</a>
+            <a class="nav-tab px-6 py-4 font-semibold text-gray-500 hover:text-aerial border-b-4 border-transparent whitespace-nowrap transition-colors"
+                href="#benefits">Benefits</a>
+            <a class="nav-tab px-6 py-4 font-semibold text-gray-500 hover:text-aerial border-b-4 border-transparent whitespace-nowrap transition-colors"
+                href="#safety">Safety & Gear</a>
+            <a class="nav-tab px-6 py-4 font-semibold text-gray-500 hover:text-aerial border-b-4 border-transparent whitespace-nowrap transition-colors"
+                href="#instructor">Specialist</a>
+        </div>
+    </nav>
+
+    <section id="overview" class="py-20 md:py-28 bg-white">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="order-2 lg:order-1 relative">
+                    <img src="static/images/aerial_yoga.jpg" alt="Aerial Yoga Hammock"
+                        class="rounded-3xl shadow-2xl object-cover w-full h-[500px]">
+                    <div class="absolute -top-6 -left-6 bg-aerial text-white p-6 rounded-2xl shadow-xl float-element">
+                        <i class="fa-solid fa-arrows-up-down text-3xl"></i>
+                    </div>
+                </div>
+                <div class="order-1 lg:order-2">
+                    <h2 class="font-heading text-3xl md:text-4xl font-bold text-aerial-dark mb-6">Why Practice in the
+                        Air?</h2>
+                    <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                        Aerial Yoga uses a soft fabric hammock to support your body weight. This unique tool allows you
+                        to achieve deep stretches and complex inversions that might be difficult on the floor.
+                    </p>
+                    <p class="text-lg text-gray-600 mb-8">
+                        By offloading weight from your joints, you can focus on core engagement and spinal alignment
+                        with zero compression, leaving you feeling taller and lighter.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-4 text-gray-800 font-semibold">
+                            <div
+                                class="w-10 h-10 bg-aerial-light text-aerial rounded-full flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-heart"></i>
+                            </div>
+                            Boosts mood and releases endorphins
+                        </div>
+                        <div class="flex items-center gap-4 text-gray-800 font-semibold">
+                            <div
+                                class="w-10 h-10 bg-aerial-light text-aerial rounded-full flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-dumbbell"></i>
+                            </div>
+                            Intense core and upper body toning
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="benefits" class="py-20 bg-aerial-light/30">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-heading text-3xl md:text-4xl font-bold text-aerial-dark">Core Benefits</h2>
+                <div class="w-16 h-1 bg-aerial mx-auto mt-4 rounded-full"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-10 rounded-3xl shadow-sm hover:shadow-xl transition border-t-4 border-aerial">
+                    <i class="fa-solid fa-child text-4xl text-aerial mb-6"></i>
+                    <h4 class="font-heading font-bold text-xl mb-4">Spinal Health</h4>
+                    <p class="text-gray-600 text-sm leading-relaxed">Inversions allow the spine to decompress, relieving
+                        pressure between the vertebrae and reducing back pain.</p>
+                </div>
+                <div class="bg-white p-10 rounded-3xl shadow-sm hover:shadow-xl transition border-t-4 border-aerial">
+                    <i class="fa-solid fa-person-praying text-4xl text-aerial mb-6"></i>
+                    <h4 class="font-heading font-bold text-xl mb-4">Deeper Stretches</h4>
+                    <p class="text-gray-600 text-sm leading-relaxed">The hammock acts as a partner, helping you sink
+                        deeper into poses safely while enhancing overall flexibility.</p>
+                </div>
+                <div class="bg-white p-10 rounded-3xl shadow-sm hover:shadow-xl transition border-t-4 border-aerial">
+                    <i class="fa-solid fa-spa text-4xl text-aerial mb-6"></i>
+                    <h4 class="font-heading font-bold text-xl mb-4">Joint Relief</h4>
+                    <p class="text-gray-600 text-sm leading-relaxed">Unlike floor yoga, Aerial reduces the impact on
+                        knees and wrists, making it accessible for those with joint sensitivities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="safety" class="py-20 md:py-28 bg-white">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="bg-aerial-dark rounded-3xl p-10 md:p-16 text-white overflow-hidden relative">
+                <div class="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h2 class="font-heading text-3xl font-bold mb-6">Prepare for Flight</h2>
+                        <p class="text-blue-100 mb-8">To ensure a safe and comfortable experience, please keep the
+                            following in mind for your first class.</p>
+                        <ul class="space-y-4">
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-blue-300"></i>
+                                Wear fitted clothing (to avoid getting caught in the fabric)</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-blue-300"></i>
+                                Avoid jewelry or zippers that could snag the hammocks</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-blue-300"></i>
+                                Long sleeves/leggings are recommended for comfort</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-blue-300"></i>
+                                Avoid a heavy meal 2 hours before the session</li>
+                        </ul>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-white/10 backdrop-blur-sm p-6 rounded-2xl text-center">
+                            <p class="text-3xl font-bold">150kg</p>
+                            <p class="text-xs uppercase tracking-widest text-blue-200 mt-2">Hammock Capacity</p>
+                        </div>
+                        <div class="bg-white/10 backdrop-blur-sm p-6 rounded-2xl text-center">
+                            <p class="text-3xl font-bold">Small</p>
+                            <p class="text-xs uppercase tracking-widest text-blue-200 mt-2">Class Sizes</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="absolute -bottom-24 -right-24 w-64 h-64 bg-white/5 rounded-full"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="instructor" class="py-20 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-6 lg:px-8">
+            <div class="bg-white rounded-3xl p-10 md:p-16 text-center border border-gray-100 shadow-sm">
+                <div
+                    class="w-32 h-32 bg-aerial-light text-aerial rounded-full flex items-center justify-center text-5xl mx-auto mb-6 shadow-inner">
+                    <i class="fa-solid fa-user-astronaut"></i>
+                </div>
+                <h4 class="font-heading text-3xl font-bold text-gray-900">Teebabriah</h4>
+                <p class="text-aerial font-bold uppercase tracking-widest text-sm mt-2 mb-6">Lead Aerial Specialist</p>
+                <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto italic">
+                    "Aerial yoga is about finding stability in the unstable. I love seeing students conquer their fears
+                    and find a new kind of strength while hanging upside down!"
+                </p>
+                <a href="/contact"
+                    class="bg-aerial hover:bg-aerial-dark text-white px-10 py-4 rounded-full font-semibold transition-all duration-300 inline-block shadow-lg">Schedule
+                    Your Session</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-gray-900 py-24 text-center text-white relative overflow-hidden">
+        <div class="max-w-4xl mx-auto px-6 relative z-10">
+            <h2 class="font-heading text-3xl md:text-5xl font-bold mb-8">Ready to see the world <br><span
+                    class="text-aerial">from a new perspective?</span></h2>
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-6">
+                <a href="/contact"
+                    class="bg-aerial text-white px-12 py-4 rounded-full font-bold hover:bg-white hover:text-aerial transition-all duration-300 w-full sm:w-auto shadow-xl">Get
+                    Started</a>
+                <a href="https://wa.me/919945186968"
+                    class="text-white border-b-2 border-white/20 hover:border-white py-2 flex items-center gap-2 transition duration-300"><i
+                        class="fa-brands fa-whatsapp"></i> Chat with Teebabriah</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const tabs = document.querySelectorAll('.nav-tab');
+            const sections = document.querySelectorAll('section[id]');
+
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (scrollY >= (sectionTop - 150)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                tabs.forEach(tab => {
+                    tab.classList.remove('active', 'text-aerial', 'border-aerial');
+                    if (tab.getAttribute('href').includes(current)) {
+                        tab.classList.add('active', 'text-aerial', 'border-aerial');
+                    }
+                });
+            });
+        });
+    </script>
+
+    {% include 'footer.html' %}
+</body>
+
+</html>

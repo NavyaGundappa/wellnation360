@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Senior Citizen Yoga | WellNation360</title>
+    <meta name="description"
+        content="Move with grace and confidence. Gentle yoga tailored for seniors to improve balance, joint mobility, and overall wellness in a safe, supportive environment.">
+    <link rel="icon" href="static/images/logo1.png" type="image/x-icon">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Open Sans', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif'],
+                    },
+                    colors: {
+                        senior: {
+                            light: '#f0fdf4',
+                            DEFAULT: '#16a34a',
+                            dark: '#15803d',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .hero-bg {
+            background: linear-gradient(to right, rgba(255, 255, 255, 0.95) 30%, rgba(255, 255, 255, 0.5) 100%),
+                url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=2000&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .nav-tab.active {
+            color: #16a34a;
+            border-bottom-color: #16a34a;
+        }
+
+        .pulse-soft {
+            animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.7;
+            }
+        }
+    </style>
+</head>
+
+<body class="text-gray-700 bg-gray-50 antialiased">
+    {% include 'header.html' %}
+
+    <section class="hero-bg pt-32 pb-24 md:pt-40 md:pb-32 relative z-10">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div
+                class="inline-flex items-center gap-2 bg-senior-light border border-green-200 text-senior px-5 py-2 rounded-full text-sm font-semibold mb-6">
+                <i class="fa-solid fa-person-cane"></i> Gentle Care › Senior Citizen Yoga
+            </div>
+            <h1
+                class="font-heading text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight mb-6 max-w-3xl">
+                Age with Grace, <br class="hidden md:block"> Live with Vitality.
+            </h1>
+            <p class="text-lg md:text-xl text-gray-600 max-w-2xl mb-10 leading-relaxed">
+                Move with grace and confidence. This gentle yoga is tailored specifically for seniors, helping to
+                improve balance, joint mobility, and overall wellness in a safe, supportive way.
+            </p>
+            <div class="flex flex-wrap gap-4">
+                <a href="/contact"
+                    class="bg-senior hover:bg-senior-dark text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 shadow-lg hover:shadow-xl flex items-center gap-2">
+                    <i class="fa-solid fa-leaf"></i> Start Living Better
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-6 flex justify-start md:justify-center overflow-x-auto hide-scrollbar">
+            <a class="nav-tab active px-6 py-4 font-semibold text-gray-500 hover:text-senior border-b-4 border-transparent whitespace-nowrap transition-colors"
+                href="#overview">The Approach</a>
+            <a class="nav-tab px-6 py-4 font-semibold text-gray-500 hover:text-senior border-b-4 border-transparent whitespace-nowrap transition-colors"
+                href="#benefits">Benefits</a>
+            <a class="nav-tab px-6 py-4 font-semibold text-gray-500 hover:text-senior border-b-4 border-transparent whitespace-nowrap transition-colors"
+                href="#safety">Safety First</a>
+            <a class="nav-tab px-6 py-4 font-semibold text-gray-500 hover:text-senior border-b-4 border-transparent whitespace-nowrap transition-colors"
+                href="#instructor">Specialist</a>
+        </div>
+    </nav>
+
+    <section id="overview" class="py-20 md:py-28 bg-white">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="relative">
+                    <img src="static/images/seniorcitizenyoga.png" alt="Senior Citizen Yoga Session"
+                        class="rounded-3xl shadow-2xl object-cover w-full h-[550px]">
+                </div>
+                <div>
+                    <h2 class="font-heading text-3xl md:text-4xl font-bold text-gray-900 mb-6">Gentle Movement for
+                        Longevity</h2>
+                    <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                        Yoga is for every stage of life. Our Senior Citizen program focuses on low-impact movements that
+                        respect the body's natural changes while building necessary strength and flexibility.
+                    </p>
+                    <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                        We prioritize functional mobility—the movements you need for daily life—ensuring you can stay
+                        independent and active for years to come.
+                    </p>
+                    <div class="bg-senior-light border-l-4 border-senior p-6 rounded-r-2xl">
+                        <p class="italic text-senior-dark font-medium">"It is never too late to begin a journey toward
+                            better health and a more vibrant life."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="benefits" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-heading text-3xl md:text-4xl font-bold text-gray-900">Key Benefits</h2>
+                <div class="w-16 h-1 bg-senior mx-auto mt-4 rounded-full"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-10 rounded-3xl shadow-sm hover:shadow-lg transition group">
+                    <div
+                        class="w-16 h-16 bg-senior-light text-senior rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:bg-senior group-hover:text-white transition duration-300">
+                        <i class="fa-solid fa-bone"></i>
+                    </div>
+                    <h4 class="font-heading font-bold text-xl mb-4 text-gray-900">Flexibility & Strength</h4>
+                    <p class="text-gray-600 text-sm leading-relaxed">Gently improves bone density and keeps muscles
+                        toned, making everyday tasks easier and more comfortable.</p>
+                </div>
+                <div class="bg-white p-10 rounded-3xl shadow-sm hover:shadow-lg transition group">
+                    <div
+                        class="w-16 h-16 bg-senior-light text-senior rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:bg-senior group-hover:text-white transition duration-300">
+                        <i class="fa-solid fa-scale-balanced"></i>
+                    </div>
+                    <h4 class="font-heading font-bold text-xl mb-4 text-gray-900">Balance & Stability</h4>
+                    <p class="text-gray-600 text-sm leading-relaxed">Enhances coordination and core stability to prevent
+                        falls and build confidence in your movement.</p>
+                </div>
+                <div class="bg-white p-10 rounded-3xl shadow-sm hover:shadow-lg transition group">
+                    <div
+                        class="w-16 h-16 bg-senior-light text-senior rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:bg-senior group-hover:text-white transition duration-300">
+                        <i class="fa-solid fa-heart-pulse"></i>
+                    </div>
+                    <h4 class="font-heading font-bold text-xl mb-4 text-gray-900">Holistic Health</h4>
+                    <p class="text-gray-600 text-sm leading-relaxed">Supports cardiovascular health and mental
+                        well-being, reducing stress and promoting better sleep.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="safety" class="py-20 md:py-28 bg-white">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="bg-gray-900 rounded-[3rem] p-10 md:p-20 text-white relative overflow-hidden">
+                <div class="relative z-10">
+                    <h2 class="font-heading text-3xl md:text-4xl font-bold mb-12 text-center">Adapted for Your Comfort
+                    </h2>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <div class="border border-white/10 p-6 rounded-2xl hover:bg-white/5 transition">
+                            <h5 class="font-bold text-senior mb-2">Chair Yoga</h5>
+                            <p class="text-sm text-gray-400">Modified poses using chairs for those with limited mobility
+                                or balance concerns.</p>
+                        </div>
+                        <div class="border border-white/10 p-6 rounded-2xl hover:bg-white/5 transition">
+                            <h5 class="font-bold text-senior mb-2">Joint Care</h5>
+                            <p class="text-sm text-gray-400">Slow rotations and gentle stretches to alleviate arthritis
+                                and stiffness.</p>
+                        </div>
+                        <div class="border border-white/10 p-6 rounded-2xl hover:bg-white/5 transition">
+                            <h5 class="font-bold text-senior mb-2">Breath Work</h5>
+                            <p class="text-sm text-gray-400">Simple techniques to improve lung capacity and calm the
+                                nervous system.</p>
+                        </div>
+                        <div class="border border-white/10 p-6 rounded-2xl hover:bg-white/5 transition">
+                            <h5 class="font-bold text-senior mb-2">Social Connection</h5>
+                            <p class="text-sm text-gray-400">A warm, community-driven environment to foster friendships
+                                and belonging.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="absolute -top-24 -left-24 w-96 h-96 bg-senior/10 rounded-full blur-3xl"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="instructor" class="py-20">
+        <div class="max-w-4xl mx-auto px-6 lg:px-8">
+            <div
+                class="flex flex-col md:flex-row items-center gap-12 bg-white rounded-3xl p-10 shadow-sm border border-gray-100">
+                <div
+                    class="w-48 h-48 bg-senior-light text-senior rounded-full flex items-center justify-center text-6xl shrink-0">
+                    <i class="fa-solid fa-hands-holding"></i>
+                </div>
+                <div class="text-center md:text-left">
+                    <h4 class="font-heading text-3xl font-bold text-gray-900">Teebabriah</h4>
+                    <p class="text-senior font-bold uppercase tracking-widest text-sm mb-6">Senior Wellness Specialist
+                    </p>
+                    <p class="text-gray-600 leading-relaxed mb-6">
+                        Teebabriah is dedicated to making yoga accessible for all ages. She focuses on therapeutic
+                        techniques that help seniors rediscover their physical capabilities with safety and joy.
+                    </p>
+                    <a href="/contact" class="text-senior font-bold flex items-center gap-2 hover:gap-4 transition-all">
+                        Consult with Teebabriah <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-senior-dark py-24 text-center text-white">
+        <div class="max-w-4xl mx-auto px-6">
+            <h2 class="font-heading text-3xl md:text-5xl font-bold mb-8">Invest in your <span
+                    class="underline decoration-green-400 underline-offset-8">vibrant future.</span></h2>
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-6">
+                <a href="/contact"
+                    class="bg-white text-senior-dark px-10 py-4 rounded-full font-bold hover:bg-gray-100 transition shadow-lg w-full sm:w-auto">Join
+                    Our Next Class</a>
+                <a href="https://wa.me/919945186968"
+                    class="bg-transparent border-2 border-white/30 hover:border-white px-10 py-4 rounded-full font-bold transition w-full sm:w-auto flex items-center justify-center gap-2">
+                    <i class="fa-brands fa-whatsapp"></i> Chat with Us
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const tabs = document.querySelectorAll('.nav-tab');
+            const sections = document.querySelectorAll('section[id]');
+
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (scrollY >= (sectionTop - 150)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                tabs.forEach(tab => {
+                    tab.classList.remove('active', 'text-senior', 'border-senior');
+                    if (tab.getAttribute('href').includes(current)) {
+                        tab.classList.add('active', 'text-senior', 'border-senior');
+                    }
+                });
+            });
+        });
+    </script>
+
+    {% include 'footer.html' %}
+</body>
+
+</html>

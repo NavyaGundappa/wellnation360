@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Props Yoga & Supported Alignment | WellNation360</title>
+    <meta name="description"
+        content="Deepen your practice with mindful support. Using blocks, straps, bolsters, and more — Props Yoga refines alignment, reduces strain, and makes postures accessible for all.">
+    <meta name="keywords"
+        content="Props Yoga, Restorative Yoga, Yoga Blocks, Yoga Straps, Therapeutic Yoga, Alignment Yoga, Yoga for Beginners">
+    <link rel="icon" href="static/images/logo1.png" type="image/x-icon">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Open Sans', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif'],
+                    },
+                    colors: {
+                        props: {
+                            light: '#f5f3ff', /* Violet 50 */
+                            DEFAULT: '#8b5cf6', /* Violet 500 */
+                            dark: '#6d28d9', /* Violet 700 */
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .hero-bg {
+            background: linear-gradient(to right, rgba(255, 255, 255, 0.95) 30%, rgba(255, 255, 255, 0.5) 100%),
+                url('https://images.unsplash.com/photo-1603988363607-e1e4a66962c6?q=80&w=2000&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .nav-tab.active {
+            color: #8b5cf6;
+            border-bottom-color: #8b5cf6;
+        }
+    </style>
+</head>
+
+<body class="text-gray-700 bg-gray-50 antialiased">
+    {% include 'header.html' %}
+
+    <section class="hero-bg pt-32 pb-24 md:pt-40 md:pb-32 relative z-10">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div
+                class="inline-flex items-center gap-2 bg-props-light border border-violet-200 text-props px-5 py-2 rounded-full text-sm font-semibold mb-6">
+                <i class="fa-solid fa-layer-group"></i> Supported Practice › Props Yoga
+            </div>
+            <h1
+                class="font-heading text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight mb-6 max-w-3xl">
+                Deepen Your Practice, <br class="hidden md:block"> Mindfully Supported.
+            </h1>
+            <p class="text-lg md:text-xl text-gray-600 max-w-2xl mb-10 leading-relaxed">
+                Using blocks, straps, bolsters, and more — Props Yoga refines alignment, reduces physical strain, and
+                makes every posture accessible and rewarding for all body types.
+            </p>
+            <div class="flex flex-wrap gap-4">
+                <a href="/contact"
+                    class="bg-props hover:bg-props-dark text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 shadow-lg hover:shadow-xl flex items-center gap-2">
+                    <i class="fa-solid fa-cubes"></i> Start Your Journey
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-6 flex justify-start md:justify-center overflow-x-auto hide-scrollbar">
+            <a class="nav-tab active px-6 py-4 font-semibold text-gray-500 hover:text-props border-b-4 border-transparent whitespace-nowrap transition-colors"
+                href="#overview">The Approach</a>
+            <a class="nav-tab px-6 py-4 font-semibold text-gray-500 hover:text-props border-b-4 border-transparent whitespace-nowrap transition-colors"
+                href="#benefits">Benefits</a>
+            <a class="nav-tab px-6 py-4 font-semibold text-gray-500 hover:text-props border-b-4 border-transparent whitespace-nowrap transition-colors"
+                href="#essential-props">Essential Props</a>
+            <a class="nav-tab px-6 py-4 font-semibold text-gray-500 hover:text-props border-b-4 border-transparent whitespace-nowrap transition-colors"
+                href="#instructor">Specialist</a>
+        </div>
+    </nav>
+
+    <section id="overview" class="py-20 md:py-28 bg-white">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="relative">
+                    <img src="static/images/propsyoga.png" alt="Yoga practice using props"
+                        class="rounded-3xl shadow-2xl object-cover w-full h-[550px]">
+                </div>
+                <div>
+                    <h2 class="font-heading text-3xl md:text-4xl font-bold text-gray-900 mb-6">Alignment and
+                        Accessibility
+                    </h2>
+                    <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                        Props are not a sign of weakness; they are tools of intelligence. They allow the body to
+                        experience the full benefit of an asana without compromising breath or skeletal alignment.
+                    </p>
+                    <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                        Whether you are looking to bridge a gap in flexibility, hold a restorative pose longer, or
+                        target specific muscle groups with pinpoint accuracy, practicing with props transforms how you
+                        understand your body's mechanics.
+                    </p>
+                    <div class="bg-props-light border-l-4 border-props p-6 rounded-r-2xl">
+                        <p class="italic text-props-dark font-medium">"Props bring the floor closer to you, extending
+                            your reach and expanding your possibilities."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="benefits" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-heading text-3xl md:text-4xl font-bold text-gray-900">Supported Benefits</h2>
+                <div class="w-16 h-1 bg-props mx-auto mt-4 rounded-full"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-10 rounded-3xl shadow-sm hover:shadow-lg transition group">
+                    <div
+                        class="w-16 h-16 bg-props-light text-props rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:bg-props group-hover:text-white transition duration-300">
+                        <i class="fa-solid fa-bullseye"></i>
+                    </div>
+                    <h4 class="font-heading font-bold text-xl mb-4 text-gray-900">Enhances Precision</h4>
+                    <p class="text-gray-600 text-sm leading-relaxed">Improves posture precision and depth by allowing
+                        you to focus on structural alignment rather than straining to reach a shape.</p>
+                </div>
+                <div class="bg-white p-10 rounded-3xl shadow-sm hover:shadow-lg transition group">
+                    <div
+                        class="w-16 h-16 bg-props-light text-props rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:bg-props group-hover:text-white transition duration-300">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h4 class="font-heading font-bold text-xl mb-4 text-gray-900">Reduces Risk of Injury</h4>
+                    <p class="text-gray-600 text-sm leading-relaxed">Prevents overstretching and joint compression by
+                        providing a safe framework for muscles to open up gradually.</p>
+                </div>
+                <div class="bg-white p-10 rounded-3xl shadow-sm hover:shadow-lg transition group">
+                    <div
+                        class="w-16 h-16 bg-props-light text-props rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:bg-props group-hover:text-white transition duration-300">
+                        <i class="fa-solid fa-hands-holding"></i>
+                    </div>
+                    <h4 class="font-heading font-bold text-xl mb-4 text-gray-900">Therapeutic & Accessible</h4>
+                    <p class="text-gray-600 text-sm leading-relaxed">Ideal for beginners learning the fundamentals, or
+                        for those recovering from injuries needing a therapeutic approach.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="essential-props" class="py-20 md:py-28 bg-white">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="bg-gray-900 rounded-[3rem] p-10 md:p-20 text-white relative overflow-hidden">
+                <div class="relative z-10">
+                    <h2 class="font-heading text-3xl md:text-4xl font-bold mb-12 text-center">Your Toolkit for Support
+                    </h2>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <div class="border border-white/10 p-6 rounded-2xl hover:bg-white/5 transition">
+                            <h5 class="font-bold text-props mb-2">Yoga Blocks</h5>
+                            <p class="text-sm text-gray-400">Bring the floor up to you, providing height and stability
+                                in standing poses and deep stretches.</p>
+                        </div>
+                        <div class="border border-white/10 p-6 rounded-2xl hover:bg-white/5 transition">
+                            <h5 class="font-bold text-props mb-2">Yoga Straps</h5>
+                            <p class="text-sm text-gray-400">Safely extend your reach, allowing you to open the
+                                shoulders and stretch the hamstrings without tension.</p>
+                        </div>
+                        <div class="border border-white/10 p-6 rounded-2xl hover:bg-white/5 transition">
+                            <h5 class="font-bold text-props mb-2">Bolsters</h5>
+                            <p class="text-sm text-gray-400">Firm, supportive pillows that allow the body to deeply
+                                relax in restorative postures for longer periods.</p>
+                        </div>
+                        <div class="border border-white/10 p-6 rounded-2xl hover:bg-white/5 transition">
+                            <h5 class="font-bold text-props mb-2">Blankets</h5>
+                            <p class="text-sm text-gray-400">Provide gentle cushioning for sensitive joints like knees
+                                and wrists, or add subtle height for seated poses.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="absolute -top-24 -left-24 w-96 h-96 bg-props/20 rounded-full blur-3xl"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="instructor" class="py-20">
+        <div class="max-w-4xl mx-auto px-6 lg:px-8">
+            <div
+                class="flex flex-col md:flex-row items-center gap-12 bg-white rounded-3xl p-10 shadow-sm border border-gray-100">
+                <div
+                    class="w-48 h-48 bg-props-light text-props rounded-full flex items-center justify-center text-6xl shrink-0">
+                    <i class="fa-solid fa-chalkboard-user"></i>
+                </div>
+                <div class="text-center md:text-left">
+                    <h4 class="font-heading text-3xl font-bold text-gray-900">Teebabriah</h4>
+                    <p class="text-props font-bold uppercase tracking-widest text-sm mb-6">Alignment & Props Expert</p>
+                    <p class="text-gray-600 leading-relaxed mb-6">
+                        Teebabriah teaches that yoga is not one-size-fits-all. With a deep understanding of anatomy and
+                        movement mechanics, she expertly guides students on how to utilize props to find their optimal
+                        alignment, ensuring a safe, deep, and highly effective practice.
+                    </p>
+                    <a href="/contact" class="text-props font-bold flex items-center gap-2 hover:gap-4 transition-all">
+                        Consult with Teebabriah <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-props-dark py-24 text-center text-white">
+        <div class="max-w-4xl mx-auto px-6">
+            <h2 class="font-heading text-3xl md:text-5xl font-bold mb-8">Build a foundation of <span
+                    class="underline decoration-violet-300 underline-offset-8">support.</span></h2>
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-6">
+                <a href="/contact"
+                    class="bg-white text-props-dark px-10 py-4 rounded-full font-bold hover:bg-gray-100 transition shadow-lg w-full sm:w-auto">Book
+                    a Props Session</a>
+                <a href="https://wa.me/919945186968"
+                    class="bg-transparent border-2 border-white/30 hover:border-white px-10 py-4 rounded-full font-bold transition w-full sm:w-auto flex items-center justify-center gap-2">
+                    <i class="fa-brands fa-whatsapp"></i> WhatsApp Us
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const tabs = document.querySelectorAll('.nav-tab');
+            const sections = document.querySelectorAll('section[id]');
+
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (scrollY >= (sectionTop - 150)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                tabs.forEach(tab => {
+                    tab.classList.remove('active', 'text-props', 'border-props');
+                    if (tab.getAttribute('href').includes(current)) {
+                        tab.classList.add('active', 'text-props', 'border-props');
+                    }
+                });
+            });
+        });
+    </script>
+
+    {% include 'footer.html' %}
+</body>
+
+</html>

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chair Yoga & Accessible Movement | WellNation360</title>
+    <meta name="description"
+        content="Yoga for everyone, everywhere. Perfect for those with limited mobility, Chair Yoga allows you to enjoy the benefits of yoga while seated or with support.">
+    <meta name="keywords"
+        content="Chair Yoga, Accessible Yoga, Seated Yoga, Senior Yoga, Office Yoga, Limited Mobility Fitness">
+    <link rel="icon" href="static/images/logo1.png" type="image/x-icon">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Open Sans', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif'],
+                    },
+                    colors: {
+                        chair: {
+                            light: '#f0fdfa', /* Teal 50 */
+                            DEFAULT: '#14b8a6', /* Teal 500 */
+                            dark: '#0f766e', /* Teal 700 */
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .hero-bg {
+            background: linear-gradient(to right, rgba(255, 255, 255, 0.95) 30%, rgba(255, 255, 255, 0.5) 100%),
+                url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=2000&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .nav-tab.active {
+            color: #14b8a6;
+            border-bottom-color: #14b8a6;
+        }
+    </style>
+</head>
+
+<body class="text-gray-700 bg-gray-50 antialiased">
+    {% include 'header.html' %}
+
+    <section class="hero-bg pt-32 pb-24 md:pt-40 md:pb-32 relative z-10">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div
+                class="inline-flex items-center gap-2 bg-chair-light border border-teal-200 text-chair px-5 py-2 rounded-full text-sm font-semibold mb-6">
+                <i class="fa-solid fa-chair"></i> Accessible Care › Chair Yoga
+            </div>
+            <h1
+                class="font-heading text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight mb-6 max-w-3xl">
+                Yoga for Everyone, <br class="hidden md:block"> Everywhere.
+            </h1>
+            <p class="text-lg md:text-xl text-gray-600 max-w-2xl mb-10 leading-relaxed">
+                Perfect for those with limited mobility, Chair Yoga allows you to enjoy the benefits of deep breathing,
+                stretching, and mindfulness while comfortably seated or using a chair for support.
+            </p>
+            <div class="flex flex-wrap gap-4">
+                <a href="/contact"
+                    class="bg-chair hover:bg-chair-dark text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 shadow-lg hover:shadow-xl flex items-center gap-2">
+                    <i class="fa-solid fa-leaf"></i> Start Your Journey
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-6 flex justify-start md:justify-center overflow-x-auto hide-scrollbar">
+            <a class="nav-tab active px-6 py-4 font-semibold text-gray-500 hover:text-chair border-b-4 border-transparent whitespace-nowrap transition-colors"
+                href="#overview">The Approach</a>
+            <a class="nav-tab px-6 py-4 font-semibold text-gray-500 hover:text-chair border-b-4 border-transparent whitespace-nowrap transition-colors"
+                href="#benefits">Benefits</a>
+            <a class="nav-tab px-6 py-4 font-semibold text-gray-500 hover:text-chair border-b-4 border-transparent whitespace-nowrap transition-colors"
+                href="#who-is-it-for">Who It's For</a>
+            <a class="nav-tab px-6 py-4 font-semibold text-gray-500 hover:text-chair border-b-4 border-transparent whitespace-nowrap transition-colors"
+                href="#instructor">Specialist</a>
+        </div>
+    </nav>
+
+    <section id="overview" class="py-20 md:py-28 bg-white">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="relative">
+                    <img src="static/images/chairyoga.png" alt="Chair Yoga Session"
+                        class="rounded-3xl shadow-2xl object-cover w-full h-[550px]">
+                </div>
+                <div>
+                    <h2 class="font-heading text-3xl md:text-4xl font-bold text-gray-900 mb-6">Movement Without Limits
+                    </h2>
+                    <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                        You don't need to be able to touch your toes or get down on a mat to experience the
+                        transformational power of yoga. Chair Yoga adapts traditional poses so they can be done safely
+                        while seated.
+                    </p>
+                    <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                        Through guided modifications, we focus on opening the hips, moving the shoulders, and expanding
+                        the breath, making this practice deeply beneficial for desk workers, seniors, or anyone
+                        navigating physical limitations.
+                    </p>
+                    <div class="bg-chair-light border-l-4 border-chair p-6 rounded-r-2xl">
+                        <p class="italic text-chair-dark font-medium">"Yoga is not about the shape of your body, but the
+                            shape of your life. Movement is medicine, accessible to all."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="benefits" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-heading text-3xl md:text-4xl font-bold text-gray-900">Health & Wellness Benefits</h2>
+                <div class="w-16 h-1 bg-chair mx-auto mt-4 rounded-full"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-10 rounded-3xl shadow-sm hover:shadow-lg transition group">
+                    <div
+                        class="w-16 h-16 bg-chair-light text-chair rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:bg-chair group-hover:text-white transition duration-300">
+                        <i class="fa-solid fa-arrows-spin"></i>
+                    </div>
+                    <h4 class="font-heading font-bold text-xl mb-4 text-gray-900">Improves Mobility</h4>
+                    <p class="text-gray-600 text-sm leading-relaxed">Enhances joint mobility, flexibility, and blood
+                        flow throughout the body, even while remaining safely seated.</p>
+                </div>
+                <div class="bg-white p-10 rounded-3xl shadow-sm hover:shadow-lg transition group">
+                    <div
+                        class="w-16 h-16 bg-chair-light text-chair rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:bg-chair group-hover:text-white transition duration-300">
+                        <i class="fa-solid fa-spa"></i>
+                    </div>
+                    <h4 class="font-heading font-bold text-xl mb-4 text-gray-900">Relieves Stiffness</h4>
+                    <p class="text-gray-600 text-sm leading-relaxed">Gently stretches tight muscles to relieve
+                        stiffness, aches, and tension built up from sedentary lifestyles.</p>
+                </div>
+                <div class="bg-white p-10 rounded-3xl shadow-sm hover:shadow-lg transition group">
+                    <div
+                        class="w-16 h-16 bg-chair-light text-chair rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:bg-chair group-hover:text-white transition duration-300">
+                        <i class="fa-solid fa-om"></i>
+                    </div>
+                    <h4 class="font-heading font-bold text-xl mb-4 text-gray-900">Mindfulness & Relaxation</h4>
+                    <p class="text-gray-600 text-sm leading-relaxed">Encourages deep breathing and mental clarity,
+                        providing a peaceful escape from daily stress and anxiety.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="who-is-it-for" class="py-20 md:py-28 bg-white">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="bg-gray-900 rounded-[3rem] p-10 md:p-20 text-white relative overflow-hidden">
+                <div class="relative z-10">
+                    <h2 class="font-heading text-3xl md:text-4xl font-bold mb-12 text-center">Who Can Benefit?</h2>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <div class="border border-white/10 p-6 rounded-2xl hover:bg-white/5 transition">
+                            <h5 class="font-bold text-chair mb-2">Seniors</h5>
+                            <p class="text-sm text-gray-400">Maintains independence, balance, and joint health without
+                                the risk of falls.</p>
+                        </div>
+                        <div class="border border-white/10 p-6 rounded-2xl hover:bg-white/5 transition">
+                            <h5 class="font-bold text-chair mb-2">Desk Workers</h5>
+                            <p class="text-sm text-gray-400">Counters the "corporate hunch" by relieving neck, shoulder,
+                                and back strain.</p>
+                        </div>
+                        <div class="border border-white/10 p-6 rounded-2xl hover:bg-white/5 transition">
+                            <h5 class="font-bold text-chair mb-2">Injury Recovery</h5>
+                            <p class="text-sm text-gray-400">Provides a safe, supported way to ease back into physical
+                                activity during rehab.</p>
+                        </div>
+                        <div class="border border-white/10 p-6 rounded-2xl hover:bg-white/5 transition">
+                            <h5 class="font-bold text-chair mb-2">Limited Mobility</h5>
+                            <p class="text-sm text-gray-400">Allows those with chronic pain or disabilities to practice
+                                without floor work.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="absolute -top-24 -left-24 w-96 h-96 bg-chair/20 rounded-full blur-3xl"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="instructor" class="py-20">
+        <div class="max-w-4xl mx-auto px-6 lg:px-8">
+            <div
+                class="flex flex-col md:flex-row items-center gap-12 bg-white rounded-3xl p-10 shadow-sm border border-gray-100">
+                <div
+                    class="w-48 h-48 bg-chair-light text-chair rounded-full flex items-center justify-center text-6xl shrink-0">
+                    <i class="fa-solid fa-person-chalkboard"></i>
+                </div>
+                <div class="text-center md:text-left">
+                    <h4 class="font-heading text-3xl font-bold text-gray-900">Teebabriah</h4>
+                    <p class="text-chair font-bold uppercase tracking-widest text-sm mb-6">Accessible Yoga Expert</p>
+                    <p class="text-gray-600 leading-relaxed mb-6">
+                        Teebabriah specializes in inclusive and adaptive yoga. With a focus on modifications and safe
+                        body mechanics, she ensures that everyone can experience the joy and health benefits of yoga,
+                        regardless of their physical condition.
+                    </p>
+                    <a href="/contact" class="text-chair font-bold flex items-center gap-2 hover:gap-4 transition-all">
+                        Consult with Teebabriah <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-chair-dark py-24 text-center text-white">
+        <div class="max-w-4xl mx-auto px-6">
+            <h2 class="font-heading text-3xl md:text-5xl font-bold mb-8">Make wellness <span
+                    class="underline decoration-teal-300 underline-offset-8">accessible</span> today.</h2>
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-6">
+                <a href="/contact"
+                    class="bg-white text-chair-dark px-10 py-4 rounded-full font-bold hover:bg-gray-100 transition shadow-lg w-full sm:w-auto">Book
+                    a Chair Yoga Session</a>
+                <a href="https://wa.me/919945186968"
+                    class="bg-transparent border-2 border-white/30 hover:border-white px-10 py-4 rounded-full font-bold transition w-full sm:w-auto flex items-center justify-center gap-2">
+                    <i class="fa-brands fa-whatsapp"></i> WhatsApp Us
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const tabs = document.querySelectorAll('.nav-tab');
+            const sections = document.querySelectorAll('section[id]');
+
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (scrollY >= (sectionTop - 150)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                tabs.forEach(tab => {
+                    tab.classList.remove('active', 'text-chair', 'border-chair');
+                    if (tab.getAttribute('href').includes(current)) {
+                        tab.classList.add('active', 'text-chair', 'border-chair');
+                    }
+                });
+            });
+        });
+    </script>
+
+    {% include 'footer.html' %}
+</body>
+
+</html>

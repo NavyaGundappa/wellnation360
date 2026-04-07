@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Power Yoga & Dynamic Strength | WellNation360</title>
+    <meta name="description"
+        content="Unleash your inner fire with Power Yoga. A dynamic, fast-paced style designed to build stamina, detoxify, and tone your entire body while calming your mind.">
+    <meta name="keywords"
+        content="Power Yoga, Vinyasa Flow, Fitness Yoga, Strength Building Yoga, Weight Loss Yoga, High Energy Yoga">
+    <link rel="icon" href="static/images/logo1.png" type="image/x-icon">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Open Sans', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif'],
+                    },
+                    colors: {
+                        power: {
+                            light: '#fff7ed', /* Amber 50 */
+                            DEFAULT: '#f59e0b', /* Amber 500 */
+                            dark: '#b45309', /* Amber 700 */
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .hero-bg {
+            background: linear-gradient(to right, rgba(255, 255, 255, 0.95) 30%, rgba(255, 255, 255, 0.5) 100%),
+                url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=2000&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .nav-tab.active {
+            color: #f59e0b;
+            border-bottom-color: #f59e0b;
+        }
+    </style>
+</head>
+
+<body class="text-gray-700 bg-gray-50 antialiased">
+    {% include 'header.html' %}
+
+    <section class="hero-bg pt-32 pb-24 md:pt-40 md:pb-32 relative z-10">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div
+                class="inline-flex items-center gap-2 bg-power-light border border-amber-200 text-power px-5 py-2 rounded-full text-sm font-semibold mb-6">
+                <i class="fa-solid fa-fire-flame-curved"></i> High Energy › Power Yoga
+            </div>
+            <h1
+                class="font-heading text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight mb-6 max-w-3xl">
+                Unleash Your Inner Fire, <br class="hidden md:block"> Build Your Strength.
+            </h1>
+            <p class="text-lg md:text-xl text-gray-600 max-w-2xl mb-10 leading-relaxed">
+                A dynamic, fast-paced style designed to build stamina, detoxify, and tone your entire body while
+                sharpening your mental focus and resilience.
+            </p>
+            <div class="flex flex-wrap gap-4">
+                <a href="/contact"
+                    class="bg-power hover:bg-power-dark text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 shadow-lg hover:shadow-xl flex items-center gap-2">
+                    <i class="fa-solid fa-bolt"></i> Ignite Your Practice
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-6 flex justify-start md:justify-center overflow-x-auto hide-scrollbar">
+            <a class="nav-tab active px-6 py-4 font-semibold text-gray-500 hover:text-power border-b-4 border-transparent whitespace-nowrap transition-colors"
+                href="#overview">The Approach</a>
+            <a class="nav-tab px-6 py-4 font-semibold text-gray-500 hover:text-power border-b-4 border-transparent whitespace-nowrap transition-colors"
+                href="#benefits">Benefits</a>
+            <a class="nav-tab px-6 py-4 font-semibold text-gray-500 hover:text-power border-b-4 border-transparent whitespace-nowrap transition-colors"
+                href="#elements">Core Elements</a>
+            <a class="nav-tab px-6 py-4 font-semibold text-gray-500 hover:text-power border-b-4 border-transparent whitespace-nowrap transition-colors"
+                href="#instructor">Specialist</a>
+        </div>
+    </nav>
+
+    <section id="overview" class="py-20 md:py-28 bg-white">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="relative">
+                    <img src="static/images/power-yoga.png" alt="Dynamic Power Yoga Session"
+                        class="rounded-3xl shadow-2xl object-cover w-full h-[550px]">
+                </div>
+                <div>
+                    <h2 class="font-heading text-3xl md:text-4xl font-bold text-gray-900 mb-6">Strength in Motion
+                    </h2>
+                    <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                        Power Yoga is a fitness-based vinyasa practice. It takes the athleticism of Ashtanga, including
+                        lots of vinyasas, but gives the instructor the freedom to teach any poses in any order, making
+                        every class a unique challenge.
+                    </p>
+                    <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                        By focusing on flow and building internal heat, this practice acts as a moving meditation that
+                        challenges your physical limits while helping you find a deep sense of calm within the
+                        intensity.
+                    </p>
+                    <div class="bg-power-light border-l-4 border-power p-6 rounded-r-2xl">
+                        <p class="italic text-power-dark font-medium">"Power is not just about muscle; it's about the
+                            steady mind that moves through the fire."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="benefits" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-heading text-3xl md:text-4xl font-bold text-gray-900">Empowering Benefits</h2>
+                <div class="w-16 h-1 bg-power mx-auto mt-4 rounded-full"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-10 rounded-3xl shadow-sm hover:shadow-lg transition group">
+                    <div
+                        class="w-16 h-16 bg-power-light text-power rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:bg-power group-hover:text-white transition duration-300">
+                        <i class="fa-solid fa-heart-pulse"></i>
+                    </div>
+                    <h4 class="font-heading font-bold text-xl mb-4 text-gray-900">Cardiovascular Health</h4>
+                    <p class="text-gray-600 text-sm leading-relaxed">Boosts metabolism and improves heart health through
+                        sustained, rhythmic movement and increased heart rate.</p>
+                </div>
+                <div class="bg-white p-10 rounded-3xl shadow-sm hover:shadow-lg transition group">
+                    <div
+                        class="w-16 h-16 bg-power-light text-power rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:bg-power group-hover:text-white transition duration-300">
+                        <i class="fa-solid fa-dumbbell"></i>
+                    </div>
+                    <h4 class="font-heading font-bold text-xl mb-4 text-gray-900">Lean Muscle & Endurance</h4>
+                    <p class="text-gray-600 text-sm leading-relaxed">Builds total-body strength and lean muscle mass
+                        while significantly increasing your physical endurance.</p>
+                </div>
+                <div class="bg-white p-10 rounded-3xl shadow-sm hover:shadow-lg transition group">
+                    <div
+                        class="w-16 h-16 bg-power-light text-power rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:bg-power group-hover:text-white transition duration-300">
+                        <i class="fa-solid fa-brain"></i>
+                    </div>
+                    <h4 class="font-heading font-bold text-xl mb-4 text-gray-900">Focus & Resilience</h4>
+                    <p class="text-gray-600 text-sm leading-relaxed">Sharpens mental focus and builds emotional
+                        resilience, leaving you energized and ready to take on any challenge.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="elements" class="py-20 md:py-28 bg-white">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="bg-gray-900 rounded-[3rem] p-10 md:p-20 text-white relative overflow-hidden">
+                <div class="relative z-10">
+                    <h2 class="font-heading text-3xl md:text-4xl font-bold mb-12 text-center">Core Pillars</h2>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <div class="border border-white/10 p-6 rounded-2xl hover:bg-white/5 transition">
+                            <h5 class="font-bold text-power mb-2">Internal Heat</h5>
+                            <p class="text-sm text-gray-400">Continuous movement creates "Tapas" (heat) to detoxify the
+                                body and improve flexibility.</p>
+                        </div>
+                        <div class="border border-white/10 p-6 rounded-2xl hover:bg-white/5 transition">
+                            <h5 class="font-bold text-power mb-2">Vinyasa Flow</h5>
+                            <p class="text-sm text-gray-400">Breath-synchronized movement that creates a seamless,
+                                energetic transition between poses.</p>
+                        </div>
+                        <div class="border border-white/10 p-6 rounded-2xl hover:bg-white/5 transition">
+                            <h5 class="font-bold text-power mb-2">Total Toning</h5>
+                            <p class="text-sm text-gray-400">Engages every muscle group, from the core to the
+                                extremities, for a full-body workout.</p>
+                        </div>
+                        <div class="border border-white/10 p-6 rounded-2xl hover:bg-white/5 transition">
+                            <h5 class="font-bold text-power mb-2">Mental Grit</h5>
+                            <p class="text-sm text-gray-400">Holding challenging poses longer to build psychological
+                                strength and patience.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="absolute -top-24 -left-24 w-96 h-96 bg-power/20 rounded-full blur-3xl"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="instructor" class="py-20">
+        <div class="max-w-4xl mx-auto px-6 lg:px-8">
+            <div
+                class="flex flex-col md:flex-row items-center gap-12 bg-white rounded-3xl p-10 shadow-sm border border-gray-100">
+                <div
+                    class="w-48 h-48 bg-power-light text-power rounded-full flex items-center justify-center text-6xl shrink-0">
+                    <i class="fa-solid fa-person-running"></i>
+                </div>
+                <div class="text-center md:text-left">
+                    <h4 class="font-heading text-3xl font-bold text-gray-900">Teebabriah</h4>
+                    <p class="text-power font-bold uppercase tracking-widest text-sm mb-6">Power Yoga Specialist</p>
+                    <p class="text-gray-600 leading-relaxed mb-6">
+                        Teebabriah brings a high-energy, motivating approach to her classes. She focuses on safe
+                        alignment during fast transitions and empowers her students to tap into their physical potential
+                        while maintaining a grounded, mindful presence.
+                    </p>
+                    <a href="/contact" class="text-power font-bold flex items-center gap-2 hover:gap-4 transition-all">
+                        Consult with Teebabriah <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-power-dark py-24 text-center text-white">
+        <div class="max-w-4xl mx-auto px-6">
+            <h2 class="font-heading text-3xl md:text-5xl font-bold mb-8">Ready to ignite your <span
+                    class="underline decoration-amber-300 underline-offset-8">transformation?</span></h2>
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-6">
+                <a href="/contact"
+                    class="bg-white text-power-dark px-10 py-4 rounded-full font-bold hover:bg-gray-100 transition shadow-lg w-full sm:w-auto">Book
+                    a Power Session</a>
+                <a href="https://wa.me/919945186968"
+                    class="bg-transparent border-2 border-white/30 hover:border-white px-10 py-4 rounded-full font-bold transition w-full sm:w-auto flex items-center justify-center gap-2">
+                    <i class="fa-brands fa-whatsapp"></i> WhatsApp Us
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const tabs = document.querySelectorAll('.nav-tab');
+            const sections = document.querySelectorAll('section[id]');
+
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (scrollY >= (sectionTop - 150)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                tabs.forEach(tab => {
+                    tab.classList.remove('active', 'text-power', 'border-power');
+                    if (tab.getAttribute('href').includes(current)) {
+                        tab.classList.add('active', 'text-power', 'border-power');
+                    }
+                });
+            });
+        });
+    </script>
+
+    {% include 'footer.html' %}
+</body>
+
+</html>
