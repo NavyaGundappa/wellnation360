@@ -514,7 +514,7 @@ def base():
     return render_template("base.html")
 
 
-@app.route('/glimpse')
+@app.route('/gallery')
 def gallery():
     # Get all distinct categories
     distinct_categories = db.session.query(
@@ -593,6 +593,11 @@ def index():
             "display_price": display_price_info  # Pass the formatted price for the card
         })
     return render_template('index.html', services_data=services_data)
+
+
+@app.route('/index')
+def index1():
+    return render_template("index1.html")
 
 
 @app.route("/dummy")
