@@ -1,7 +1,8 @@
 <style>
-    /* ===== HEADER & DROPDOWN STYLES (with !important isolation) ===== */
+    /* ===== HEADER & DROPDOWN STYLES ===== */
     .wn-header {
         transition: all 0.3s ease;
+        font-family: 'Open Sans', sans-serif;
     }
 
     .wn-header nav a:not(.cta-button) {
@@ -23,15 +24,21 @@
         transition: width 0.3s ease;
     }
 
-    .wn-header nav a:not(.cta-button):hover::after {
+    .wn-header nav a:not(.cta-button):hover::after,
+    .wn-header nav a.active::after {
         width: 100%;
     }
 
-    /* Dropdown Styles */
+    .wn-header nav a.active {
+        color: #fbbf24 !important;
+    }
+
+    /* Dropdown Container */
     .wn-header .dropdown {
         position: relative;
     }
 
+    /* Standard Dropdown Menu */
     .wn-header .dropdown-menu {
         display: none !important;
         position: absolute;
@@ -44,28 +51,22 @@
         padding: 0.5rem 0;
         z-index: 1000;
         border: 1px solid #e5e7eb;
-        animation: wnFadeIn 0.3s ease-in-out;
+        animation: wnFadeIn 0.2s ease-in-out forwards;
     }
 
-    .wn-header .dropdown-menu.open {
-        display: block !important;
-    }
-
+    /* Mega Dropdown Menu (Services) */
     .wn-header #services-dropdown-menu {
-        display: none !important;
-        position: absolute;
         right: 0;
         left: auto;
         min-width: 520px;
         padding: 1rem;
-        background-color: white;
-        border-radius: 0.5rem;
-        border: 1px solid #e5e7eb;
-        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
-        z-index: 1000;
-        animation: wnFadeIn 0.2s ease-in-out;
-        max-height: 500px;
+        max-height: 70vh;
         overflow-y: auto;
+    }
+
+    /* Open States */
+    .wn-header .dropdown-menu.open {
+        display: block !important;
     }
 
     .wn-header #services-dropdown-menu.open {
@@ -74,24 +75,7 @@
         gap: 0.5rem;
     }
 
-    .wn-header #services-dropdown-menu a {
-        width: 100%;
-        padding: 0.6rem 1rem;
-        border-radius: 0.375rem;
-        color: #374151 !important;
-        font-size: 0.95rem;
-        transition: all 0.2s;
-        text-align: left;
-        white-space: normal;
-        text-decoration: none;
-    }
-
-    .wn-header #services-dropdown-menu a:hover {
-        background-color: #fffbeb !important;
-        color: #b45309 !important;
-        transform: translateX(4px);
-    }
-
+    /* Dropdown Links */
     .wn-header .dropdown-menu a {
         color: #1f2937 !important;
         padding: 0.75rem 1.25rem;
@@ -102,10 +86,25 @@
         white-space: nowrap;
     }
 
+    .wn-header #services-dropdown-menu a {
+        width: 100%;
+        padding: 0.6rem 1rem;
+        border-radius: 0.375rem;
+        white-space: normal;
+    }
+
     .wn-header .dropdown-menu a:hover {
         color: #fbbf24 !important;
         background-color: #f3f4f6 !important;
         padding-left: 1.5rem;
+    }
+
+    .wn-header #services-dropdown-menu a:hover {
+        background-color: #fffbeb !important;
+        color: #b45309 !important;
+        transform: translateX(4px);
+        padding-left: 1rem;
+        /* Reset padding shift for grid items */
     }
 
     .wn-header .dropdown-menu a::after {
@@ -119,25 +118,36 @@
         padding: 1rem 0;
         max-height: 80vh;
         overflow-y: auto;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     .wn-header .mobile-menu a {
         display: block;
         color: white !important;
-        padding: 0.75rem 1.5rem;
-        font-size: 1.1rem;
+        padding: 0.85rem 1.5rem;
+        font-size: 1.05rem;
         transition: background-color 0.2s ease, padding-left 0.2s ease;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         text-decoration: none !important;
     }
 
     .wn-header .mobile-menu a:hover {
         background-color: #374151;
         padding-left: 2rem;
+        color: #fbbf24 !important;
     }
 
     .wn-header .mobile-menu a::after {
         display: none !important;
+    }
+
+    .mobile-menu-section-title {
+        color: #9ca3af;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        padding: 1rem 1.5rem 0.5rem;
+        font-weight: 600;
     }
 
     @keyframes wnFadeIn {
@@ -151,38 +161,15 @@
             transform: translateY(0);
         }
     }
-
-    /* Active link indicator */
-    .wn-header nav a.active {
-        color: #fbbf24 !important;
-    }
-
-    .wn-header nav a.active::after {
-        width: 100%;
-    }
-
-    /* Override any external hover dropdowns */
-    .wn-header .dropdown:hover .dropdown-menu {
-        display: none !important;
-    }
-
-    .wn-header .dropdown .dropdown-menu.open {
-        display: block !important;
-    }
-
-    .wn-header .dropdown #services-dropdown-menu.open {
-        display: grid !important;
-    }
 </style>
 
-<header class="wn-header fixed top-0 left-0 w-full z-50 bg-gray-900/95 backdrop-blur-md shadow-lg py-2 transition-all">
+<header class="wn-header fixed top-0 left-0 w-full z-50 bg-gray-900/95 backdrop-blur-md shadow-lg py-2">
     <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
 
-        <!-- Logo + Brand -->
         <div class="flex items-center gap-3">
-            <a href="/" class="flex items-center gap-3">
+            <a href="/" class="flex items-center gap-3 decoration-transparent">
                 <div
-                    class="relative w-12 h-12 rounded-full overflow-hidden border-2 border-amber-400 bg-white flex items-center justify-center">
+                    class="relative w-12 h-12 rounded-full overflow-hidden border-2 border-amber-400 bg-white flex items-center justify-center shadow-sm">
                     <img src="/static/images/logo1.png" alt="Wellnation360 Logo" class="w-full h-full object-cover"
                         onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                     <i class="fas fa-lotus text-amber-600 text-2xl" style="display:none;"></i>
@@ -192,14 +179,12 @@
             </a>
         </div>
 
-        <!-- Desktop Navigation -->
         <nav class="hidden md:flex items-center space-x-7 text-white font-medium relative">
             <a href="/" class="relative nav-link">Home</a>
             <a href="/about" class="relative nav-link">About</a>
             <a href="/gallery" class="relative nav-link">Gallery</a>
             <a href="/#reviews" class="relative nav-link">Reviews</a>
 
-            <!-- Blog Dropdown -->
             <div class="dropdown relative">
                 <button id="blog-dropdown-button" class="flex items-center space-x-1 focus:outline-none nav-link"
                     aria-haspopup="true" aria-expanded="false">
@@ -214,74 +199,88 @@
                 </div>
             </div>
 
-            <!-- Services Dropdown -->
             <div class="dropdown relative">
                 <button id="services-dropdown-button" class="flex items-center space-x-1 focus:outline-none nav-link"
                     aria-haspopup="true" aria-expanded="false">
                     <span>Services</span>
                     <i class="fas fa-chevron-down text-xs transition-transform duration-300"></i>
                 </button>
-                <div id="services-dropdown-menu" class="dropdown-menu">
-                    <a href="/gentle_reset">Gentle Detox Cleanse</a>
-                    <a href="/metabolic_harmony">Healthy Body Transformation</a>
-                    <a href="/blood_sugar">Diabetes Support Plan</a>
-                    <a href="/thyroid_balance">Thyroid Balance Therapy</a>
-                    <a href="/gut_healing">Digestive Wellness Plan</a>
-                    <a href="/menopause_support">Menopausal Management</a>
-                    <a href="/energy_flow">Acupuncture Therapy</a>
-                    <a href="/psychological_support">Psychological Counselling</a>
-                    <a href="/reiki_healing">Reiki Healing</a>
-                    <a href="/quantum_healing">Quantum Healing</a>
-                    <a href="/mudgar_therapy">Mudgar Practice</a>
+                <div id="services-dropdown-menu" class="dropdown-menu shadow-xl">
+                    <a href="/gentle_reset"><i class="fas fa-leaf text-amber-500 w-5"></i> Gentle Detox Cleanse</a>
+                    <a href="/metabolic_harmony"><i class="fas fa-weight text-amber-500 w-5"></i> Healthy Body
+                        Transformation</a>
+                    <a href="/blood_sugar"><i class="fas fa-heartbeat text-amber-500 w-5"></i> Diabetes Support Plan</a>
+                    <a href="/thyroid_balance"><i class="fas fa-h-square text-amber-500 w-5"></i> Thyroid Balance
+                        Therapy</a>
+                    <a href="/gut_healing"><i class="fas fa-bacteria text-amber-500 w-5"></i> Digestive Wellness
+                        Plan</a>
+                    <a href="/menopause_support"><i class="fas fa-venus text-amber-500 w-5"></i> Menopausal
+                        Management</a>
+                    <a href="/energy_flow"><i class="fas fa-spa text-amber-500 w-5"></i> Acupuncture Therapy</a>
+                    <a href="/psychological_support"><i class="fas fa-brain text-amber-500 w-5"></i> Psychological
+                        Counselling</a>
+                    <a href="/reiki_healing"><i class="fas fa-hands-healing text-amber-500 w-5"></i> Reiki Healing</a>
+                    <a href="/quantum_healing"><i class="fas fa-atom text-amber-500 w-5"></i> Quantum Healing</a>
+                    <a href="/mudgar_therapy"><i class="fas fa-dumbbell text-amber-500 w-5"></i> Mudgar Practice</a>
                 </div>
             </div>
 
             <a href="/contact" class="relative nav-link">Contact</a>
+
             <a href="http://yoga-kshema.in" target="_blank" rel="noopener noreferrer"
-                class="cta-button bg-gradient-to-r from-amber-500 to-amber-600 text-gray-900 px-5 py-2 rounded-full font-bold hover:shadow-lg transition">
+                class="cta-button bg-gradient-to-r from-amber-500 to-amber-600 text-gray-900 px-5 py-2 rounded-full font-bold hover:shadow-lg hover:from-amber-400 hover:to-amber-500 transition-all duration-300 transform hover:-translate-y-0.5">
                 Yogakshema
             </a>
         </nav>
 
-        <!-- Mobile Menu Button -->
-        <button id="mobile-menu-button" class="md:hidden text-white text-3xl focus:outline-none">
+        <button id="mobile-menu-button"
+            class="md:hidden text-white text-2xl focus:outline-none hover:text-amber-400 transition-colors">
             <i class="fas fa-bars"></i>
         </button>
     </div>
 
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="mobile-menu md:hidden">
+    <div id="mobile-menu" class="mobile-menu md:hidden shadow-inner">
         <a href="/">Home</a>
         <a href="/about">About</a>
         <a href="/gallery">Gallery</a>
         <a href="/#reviews">Reviews</a>
-        <a href="/gut_health">Gut Health</a>
-        <a href="/diet_modification">Diet Modification</a>
-        <a href="/meditation">Meditation</a>
-        <a href="/sleep_modification">Importance of Sleep</a>
-        <a href="/gentle_reset">Gentle Detox Cleanse</a>
-        <a href="/metabolic_harmony">Healthy Body Transformation</a>
-        <a href="/blood_sugar">Diabetes Support Plan</a>
-        <a href="/thyroid_balance">Thyroid Balance Therapy</a>
-        <a href="/gut_healing">Digestive Wellness Plan</a>
-        <a href="/energy_flow">Acupuncture Therapy</a>
         <a href="/contact">Contact</a>
-        <a href="http://yoga-kshema.in" target="_blank" rel="noopener noreferrer">Yogakshema</a>
+
+        <div class="mobile-menu-section-title">Blogs</div>
+        <a href="/gut_health" class="pl-8 text-gray-300">Gut Health</a>
+        <a href="/diet_modification" class="pl-8 text-gray-300">Diet Modification</a>
+        <a href="/meditation" class="pl-8 text-gray-300">Meditation</a>
+        <a href="/sleep_modification" class="pl-8 text-gray-300">Importance of Sleep</a>
+
+        <div class="mobile-menu-section-title">Core Services</div>
+        <a href="/gentle_reset" class="pl-8 text-gray-300">Gentle Detox Cleanse</a>
+        <a href="/metabolic_harmony" class="pl-8 text-gray-300">Healthy Body Transformation</a>
+        <a href="/blood_sugar" class="pl-8 text-gray-300">Diabetes Support Plan</a>
+        <a href="/thyroid_balance" class="pl-8 text-gray-300">Thyroid Balance Therapy</a>
+        <a href="/gut_healing" class="pl-8 text-gray-300">Digestive Wellness Plan</a>
+        <a href="/energy_flow" class="pl-8 text-gray-300">Acupuncture Therapy</a>
+
+        <div class="mt-4 px-6 pb-4 border-t border-gray-700 pt-4">
+            <a href="http://yoga-kshema.in" target="_blank" rel="noopener noreferrer"
+                class="text-center bg-amber-500 text-gray-900 rounded-full font-bold py-3 hover:bg-amber-400">
+                Visit Yogakshema
+            </a>
+        </div>
     </div>
 </header>
 
-<!-- Spacer div -->
 <div class="h-16 md:h-20"></div>
 
 <script>
     (function () {
-        function initHeader() {
-            // Mobile Menu Toggle
+        // This function can be called safely multiple times
+        function initWellNationHeader() {
+            // 1. Mobile Menu Toggle
             const menuBtn = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
 
             if (menuBtn && mobileMenu) {
-                // Remove any existing listeners by cloning
+                // Remove old event listeners by cloning
                 const newBtn = menuBtn.cloneNode(true);
                 menuBtn.parentNode.replaceChild(newBtn, menuBtn);
 
@@ -289,86 +288,45 @@
                     e.stopPropagation();
                     const isOpen = mobileMenu.style.display === 'block';
                     mobileMenu.style.display = isOpen ? 'none' : 'block';
-                    this.innerHTML = isOpen ? '<i class="fas fa-bars"></i>' : '<i class="fas fa-times"></i>';
-                });
-
-                document.addEventListener('click', function (e) {
-                    if (!newBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
-                        mobileMenu.style.display = 'none';
-                        newBtn.innerHTML = '<i class="fas fa-bars"></i>';
-                    }
                 });
             }
 
-            // Dropdown Setup Function
+            // 2. Dropdown Logic
             function setupDropdown(btnId, menuId) {
                 const btn = document.getElementById(btnId);
                 const menu = document.getElementById(menuId);
-
                 if (!btn || !menu) return;
 
-                // Clone to remove existing listeners
+                // Remove old listeners
                 const newBtn = btn.cloneNode(true);
                 btn.parentNode.replaceChild(newBtn, btn);
 
-                const icon = newBtn.querySelector('i');
-
                 newBtn.addEventListener('click', function (e) {
                     e.stopPropagation();
-                    e.preventDefault();
-
-                    // Close other open dropdowns
-                    document.querySelectorAll('.wn-header .dropdown-menu.open').forEach(openMenu => {
-                        if (openMenu.id !== menuId) {
-                            openMenu.classList.remove('open');
-                            const otherBtn = openMenu.closest('.dropdown')?.querySelector('button');
-                            const otherIcon = otherBtn?.querySelector('i');
-                            if (otherIcon) otherIcon.style.transform = 'rotate(0deg)';
-                            if (otherBtn) otherBtn.setAttribute('aria-expanded', 'false');
-                        }
+                    // Close others
+                    document.querySelectorAll('.dropdown-menu').forEach(m => {
+                        if (m.id !== menuId) m.classList.remove('open');
                     });
-
-                    const isOpen = menu.classList.toggle('open');
-                    newBtn.setAttribute('aria-expanded', isOpen);
-                    if (icon) icon.style.transform = isOpen ? 'rotate(180deg)' : 'rotate(0deg)';
-                });
-
-                // Close when clicking outside
-                window.addEventListener('click', function (e) {
-                    if (!newBtn.contains(e.target) && !menu.contains(e.target)) {
-                        if (menu.classList.contains('open')) {
-                            menu.classList.remove('open');
-                            newBtn.setAttribute('aria-expanded', 'false');
-                            if (icon) icon.style.transform = 'rotate(0deg)';
-                        }
-                    }
+                    // Toggle current
+                    menu.classList.toggle('open');
                 });
             }
 
-            // Initialize dropdowns
             setupDropdown('blog-dropdown-button', 'blog-dropdown-menu');
             setupDropdown('services-dropdown-button', 'services-dropdown-menu');
 
-            // Highlight active link
-            const currentPath = window.location.pathname;
-            const navLinks = document.querySelectorAll('.wn-header .nav-link');
-
-            navLinks.forEach(link => {
-                const href = link.getAttribute('href');
-                if (href && href !== '#' && href !== '/') {
-                    if (currentPath.includes(href.replace(/\//g, ''))) {
-                        link.classList.add('active');
-                    }
-                } else if (href === '/' && currentPath === '/') {
-                    link.classList.add('active');
-                }
+            // Close on outside click
+            document.addEventListener('click', () => {
+                document.querySelectorAll('.dropdown-menu').forEach(m => m.classList.remove('open'));
+                if (mobileMenu) mobileMenu.style.display = 'none';
             });
         }
 
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', initHeader);
+        // Initialize immediately if DOM is ready, or wait for event
+        if (document.readyState === 'complete' || document.readyState === 'interactive') {
+            initWellNationHeader();
         } else {
-            initHeader();
+            document.addEventListener('DOMContentLoaded', initWellNationHeader);
         }
     })();
 </script>

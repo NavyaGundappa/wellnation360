@@ -36,7 +36,7 @@
       background: #faf9f6;
     }
 
-    /* ===== HEADER & DROPDOWN STYLES (merged from header.html & dummy) ===== */
+    /* ===== HEADER & DROPDOWN STYLES ===== */
     header {
       transition: all 0.3s ease;
     }
@@ -302,6 +302,117 @@
       transform: rotate(180deg);
     }
 
+    /* Reviews Carousel Styles */
+    .reviewsSwiper {
+      padding-bottom: 3rem !important;
+    }
+
+    .reviewsSwiper .swiper-slide {
+      height: auto;
+      width: 320px;
+    }
+
+    @media (min-width: 768px) {
+      .reviewsSwiper .swiper-slide {
+        width: 380px;
+      }
+    }
+
+    .reviews-prev,
+    .reviews-next {
+      background: white;
+      border-radius: 50%;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      transition: all 0.2s;
+    }
+
+    .reviews-prev:hover,
+    .reviews-next:hover {
+      background: #fbbf24;
+      box-shadow: 0 4px 15px rgba(251, 191, 36, 0.3);
+    }
+
+    .reviews-prev::after,
+    .reviews-next::after {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #b45309;
+    }
+
+    .reviews-pagination .swiper-pagination-bullet-active {
+      background: #fbbf24 !important;
+    }
+
+    /* ===== ELEGANT TESTIMONIAL CARDS ===== */
+    .testimonial-card {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(251, 191, 36, 0.15);
+      border-top: 4px solid #fbbf24;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: all 0.3s ease;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px -10px rgba(251, 191, 36, 0.2);
+    }
+
+    .testimonial-card::before {
+      content: '\201C';
+      position: absolute;
+      top: -10px;
+      right: 20px;
+      font-size: 6rem;
+      color: rgba(251, 191, 36, 0.08);
+      font-family: Georgia, serif;
+      line-height: 1;
+      z-index: -1;
+    }
+
+    .testimonial-stars {
+      color: #f59e0b;
+      font-size: 1.1rem;
+      letter-spacing: 2px;
+      margin-bottom: 1rem;
+    }
+
+    .testimonial-text {
+      font-style: italic;
+      color: #4b5563;
+      line-height: 1.7;
+      flex-grow: 1;
+      font-size: 0.95rem;
+    }
+
+    .testimonial-author-area {
+      margin-top: 1.5rem;
+      border-top: 1px solid #f3f4f6;
+      padding-top: 1.25rem;
+    }
+
+    .testimonial-author-name {
+      font-weight: 700;
+      color: #1f2937;
+      font-size: 1.05rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .testimonial-author-company {
+      font-size: 0.75rem;
+      color: #b45309;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 600;
+    }
+
     @media (max-width: 768px) {
       .hero-full-carousel {
         height: 85vh;
@@ -334,10 +445,8 @@
 
 <body class="font-sans antialiased bg-white">
 
-  <!-- ========== HEADER (with dropdowns + logo) ========== -->
   <header class="fixed top-0 left-0 w-full z-50 bg-gray-900/95 backdrop-blur-md shadow-lg py-2 transition-all">
     <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
-      <!-- Logo + Brand -->
       <div class="flex items-center gap-3">
         <div
           class="relative w-12 h-12 rounded-full overflow-hidden border-2 border-amber-400 bg-white flex items-center justify-center">
@@ -349,14 +458,12 @@
             class="text-amber-400">360</span></span>
       </div>
 
-      <!-- Desktop Navigation with Dropdowns (from header.html logic) -->
       <nav class="hidden md:flex items-center space-x-7 text-white font-medium relative">
         <a href="#home-carousel" class="relative">Home</a>
         <a href="#about-wellness" class="relative">About</a>
         <a href="/gallery" class="relative">Gallery</a>
         <a href="#reviews" class="relative">Reviews</a>
 
-        <!-- Blog Dropdown -->
         <div class="dropdown relative">
           <button id="blog-dropdown-button" class="flex items-center space-x-1 focus:outline-none" aria-haspopup="true"
             aria-expanded="false">
@@ -371,7 +478,6 @@
           </div>
         </div>
 
-        <!-- Services Dropdown (wide) -->
         <div class="dropdown relative">
           <button id="services-dropdown-button" class="flex items-center space-x-1 focus:outline-none"
             aria-haspopup="true" aria-expanded="false">
@@ -401,7 +507,6 @@
       </nav>
       <button id="mobile-menu-button" class="md:hidden text-white text-3xl"><i class="fas fa-bars"></i></button>
     </div>
-    <!-- Mobile Menu -->
     <div id="mobile-menu" class="mobile-menu md:hidden">
       <a href="#home-carousel">Home</a>
       <a href="#about-wellness">About</a>
@@ -416,11 +521,9 @@
     </div>
   </header>
 
-  <!-- ========== HERO CAROUSEL (Slide 1: Best Yoga Center in Bengaluru) ========== -->
   <section id="home-carousel" class="hero-full-carousel">
     <div class="swiper mySwiperHero w-full h-full">
       <div class="swiper-wrapper">
-        <!-- SLIDE 1 : BEST YOGA CENTER IN BENGALURU (as requested) -->
         <div class="swiper-slide"
           style="background-image: url('https://images.unsplash.com/photo-1545205597-3d9d02c29597?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');">
           <div class="slide-content">
@@ -430,7 +533,6 @@
                 class="fas fa-arrow-right ml-2"></i></a>
           </div>
         </div>
-        <!-- SLIDE 2: Detox -->
         <div class="swiper-slide"
           style="background-image: url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');">
           <div class="slide-content">
@@ -439,7 +541,6 @@
             <a href="#services-section" class="hero-cta"><i class="fas fa-leaf"></i> Start Detox Journey</a>
           </div>
         </div>
-        <!-- SLIDE 3: Weight Loss -->
         <div class="swiper-slide"
           style="background-image: url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');">
           <div class="slide-content">
@@ -448,7 +549,6 @@
             <a href="#services-section" class="hero-cta"><i class="fas fa-weight-scale"></i> Transform Now</a>
           </div>
         </div>
-        <!-- SLIDE 4: Diabetes -->
         <div class="swiper-slide"
           style="background-image: url('https://images.unsplash.com/photo-1505751172876-fa1923c5c528?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');">
           <div class="slide-content">
@@ -464,15 +564,12 @@
     </div>
   </section>
 
-  <!-- ========== SERVICES SECTION (detailed cards) ========== -->
   <section id="services-section" class="py-20 bg-gray-50">
     <div class="max-w-6xl mx-auto px-4">
-      <!-- About Us block with logo image -->
       <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
         <div data-aos="fade-right" class="flex justify-center">
           <div class="w-72 h-72 rounded-full overflow-hidden border-4 border-amber-300 shadow-xl bg-white p-2">
-            <img src="static/images/logo1.png" alt="Wellnation360 Logo" class="w-full h-full object-contain"
-              onerror="this.src='https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=400'">
+            <img src="static/images/logo1.png" alt="Wellnation360 Logo" class="w-full h-full object-contain">
           </div>
         </div>
         <div data-aos="fade-left">
@@ -491,8 +588,7 @@
           <h2 class="text-4xl font-extrabold text-gray-900 mt-2">Our Wellness Services</h2>
           <div class="h-1 w-28 bg-amber-500 mx-auto rounded-full my-4"></div>
           <p class="text-gray-600 text-lg max-w-2xl mx-auto">Integrated nutrition, natural therapies & lifestyle
-            medicine.
-          </p>
+            medicine.</p>
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           <div class="service-card" data-aos="fade-up"><i class="fas fa-leaf text-3xl text-amber-600 mb-4"></i>
@@ -528,7 +624,6 @@
             <div class="mt-4"><span class="font-bold text-amber-700">₹1,200/session</span></div>
           </div>
         </div>
-        <!-- Condition Pills -->
         <div class="mt-16 text-center">
           <h3 class="text-2xl font-bold mb-6">We Specialize in 50+ Conditions</h3>
           <div class="condition-pills flex flex-wrap justify-center gap-3">
@@ -541,7 +636,6 @@
       </div>
   </section>
 
-  <!-- ========== YOGA CLASSES (Yogakshema) ========== -->
   <section id="yoga-classes" class="py-20 bg-white">
     <div class="max-w-7xl mx-auto px-4">
       <div class="text-center mb-12"><span class="text-amber-600 font-semibold">Yogakshema - The Yoga Sanctuary</span>
@@ -581,12 +675,8 @@
     </div>
   </section>
 
-  <!-- ========== ABOUT + DR. RITU KAPOOR (full details from dummy) ========== -->
   <section id="about-wellness" class="py-20 bg-gradient-to-br from-amber-50 to-white">
-
-
-    <!-- DR RITU KAPOOR detailed (exactly from dummy) -->
-    <div class="bg-gray-900 text-white rounded-3xl p-8 md:p-12" data-aos="fade-up">
+    <div class="bg-gray-900 text-white rounded-3xl p-8 md:p-12 max-w-6xl mx-auto" data-aos="fade-up">
       <div class="grid md:grid-cols-2 gap-10 items-center">
         <div><img src="static/images/profilepic.jpeg" alt="Dt. Ritu Kapoor"
             class="rounded-2xl shadow-2xl w-full object-cover"
@@ -599,8 +689,8 @@
               University</span>, specializing in Animal Tissue Culture, and in <span class="text-amber-300">Nutrition
               & Dietetics from Bangalore</span>.</p>
           <p class="text-gray-300 mt-4">With experience as a research fellow, she believes: <span
-              class="italic text-amber-200">“Ultimate outcome in terms of health is how well our cells are nourished
-              to keep our DNA strong.”</span></p>
+              class="italic text-amber-200">"Ultimate outcome in terms of health is how well our cells are nourished
+              to keep our DNA strong."</span></p>
           <p class="text-gray-300 mt-4">She has worked at Manipal Hospital & Aarogya Hastha Hospital. Her mission:
             empower through sustainable choices.</p>
           <div class="flex flex-wrap gap-4 mt-8">
@@ -614,84 +704,460 @@
         </div>
       </div>
     </div>
+  </section>
+
+  <section class="py-16 bg-white px-4">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-12" data-aos="fade-up">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-3">Wellness Wisdom</h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">Explore our collection of insightful articles on holistic
+          health, nutrition, and mindful living.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-5 gap-6">
+        <article
+          class="md:col-span-3 bg-green-50 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
+          <div class="h-full flex flex-col md:flex-row">
+            <div class="md:w-1/2 h-64 md:h-auto">
+              <img src="static/images/gut-health.jpg" alt="Featured Post" class="w-full h-full object-cover">
+            </div>
+            <div class="p-8 md:w-1/2 flex flex-col justify-center">
+              <span
+                class="inline-block bg-green-100 text-green-800 text-xs font-semibold px-3 py-1 rounded-full mb-3">FEATURED</span>
+              <h3 class="text-2xl font-bold text-gray-800 mb-3">The Mind-Gut Connection</h3>
+              <p class="text-gray-600 mb-4">How your digestive health impacts mental wellbeing and what you can do about
+                it...</p>
+              <a href="/gut_health" class="mt-auto text-green-600 font-medium flex items-center group">
+                Read Story
+                <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none"
+                  stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <div class="md:col-span-2 space-y-6">
+          <article
+            class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 flex">
+            <div class="w-1/3">
+              <img src="static/images/dietmodification.jpg" alt="Yoga Tips" class="w-full h-25 object-contain">
+            </div>
+            <div class="p-5 w-2/3">
+              <span class="text-xs font-semibold text-blue-600">Diet Modification</span>
+              <h4 class="font-bold text-gray-800 mt-1 mb-2">The Science of Food as Medicine.</h4>
+              <a href="/diet_modification" class="text-sm text-green-600 font-medium inline-flex items-center">
+                Read
+                <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <article
+            class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 flex">
+            <div class="w-1/3">
+              <img src="static/images/sleepblog.webp" alt="Nutrition" class="w-full h-25 object-contain">
+            </div>
+            <div class="p-5 w-2/3">
+              <span class="text-xs font-semibold text-amber-600">SLEEP</span>
+              <h4 class="font-bold text-gray-800 mt-1 mb-2">Master your sleep, master your health.</h4>
+              <a href="/sleep_modification" class="text-sm text-green-600 font-medium inline-flex items-center">
+                Read
+                <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <article
+            class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 flex">
+            <div class="w-1/3">
+              <img src="static/images/mediation.webp" alt="Meditation" class="w-full h-full object-cover">
+            </div>
+            <div class="p-5 w-2/3">
+              <span class="text-xs font-semibold text-purple-600">MENTAL HEALTH</span>
+              <h4 class="font-bold text-gray-800 mt-1 mb-2">Breathwork Techniques</h4>
+              <a href="/meditation" class="text-sm text-green-600 font-medium inline-flex items-center">
+                Read
+                <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+      <div class="text-center mt-12" data-aos="fade-up"><a href="/gut_health"
+          class="inline-flex items-center px-8 py-3.5 border-2 border-green-600 text-green-600 rounded-lg font-semibold hover:bg-green-600 hover:text-white transition-colors duration-300 text-lg shadow-sm hover:shadow-md">Explore
+          All Articles <svg class="w-5 h-5 ml-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg></a></div>
     </div>
   </section>
 
-  <!-- ========== REVIEWS ========== -->
   <section id="reviews" class="py-20 bg-gray-100">
-    <div class="max-w-6xl mx-auto px-4 text-center">
+    <div class="max-w-7xl mx-auto px-4 text-center">
       <h2 class="text-4xl font-bold text-gray-800 mb-4">What Our Clients Say</h2>
-      <div class="grid md:grid-cols-3 gap-6 mt-10">
-        <div class="bg-white p-6 rounded-2xl shadow">
-          <div class="text-amber-400 text-2xl mb-2">★★★★★</div>
-          <p class="italic">"The detox changed my life. Lost 8kg!"</p>
-          <p class="font-bold mt-4">— Priya S.</p>
+      <p class="text-gray-600 mb-10 max-w-2xl mx-auto">Real stories from our wellness community — 5000+ happy hearts and
+        counting</p>
+
+      <div class="swiper reviewsSwiper overflow-hidden px-2 py-4">
+        <div class="swiper-wrapper">
+
+          <div class="swiper-slide h-auto">
+            <div class="testimonial-card">
+              <div class="testimonial-stars">★★★★★</div>
+              <p class="testimonial-text">"The glucosamine seems to give relief. I am not facing more
+                trouble or leg pain issues as I regularly followed all the precautions and exercises."</p>
+              <div class="testimonial-author-area">
+                <p class="testimonial-author-name">— Mathamsetty S.</p>
+                <p class="testimonial-author-company">Wellnation360</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide h-auto">
+            <div class="testimonial-card">
+              <div class="testimonial-stars">★★★★★</div>
+              <p class="testimonial-text">"Diet chart is very practical and easy to follow. Able to see
+                significant changes in a month."</p>
+              <div class="testimonial-author-area">
+                <p class="testimonial-author-name">— Hema K.</p>
+                <p class="testimonial-author-company">Wellnation360</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide h-auto">
+            <div class="testimonial-card">
+              <div class="testimonial-stars">★★★★★</div>
+              <p class="testimonial-text">"Ritu has very good knowledge and is thorough with the meal
+                plans. My son has benefitted health wise. Ritu is very kind and caring."</p>
+              <div class="testimonial-author-area">
+                <p class="testimonial-author-name">— Jagruty S.</p>
+                <p class="testimonial-author-company">Wellnation360</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide h-auto">
+            <div class="testimonial-card">
+              <div class="testimonial-stars">★★★★★</div>
+              <p class="testimonial-text">"Wonderful experience with Dr. Kapoor for digestion. Immediately
+                the problem was figured out and saw massive improvement in under a week."</p>
+              <div class="testimonial-author-area">
+                <p class="testimonial-author-name">— Ayush S.</p>
+                <p class="testimonial-author-company">Wellnation360</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide h-auto">
+            <div class="testimonial-card">
+              <div class="testimonial-stars">★★★★★</div>
+              <p class="testimonial-text">"Dt. Ritu's diet plan is extremely patient and relevant for any
+                working person. I am grateful for your guidance."</p>
+              <div class="testimonial-author-area">
+                <p class="testimonial-author-name">— Rochna R.</p>
+                <p class="testimonial-author-company">Wellnation360</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide h-auto">
+            <div class="testimonial-card">
+              <div class="testimonial-stars">★★★★★</div>
+              <p class="testimonial-text">"Ritu is a thorough professional. Able to see results in 3-4
+                months. Highly recommend for a definite change."</p>
+              <div class="testimonial-author-area">
+                <p class="testimonial-author-name">— Prabu P.</p>
+                <p class="testimonial-author-company">Wellnation360</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide h-auto">
+            <div class="testimonial-card">
+              <div class="testimonial-stars">★★★★★</div>
+              <p class="testimonial-text">"Ritu mam is excellent. She listens to every word and never gets
+                irritated. In my view, she is my inspiration."</p>
+              <div class="testimonial-author-area">
+                <p class="testimonial-author-name">— Abhra S.</p>
+                <p class="testimonial-author-company">Wellnation360</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide h-auto">
+            <div class="testimonial-card">
+              <div class="testimonial-stars">★★★★★</div>
+              <p class="testimonial-text">"Within a month I saw changes on medical test reports. The best
+                part is her calmness and soft transition."</p>
+              <div class="testimonial-author-area">
+                <p class="testimonial-author-name">— Debashish P.</p>
+                <p class="testimonial-author-company">Wellnation360</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide h-auto">
+            <div class="testimonial-card">
+              <div class="testimonial-stars">★★★★★</div>
+              <p class="testimonial-text">"Holistic approach. Very patient, caring, and gives natural
+                remedies in an easy way. Truly affectionate."</p>
+              <div class="testimonial-author-area">
+                <p class="testimonial-author-name">— Shri R.</p>
+                <p class="testimonial-author-company">Wellnation360</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide h-auto">
+            <div class="testimonial-card">
+              <div class="testimonial-stars">★★★★★</div>
+              <p class="testimonial-text">"Acupuncture with Dr. Poornima and yoga with Kanika addressed my
+                chronic back pain remarkably. Highly recommend the integrative approach."</p>
+              <div class="testimonial-author-area">
+                <p class="testimonial-author-name">— Anand S.</p>
+                <p class="testimonial-author-company">Wellnation360</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide h-auto">
+            <div class="testimonial-card">
+              <div class="testimonial-stars">★★★★★</div>
+              <p class="testimonial-text">"Thank you for helping us with effective diet plans. Reduction
+                in constant anxieties and health issues."</p>
+              <div class="testimonial-author-area">
+                <p class="testimonial-author-name">— Divya C.</p>
+                <p class="testimonial-author-company">Wellnation360</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide h-auto">
+            <div class="testimonial-card">
+              <div class="testimonial-stars">★★★★★</div>
+              <p class="testimonial-text">"Joined Chakra meditation at Yogakshema. Wonderful experience
+                and great ambience for yoga."</p>
+              <div class="testimonial-author-area">
+                <p class="testimonial-author-name">— Uma R.</p>
+                <p class="testimonial-author-company">Yogakshema</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide h-auto">
+            <div class="testimonial-card">
+              <div class="testimonial-stars">★★★★★</div>
+              <p class="testimonial-text">"Very service oriented & mindful yoga teacher. Positive energy
+                and connects well with individuals."</p>
+              <div class="testimonial-author-area">
+                <p class="testimonial-author-name">— Varsha D.</p>
+                <p class="testimonial-author-company">Yogakshema</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide h-auto">
+            <div class="testimonial-card">
+              <div class="testimonial-stars">★★★★★</div>
+              <p class="testimonial-text">"Ritu didi is a good listener. Addresses core reasons for weight
+                gain rather than temporary fixes."</p>
+              <div class="testimonial-author-area">
+                <p class="testimonial-author-name">— Mon B.</p>
+                <p class="testimonial-author-company">Wellnation360</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide h-auto">
+            <div class="testimonial-card">
+              <div class="testimonial-stars">★★★★★</div>
+              <p class="testimonial-text">"Dr. Ritu is patient, knowledgeable, and genuinely cares. Saw
+                results in 1.5 months. Strongly recommend!"</p>
+              <div class="testimonial-author-area">
+                <p class="testimonial-author-name">— Anusha G.</p>
+                <p class="testimonial-author-company">Wellnation360</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide h-auto">
+            <div class="testimonial-card">
+              <div class="testimonial-stars">★★★★★</div>
+              <p class="testimonial-text">"Aerial yoga classes are great. Experienced teacher, well
+                maintained, reasonable prices. Made great progress in 2 months."</p>
+              <div class="testimonial-author-area">
+                <p class="testimonial-author-name">— Ojasvi B.</p>
+                <p class="testimonial-author-company">Yogakshema</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide h-auto">
+            <div class="testimonial-card">
+              <div class="testimonial-stars">★★★★★</div>
+              <p class="testimonial-text">"Hatha yoga at Yogakshema brings positivity and confidence.
+                Special thanks to instructor Kanika for step-by-step guidance."</p>
+              <div class="testimonial-author-area">
+                <p class="testimonial-author-name">— Alolika P.</p>
+                <p class="testimonial-author-company">Yogakshema</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide h-auto">
+            <div class="testimonial-card">
+              <div class="testimonial-stars">★★★★★</div>
+              <p class="testimonial-text">"Excellent."</p>
+              <div class="testimonial-author-area">
+                <p class="testimonial-author-name">— Anonymous</p>
+                <p class="testimonial-author-company">Yogakshema</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide h-auto">
+            <div class="testimonial-card">
+              <div class="testimonial-stars">★★★★★</div>
+              <p class="testimonial-text">"Dr. Rithu's healing centre is vibrant. She listens ardently,
+                gives easy suggestions, and follows up. She truly cares. Thank you!"</p>
+              <div class="testimonial-author-area">
+                <p class="testimonial-author-name">— Sheela R.</p>
+                <p class="testimonial-author-company">Wellnation360</p>
+              </div>
+            </div>
+          </div>
+
         </div>
-        <div class="bg-white p-6 rounded-2xl shadow">
-          <div class="text-amber-400 text-2xl mb-2">★★★★★</div>
-          <p class="italic">"Best yoga center in Bangalore. Serene & knowledgeable."</p>
-          <p class="font-bold mt-4">— Rajesh K.</p>
-        </div>
-        <div class="bg-white p-6 rounded-2xl shadow">
-          <div class="text-amber-400 text-2xl mb-2">★★★★★</div>
-          <p class="italic">"HbA1c reduced from 8.2 to 6.1. Diabetes plan works!"</p>
-          <p class="font-bold mt-4">— Meera N.</p>
-        </div>
+
+        <div class="swiper-button-prev reviews-prev !text-amber-500 !w-10 !h-10 after:!text-2xl"></div>
+        <div class="swiper-button-next reviews-next !text-amber-500 !w-10 !h-10 after:!text-2xl"></div>
+        <div class="swiper-pagination reviews-pagination !bottom-0"></div>
       </div>
     </div>
   </section>
 
-  <!-- ========== FAQ SECTION (from dummy) ========== -->
-  <section class="py-16 bg-white">
+  <section class="py-16 bg-gray-50">
     <div class="max-w-4xl mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center text-gray-800 mb-10">Frequently Asked Questions</h2>
+      <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-12">Frequently Asked Questions</h2>
+
       <div class="space-y-4">
-        <div class="bg-gray-50 rounded-xl overflow-hidden"><button
-            class="faq-question w-full text-left px-6 py-4 flex justify-between items-center font-semibold"><span>What
-              is WellNation360 and Yogakshema?</span><svg class="w-5 h-5 text-amber-600" fill="none"
-              stroke="currentColor" viewBox="0 0 24 24">
+        <div class="bg-white rounded-xl shadow-md overflow-hidden">
+          <button class="faq-question w-full text-left px-6 py-4 flex justify-between items-center focus:outline-none">
+            <h3 class="text-lg font-semibold text-gray-800">What is Wellnation360?</h3>
+            <svg class="w-5 h-5 text-green-600 transform transition-transform duration-300" fill="none"
+              viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-            </svg></button>
+            </svg>
+          </button>
           <div class="faq-answer px-6 pb-4 hidden">
-            <p>WellNation360 offers holistic nutrition & therapy; Yogakshema is our dedicated yoga center. Together they
-              provide complete mind-body wellness.</p>
+            <p class="text-gray-600">
+              Wellnation360 is a holistic wellness center that combines modern science with ancient wisdom to help you
+              achieve optimal health. We offer personalized programs for detox, weight management, diabetes support,
+              thyroid balance, digestive health, and more through nutrition, lifestyle changes, and therapies like
+              acupuncture.
+            </p>
           </div>
         </div>
-        <div class="bg-gray-50 rounded-xl overflow-hidden"><button
-            class="faq-question w-full text-left px-6 py-4 flex justify-between items-center font-semibold"><span>Can I
-              do the programs online?</span><svg class="w-5 h-5 text-amber-600" fill="none" stroke="currentColor"
-              viewBox="0 0 24 24">
+
+        <div class="bg-white rounded-xl shadow-md overflow-hidden">
+          <button class="faq-question w-full text-left px-6 py-4 flex justify-between items-center focus:outline-none">
+            <h3 class="text-lg font-semibold text-gray-800">What is Yogakshema and how is it related?</h3>
+            <svg class="w-5 h-5 text-green-600 transform transition-transform duration-300" fill="none"
+              viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-            </svg></button>
+            </svg>
+          </button>
           <div class="faq-answer px-6 pb-4 hidden">
-            <p>Yes! Online consultations, diet plans, and live yoga sessions are available globally.</p>
+            <p class="text-gray-600">
+              Yogakshema is our sister organization focused on traditional yoga and meditation practices. While
+              Wellnation360 takes a more clinical approach to wellness with nutrition and therapies, Yogakshema
+              complements this with yoga, pranayama, and meditation practices. Together they provide a complete
+              mind-body wellness solution.
+            </p>
           </div>
         </div>
-        <div class="bg-gray-50 rounded-xl overflow-hidden"><button
-            class="faq-question w-full text-left px-6 py-4 flex justify-between items-center font-semibold"><span>Do I
-              need medical tests before joining?</span><svg class="w-5 h-5 text-amber-600" fill="none"
-              stroke="currentColor" viewBox="0 0 24 24">
+
+        <div class="bg-white rounded-xl shadow-md overflow-hidden">
+          <button class="faq-question w-full text-left px-6 py-4 flex justify-between items-center focus:outline-none">
+            <h3 class="text-lg font-semibold text-gray-800">How can I reach Wellnation360 or Yogakshema?</h3>
+            <svg class="w-5 h-5 text-green-600 transform transition-transform duration-300" fill="none"
+              viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-            </svg></button>
+            </svg>
+          </button>
           <div class="faq-answer px-6 pb-4 hidden">
-            <p>For diabetes/thyroid programs, recent reports help. For general wellness, no prior tests needed.</p>
+            <p class="text-gray-600">
+              You can reach us through multiple channels:<br><br>
+              - <strong>Wellnation360:</strong> Call +91 9945186968 or email wellnation360@gmail.com<br>
+              - <strong>Yogakshema:</strong> Visit <a href="http://yoga-kshema.in"
+                class="text-green-600 hover:underline" target="_blank">yoga-kshema.in</a><br>
+              - <strong>Location:</strong> Wellnation360 & Yogakshema, Kasavanahalli, Bangalore 560035<br>
+              - <strong>Social Media:</strong> Links in our footer
+            </p>
           </div>
         </div>
-        <div class="bg-gray-50 rounded-xl overflow-hidden"><button
-            class="faq-question w-full text-left px-6 py-4 flex justify-between items-center font-semibold"><span>How
-              can I reach WellNation360?</span><svg class="w-5 h-5 text-amber-600" fill="none" stroke="currentColor"
-              viewBox="0 0 24 24">
+
+        <div class="bg-white rounded-xl shadow-md overflow-hidden">
+          <button class="faq-question w-full text-left px-6 py-4 flex justify-between items-center focus:outline-none">
+            <h3 class="text-lg font-semibold text-gray-800">Can I do the programs online?</h3>
+            <svg class="w-5 h-5 text-green-600 transform transition-transform duration-300" fill="none"
+              viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-            </svg></button>
+            </svg>
+          </button>
           <div class="faq-answer px-6 pb-4 hidden">
-            <p>Call +91 9945186968, email wellnation360@gmail.com, or visit Kasavanahalli, Bangalore.</p>
+            <p class="text-gray-600">
+              Yes! We offer online consultations and programs for those who cannot visit in person. Our nutrition
+              counseling, yoga sessions, and wellness coaching can all be conducted virtually through video calls. Only
+              certain therapies like acupuncture require in-person visits.
+            </p>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-md overflow-hidden">
+          <button class="faq-question w-full text-left px-6 py-4 flex justify-between items-center focus:outline-none">
+            <h3 class="text-lg font-semibold text-gray-800">Do I need any medical tests before joining a program?</h3>
+            <svg class="w-5 h-5 text-green-600 transform transition-transform duration-300" fill="none"
+              viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="faq-answer px-6 pb-4 hidden">
+            <p class="text-gray-600">
+              For certain programs like diabetes management or thyroid balance, we recommend having recent blood test
+              reports (within 3 months). For general wellness programs, no prior tests are needed. During your initial
+              consultation, we'll assess your needs and may recommend specific tests if required.
+            </p>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-md overflow-hidden">
+          <button class="faq-question w-full text-left px-6 py-4 flex justify-between items-center focus:outline-none">
+            <h3 class="text-lg font-semibold text-gray-800">Can I combine different therapies?</h3>
+            <svg class="w-5 h-5 text-green-600 transform transition-transform duration-300" fill="none"
+              viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="faq-answer px-6 pb-4 hidden">
+            <p class="text-gray-600">
+              Absolutely! In fact, we encourage an integrated approach. Many clients combine nutritional therapy with
+              acupuncture or yoga practices from Yogakshema. Our team coordinates to create a comprehensive plan that
+              safely combines different modalities for maximum benefit.
+            </p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== FOOTER ========== -->
   <footer id="contact-footer" class="bg-gray-900 text-white py-12">
     <div class="max-w-6xl mx-auto px-4 text-center">
       <div class="flex justify-center items-center gap-2 mb-3">
@@ -708,6 +1174,7 @@
       <p class="text-gray-400">© 2025 WellNation360 • Yogakshema. All rights reserved.</p>
     </div>
   </footer>
+
   <div class="fixed bottom-8 right-8 z-50"><a href="https://wa.me/919945186968" target="_blank"
       class="bg-green-500 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-xl hover:bg-green-600"><i
         class="fab fa-whatsapp text-2xl"></i></a></div>
@@ -723,6 +1190,30 @@
         effect: 'fade', fadeEffect: { crossFade: true }, speed: 1000,
       });
 
+      // Reviews Horizontal Scroll Carousel
+      new Swiper('.reviewsSwiper', {
+        slidesPerView: 1,
+        spaceBetween: 20,
+        loop: true,
+        autoplay: {
+          delay: 4000,
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: '.reviews-pagination',
+          clickable: true,
+        },
+        navigation: {
+          nextEl: '.reviews-next',
+          prevEl: '.reviews-prev',
+        },
+        breakpoints: {
+          640: { slidesPerView: 1.5, spaceBetween: 20 },
+          768: { slidesPerView: 2, spaceBetween: 25 },
+          1024: { slidesPerView: 3, spaceBetween: 30 },
+        },
+      });
+
       // Mobile menu
       const menuBtn = document.getElementById('mobile-menu-button');
       const mobileMenu = document.getElementById('mobile-menu');
@@ -732,7 +1223,7 @@
         menuBtn.innerHTML = isOpen ? '<i class="fas fa-bars"></i>' : '<i class="fas fa-times"></i>';
       });
 
-      // Dropdowns (blog & services)
+      // Dropdowns
       function setupDropdown(btnId, menuId) {
         const btn = document.getElementById(btnId), menu = document.getElementById(menuId);
         if (!btn || !menu) return;

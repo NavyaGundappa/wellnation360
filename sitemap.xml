@@ -1,68 +1,118 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-    <!-- Home -->
     <url>
         <loc>https://wellnation360.com/</loc>
     </url>
 
-    <!-- Main Pages -->
     <url>
         <loc>https://wellnation360.com/about</loc>
     </url>
-
     <url>
         <loc>https://wellnation360.com/service</loc>
     </url>
-
     <url>
         <loc>https://wellnation360.com/packages</loc>
     </url>
-
+    <url>
+        <loc>https://wellnation360.com/gallery</loc>
+    </url>
     <url>
         <loc>https://wellnation360.com/contact</loc>
     </url>
 
-    <!-- Wellness / Program Pages -->
     <url>
         <loc>https://wellnation360.com/yogakshema</loc>
     </url>
-
     <url>
         <loc>https://wellnation360.com/meditation</loc>
     </url>
-
     <url>
         <loc>https://wellnation360.com/diet_modification</loc>
     </url>
-
     <url>
         <loc>https://wellnation360.com/gut_health</loc>
     </url>
-
     <url>
         <loc>https://wellnation360.com/sleep_modification</loc>
     </url>
-
     <url>
         <loc>https://wellnation360.com/weight_loss</loc>
     </url>
-
     <url>
         <loc>https://wellnation360.com/Diabetics</loc>
     </url>
-
     <url>
         <loc>https://wellnation360.com/Menopause</loc>
     </url>
 
-    <!-- Yoga & Gallery -->
     <url>
-        <loc>https://wellnation360.com/yoga_service</loc>
+        <loc>https://wellnation360.com/psychological_support</loc>
+    </url>
+    <url>
+        <loc>https://wellnation360.com/accupuncture</loc>
+    </url>
+    <url>
+        <loc>https://wellnation360.com/reiki-healing</loc>
+    </url>
+    <url>
+        <loc>https://wellnation360.com/quantum-healing</loc>
+    </url>
+    <url>
+        <loc>https://wellnation360.com/mudgar-therapy</loc>
+    </url>
+    <url>
+        <loc>https://wellnation360.com/tarot-reading</loc>
     </url>
 
     <url>
-        <loc>https://wellnation360.com/glimpse</loc>
+        <loc>https://wellnation360.com/gentle-body-reset</loc>
+    </url>
+    <url>
+        <loc>https://wellnation360.com/metabolic-harmony</loc>
+    </url>
+    <url>
+        <loc>https://wellnation360.com/diabetes-support</loc>
+    </url>
+    <url>
+        <loc>https://wellnation360.com/thyroid-nourishment</loc>
+    </url>
+    <url>
+        <loc>https://wellnation360.com/gut-healing</loc>
+    </url>
+    <url>
+        <loc>https://wellnation360.com/menopause-support</loc>
+    </url>
+
+    <url>
+        <loc>https://wellnation360.com/yoga_service</loc>
+    </url>
+    <url>
+        <loc>https://wellnation360.com/hatha-yoga</loc>
+    </url>
+    <url>
+        <loc>https://wellnation360.com/arial-yoga</loc>
+    </url>
+    <url>
+        <loc>https://wellnation360.com/therapeutic-yoga</loc>
+    </url>
+    <url>
+        <loc>https://wellnation360.com/chakra-meditation</loc>
+    </url>
+    <url>
+        <loc>https://wellnation360.com/senior-citizen-yoga</loc>
+    </url>
+    <url>
+        <loc>https://wellnation360.com/pregnancy-yoga</loc>
+    </url>
+    <url>
+        <loc>https://wellnation360.com/chair-yoga</loc>
+    </url>
+    <url>
+        <loc>https://wellnation360.com/props-yoga</loc>
+    </url>
+    <url>
+        <loc>https://wellnation360.com/power-yoga</loc>
     </url>
 
 </urlset>
