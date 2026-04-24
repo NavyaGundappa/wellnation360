@@ -627,7 +627,7 @@ def sleep_modification():
 
 @app.route("/weight_loss")
 def weight_loss():
-    return render_template("weightloss.html")
+    return render_template("metabolic-harmony.html")
 
 
 @app.route("/header")
@@ -683,11 +683,6 @@ def about():
 @app.route("/gentle-body-reset")
 def gentle_reset():
     return render_template("gentle-reset.html")
-
-
-@app.route("/metabolic-harmony")
-def metabolic_harmony():
-    return render_template("metabolic-harmony.html")
 
 
 @app.route("/thyroid-nourishment")
