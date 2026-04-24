@@ -637,7 +637,7 @@ def header():
 
 @app.route("/Diabetics")
 def diabetics():
-    return render_template("diabetics.html")
+    return render_template("blood-suger.html")
 
 
 @app.route("/Menopause")
@@ -688,11 +688,6 @@ def gentle_reset():
 @app.route("/metabolic-harmony")
 def metabolic_harmony():
     return render_template("metabolic-harmony.html")
-
-
-@app.route("/diabetes-support")
-def blood_sugar():
-    return render_template("blood-suger.html")
 
 
 @app.route("/thyroid-nourishment")
