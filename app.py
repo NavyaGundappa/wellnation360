@@ -627,7 +627,7 @@ def sleep_modification():
 
 @app.route("/weight_loss")
 def weight_loss():
-    return render_template("metabolic-harmony.html")
+    return render_template("weight_loss.html")
 
 
 @app.route("/header")
@@ -637,7 +637,7 @@ def header():
 
 @app.route("/Diabetics")
 def diabetics():
-    return render_template("blood-suger.html")
+    return render_template("diabetes.html")
 
 
 @app.route("/Menopause")
@@ -680,14 +680,14 @@ def about():
     return render_template("about.html")
 
 
-@app.route("/gentle-body-reset")
+@app.route("/gentlebodyreset")
 def gentle_reset():
     return render_template("gentle-reset.html")
 
 
 @app.route("/thyroid-nourishment")
 def tournament():
-    return render_template("tournament.html")
+    return render_template("thyroid-nourishement.html")
 
 
 @app.route("/gut-healing")
@@ -1030,9 +1030,9 @@ def hatha_yoga():
     return render_template("hatha-yoga.html")
 
 
-@app.route("/arial-yoga")
-def arial_yoga():
-    return render_template("arial-yoga.html")
+@app.route("/aerial-yoga")
+def aerial_yoga():
+    return render_template("aerial-yoga.html")
 
 
 @app.route("/therapeutic-yoga")
@@ -1045,7 +1045,7 @@ def chakra_meditation():
     return render_template("chakra-meditation.html")
 
 
-@app.route("/senior-citizen-yoga")
+@app.route("/seniorcitizenyoga")
 def senior_citizen_yoga():
     return render_template("senior-citizen-yoga.html")
 
