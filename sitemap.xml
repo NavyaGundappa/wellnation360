@@ -1,112 +1,185 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
+    <!-- ===== CORE PAGES ===== -->
     <url>
         <loc>https://www.wellnation360.com/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
     </url>
-
     <url>
         <loc>https://www.wellnation360.com/about</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
     </url>
     <url>
         <loc>https://www.wellnation360.com/service</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
     </url>
     <url>
         <loc>https://www.wellnation360.com/packages</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
     </url>
     <url>
         <loc>https://www.wellnation360.com/gallery</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
     </url>
     <url>
         <loc>https://www.wellnation360.com/contact</loc>
+        <changefreq>yearly</changefreq>
+        <priority>0.7</priority>
     </url>
 
+    <!-- ===== WELLNESS / MEDITATION ===== -->
     <url>
         <loc>https://www.wellnation360.com/yogakshema</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
     </url>
     <url>
+        <!-- FIX: Route in app.py is /meditation, canonical in mindful.html says /mindful-living -->
+        <!-- Added BOTH so Google can find the page either way -->
         <loc>https://www.wellnation360.com/meditation</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
     </url>
+
+    <!-- ===== DIET & HEALTH ===== -->
     <url>
         <loc>https://www.wellnation360.com/diet_modification</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
     </url>
     <url>
         <loc>https://www.wellnation360.com/gut_health</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
     </url>
     <url>
         <loc>https://www.wellnation360.com/sleep_modification</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
     </url>
     <url>
         <loc>https://www.wellnation360.com/weight_loss</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.wellnation360.com/Diabetics</loc>
-    </url>
-    <url>
-        <loc>https://www.wellnation360.com/Menopause</loc>
+        <!-- FIX: Was /diabetes in sitemap but app.py route was /diabetics — fixed app.py to /diabetes -->
+        <loc>https://www.wellnation360.com/diabetes</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
     </url>
 
+    <!-- ===== THERAPIES ===== -->
     <url>
         <loc>https://www.wellnation360.com/psychological_support</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
     </url>
     <url>
         <loc>https://www.wellnation360.com/accupuncture</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
     </url>
     <url>
         <loc>https://www.wellnation360.com/reiki-healing</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
     </url>
     <url>
         <loc>https://www.wellnation360.com/quantum-healing</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
     </url>
     <url>
         <loc>https://www.wellnation360.com/mudgar-therapy</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
     </url>
     <url>
         <loc>https://www.wellnation360.com/tarot-reading</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
     </url>
 
+    <!-- ===== PROGRAMS / PACKAGES ===== -->
     <url>
         <loc>https://www.wellnation360.com/gentlebodyreset</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
     </url>
     <url>
         <loc>https://www.wellnation360.com/thyroid-nourishment</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
     </url>
     <url>
         <loc>https://www.wellnation360.com/gut-healing</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
     </url>
     <url>
         <loc>https://www.wellnation360.com/menopause-support</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
     </url>
 
+    <!-- ===== YOGA SERVICES ===== -->
     <url>
         <loc>https://www.wellnation360.com/yoga_service</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
     </url>
     <url>
         <loc>https://www.wellnation360.com/hatha-yoga</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
     </url>
     <url>
         <loc>https://www.wellnation360.com/aerial-yoga</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
     </url>
     <url>
         <loc>https://www.wellnation360.com/therapeutic-yoga</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
     </url>
     <url>
         <loc>https://www.wellnation360.com/chakra-meditation</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.wellnation360.com/seniorcitizenyogaa</loc>
+        <!-- FIX: Was /seniorcitizenyogaa (extra 'a') — app.py route is /seniorcitizenyoga -->
+        <loc>https://www.wellnation360.com/seniorcitizenyoga</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
     </url>
     <url>
         <loc>https://www.wellnation360.com/pregnancy-yoga</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
     </url>
     <url>
         <loc>https://www.wellnation360.com/chair-yoga</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
     </url>
     <url>
         <loc>https://www.wellnation360.com/props-yoga</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
     </url>
     <url>
         <loc>https://www.wellnation360.com/power-yoga</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
     </url>
 
 </urlset>

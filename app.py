@@ -635,14 +635,9 @@ def header():
     return render_template("header.html")
 
 
-@app.route("/Diabetics")
+@app.route("/diabetics")
 def diabetics():
     return render_template("diabetes.html")
-
-
-@app.route("/Menopause")
-def menopause():
-    return render_template("menopause.html")
 
 
 @app.route("/psychological_support")
