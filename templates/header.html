@@ -141,8 +141,9 @@
     }
 </style>
 
+<!-- The 'px-4' or 'px-8' on the inner div adds a small cushion so text doesn't touch the very edge of the screen -->
 <header class="fixed top-0 left-0 w-full z-50 bg-gray-900/95 backdrop-blur-md shadow-lg py-2 transition-all">
-    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+    <div class="max-w-full mx-auto px-8 flex justify-between items-center">
         <div class="flex items-center gap-3">
             <div
                 class="relative w-12 h-12 rounded-full overflow-hidden border-2 border-amber-400 bg-white flex items-center justify-center">
@@ -155,11 +156,12 @@
         </div>
 
         <nav class="hidden md:flex items-center space-x-7 text-white font-medium relative">
-            <a href="#home-carousel" class="relative">Home</a>
-            <a href="#about-wellness" class="relative">About</a>
+            <a href="/" class="relative">Home</a>
+            <a href="#about" class="relative">About</a>
             <a href="/gallery" class="relative">Gallery</a>
             <a href="#reviews" class="relative">Reviews</a>
 
+            <!-- Dropdown blocks remain the same -->
             <div class="dropdown relative">
                 <button id="blog-dropdown-button" class="flex items-center space-x-1 focus:outline-none"
                     aria-haspopup="true" aria-expanded="false">
@@ -195,25 +197,13 @@
                 </div>
             </div>
 
-            <a href="#contact-footer" class="relative">Contact</a>
+            <a href="/contact" class="relative">Contact</a>
             <a href="http://yoga-kshema.in" target="_blank" rel="noopener"
                 class="cta-button bg-gradient-to-r from-amber-500 to-amber-600 text-gray-900 px-5 py-2 rounded-full font-bold hover:shadow-lg transition">
                 Yogakshema
             </a>
         </nav>
         <button id="mobile-menu-button" class="md:hidden text-white text-3xl"><i class="fas fa-bars"></i></button>
-    </div>
-    <div id="mobile-menu" class="mobile-menu md:hidden">
-        <a href="#home-carousel">Home</a>
-        <a href="#about-wellness">About</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#reviews">Reviews</a>
-        <a href="/gut_health">Blog: Gut Health</a>
-        <a href="/diet_modification">Diet Modification</a>
-        <a href="/gentle_reset">Services: Detox</a>
-        <a href="/weight_loss">Weight Loss</a>
-        <a href="#contact-footer">Contact</a>
-        <a href="http://yoga-kshema.in">Yogakshema</a>
     </div>
 </header>
 

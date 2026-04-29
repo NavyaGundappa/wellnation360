@@ -188,11 +188,6 @@ def logout():
     return redirect(url_for('login'))
 
 
-@app.route('/packages')
-def packages():
-    return render_template('packages.html')
-
-
 @app.route('/dashboard')
 def dashboard():
     if 'user_id' not in session:
